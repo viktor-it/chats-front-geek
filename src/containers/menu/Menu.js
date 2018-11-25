@@ -11,7 +11,6 @@ const Menu = () =>
 	        <li><Link to='/auth'>Выйти</Link></li>
 	      </ul>
 	    </nav>
-	)
-;
+	);
 
 export default Menu
