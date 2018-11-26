@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import Chats from '../components/chats/Chats'
-import Contacts from '../components/contacts/Contacts'
+import Chats from '../../components/sidebar/chats/Chats'
+import Contacts from '../../components/sidebar/contacts/Contacts'
 
 
 const Main = () => (
