@@ -10,7 +10,6 @@ import {contactReducer} from './reducers/contactReducer';
 import {authReducer} from './reducers/authReducer';
 
 //Reducers
-
 const reducers = combineReducers({
     message: messageReducer,
     contact: contactReducer,
