@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 0;
+}
+.header {
+    height: 31px;
+    background: #256B91;
+    display: flex;
+    /*position: fixed;*/
+    justify-content: space-around;
+}
+.header__text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 11px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    opacity: 0.5;
+    flex-grow: 1;
+    align-self: center;
+    margin: 10px;
+}
+.header-btn {
+    height: 12px;
+    width: 12px;
+    background-color: #256B91;
+    border: none;
+    align-self: center;
+    margin: 8px;
+    outline: 0;
+    cursor: pointer;
+}
+.header-btn__logo {
+    width: 13px;
+    cursor: pointer;
+}
+.header-btn_close {
+    margin-right: 23px;
+}
+.header-btn_minimise {
+    border-bottom: 2px solid white;
+}
+/*---content---*/
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: stretch}
+.sidebar{
+    margin: 0;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.menu{
+    background-color: #3498DB;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 49px;
+}
+.menu-btn{
+    cursor: pointer;
+    border: none;
+    background-color: #3498DB;
+}
+
+.sidebar_item {
+    display: flex;
+    width: 410px;
+    flex-wrap: wrap;
+}
+
+.message-screen {
+    background-image: url(../img/fon.svg);
+    width: 760px;
+    height: 989px;
+    margin: 0;
+    display: flex;
+}
+.message-screen__text {
+
+    align-self: center;
+    text-decoration: none;
+
+    font-family: Roboto,sans-serif;
+    line-height: normal;
+    font-size: 36px;
+    text-align: center;
+    color: #7A7876;
+}
+/*---sidebar-btn---*/
+
+/*---footer---*/
+.footer{
+    height: 51px;
+    display: flex;
+    background-color: #262626;
+    justify-content: space-between;
+    align-items: center;
+}
+.networks, .footer__status {
+    margin: 0;
+}
+.footer__network-list, .footer__status-list {
+    list-style: none;
+    display: flex;
+}
+
+.footer__network-item, .footer__item{
+    margin: 0 20px;
+    justify-content: flex-start;
+    align-self: center;
+
+}
+
+.footer__item-btn {
+    background-color: #262626;
+    border: none;
+    align-self: center;
+    outline: 0;
+    cursor: pointer;
+}
+
+
+.footer__status-time {
+    width: 50.44px;
+    height: 8.77px;
+    right: 149.56px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: Roboto,sans-serif;
+}
+
+

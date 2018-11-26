@@ -5,13 +5,15 @@ import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 
-//Reducers
-import {chatsReducer} from './reducers/chatsReducer';
-import {contactsReducer} from './reducers/contactsReducer';
+import {messageReducer} from './reducers/messageReducer';
+import {contactReducer} from './reducers/contactReducer';
+import {authReducer} from './reducers/authReducer';
 
+//Reducers
 const reducers = combineReducers({
-    chats: chatsReducer,
-    contacts: contactsReducer
+    message: messageReducer,
+    contact: contactReducer,
+    auth: authReducer
 });
 
 const middleware = applyMiddleware(promise(), logger, thunk);
