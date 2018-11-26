@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Menu from '../containers/menu/Menu';
 
 import Header from '../components/Header';
 import Main from '../containers/Main';
 
-export default class Sidebar extends React.Component
+class Sidebar extends Component
 {
   isActive(href)
   {
       return window.location.pathname === href;
   }
+  
   render(){
       return (
       	<div>
@@ -32,4 +33,4 @@ export default class Sidebar extends React.Component
   }
 }
 
-
+export default Sidebar;
