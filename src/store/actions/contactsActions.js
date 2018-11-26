@@ -1,9 +1,9 @@
-import {GET_CONTACTS} from "../constants/contactsConstants";
-import axios from 'axios';
+import {GET_CONTACTS} from "../constants";
+import instance from '../axios-docs';
 
 export function getContacts() {
     return {
         type: GET_CONTACTS,
-        payload: axios.get('#')
+        payload: instance.get('#')
     };
 }

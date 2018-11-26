@@ -2,7 +2,7 @@ import React from 'react';
 
 import ChatsList from './ChatsList';
 
-import {getChats} from '../../store/actions/chatsActions';
+import {getChats} from '../../../store/actions/index';
 
 import {connect} from 'react-redux';
 

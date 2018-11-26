@@ -2,7 +2,7 @@ import React from 'react';
 
 import ContactsList from './ContactsList';
 
-import {getContacts} from '../../store/actions/contactsActions';
+import {getContacts} from '../../../store/actions/index';
 
 import {connect} from 'react-redux';
 

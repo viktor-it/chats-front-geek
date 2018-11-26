@@ -1,5 +1,0 @@
-//Получение чатов
-export const GET_CHATS = 'GET_CHATS';
-export const GET_CHATS_PENDING = 'GET_CHATS_PENDING';
-export const GET_CHATS_FULFILLED = 'GET_CHATS_FULFILLED';
-export const GET_CHATS_REJECTED = 'GET_CHATS_REJECTED';

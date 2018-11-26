@@ -1,10 +1,10 @@
 
-import {GET_CHATS} from "../constants/chatsConstants";
-import axios from 'axios';
+import {GET_CHATS} from "../constants";
+import instance from '../axios-docs';
 
 export function getChats() {
     return {
         type: GET_CHATS,
-        payload: axios.get('#')
+        payload: instance.get('#')
     };
 }

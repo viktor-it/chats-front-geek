@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Menu from '../containers/menu/Menu';
+import Menu from '../containers/sidebar/menu/Menu';
 
-import Header from '../components/Header';
-import Main from '../containers/Main';
+import Header from '../components/sidebar/Header';
+import Main from '../containers/sidebar/Main';
 
 class Sidebar extends Component
 {
