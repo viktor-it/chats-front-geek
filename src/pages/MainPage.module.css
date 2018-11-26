@@ -1,4 +1,4 @@
-mainPage {
+.mainPage {
     display: grid;
     grid-template-columns: 410px 1fr;
     margin: 0 135px;

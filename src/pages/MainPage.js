@@ -7,12 +7,11 @@ import Sidebar from '../layouts/Sidebar';
 import classes from './MainPage.module.css';
 
 const mainPage = () => {
-    return (<>
-        {/* <div className={classes.mainPage}> */}
+    return (
+        <div className={classes.mainPage}>
              <Sidebar/>
             {/* <ChatWindow/> */}
-         {/* </div> */}
-        </>
+        </div>
     );
 }
 
