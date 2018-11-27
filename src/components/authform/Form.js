@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 
 class Form extends Component {
-    constructor (props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            formErrors: {email: '', password: ''},
-            emailValid: false,
-            passwordValid: false,
-            formValid: false
-        }
+    state = {
+        email: '',
+        password: '',
+        formErrors: {email: '', password: ''},
+        emailValid: false,
+        passwordValid: false,
+        formValid: false
     }
 
     handleUserInput = (e) => {
