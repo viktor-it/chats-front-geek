@@ -9,6 +9,7 @@ const Menu = () =>
 				<li><NavLink to='/account'>Личный кабинет</NavLink></li>
 				<li><NavLink to='/profile'>Профиль</NavLink></li>
 				<li><NavLink to='/auth'>Выйти</NavLink></li>
+                <li><NavLink to='/form'>Войти</NavLink></li>
 			</ul>
 	    </nav>
 	);
