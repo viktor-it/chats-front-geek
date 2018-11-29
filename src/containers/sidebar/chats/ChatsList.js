@@ -1,7 +1,7 @@
 import React from 'react';
 import ChatsItem from './ChatsItem';
 
-export default class ChatsList extends React.Component
+class ChatsList extends React.Component
 {
     render()
     {
@@ -22,3 +22,5 @@ export default class ChatsList extends React.Component
         );
     }
 }
+
+export default ChatsList

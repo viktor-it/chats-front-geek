@@ -6,7 +6,7 @@ export default class ChatsItem extends React.Component
     render()
     {   
         return (
-            <div className="chats__block" style={{width:'100px',height:'100px',backgroundColor:'green'}}>
+            <div className="chats__block" style={{width:'150px',height:'50px',backgroundColor:'green',color:'white'}}>
                 <Link className="chats__item" to={`/chats/${this.props.id}`}>
                     <div className="chats__img">
                         img
