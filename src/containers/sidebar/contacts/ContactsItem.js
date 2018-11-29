@@ -1,30 +1,31 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
-export default class ContactsItem extends React.Component
-{
-    render()
-    {   
+
+class ContactsItem extends React.Component {
+    render(){
         return (
             <div className="contacts__block" style={{width:'100px',height:'100px',backgroundColor:'blue'}}>
-                <Link className="contacts__item" to={`/contacts/${this.props.id}`}>
+                <NavLink className="contacts__item" to={`/contacts/${this.props.id}`}>
                     <div className="contacts__img">
-                        img
+                        <div style={{backgroundImage: `url(${this.props.img})`, height:'60px', width:'60px'}} />
                     </div>
                     <div className="contacts__name">
-                        user's name{/*{this.props.name}*/}
+                        {this.props.name}
                     </div>
                     <div className="contacts__text">
-                        text
+                        {this.props.text}
                     </div>
                     <div className="contacts__time">
-                        time
+                        {this.props.time}
                     </div>
                     <div className="contacts__mark">
-                        mark
+                        {this.props.mark}
                     </div>                
-                </Link>
+                </NavLink>
             </div>
         );
     }
 }
+
+export default ContactsItem

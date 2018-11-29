@@ -6,14 +6,18 @@ import promise from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 
 import {messageReducer} from './reducers/messageReducer';
-import {contactReducer} from './reducers/contactReducer';
 import {authReducer} from './reducers/authReducer';
+//import {contactReducer} from './reducers/contactReducer';
+//import {contactsReducer} from './reducers/contactsReducer';
+//import {chatsReducer} from './reducers/chatsReducer';
 
 //Reducers
 const reducers = combineReducers({
     message: messageReducer,
-    contact: contactReducer,
-    auth: authReducer
+    auth: authReducer,
+    //contact: contactReducer,
+    //contacts: contactsReducer,
+    //chats: chatsReducer,
 });
 
 const middleware = applyMiddleware(promise(), logger, thunk);
