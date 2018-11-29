@@ -50,7 +50,7 @@ class Form extends Component {
         return(error.length === 0 ? '' : 'has-error');
     }
 
-    pushMe() {
+    clickLogin() {
         localStorage.setItem("token","тест");
     }
 
@@ -75,7 +75,7 @@ class Form extends Component {
                            value={this.state.password}
                            onChange={this.handleUserInput}  />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={!this.pushMe}>Жмяк-жмяк</button>
+                <button type="submit" className="btn btn-primary" onClick={!this.clickLogin()}>login</button>
             </form>
         )
     }
