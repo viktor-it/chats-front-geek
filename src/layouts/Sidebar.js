@@ -7,13 +7,13 @@ import Main from '../components/sidebar/Main';
 
 import styles from  './Sidebar.module.css';
 
-let classNames = require('classnames/dedupe'); //для объединения классов
+// let classNames = require('classnames/dedupe'); //для объединения классов
 
 class Sidebar extends Component
 {
     render(){
-        let IconEnvClass = classNames('fas', 'fa-envelope', styles.Fas);
-        let IconUserClass = classNames('fas', 'fa-user-friends', styles.Fas);
+        // let IconEnvClass = classNames('fas', 'fa-envelope', styles.Fas);
+        // let IconUserClass = classNames('fas', 'fa-user-friends', styles.Fas);
         return (
             <div className={styles.Sidebar}>
                 {/* бургер */}
@@ -22,11 +22,11 @@ class Sidebar extends Component
                 {/* чаты vs контакты */}
                 <div className={styles.Tabs}>
                     <Header href="/chats">
-                        <i className={IconEnvClass} />
+                        {/* <i className={IconEnvClass} /> */}
                         <span className={styles.Text}>Чаты</span>
                     </Header>
                     <Header href="/contacts">
-                        <i className={IconUserClass} />
+                        {/* <i className={IconUserClass} /> */}
                         <span className={styles.Text}>Контакты</span>
                     </Header>
 

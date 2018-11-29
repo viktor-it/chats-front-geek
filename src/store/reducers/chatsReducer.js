@@ -4,12 +4,17 @@ import * as ConstantChats from '../constants';
 export function chatsReducer(state = {chats: [], is_loading: false}, action) {
     switch (action.type) {
         case ConstantChats.GET_CHATS_PENDING: {
-            state = {...state, is_loading: true};
+            state = {...state, 
+                is_loading: true
+            };
         break;
         }
 
         case ConstantChats.GET_CHATS_FULFILLED: {
-            state = {...state, is_loading: false, chats: action.payload.data};
+            state = {...state, 
+                is_loading: false, 
+                chats: action.payload.data
+            };
         break;
         }
 
@@ -18,8 +23,8 @@ export function chatsReducer(state = {chats: [], is_loading: false}, action) {
                 {
                 "id": 1,
                 "img": 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
-                "title": "Р“СЂСѓРїРїР° 1",
-                "text": "РўРµРєСЃС‚ РєСЂР°Р№РЅРµРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ",
+                "title": "Группа 1",
+                "text": "Текст крайнего сообщения",
                 "unread": 2,
                 "time": "10.10.2018",
                 "mark": "undelivered/unread"
@@ -27,8 +32,8 @@ export function chatsReducer(state = {chats: [], is_loading: false}, action) {
                 {
                 "id": 2,
                 "img": 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
-                "title": "Р“СЂСѓРїРїР° 2",
-                "text": "РўРµРєСЃС‚ РєСЂР°Р№РЅРµРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ",
+                "title": "Группа 2",
+                "text": "Текст крайнего сообщения",
                 "unread": "",
                 "time": "10.10.2018",
                 "mark": "delivered/read"

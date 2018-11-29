@@ -3,7 +3,7 @@ import React from 'react';
 import ContactsList from './ContactsList';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
-import {getContacts} from '../../../store/actions/index';
+import {getContacts} from '../../../store/actions';
 
 import {connect} from 'react-redux';
 

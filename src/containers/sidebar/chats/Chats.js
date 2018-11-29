@@ -3,7 +3,7 @@ import React from 'react';
 import ChatsList from './ChatsList';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
-import {getChats} from '../../../store/actions/index';
+import {getChats} from '../../../store/actions';
 
 import {connect} from 'react-redux';
 
