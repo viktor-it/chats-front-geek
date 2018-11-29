@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 
 import MainPage from '../pages/MainPage';
 import AuthForm from '../pages/Auth';
-import RegForm from '../pages/Register';
+import Form from "../components/authform/Form";
+// import RegForm from '../pages/Register';
 
 class Layout extends Component
 {
@@ -26,6 +27,7 @@ class Layout extends Component
                     <Route path="/" exact component={MainPage}/>
                     <Route path="/chats" exact component={MainPage}/>
                     <Route path="/contacts" exact component={MainPage}/>
+                    <Route path="/form" exact component={Form}/>
                     <Route path="*"><Redirect to="/"/></Route>
                 </Switch>
             </>
