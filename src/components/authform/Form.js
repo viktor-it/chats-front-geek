@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
+import classes from './Form.module.css';
 
 class Form extends Component {
     state = {
@@ -49,10 +50,14 @@ class Form extends Component {
         return(error.length === 0 ? '' : 'has-error');
     }
 
+    pushMe() {
+        localStorage.setItem("token","тест");
+    }
+
     render () {
         return (
-            <form className="demoForm">
-                <h2>Sign up</h2>
+            <form className={classes.Form}>
+                <h2>Войдите под своим логином</h2>
                 <div className="panel panel-default">
                     <FormErrors formErrors={this.state.formErrors} />
                 </div>
@@ -70,7 +75,7 @@ class Form extends Component {
                            value={this.state.password}
                            onChange={this.handleUserInput}  />
                 </div>
-                <button type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Sign up</button>
+                <button type="submit" className="btn btn-primary" onClick={!this.pushMe}>Жмяк-жмяк</button>
             </form>
         )
     }
