@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 0;
+}
+
+.Sidebar{
+	margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.Tabs{
+	display: flex;
+    width: 410px;
+    flex-wrap: wrap;
+}
+.Text{
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+}
+/*иконки*/
+.Fas{
+	padding: 5px;
+    color: #fff;
+}

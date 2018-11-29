@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ContactsList from './ContactsList';
+import Spinner from '../../../components/UI/Spinner/Spinner';
 
 import {getContacts} from '../../../store/actions/index';
 
@@ -14,7 +15,7 @@ class Contacts extends React.Component {
 	}
 	render() {
 		if(this.props.is_loading){
-            return <div>Data's loading...</div>
+            return <Spinner />
         }
 
         return (
@@ -25,6 +26,7 @@ class Contacts extends React.Component {
         );
     }
 }
+
 function mapStateToProps(store) {
     return {
         contacts: store.contacts.contacts,

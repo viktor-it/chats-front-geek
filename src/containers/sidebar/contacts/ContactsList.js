@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactsItem from './ContactsItem';
 
-export default class ContactsList extends React.Component
+class ContactsList extends React.Component
 {
     render()
     {
@@ -22,3 +22,5 @@ export default class ContactsList extends React.Component
         );
     }
 }
+
+export default ContactsList

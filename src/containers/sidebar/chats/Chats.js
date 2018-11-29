@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ChatsList from './ChatsList';
+import Spinner from '../../../components/UI/Spinner/Spinner';
 
 import {getChats} from '../../../store/actions/index';
 
@@ -13,9 +14,10 @@ class Chats extends React.Component {
         //action
         this.props.dispatch(getChats());
 	}
+    
 	render() {
 		if(this.props.is_loading){
-            return <div>Data's loading...</div>
+            return <Spinner />
         }
 
         return (
@@ -26,6 +28,7 @@ class Chats extends React.Component {
         );
     }
 }
+
 function mapStateToProps(store) {
     return {
         chats: store.chats.chats,

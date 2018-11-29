@@ -1,36 +1,40 @@
 import React, { Component } from 'react';
+    
+import Menu from '../components/sidebar/Menu';
 
-import Menu from '../containers/sidebar/menu/Menu';
+import Header from '../containers/sidebar/Header';
+import Main from '../components/sidebar/Main';
 
-import Header from '../components/sidebar/Header';
-import Main from '../containers/sidebar/Main';
+import styles from  './Sidebar.module.css';
+
+let classNames = require('classnames/dedupe'); //для объединения классов
 
 class Sidebar extends Component
 {
-  isActive(href)
-  {
-      return window.location.pathname === href;
-  }
-  
-  render(){
-      return (
-      	<div>
-			    {/* бургер */}
-			    <Menu />
-			    {/* чаты vs контакты */}
-          <div>
-            <Header href="/chats" active={this.isActive('/chats')}>
-                Чаты
-            </Header>
-            <Header href="/contacts" active={this.isActive('/contacts')}>
-                Контакты
-            </Header>
+    render(){
+        let IconEnvClass = classNames('fas', 'fa-envelope', styles.Fas);
+        let IconUserClass = classNames('fas', 'fa-user-friends', styles.Fas);
+        return (
+            <div className={styles.Sidebar}>
+                {/* бургер */}
+                <Menu />
 
-            <Main />
-          </div>
-		   </div>
-	)
-  }
+                {/* чаты vs контакты */}
+                <div className={styles.Tabs}>
+                    <Header href="/chats">
+                        <i className={IconEnvClass} />
+                        <span className={styles.Text}>Чаты</span>
+                    </Header>
+                    <Header href="/contacts">
+                        <i className={IconUserClass} />
+                        <span className={styles.Text}>Контакты</span>
+                    </Header>
+
+                    <Main />
+                </div>
+            </div>
+        )
+    }
 }
 
 export default Sidebar;
