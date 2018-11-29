@@ -1,0 +1,17 @@
+.ListItem{
+	list-style: none;
+}
+
+.NonActiveTab{
+	padding: 15px 25px;
+    background:  #3498DB;
+    margin: 0;
+}
+.NonActiveTab:hover {
+    color: #F8D57D;
+    cursor: pointer;
+}
+
+.ActiveTab{
+    border-bottom: 2px solid #F8D57D;
+}
