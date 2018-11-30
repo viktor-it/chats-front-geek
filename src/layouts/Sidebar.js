@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
     
-import Menu from '../components/sidebar/Menu';
+import Menu from '../containers/sidebar/Menu';
 
 import Header from '../components/sidebar/Header';
 import Main from '../components/sidebar/Main';
@@ -12,7 +12,7 @@ class Sidebar extends Component
 {
     render(){
         return (
-            <div className={styles.Sidebar}>
+            <section className={styles.Sidebar}>
                 {/* бургер */}
                 <Menu />
 
@@ -29,7 +29,7 @@ class Sidebar extends Component
 
                     <Main />
                 </ul>
-            </div>
+            </section>
         )
     }
 }
