@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 //store
 import store from './store/store';
 
-import Layout from './layout/Layout';
+import Layout from './layouts/Sidebar';
 
 class App extends Component {
   render() {

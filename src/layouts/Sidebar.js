@@ -2,36 +2,33 @@ import React, { Component } from 'react';
     
 import Menu from '../components/sidebar/Menu';
 
-import Header from '../containers/sidebar/Header';
+import Header from '../components/sidebar/Header';
 import Main from '../components/sidebar/Main';
 
 import styles from  './Sidebar.module.css';
 
-// let classNames = require('classnames/dedupe'); //для объединения классов
 
 class Sidebar extends Component
 {
     render(){
-        // let IconEnvClass = classNames('fas', 'fa-envelope', styles.Fas);
-        // let IconUserClass = classNames('fas', 'fa-user-friends', styles.Fas);
         return (
             <div className={styles.Sidebar}>
                 {/* бургер */}
                 <Menu />
 
                 {/* чаты vs контакты */}
-                <div className={styles.Tabs}>
+                <ul className={styles.Tabs}>
                     <Header href="/chats">
-                        {/* <i className={IconEnvClass} /> */}
+                        <i className={styles.Fas + ' fas' + ' fa-envelope'} /> 
                         <span className={styles.Text}>Чаты</span>
                     </Header>
                     <Header href="/contacts">
-                        {/* <i className={IconUserClass} /> */}
+                        <i className={styles.Fas + ' fas' + ' fa-user-friends'} />
                         <span className={styles.Text}>Контакты</span>
                     </Header>
 
                     <Main />
-                </div>
+                </ul>
             </div>
         )
     }

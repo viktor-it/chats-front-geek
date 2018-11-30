@@ -1,9 +1,10 @@
 import React from 'react';
 
-import ChatsList from './ChatsList';
-import Spinner from '../../../components/UI/Spinner/Spinner';
+import ChatsList from '../../components/sidebar/chats/ChatsList';
 
-import {getChats} from '../../../store/actions';
+import Spinner from '../../components/UI/Spinner/Spinner';
+
+import {getChats} from '../../store/actions';
 
 import {connect} from 'react-redux';
 
