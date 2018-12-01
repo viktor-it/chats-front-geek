@@ -10,15 +10,15 @@ class Layout extends Component
 {
     render(){
 
-        // if (this.props.token === null) {
-        //     return (
-        //         <Switch>
-        //             <Route path="/auth" component={AuthForm}/>
-        //             <Route path="/register" component={RegForm}/>
-        //             <Route path="/"><Redirect to="/auth"/></Route>
-        //         </Switch>
-        //     );
-        // }
+        if (this.props.token === null) {
+            return (
+                <Switch>
+                    <Route path="/auth" component={AuthForm}/>
+                    <Route path="/register" component={RegForm}/>
+                    <Route path="/"><Redirect to="/auth"/></Route>
+                </Switch>
+            );
+        }
 
         return (
             <>
