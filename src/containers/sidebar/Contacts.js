@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ContactsList from './ContactsList';
-import Spinner from '../../../components/UI/Spinner/Spinner';
+import ContactsList from '../../components/sidebar/contacts/ContactsList';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
-import {getContacts} from '../../../store/actions';
+import {getContacts} from '../../store/actions';
 
 import {connect} from 'react-redux';
 

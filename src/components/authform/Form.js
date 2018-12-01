@@ -75,7 +75,11 @@ class Form extends Component {
                            value={this.state.password}
                            onChange={this.handleUserInput}  />
                 </div>
+<<<<<<< HEAD
                 <button type="submit" className="btn btn-primary" onClick={!this.clickLogin()}>login</button>
+=======
+                <button type="submit" className="btn btn-primary" onClick={()=>{localStorage.setItem("token","тест");}}>login</button>
+>>>>>>> develop-upstream
             </form>
         )
     }

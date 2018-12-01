@@ -1,0 +1,127 @@
+
+/*.menu*/
+.Menu{
+	background-color: #3498DB;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 49px;
+}
+
+/*.sidebar_item*/
+.SidebarItem{
+	display: flex;
+    width: 410px;
+    flex-wrap: wrap;
+}
+
+/*.burger-menu*/
+.Burger{
+	width: 410px;
+    background-color: #3498DB;
+    position: relative;
+    color: white;
+    text-align: center;
+    height: 40px;
+} 
+
+/*.burger-menu__icon*/
+.BurgerIcon{
+
+}
+
+.BurgerLine{
+    position: absolute;
+    top: 8px;
+    left: 21px;
+    width: 35px;
+    height: 2px;
+    background-color: white;
+}
+
+.BurgerLineFirst{
+
+}
+
+.BurgerLineSecond{
+	top: 18px;
+}
+
+.BurgerLineFourth{
+	top: 28px;
+}
+
+.BurgerCheckbox{
+	display: none;
+}
+.BurgerLabel{
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/*.burger-menu__search*/
+.BurgerSearch{
+	width: 35%;
+    position: relative
+}
+/*.search*/
+.Search{
+
+}
+
+.MainMenuOpened{
+	position: absolute;
+    display: block;
+    /*width: 100%;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*  меню сдвигается вниз на 100% */
+    transform: translateY(100%);
+    max-height: 500px;
+    overflow: hidden; /*чтобы дети не вылезали за блок родителя*/
+    /*для плавного раскрытия меню*/
+    transition: 0.5s all;
+}
+
+.MainMenuClosed{
+	position: absolute;
+    display: block;
+    /*  меню сдвигается вниз на 100% */
+    transform: translateY(100%);
+    overflow: hidden; /*чтобы дети не вылезали за блок родителя*/
+    /*для плавного раскрытия меню*/
+    transition: 0.5s all;
+	max-height: 0px;
+}
+
+.BurgerItem{
+	display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    /* border-top: 0.1px solid whitesmoke; */
+    background-color: #3498DB;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* font-size: 14px; */
+    text-align: center;
+}
+.BurgerItem:hover {
+    color: #F8D57D;
+}
+
+
+/* анимация */
+/* при переключении чекбокса в положение checked ~ следующий дочерний эл. с классом main-menu - задаем для него свойства*/
+.BurgerCheckbox:checked ~ .MainMenu {
+    max-height: 500px;
+}
