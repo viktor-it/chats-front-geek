@@ -10,6 +10,7 @@ const mainPage = () => {
     return (
         <div className={classes.mainPage}>
              <Sidebar/>
+             <div className={classes.chatWindow}>Окно чата</div>
             {/* <ChatWindow/> */}
         </div>
     );
