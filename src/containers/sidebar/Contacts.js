@@ -19,7 +19,7 @@ class Contacts extends React.Component {
         }
 
         return (
-            <div className="wrapper">
+            <div>
                 <ContactsList contacts={this.props.contacts}/>
             </div>
 

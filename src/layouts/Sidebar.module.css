@@ -9,15 +9,15 @@
 /*sidebar*/
 .Sidebar{
 	margin: 0;
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    just*/ify-content: flex-start;
 }
 
 .Tabs{
 	display: flex;
     width: 410px;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
 }
 .Text{
     font-weight: 500;
@@ -25,8 +25,8 @@
     color: #fff;
 }
 
-/*иконки*/
-.Fas{
+.Icon{
 	padding: 5px;
     color: #fff;
 }
+

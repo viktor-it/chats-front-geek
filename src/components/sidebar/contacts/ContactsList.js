@@ -12,7 +12,7 @@ const ContactsList = (props) => {
 
     return (
         <div>
-            <div className="contacts__list">
+            <div className="List">
                 {contacts}
             </div>
         </div>

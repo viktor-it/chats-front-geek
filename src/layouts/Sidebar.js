@@ -8,30 +8,26 @@ import Main from '../components/sidebar/Main';
 import styles from  './Sidebar.module.css';
 
 
-class Sidebar extends Component
-{
-    render(){
-        return (
-            <section className={styles.Sidebar}>
-                {/* бургер */}
-                <Menu />
+const Sidebar = () => (
+    <section className={styles.Sidebar}>
+        {/* бургер */}
+        <Menu />
 
-                {/* чаты vs контакты */}
-                <ul className={styles.Tabs}>
-                    <Header href="/chats">
-                        <i className={styles.Fas + ' fas' + ' fa-envelope'} /> 
-                        <span className={styles.Text}>Чаты</span>
-                    </Header>
-                    <Header href="/contacts">
-                        <i className={styles.Fas + ' fas' + ' fa-user-friends'} />
-                        <span className={styles.Text}>Контакты</span>
-                    </Header>
-
-                    <Main />
-                </ul>
-            </section>
-        )
-    }
-}
+        {/* чаты vs контакты */}
+        <ul className={styles.Tabs}>
+            <Header href="/chats">
+                <i className={styles.Icon + ' fas' + ' fa-envelope'} /> 
+                <span className={styles.Text}>Чаты</span>
+            </Header>
+            <Header href="/contacts">
+                <i className={styles.Icon + ' fas' + ' fa-user-friends'} />
+                <span className={styles.Text}>Контакты</span>
+            </Header>
+        </ul>
+        
+        <Main />
+        
+    </section>
+)
 
 export default Sidebar;
