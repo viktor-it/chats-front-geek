@@ -22,7 +22,7 @@ class Chats extends React.Component {
         }
 
         return (
-            <div className="wrapper">
+            <div>
                 <ChatsList chats={this.props.chats}/>
             </div>
 

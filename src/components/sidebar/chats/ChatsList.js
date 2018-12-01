@@ -12,7 +12,7 @@ const ChatsList = (props) => {
 
     return (
         <div>
-            <div className="chats__list">
+            <div className="List">
                 {chats}
             </div>
         </div>
