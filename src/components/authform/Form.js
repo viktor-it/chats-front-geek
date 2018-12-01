@@ -56,27 +56,29 @@ class Form extends Component {
 
     render () {
         return (
-            <form className={classes.Form}>
+            <form className={classes.FormGlobalClass}>
                 <h2>Войдите под своим логином</h2>
                 <div className="panel panel-default">
                     <FormErrors formErrors={this.state.formErrors} />
                 </div>
-                <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" required className="form-control" name="email"
-                           placeholder="Email"
-                           value={this.state.email}
-                           onChange={this.handleUserInput}  />
+                <div className={classes.FormAuthGroup}>
+                    <div className={classes.containerLogin}>
+                        <input className={classes.formControl} type="email" required name="email"
+                               placeholder="Email address"
+                               value={this.state.email}
+                               onChange={this.handleUserInput} />
+                    </div>
                 </div>
-                <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" name="password"
-                           placeholder="Password"
-                           value={this.state.password}
-                           onChange={this.handleUserInput}  />
+                <div className={classes.FormAuthGroup}>
+                    <div className={classes.containerLogin}>
+                        <input className={classes.formControl} type="password" name="password"
+                               placeholder="Password"
+                               value={this.state.password}
+                               onChange={this.handleUserInput}  />
+                    </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary" onClick={()=>{localStorage.setItem("token","тест");}}>login</button>
+                <button type="submit" className={classes.btnSubmit} onClick={()=>{localStorage.setItem("token","тест");}}>Войти</button>
 
             </form>
         )
