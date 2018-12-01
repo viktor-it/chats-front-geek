@@ -1,28 +1,28 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
+import styles from './ContactsItem.module.css';
 
 const ContactsItem = (props) => {
-    // let Mark;
-    // if (props.mark.delivered = true){
 
-    // }
     return (
-        <div className="contacts__block" style={{width:'100px',height:'100px',backgroundColor:'blue'}}>
-            <NavLink className="contacts__item" to={`/contacts/${props.id}`}>
-                <div className="contacts__img">
+        <div className={styles.Block}>
+            <NavLink className={styles.Item} to={`/contacts/${props.id}`}>
+                <div className={styles.Img}>
                     <div style={{backgroundImage: `url(${props.img})`, height:'60px', width:'60px'}} />
                 </div>
-                <div className="contacts__name">
-                    {props.name}
+                <div className={styles.Contact}>
+                    <div className={styles.Name}>
+                        {props.name}
+                    </div>
+                    <div className={styles.Text}>
+                        {props.text}
+                    </div>
                 </div>
-                <div className="contacts__text">
-                    {props.text}
-                </div>
-                <div className="contacts__time">
+                <div className={styles.Time}>
                     {props.time}
                 </div>
-                <div className="contacts__mark">
+                <div className={styles.Mark}>
                     {/*props.mark*/}
                 </div>                
             </NavLink>

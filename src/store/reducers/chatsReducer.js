@@ -37,7 +37,7 @@ export function chatsReducer(state = {chats: [], is_loading: false}, action) {
                 img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
                 title: "Группа 2",
                 text: "Текст крайнего сообщения",
-                unread: "",
+                unread: "5",
                 time: "10.10.2018",
                 mark: {
                     delivered: false,
