@@ -1,0 +1,101 @@
+
+/*.menu*/
+.Menu{
+	background-color: #3498DB;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 49px;
+}
+
+/*.sidebar_item*/
+.SidebarItem{
+	display: flex;
+    width: 410px;
+    flex-wrap: wrap;
+}
+
+/*.burger-menu*/
+.Burger{
+	width: 410px;
+    background-color: #3498DB;
+    position: relative;
+    color: white;
+    text-align: center;
+    height: 40px;
+} 
+
+.BurgerLine{
+    position: absolute;
+    top: 8px;
+    left: 21px;
+    width: 35px;
+    height: 2px;
+    background-color: white;
+}
+
+.BurgerLineSecond{
+	top: 18px;
+}
+
+.BurgerLineFourth{
+	top: 28px;
+}
+
+.BurgerCheckbox{
+	display: none;
+}
+.BurgerLabel{
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/*.burger-menu__search*/
+.BurgerSearch{
+	width: 35%;
+    position: relative
+}
+
+.MainMenuOpened{
+	position: absolute;
+    display: block;
+    width: 410px;
+    top: -70px;
+    transform: translateY(100%);
+    max-height: 500px;
+    overflow: hidden;
+    transition: 0.5s all;
+}
+
+.MainMenuClosed{
+	position: absolute;
+    display: block;
+    top: -70px;
+    transform: translateY(100%);
+    overflow: hidden;
+	max-height: 0px;
+    width: 410px;
+}
+
+.BurgerItem{
+	display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #3498DB;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+.BurgerItem:hover {
+    color: #F8D57D;
+}

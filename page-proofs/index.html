@@ -23,11 +23,27 @@
 <section class="content">
     <section class="sidebar">
         <div class="menu sidebar_item">
-            <button class="menu-btn">
-                <img src="img/menu-icon.svg" alt="#" class="menu-btn__logo">
-            </button>
+            <div class="burger-menu">
+                <button class="burger-menu__icon">
+                    <div class="burger-line burger-line_first"></div>
+                    <div class="burger-line burger-line_second" ></div>
+                    <!--     <div class="burger-line burger-line_third"></div> -->
+                    <div class="burger-line burger-line_fourth"></div>
+                </button>
 
-            <input type="search" value="Найти..." title="поиск">
+
+                <input type="checkbox" id="check-menu" class="burger-menu__checkbox">
+                <label for="check-menu" class="burger-menu__label">
+                    <form action="" class="burger-menu__search search"></form>
+                    <input type="search" class="burger-menu__input" value="Найти...">
+                </label>
+
+                <nav class="main-menu">
+                    <a class="burger-menu__items" href="#">Профиль</a>
+                    <a class="burger-menu__items" href="#">Личный кабинет</a>
+                    <a class="burger-menu__items" href="#">Выйти</a>
+                </nav>
+            </div>
         </div>
 
         <div class="sidebar_item">
@@ -92,69 +108,5 @@
 
 </section>
 
-<footer class="footer">
-    <div class="networks">
-        <ul class="footer__network-list">
-            <li class="footer__network-item">
-                <a href="#" class="footer__item-link">
-                    <img src="img/chrome.svg" alt="chrome">
-                </a>
-            </li>
-
-            <li class="footer__network-item">
-                <a href="https://mail.google.com" class="footer__item-link">
-                    <img src="img/gmail.svg" alt="gmail">
-                </a>
-            </li>
-
-            <li class="footer__network-item">
-                <a href="https://www.google.ru" class="footer__item-link">
-                    <img src="img/search.svg" alt="src">
-                </a>
-            </li>
-
-            <li class="footer__network-item">
-                <a href="https://drive.google.com" class="footer__item-link">
-                    <img src="img/drive.svg" alt="drive">
-                </a>
-            </li>
-
-            <li class="footer__network-item">
-                <a href="https://www.youtube.com" class="footer__item-link">
-                    <img src="img/youtube.svg" alt="Ytube">
-                </a>
-            </li>
-
-            <li class="footer__network-item">
-                <a href="#" class="footer__item-link">
-                    <img src="img/apps.svg" alt="app">
-                </a>
-            </li>
-        </ul>
-
-    </div>
-    <div class="footer__status">
-        <ul class="footer__status-list">
-            <li class="footer__item footer__item-time">
-                <span class="footer__status-time">12:32 PM</span>
-            </li>
-            <li class="footer__item">
-                <button class="footer__item-btn">
-                    <img src="img/wifi.svg" alt="app" class="footer__item-pic">
-                </button>
-            </li>
-            <li class="footer__item">
-                <button class="footer__item-btn">
-                    <img src="img/battery.svg" alt="app" class="footer__item-pic">
-                </button>
-            </li>
-            <li class="footer__item">
-                <button class="footer__item-btn">
-                    <img src="img/avatar.svg" alt="app" class="footer__item-pic">
-                </button>
-            </li>
-        </ul>
-    </div>
-</footer>
 </body>
 </html>
