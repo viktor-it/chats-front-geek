@@ -8,7 +8,6 @@ class Menu extends Component {
 		}
 
 		handleClick = () => {
-			console.log(this.state);
 			this.setState({
       			condition: !this.state.condition
     		});
@@ -18,16 +17,9 @@ class Menu extends Component {
 	        return (
 				<div className={styles.Menu + ' ' + styles.SidebarItem}>
 			    	<div onClick={ this.handleClick } className={styles.Burger}>
-			    		<button className={styles.BurgerIcon}>
-			    			<div className={styles.BurgerLine + ' ' + styles.BurgerLineFirst} />
-			    			<div className={styles.BurgerLine + ' ' + styles.BurgerLineSecond} />
-			    			<div className={styles.BurgerLine + ' ' + styles.BurgerLineFourth} />
-			    		</button>
-			    		<label htmlFor="check-menu" className={styles.BurgerLabel}>
-			    			<form action="true" className={styles.BurgerSearch + ' ' + styles.Search} />
-			    			<input type="search" className={styles.BurgerInput} value="Найти..." />
-			    		</label>
+		    			<span className={styles.BurgerLine}/>		    		
 			    	</div>
+			    	<input type="search" className={styles.BurgerSearch} value="Найти..." />
 			    	<nav className={this.state.condition ? styles.MainMenuOpened : styles.MainMenuClosed} >
 						<NavLink className={styles.BurgerItem} to='/account'>Личный кабинет</NavLink>
 						<NavLink className={styles.BurgerItem} to='/profile'>Профиль</NavLink>

@@ -17,10 +17,6 @@
     width: 205px;
     text-decoration: none
 }
-.Tab:hover {
-    color: #F8D57D;
-    cursor: pointer;
-}
 
 .ActiveTab{
     border-bottom: 2px solid #F8D57D;
