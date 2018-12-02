@@ -1,7 +1,9 @@
 .tab-content {
     display: none;
-    padding: 15px;
-    background: #fff;
+    margin: 0;
+    width: 410px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
 }
 
 /* Прячем чекбоксы */
@@ -44,18 +46,16 @@
 .tab-contact:checked~.tab-content_contact {
     display: block;
 }
-.tab-content{
-    margin: 0;
-    padding: 0;
-    background: #FFFFFF;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);
-    /*overflow: scroll;*/
+.tab-content_chat,.tab-content_contact{
+    align-items: stretch;
+    flex-direction: column;
 }
 /* ---------chat-----------*/
 .chat-list, .contact-list{
     list-style: none;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 .chat-list__item{
     align-self: stretch;
@@ -98,6 +98,7 @@
     font-size: 12px;
     color: #757575;
     align-self: flex-start;
+    margin: 0;
 }
 .component__notification{
     background-color:#F46767;
@@ -127,4 +128,3 @@
     margin-right: -12px;
     /*overflow: visible;*/
 }
-/*----------contact----------*/

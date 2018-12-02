@@ -69,13 +69,11 @@
     border: none;
     background-color: #3498DB;
 }
-
 .sidebar_item {
     display: flex;
     width: 410px;
     flex-wrap: wrap;
 }
-
 .message-screen {
     background-image: url(../img/fon.svg);
     width: 760px;
@@ -99,7 +97,7 @@
     width: 410px;
     background-color: #3498DB;
     position: relative;
-    color: white;
+
     text-align: center;
     height: 40px;
 }
@@ -117,22 +115,32 @@
     z-index: 2;
 }
 .burger-menu__search {
-    width: 35%;
     position: relative;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    width: 80%;
+    top: 7px;
+    left: 30px;
+    font-family: Roboto,sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 14px;
 }
 .burger-line {
     position: absolute;
-    top: 8px;
+    top: 15px;
     left: 21px;
-    width: 35px;
+    width: 19px;
     height: 2px;
     background-color: white;
 }
 .burger-line_second, .burger-line_third {
-    top: 18px;
+    top: 20px;
 }
-.burger-line_fourth {
-    top: 28px;
+.burger-line_third {
+    top: 25px;
 }
 .main-menu {
     position: absolute;
@@ -164,7 +172,7 @@
     /*font-size: 14px;*/
     text-align: center;
 }
-.burger-menu__items:hover {
+.burger-menu__icon:hover {
     color: #F8D57D;
 }
 /* анимация */
@@ -173,45 +181,36 @@
     max-height: 500px;
     font-size: 16px;
 }
-/*---footer---*/
-.footer{
-    height: 51px;
+/*---add buttons---*/
+.add-components {
+    margin: 1px;
     display: flex;
-    background-color: #262626;
-    justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    background-color:  #F9F9F9;
+    flex-direction: column;
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11);*/
+
 }
-.networks, .footer__status {
+.create,.add-group{
+    margin: 0;
+    border: none;
+    display: flex;
+    background-color:  #F9F9F9;
+    opacity: 50%;
+}
+.create__icon,.add-group__icon{
+    margin: 10px;
+}
+.create__text,.add-group__text{
+    margin: 20px;
+    font-family: Roboto,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 14px;
+}
+/*----------contact----------*/
+.contact-list__item{
     margin: 0;
 }
-.footer__network-list, .footer__status-list {
-    list-style: none;
-    display: flex;
-}
-
-.footer__network-item, .footer__item{
-    margin: 0 20px;
-    justify-content: flex-start;
-    align-self: center;
-
-}
-
-.footer__item-btn {
-    background-color: #262626;
-    border: none;
-    align-self: center;
-    outline: 0;
-    cursor: pointer;
-}
-
-
-.footer__status-time {
-    width: 50.44px;
-    height: 8.77px;
-    right: 149.56px;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-family: Roboto,sans-serif;
-}
-
 
