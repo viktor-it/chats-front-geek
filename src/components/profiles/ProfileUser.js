@@ -2,8 +2,11 @@ import React, { Component } from "react";
 
 export default class ProfileUser extends Component {
 
-    render()
-    {
+    render() {
+        let about = 'информация о себе';
+        if (props.about) {
+            about = props.about;
+        }
         return(
             <div className="profile">
                 <div className="profile__top">
