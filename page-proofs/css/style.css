@@ -197,6 +197,7 @@
     display: flex;
     background-color:  #F9F9F9;
     opacity: 50%;
+    cursor: pointer;
 }
 .create__icon,.add-group__icon{
     margin: 10px;
