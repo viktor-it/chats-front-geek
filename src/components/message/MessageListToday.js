@@ -1,5 +1,5 @@
 import React from 'react';
-
+import classes from './Message.module.css';
 
 export default class MessageListToday extends React.Component
 {
@@ -7,19 +7,27 @@ export default class MessageListToday extends React.Component
   {
       return (
           <div className="list">
-              <h1>List</h1>
+              <div className={classes.date}><span>15 сентября</span></div>
               {this.props.messages.map(message => {
                 return (
-                <li key={message.id}>
-                  <div>
-                    {message.date}
+                <li className={classes.item} key={message.id}>
+                  <div className={classes.superBlock}>
+                    <img className={classes.miniFoto} src="./img/woman-4.png" />
+                                  <div className={classes.block}>
+                                            <div className={classes.blockSms}>
+                                                        <div className={classes.name}>
+                                                          {message.senderId}
+                                                        </div>
+                                                        <div>
+                                                          {message.text}
+                                                        </div>
+                                            </div>
+                                            <div className={classes.time}>
+                                              {/* {message.date} */}14.01
+                                            </div>
+                                  </div>
                   </div>
-                  <div className='name'>
-                    {message.senderId}
-                  </div>
-                  <div>
-                    {message.text}
-                  </div>
+                   
                 </li>
                 )
               })}
