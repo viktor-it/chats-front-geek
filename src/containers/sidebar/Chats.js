@@ -31,17 +31,17 @@ class Chats extends React.Component {
         switch(param) {
             case 1:
                 return (
-                    <ChatsList chats={this.props.chats}/>
+                    <ChatsList chats={this.props.chats} createGroup={() => {this.setState({active: 2})}} searchGroup={() => {this.setState({active: 3})}}/>
                 );
             break;
             case 2:
                 return (
-                    <CreateGroup/>
+                    <CreateGroup closeForm={() => {this.setState({active: 1})}}/>
                 );
             break;
             case 3:
                 return (
-                    <SearchGroup/>
+                    <SearchGroup closeForm={() => {this.setState({active: 1})}}/>
                 );
             break;
         }
@@ -55,14 +55,6 @@ class Chats extends React.Component {
         return (
             <div>
                 { this.switchComponent(this.state.active) }
-
-                {/*кнопки*/}
-                <button onClick={() => {this.state.active = 2;this.switchComponent(this.state.active)}} >
-                        1-st button
-                </button>
-                <button onClick={() => {this.state.active = 3;this.switchComponent(this.state.active)}} >
-                        2-nd button
-                </button>
             </div>
 
         );
