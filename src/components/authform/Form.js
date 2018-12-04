@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
 import { FormErrors } from './FormErrors';
+
 import classes from './Form.module.css';
 
 class Form extends Component {
@@ -79,7 +82,10 @@ class Form extends Component {
                 </div>
 
                 <button type="submit" className={classes.btnSubmit} onClick={()=>{localStorage.setItem("token","тест");}}>Войти</button>
-
+                <div>
+                    <span>Нет аккаунта? </span>
+                    <Link to='/register'>Регистрация</Link>
+                </div>
             </form>
         )
     }
