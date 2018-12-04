@@ -16,35 +16,49 @@
 }
 
 /*.burger-menu*/
-.Burger{
-	width: 410px;
+/*.Burger{
+	width: 40px;
     background-color: #3498DB;
     position: relative;
-    color: white;
     text-align: center;
     height: 40px;
-} 
+} */
 
-.BurgerLine{
+
+
+
+.Burger {
+  height: 30px;
+  width: 40px;
+  position: relative;
+  margin: 15px 0 0 30px;
+}
+
+/*линии*/
+.BurgerLine,
+.Burger:before,
+.Burger:after{
+    content: "";
     position: absolute;
-    top: 8px;
-    left: 21px;
-    width: 35px;
+    left: 0;
     height: 2px;
-    background-color: white;
+    width: 100%;
+    background: #fff;
+}
+.Burger:before {
+    top: 0;
+}
+.Burger:after {
+    bottom: 0;
+}
+.BurgerLine{
+    top: 15px;
 }
 
-.BurgerLineSecond{
-	top: 18px;
+.Burger:hover{
+    cursor: pointer;
 }
 
-.BurgerLineFourth{
-	top: 28px;
-}
-
-.BurgerCheckbox{
-	display: none;
-}
 .BurgerLabel{
 	display: block;
     position: absolute;
@@ -54,12 +68,6 @@
     height: 100%;
     cursor: pointer;
     z-index: 2;
-}
-
-/*.burger-menu__search*/
-.BurgerSearch{
-	width: 35%;
-    position: relative
 }
 
 .MainMenuOpened{

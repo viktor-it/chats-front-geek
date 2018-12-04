@@ -48,6 +48,8 @@ export function chatsReducer(state = {chats: [], is_loading: false}, action) {
             state = {chats, is_loading: false, error_message: action.payload.message};
         break;
         }
+
+        default: {state = {...state}}
     }
     return state;
 }

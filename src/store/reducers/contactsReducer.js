@@ -37,6 +37,8 @@ export function contactsReducer(state = {contacts: [], is_loading: false}, actio
             state = {contacts, is_loading: false, error_message: action.payload.message};
         break;
         }
+        
+        default: {state = {...state}}
     }
     return state;
 }

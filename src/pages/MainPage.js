@@ -3,7 +3,7 @@ import React from 'react';
 import Sidebar from '../layouts/Sidebar';
 // import SidePanel from '../containers/SidePanel/SidePanel';
 // import ChatWindow from '../containers/ChatWindow/ChatWindow';
-// import Form from '../components/authform/Form'
+ import MessageForm from '../containers/Messages/messageForm';
 
 import classes from './MainPage.module.css';
 
@@ -12,9 +12,9 @@ const mainPage = () => {
         <div className={classes.mainPage}>
              <Sidebar/>
              <div className={classes.chatWindow}>
+             	{/*<MessageForm/>*/}
              </div>
-            {/* <ChatWindow/> */}
-            {/*<Form/>*/}
+            {/* <ChatWindow/> */}       	
         </div>
     );
 }
