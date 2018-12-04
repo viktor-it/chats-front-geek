@@ -12,7 +12,7 @@ const mainPage = () => {
         <div className={classes.mainPage}>
              <Sidebar/>
              <div className={classes.chatWindow}>
-             	{/*<MessageForm/>*/}
+             	<MessageForm/>
              </div>
             {/* <ChatWindow/> */}       	
         </div>

@@ -3,6 +3,8 @@ import React from 'react';
 import MessageList from './messageList';
 import SendMessageForm from './sendMessageForm';
 
+import classes from './messageForm.module.css';
+
 const messages = [          //заменятся на полученное с сервера
   {
     user: "user1",
@@ -15,24 +17,28 @@ const messages = [          //заменятся на полученное с с
 ];
 
 export default class MessageForm extends React.Component {
-  constructor() {
-    super()
-    this.state = {
+  state = {
        messages: messages
-    }
   }
 
-  sendMessage(text) {
-    console.log(text);
+  sendMessage = (text) => {
+    // console.log(text);
+    this.setState({
+      messages:[
+          ...this.state.messages,{
+          user: 'Вы',
+          text
+      }]
+    });
 
   }
 
   render() {
-  	console.log(this.state.messages);
-    console.log(this.sendMessage);
+  	// console.log(this.state.messages);
+    // console.log(this.sendMessage);
     return (
-      <div className="message-form">
-        <h2><p className="title">Чат</p></h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
+      <div className={classes.messageForm}>
+        <h2 className={classes.chatTitle}>Имя чата</h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
         <MessageList messages={this.state.messages}/>
         <SendMessageForm sendMessage={this.sendMessage}/>
      </div>
