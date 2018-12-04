@@ -15,6 +15,14 @@ const ChatsList = (props) => {
             <div className="List">
                 {chats}
             </div>
+            {/*кнопки*/}
+            <button onClick={props.createGroup} >
+                    Создать свою группу
+            </button>
+            {/* <button onClick={() => {this.state.active = 3;this.switchComponent(this.state.active)}} > */}
+            <button onClick={props.searchGroup} >
+                    Добавить группу
+            </button>
         </div>
     );
 }
