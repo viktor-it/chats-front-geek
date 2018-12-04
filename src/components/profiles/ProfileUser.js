@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProfileUserTop from "./ProfileUserTop";
-import Link from "react-router-dom/es/Link";
+import {Link} from "react-router-dom";
 import ProfileClose from "./ProfileClose";
 
 export default class ProfileUser extends Component {
