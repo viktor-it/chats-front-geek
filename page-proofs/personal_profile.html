@@ -42,33 +42,54 @@
         
         <ul class="profile-menu">
             <li class="profile-menu__items">
-                <img src="img/personal_profile/vector.svg" alt="#" class="profile-menu__icon">
-                Написать сообщение
+                <button class="item-btn">
+                    <img src="img/personal_profile/vector.svg" alt="#" class="profile-menu__icon">
+                    Написать сообщение
+                </button>
+
             </li>
             <li class="profile-menu__items">
-                <img src="img/personal_profile/enter.svg" alt="#" class="profile-menu__icon">
-                Личный кабинет
+                <button class="item-btn">
+                    <img src="img/personal_profile/enter.svg" alt="#" class="profile-menu__icon">
+                    Личный кабинет
+                </button>
+            </li>
+            <li class="profile-menu__items profile-menu__items_toggle">
+                <button class="item-btn">
+                    <img src="img/personal_profile/bell.svg" alt="#" class="profile-menu__icon">
+                    Оповещения
+                </button>
+
+                <div class="toggle-switch">
+                    <input type="checkbox" class="switch" id="switch">
+                    <label for="switch" class="switch__line"></label>
+                </div>
             </li>
             <li class="profile-menu__items">
-                <img src="img/personal_profile/bell.svg" alt="#" class="profile-menu__icon">
-                Оповещения
+                <button class="item-btn">
+                    <img src="img/personal_profile/exit.svg" alt="#" class="profile-menu__icon">
+                    Выйти из профиля
+                </button>
             </li>
             <li class="profile-menu__items">
-                <img src="img/personal_profile/exit.svg" alt="#" class="profile-menu__icon">
-                Выйти из профиля
+                <button class="item-btn">
+                    <img src="img/personal_profile/clear.svg" alt="#" class="profile-menu__icon">
+                    Очистить переписку
+                </button>
             </li>
             <li class="profile-menu__items">
-                <img src="img/personal_profile/clear.svg" alt="#" class="profile-menu__icon">
-                Очистить переписку
-            </li>
-            <li class="profile-menu__items">
-                <img src="img/personal_profile/delete.svg" alt="#" class="profile-menu__icon">
-                Удалить профиль
+                <button class="item-btn">
+                    <img src="img/personal_profile/delete.svg" alt="#" class="profile-menu__icon">
+                    Удалить профиль
+                </button>
             </li>
         </ul>
-        <button class="close-btn">
-            <img src="img/personal_profile/cancel.svg" alt="#" class="close-btn__icon">
-        </button>
+<div class="close-profile">
+    <button class="close-btn">
+        <img src="img/personal_profile/cancel.svg" alt="#" class="close-btn__icon">
+    </button>
+</div>
+
     </section>
 </body>
 </html>
