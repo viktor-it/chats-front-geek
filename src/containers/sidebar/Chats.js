@@ -27,7 +27,7 @@ class Chats extends React.Component {
         return true;
     }
 
-    switchComponent(param) {
+    switchComponent = (param) => {
         switch(param) {
             case 1:
                 return (

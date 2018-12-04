@@ -108,3 +108,7 @@
 .BurgerItem:hover {
     color: #F8D57D;
 }
+
+.BurgerSearch {
+    margin: 0 auto;
+}

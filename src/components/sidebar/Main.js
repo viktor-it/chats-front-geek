@@ -8,6 +8,7 @@ import Contacts from '../../containers/sidebar/Contacts'
 const Main = () => (
 	<main>
 		<Switch>
+			<Route path='/' exact component={Chats}/>
 			<Route path='/chats' component={Chats}/>
 			<Route path='/contacts' component={Contacts}/>
 		</Switch>
