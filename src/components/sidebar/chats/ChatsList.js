@@ -1,6 +1,8 @@
 import React from 'react';
 import ChatsItem from './ChatsItem';
 
+import styles from './ChatsList.module.css';
+
 const ChatsList = (props) => {
     if(!props.chats.length){
         return null; //Если данные еще загружаются
@@ -12,7 +14,7 @@ const ChatsList = (props) => {
 
     return (
         <div>
-            <div className="List">
+            <div className={styles.List}>
                 {chats}
             </div>
             {/*кнопки*/}

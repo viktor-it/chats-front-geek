@@ -23,26 +23,30 @@ class Chats extends React.Component {
         active: 1
     };
 
-    shouldComponentUpdate() {
-        return true;
-    }
 
-    switchComponent(param) {
-        switch(param) {
+    switchComponent() {
+        switch(this.state.active) {
             case 1:
                 return (
-                    <ChatsList chats={this.props.chats} createGroup={() => {this.setState({active: 2})}} searchGroup={() => {this.setState({active: 3})}}/>
+                    <ChatsList chats={this.props.chats} 
+                    createGroup={() => {this.setState({active: 2})}}
+                    searchGroup={() => {this.setState({active: 3})}}/>
                 );
             break;
             case 2:
                 return (
-                    <CreateGroup closeForm={() => {this.setState({active: 1})}}/>
+                    <CreateGroup
+                    closeForm={() => {this.setState({active: 1})}}/>
                 );
             break;
             case 3:
                 return (
-                    <SearchGroup closeForm={() => {this.setState({active: 1})}}/>
+                    <SearchGroup
+                    closeForm={() => {this.setState({active: 1})}}/>
                 );
+            break;
+            default:
+                console.log(this.state.active);
             break;
         }
     }
@@ -54,7 +58,7 @@ class Chats extends React.Component {
         }
         return (
             <div>
-                { this.switchComponent(this.state.active) }
+                { this.switchComponent() }
             </div>
 
         );
