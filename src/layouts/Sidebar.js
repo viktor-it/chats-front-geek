@@ -5,6 +5,8 @@ import Menu from '../containers/sidebar/Menu';
 import Header from '../components/sidebar/Header';
 import Main from '../components/sidebar/Main';
 
+
+
 import styles from  './Sidebar.module.css';
 
 
@@ -54,8 +56,9 @@ class Sidebar extends React.Component {
                     </div>
                 </div>
                 
+                {/*списки*/}
                 <Main />
-                
+
             </section>
         )
     }
@@ -63,6 +66,3 @@ class Sidebar extends React.Component {
 
 
 export default Sidebar;
-
-        
-    // </section>
