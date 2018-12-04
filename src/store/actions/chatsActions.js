@@ -5,6 +5,6 @@ import instance from '../axios-docs';
 export function getChats() {
     return {
         type: GET_CHATS,
-        payload: instance.get('#')
+        payload: instance.get('/someLink')
     };
 }

@@ -10,6 +10,7 @@ import styles from  './Main.module.css';
 const Main = () => (
 	<main className={styles.Field}>
 		<Switch>
+			<Route path='/' exact component={Chats}/>
 			<Route path='/chats' component={Chats}/>
 			<Route path='/contacts' component={Contacts}/>
 		</Switch>

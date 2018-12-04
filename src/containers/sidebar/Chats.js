@@ -23,7 +23,6 @@ class Chats extends React.Component {
         active: 1
     };
 
-
     switchComponent() {
         switch(this.state.active) {
             case 1:
