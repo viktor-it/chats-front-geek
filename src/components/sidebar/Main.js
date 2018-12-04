@@ -10,7 +10,6 @@ const Main = () => (
 		<Switch>
 			<Route path='/chats' component={Chats}/>
 			<Route path='/contacts' component={Contacts}/>
-            <Route path='/form' component={Form}/>
 		</Switch>
 	</main>
 )
