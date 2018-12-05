@@ -1,0 +1,171 @@
+.Restangle_2_1{
+    width: 395.46px;
+    height: 518.7px;
+    filter: blur(5px);
+    position: absolute;
+    background-image: url(../../images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: -387.27px -85.8px;
+    overflow: hidden;
+    top: 85.8px;
+    left: 387.27px;
+}
+.Restangle_2_2{
+	width: 401.46px;
+    height: 630px;
+    border: 1px #000000 solid;
+    position: absolute;
+    top: 85.8px;
+    left: 387.27px;
+    background-color: #84DBFF;
+    opacity: 0.16;
+    border-radius: 8px;
+}
+.Restangle_2_3{
+	width: 393.46px;
+    height: 516.7px;
+    position: absolute;
+    top: 86.8px;
+    left: 388.27px;
+    border-radius: 8px;
+    z-index: 400;
+}
+
+.Input{
+	display: block;
+    position: absolute;
+    left: 18%;
+    border: 1px #ffe684 solid;
+    border-radius: 8px;
+    background-color: #b8c5cb;
+    width: 70%;
+    z-index: 200;
+    font-size: 14px;
+    font-style: italic;
+    padding-left: 10px;
+    color: #111111;
+    height: 7.5%;
+}
+.Name{
+	top: 46.3%;
+}
+.Mail{
+	top: 57.8%;
+}
+.Pass{
+	top: 69.3%;
+}
+.CheckPass{
+	top: 80.8%;
+}
+
+.Checkbox{
+	display: block;
+    position: absolute;
+    left: 18%;
+    border: 1px #ffe684 solid;
+    border-radius: 8px;
+    background-color: #b8c5cb;
+    width: 7%;
+    z-index: 200;
+    font-size: 14px;
+    font-style: italic;
+    padding-left: 10px;
+    color: #111111;
+    height: 7%;
+    top: 90%;
+}
+
+.Text{
+	position: absolute;
+    left: 29%;
+    top: 88%;
+    z-index: 300;
+    font-size: 12px;
+    color: #e2e2e2;
+    width: 60%;
+}
+.KnowMore{
+	text-decoration: none;
+	color: #ffe684;
+}
+
+.Button{
+	background-color: #b8c5cb;
+    color: #004f70;
+    font-size: 14px;
+    font-style: normal;
+    width: 44%;
+    top: 105%;
+    height: 8%;
+    padding: 0;
+}
+.CancelButton{
+	left: 65%;
+	width: 21%;
+}
+.ButtonHovered{
+	background-color: #ffe684;
+	cursor: pointer;
+}
+
+.EllipseBig{
+	width: 398.46px;
+    height: 238.928px;
+    position: absolute;
+    top: 86.388px;
+    left: 388.27px;
+    background-image: url(../../images/ellipse_big.png);
+    background-repeat: no-repeat;
+    background-size: 441.34288948px 441.34288948px;
+    background-position: center -246.31578947px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.Title{
+	position: absolute;
+    width: 100%;
+    top: 96px;
+    z-index: 110;
+}
+.TitleText,
+.SubtitleText{
+	color: #004F70;
+    font-family: sans-serif, Roboto;
+}
+
+
+.TitleText{
+    font-size: 32px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.Subtitle{
+	position: absolute;
+    width: 98%;
+    top: 138px;
+    z-index: 110;
+}
+
+.SubtitleText{
+    font-size: 18px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.EllipseSmall{
+    width: 68.7628563px;
+    height: 68.7628563px;
+    background-color: #E6F8FF;
+    border-radius: 68.7628563px;
+    position: absolute;
+    top: 86.388px;
+    left: 550.61857185px;
+    top: 195px;
+    box-shadow: 0px 2px 5px #999;
+}
+
