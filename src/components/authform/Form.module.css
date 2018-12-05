@@ -1,5 +1,7 @@
 .FormGlobalClass {
-    color: #2c3e50
+    color: #2c3e50;
+    max-width: 450px;
+    margin: 30px auto;
 }
 
 .container[data-v-8b3b4158] {
