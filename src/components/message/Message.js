@@ -4,12 +4,12 @@ import MessageListToday from './MessageListToday';
 import classes from './Message.module.css';
 const DUMMY_DATA = [
   {
-    date: Date(),
+    date: new Date(),
     senderId: "Мария",
     text: "Дорогие дизайнеры! Есть ли что-нибудь по десктопу клиенту? Хотелось бы взлянуть?"
   },
   {
-    date: Date(),
+    date: new Date(),
     senderId: "Дизайнер 1",
     text: "Мы в процессе его разработки"
   }
@@ -17,14 +17,15 @@ const DUMMY_DATA = [
 class Message extends Component {
 
 
-state = {
+  state = {
        messages: DUMMY_DATA
     }
+
   render() {
     
     return (
       <div className={classes.test}>
-        <MessageListToday messages={this.state.messages} />
+        <MessageListToday messages={[...this.props.messages]} />
       </div>
     );
   }

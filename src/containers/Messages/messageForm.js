@@ -1,18 +1,21 @@
 import React from 'react';
 
-import MessageList from './messageList';
+// import MessageList from './messageList';
+import MessageList from '../../components/message/Message';
 import SendMessageForm from './sendMessageForm';
 
 import classes from './messageForm.module.css';
 
 const messages = [          //заменятся на полученное с сервера
   {
-    user: "user1",
-    text: "Сообщение"
+    date: 1543990196864,
+    senderId: "Мария",
+    text: "Дорогие дизайнеры! Есть ли что-нибудь по десктопу клиенту? Хотелось бы взлянуть?"
   },
   {
-    user: "user1",
-    text: "Еще одно сообщение"
+    date: 1543990496864,
+    senderId: "Дизайнер 1",
+    text: "Мы в процессе его разработки"
   }
 ];
 
@@ -23,10 +26,13 @@ export default class MessageForm extends React.Component {
 
   sendMessage = (text) => {
     // console.log(text);
+    let timestamp = new Date();
+
     this.setState({
       messages:[
           ...this.state.messages,{
-          user: 'Вы',
+          date: timestamp.getTime(),
+          senderId: 'Вы',
           text
       }]
     });

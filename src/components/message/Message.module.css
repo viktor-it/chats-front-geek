@@ -1,9 +1,9 @@
 .test {
-  background: url('./img/Fon.png');
+  /* background: url('./img/Fon.png'); */
 }
 .date {
   text-align: center;
-  padding-bottom: 10px;
+  padding: 20px 0 10px;
 }
 .date span {
   background: rgba(15, 157, 88, 0.25);
