@@ -1,8 +1,8 @@
 .Modal {
     position: fixed;
-    z-index: 500;
+/*    z-index: 500;*/
     background-color: white;
-    width: 80%;
+  width: 80%;
     height: 80%;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
@@ -11,6 +11,13 @@
     top: 10%;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+
+    width: 1170px;
+    background-image: url(../../../images/background.jpg);
+    background-repeat: no-repeat;
+    min-height: 780px;
+/*    position: absolute;*/
+    z-index: 200;
 }
 
 .ModalLayer2 {

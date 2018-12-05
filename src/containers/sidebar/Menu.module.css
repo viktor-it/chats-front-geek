@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     flex-basis: 49px;
+    padding: 5px;
 }
 
 .SidebarItem{
