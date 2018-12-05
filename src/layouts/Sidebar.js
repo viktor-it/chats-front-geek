@@ -13,7 +13,9 @@ import styles from  './Sidebar.module.css';
 class Sidebar extends React.Component {
     state = { 
         chatsHovered: false,
-        contactsHovered: false
+        contactsHovered: false,
+        ChatsCondition: false,
+        ContactsCondition: false
     }
 
     ChatsHover = () => {
