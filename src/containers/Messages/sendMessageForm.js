@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './sendMessage.module.css';
 
 export default class SendMessage extends React.Component {
   constructor() {
@@ -25,13 +26,14 @@ export default class SendMessage extends React.Component {
     return (
       <form
         onSubmit={this.handleSubmit}
-        className="send-message-form">
+        className={classes.Form}>
         <input
+        className={classes.input}
           onChange={this.handleChange}  //отслеживание ввода сообщения
           value={this.state.message}
           placeholder="Введите сообщение"
           type="text" />
-        <button type='submit' className='btn btn-primary'>Отправить</button>
+        <button type='submit' className={classes.btn}><i class="fas fa-paper-plane"></i></button>
       </form>
     )
   }
