@@ -165,6 +165,19 @@
     outline: none;
     border: none;
     cursor: pointer;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+.item-btn:hover {
+    font-family: Roboto,sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 19px;
+    font-size: 14px;
+    color: #3498DB;
 }
 .profile-menu__icon{
     margin: 0 20px;
