@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import MessageListToday from './MessageListToday';
 
-
-const d = new Date();
+import classes from './Message.module.css';
 const DUMMY_DATA = [
   {
     date: Date(),
@@ -24,8 +23,7 @@ state = {
   render() {
     
     return (
-      <div className="App">
-        test
+      <div className={classes.test}>
         <MessageListToday messages={this.state.messages} />
       </div>
     );
