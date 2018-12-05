@@ -16,15 +16,12 @@
     margin: 0;
 }
 .header {
-    background-color: #3189BF;
+    background-image: url(../img/personal_profile/ellipse.svg);
+    background-repeat: no-repeat;
+    background-position-y: -100px;
     margin: 0;
     display: flex;
     flex-direction: column;
-
-    border-radius: 0 0 190px 190px/45%;
-    -moz-border-radius:  0 0 190px 190px/45%;
-    -webkit-border-radius:  0 0 190px 190px/45%;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.12);
 }
 .header__pic {
     margin: 45px 130px 0;
@@ -222,7 +219,7 @@
     border: 1.5px solid rgba(34, 31, 31, 0.26);
 }
 .switch:checked + .switch__line::before {
-    box-shadow: 0x 3px 4px 0 rgba(0,0,0,0.30);
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.30);
     background: darkgrey;
 }
 .switch:checked + .switch__line::before {
