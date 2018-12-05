@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-import { FormErrors } from './FormErrors';
-
 import classes from './Form.module.css';
 
 class Form extends Component {
@@ -59,34 +57,33 @@ class Form extends Component {
 
     render () {
         return (
-            <form className={classes.FormGlobalClass}>
-                <h2>Войдите под своим логином</h2>
-                <div className="panel panel-default">
-                    <FormErrors formErrors={this.state.formErrors} />
-                </div>
-                <div className={classes.FormAuthGroup}>
-                    <div className={classes.containerLogin}>
-                        <input className={classes.formControl} type="email" required name="email"
-                               placeholder="Email address"
-                               value={this.state.email}
-                               onChange={this.handleUserInput} />
+            <div className={classes.main}>
+                <div className={classes.content}>
+                    <div className={classes.restangle_2_1}></div>
+                    <div className={classes.restangle_2_2}></div>
+                    <div className={classes.restangle_2_3}>
+                        <form action="">
+                            <input className={classes.mail} type="email" required name="email"
+                                       placeholder="Логин"
+                                       value={this.state.email}
+                                       onChange={this.handleUserInput} />
+                            <input className={classes.pass} type="password" name="password"
+                                       placeholder="Пароль"
+                                       value={this.state.password}
+                                       onChange={this.handleUserInput}  />
+                            <input className={classes.log_in} type="submit" value="Войти" onClick={()=>{localStorage.setItem("token","тест");}} />
+                            <div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>
+                        </form>
+                        <div className={classes.registration}>Нет аккаунта?
+                            <Link to='/register'> Регистрация</Link>
+                        </div>
                     </div>
+                    <div className={classes.ellipse_big}></div>
+                    <div className={classes.pocket_messenger}><h1>Pocket Messenger</h1></div>
+                    <div className={classes.for_geeks_by_geeks}><h2>For geeks by geeks</h2></div>
+                    <div className={classes.ellipse_small}></div>
                 </div>
-                <div className={classes.FormAuthGroup}>
-                    <div className={classes.containerLogin}>
-                        <input className={classes.formControl} type="password" name="password"
-                               placeholder="Password"
-                               value={this.state.password}
-                               onChange={this.handleUserInput}  />
-                    </div>
-                </div>
-
-                <button type="submit" className={classes.btnSubmit} onClick={()=>{localStorage.setItem("token","тест");}}>Войти</button>
-                <div>
-                    <span>Нет аккаунта? </span>
-                    <Link to='/register'>Регистрация</Link>
-                </div>
-            </form>
+            </div>
         )
     }
 }
