@@ -51,6 +51,11 @@ class SearchGroup extends Component {
                 <ul className={classes.GroupList}>
                     {groupsFound}
                 </ul>
+                <div className={classes.Buttons}>
+                    <button className={classes.Button} onClick={this.props.closeForm}>
+                        Х
+                    </button>
+                </div>
             </>
         );
     }

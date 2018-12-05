@@ -2,11 +2,12 @@
     display: grid;
     grid-template-columns: 410px 1fr;
     margin: 0 135px;
+    height: 100vh;
 }
 .chatWindow {
     width: 100%;
     height: 100%;
-    border: 7px solid #000;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    background: url('../images/Fon.png');
 }

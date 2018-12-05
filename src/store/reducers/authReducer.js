@@ -67,6 +67,14 @@ export function authReducer(state = initialState, action) {
             };
             break;
         }
+        case Constants.LOGOUT: {
+            localStorage.removeItem('token');
+            state = {
+                ...state,
+                token: null
+            };
+            break;
+        }
         case Constants.LOGOUT_FULFILLED: {
             localStorage.removeItem('token');
             state = {

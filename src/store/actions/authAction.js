@@ -18,6 +18,6 @@ export function registerUser(account_name,password,email) {
 export function logoutUser(token) {
     return {
         type: LOGOUT,
-        payload: instance.put("/v1/auth/",{token})
+        //payload: instance.put("/v1/auth/",{token})
     };
 }
