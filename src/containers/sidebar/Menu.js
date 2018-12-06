@@ -22,7 +22,7 @@ class Menu extends Component {
 			    	<div onClick={ this.handleClick } className={styles.Burger}>
 		    			<span className={styles.BurgerLine}/>		    		
 			    	</div>
-			    	<input type="search" className={styles.BurgerSearch} value="Найти..." />
+			    	<input type="search" className={styles.Search} value="Найти..." />
 			    	<nav className={this.state.condition ? styles.MainMenuOpened : styles.MainMenuClosed} >
 						<NavLink className={styles.BurgerItem} to='/account'>Личный кабинет</NavLink>
 						<NavLink className={styles.BurgerItem} to='/profile'>Профиль</NavLink>

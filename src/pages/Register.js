@@ -9,7 +9,7 @@ const register = () => {
         <>
             <Backdrop/>
             <Modal show>
-                <div>Форма регистрации</div>
+                {/*<div>Форма регистрации</div>*/}
                 <RegForm/>
             </Modal>
         </>

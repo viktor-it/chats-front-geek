@@ -1,0 +1,23 @@
+.Form {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+}
+input[type="text"]:focus { outline: none; }
+.input {
+  width: 100%;
+  border: none;
+  padding: 16px 80px;
+  font-size: 14px;
+  font-style: italic;
+}
+.btn {
+  background: none;
+  font-size: 25px;
+  border: none;
+  position: absolute;
+  top: 24%;
+  color: #3498DB;
+  right: 55px;
+  cursor: pointer;
+} 
