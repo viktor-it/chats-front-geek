@@ -18,6 +18,10 @@ const ContactsList = (props) => {
             <div className={styles.List}>
                 {contacts}
             </div>
+            <button className={styles.Button} onClick={props.addContact} >
+                <div className={styles.Icon}>+</div>
+                <span className={styles.Text}> Добавить контакт</span>                      
+            </button>
         </div>
     );
 }
