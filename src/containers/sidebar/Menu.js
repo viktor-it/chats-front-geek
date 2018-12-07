@@ -24,9 +24,20 @@ class Menu extends Component {
 			    	</div>
 			    	<input type="search" className={styles.Search} value="Найти..." />
 			    	<nav className={this.state.condition ? styles.MainMenuOpened : styles.MainMenuClosed} >
-						<NavLink className={styles.BurgerItem} to='/account'>Личный кабинет</NavLink>
-						<NavLink className={styles.BurgerItem} to='/profile'>Профиль</NavLink>
-						<div className={styles.BurgerItem} onClick={() => {this.props.dispatch(logoutUser())}}>Выйти</div>
+						<NavLink
+						className={styles.BurgerItem}
+						to='/account'>
+							Личный кабинет
+						</NavLink>
+						<NavLink
+						className={styles.BurgerItem}
+						to='/profile'>
+							Профиль
+						</NavLink>
+						<div className={styles.BurgerItem}
+						onClick={() => {this.props.dispatch(logoutUser())}}>
+							Выйти
+						</div>
 					</nav>
 			    </div>
 	        );

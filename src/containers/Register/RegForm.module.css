@@ -79,7 +79,7 @@
 .Text{
 	position: absolute;
     left: 29%;
-    top: 88%;
+    top: 90%;
     z-index: 300;
     font-size: 12px;
     color: #e2e2e2;
@@ -126,7 +126,7 @@
 .Title{
 	position: absolute;
     width: 100%;
-    top: 96px;
+    top: 110px;
     z-index: 110;
 }
 .TitleText,
@@ -146,7 +146,7 @@
 .Subtitle{
 	position: absolute;
     width: 98%;
-    top: 138px;
+    top: 160px;
     z-index: 110;
 }
 
@@ -164,7 +164,7 @@
     border-radius: 68.7628563px;
     position: absolute;
     top: 86.388px;
-    left: 550.61857185px;
+    left: 555.61857185px;
     top: 195px;
     box-shadow: 0px 2px 5px #999;
 }
