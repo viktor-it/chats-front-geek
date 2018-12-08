@@ -27,6 +27,7 @@ export default class SendMessage extends React.Component {
       <form
         onSubmit={this.handleSubmit}
         className={classes.Form}>
+        <button type='submit' className={classes.clip}><i class="fa fa-paperclip fa-2x"></i></button>
         <input
         className={classes.input}
           onChange={this.handleChange}  //отслеживание ввода сообщения
@@ -34,6 +35,7 @@ export default class SendMessage extends React.Component {
           placeholder="Введите сообщение"
           type="text" />
         <button type='submit' className={classes.btn}><i class="fas fa-paper-plane"></i></button>
+        <button type='submit' className={classes.smile}><i class="far fa-smile fa-2x"></i></button>
       </form>
     )
   }
