@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import ProfileUserFoto from "./ProfileUserFoto";
 
-export default class ProfileUserTop extends Component {
+class ProfileUserTop extends Component {
     render() {
+        let about = "информация о себе";
+        if (props.about) {
+            about = props.about;
+        }
         return(
             <div className="profile">
                 <div className="profile__top">
@@ -17,3 +21,4 @@ export default class ProfileUserTop extends Component {
         );
     }
 }
+export default ProfileUserTop;
