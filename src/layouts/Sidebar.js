@@ -56,9 +56,9 @@ class Sidebar extends React.Component {
                             <span className={this.state.ContactsCondition ? styles.TextHovered : styles.Text}>Контакты</span>
                         </Header>
                     </div>
+                {/*списки*/}
                 </div>
                 
-                {/*списки*/}
                 <Main />
 
             </section>
