@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {loginUser} from '../../store/actions';
 
 import classes from './Form.module.css';
 
@@ -51,8 +54,10 @@ class Form extends Component {
         return(error.length === 0 ? '' : 'has-error');
     }
 
-    clickLogin() {
-        localStorage.setItem("token","тест");
+    clickLogin(event) {
+        event.preventDefault();
+        // localStorage.setItem("token","тест");
+        this.props.dispatch(loginUser(this.state.email,this.state.password));
     }
 
     render () {
@@ -71,7 +76,7 @@ class Form extends Component {
                                        placeholder="Пароль"
                                        value={this.state.password}
                                        onChange={this.handleUserInput}  />
-                            <input className={classes.log_in} type="submit" value="Войти" onClick={()=>{localStorage.setItem("token","тест");}} />
+                            <input className={classes.log_in} type="submit" value="Войти" onClick={(e)=>{this.clickLogin(e);}} />
                             <div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>
                         </form>
                         <div className={classes.registration}>Нет аккаунта?
@@ -88,4 +93,9 @@ class Form extends Component {
     }
 }
 
-export default Form;
+const mapStateToProps = (store) => {
+    return {
+        token: store.auth.token
+    }
+}
+export default connect(mapStateToProps)(Form);
