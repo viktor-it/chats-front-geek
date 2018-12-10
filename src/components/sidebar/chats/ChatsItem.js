@@ -3,7 +3,8 @@ import {NavLink} from 'react-router-dom';
 
 import styles from './ChatsItem.module.css';
 
-const ChatsItem = (props) => (
+const ChatsItem = (props) => {
+    return(
     <div className={styles.Block}>
         <NavLink className={styles.Item} to={`/chats/${props.id}`}>
             <div className={styles.Img}>
@@ -28,6 +29,7 @@ const ChatsItem = (props) => (
             </div>
         </NavLink>
     </div>
-);
+)
+};
 
 export default ChatsItem

@@ -11,7 +11,6 @@ const ChatsList = (props) => {
     let chats = props.chats.map((chat, index) => {
         return <ChatsItem key={index} {...chat} />
     });
-
     return (
         <div>
             <div className={styles.List}>
