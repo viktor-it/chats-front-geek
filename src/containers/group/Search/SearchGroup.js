@@ -53,7 +53,7 @@ class SearchGroup extends Component {
                 </ul>
                 <div className={classes.Buttons}>
                     <button className={classes.Button} onClick={this.props.closeForm}>
-                        Х
+                        <i class="fas fa-times"></i>
                     </button>
                 </div>
             </>
