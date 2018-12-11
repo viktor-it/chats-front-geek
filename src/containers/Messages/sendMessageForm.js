@@ -1,41 +1,86 @@
 import React from 'react';
 import classes from './sendMessage.module.css';
 
+import 'emoji-mart/css/emoji-mart.css';
+import { Picker } from 'emoji-mart';
+
 export default class SendMessage extends React.Component {
   constructor() {
     super()
     this.state = {
-      message: ''
+      message: '',
+      showEmojis: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  handleChange(e) {  //обновление состояния после ввода сообщения
+  handleChange = (e) => {  //обновление состояния после ввода сообщения
     this.setState({
       message: e.target.value
     })
   }
-  handleSubmit(e) {
-    e.preventDefault()
-    this.props.sendMessage(this.state.message)  //метод отправки сообщения (в messageForm)
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
     this.setState({
       message: ''
-    })
+    });
   }
+  showEmojis = (e) => {
+    this.setState({
+      showEmojis: true
+    }, () => document.addEventListener('click', this.closeMenu))
+  }
+  closeMenu = (e) => {
+    //console.log(this.emojiPicker);
+    if (this.emojiPicker !== null && !this.emojiPicker.contains(e.target)) {
+      this.setState({
+        showEmojis: false
+      }, () => document.removeEventListener('click', this.closeMenu))
+    }
+  }
+  addEmoji = (e) => {
+    //console.log(e.unified)
+    if (e.unified.length <= 5){
+      let emojiPic = String.fromCodePoint(`0x${e.unified}`);
+      this.setState({
+        message: this.state.message + " " + emojiPic
+      });
+    }else {
+      let sym = e.unified.split('-');
+      let codesArray = [];
+      sym.forEach(el => codesArray.push('0x' + el));
+      let emojiPic = String.fromCodePoint(...codesArray);
+      this.setState({
+        message: this.state.message + " " + emojiPic
+      });
+    }
+  }
+
   render() {
     return (
       <form
         onSubmit={this.handleSubmit}
         className={classes.Form}>
-        <button type='submit' className={classes.clip}><i class="fa fa-paperclip fa-2x"></i></button>
+        <button type='submit' className={classes.clip}><i className="fa fa-paperclip fa-2x"></i></button>
         <input
         className={classes.input}
           onChange={this.handleChange}  //отслеживание ввода сообщения
           value={this.state.message}
           placeholder="Введите сообщение"
           type="text" />
-        <button type='submit' className={classes.btn}><i class="fas fa-paper-plane"></i></button>
-        <button type='submit' className={classes.smile}><i class="far fa-smile fa-2x"></i></button>
+        <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
+        <div>
+          <button type='button' className={classes.smile} onClick={this.showEmojis}><i className="far fa-smile fa-2x"></i></button>
+          {
+          this.state.showEmojis ?
+            <span ref={el => (this.emojiPicker = el)}>
+              <Picker onSelect={this.addEmoji} />
+            </span>
+          :
+            <p onClick={this.showEmojis}></p>  
+          }
+        </div>
       </form>
     )
   }
