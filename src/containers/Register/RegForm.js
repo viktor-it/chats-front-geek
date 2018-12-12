@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 
+import {registerUser} from '../../store/actions';
+
 import styles from './RegForm.module.css';
 
 class RegForm extends Component {
@@ -40,7 +42,7 @@ class RegForm extends Component {
             alert("Пароль не совпадает с подтверждением пароля")
         }
         if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.passwordCheck)){
-            alert('Форма отправлена')    // Здесь будет происходить POST запрос к API
+            this.props.dispatch(registerUser(this.state.name,this.state.password,this.state.email));
         }
     }
 
@@ -75,7 +77,7 @@ class RegForm extends Component {
     }
     
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         let CancelButtonState = this.state.cancelButtonHovered ? styles.ButtonHovered + ' ' : '';
         let RegButtonState = this.state.regButtonHovered ? styles.ButtonHovered + ' ' : '';
         return (
@@ -100,7 +102,7 @@ class RegForm extends Component {
                         className={styles.Input + ' ' + styles.Mail}
                         />
 
-                        <input type ="text"
+                        <input type ="password"
                         name="password"
                         onChange={this.handleChange}
                         value={this.state.password}
@@ -108,7 +110,7 @@ class RegForm extends Component {
                         className={styles.Input + ' ' + styles.Pass}
                         />
 
-                        <input type ="text"
+                        <input type ="password"
                         name="passwordCheck"
                         onChange={this.handleChange}
                         value={this.state.passwordCheck}
