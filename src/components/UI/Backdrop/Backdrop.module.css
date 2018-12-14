@@ -7,3 +7,9 @@
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.BackgroundImage {
+    background-image: url(../../../images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}

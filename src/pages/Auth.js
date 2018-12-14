@@ -8,8 +8,8 @@ import Backdrop from '../components/UI/Backdrop/Backdrop';
 const auth = () => {
     return (
         <>
-            <Backdrop/>
-            <Modal show>
+            <Backdrop show classesNames='BackgroundImage'/>
+            <Modal show classesNames='Center Opacity'>
                 <AuthForm/>
             </Modal>
         </>
