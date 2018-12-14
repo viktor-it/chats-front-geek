@@ -4,6 +4,7 @@ import ChatsItem from './ChatsItem';
 import styles from './ChatsList.module.css';
 
 const ChatsList = (props) => {
+
     if(!props.chats.length){
         return null; //Если данные еще загружаются
     }
@@ -19,7 +20,7 @@ const ChatsList = (props) => {
 
             {/*кнопки*/}
             <div className={styles.ButtonsBlock}>
-                <button className={styles.Button}onClick={props.createGroup} >
+                <button className={styles.Button} onClick={props.createGroup} >
                     <div className={styles.Icon}>+</div>
                     <span className={styles.Text}>Создать свою группу</span>
                 </button>

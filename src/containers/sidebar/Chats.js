@@ -6,7 +6,7 @@ import SearchGroup from '../group/Search/SearchGroup';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
 
-import {getChats} from '../../store/actions';
+import {getChats} from '../../store/actions/index';
 
 import {connect} from 'react-redux';
 
