@@ -27,6 +27,7 @@ class Layout extends Component
                 <Switch>
                     <Route path="/" exact component={MainPage}/>
                     <Route path="/chats" exact component={MainPage}/>
+                    <Route path='/chats/:id' component={MainPage}/>
                     <Route path="/contacts" exact component={MainPage}/>
                     <Route path="/account" exact component={AccountPage}/>
                     <Route path="*"><Redirect to="/"/></Route>
