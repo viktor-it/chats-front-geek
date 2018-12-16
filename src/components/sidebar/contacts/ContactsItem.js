@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 import styles from './ContactsItem.module.css';
 
 const ContactsItem = (props) => {
-
     return (
         <div className={styles.Block}>
             <NavLink className={styles.Item} to={`/contacts/${props.id}`}>

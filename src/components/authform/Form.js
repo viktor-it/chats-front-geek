@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { FormErrors } from './FormErrors';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {loginUser} from '../../store/actions';
+
 import classes from './Form.module.css';
 
 class Form extends Component {
@@ -50,31 +54,48 @@ class Form extends Component {
         return(error.length === 0 ? '' : 'has-error');
     }
 
+    clickLogin(event) {
+        event.preventDefault();
+        // localStorage.setItem("token","тест");
+        this.props.dispatch(loginUser(this.state.email,this.state.password));
+    }
+
     render () {
         return (
-            <form className={classes.Form}>
-                <h2>Войдите под своим логином</h2>
-                <div className="panel panel-default">
-                    <FormErrors formErrors={this.state.formErrors} />
-                </div>
-                <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" required className="form-control" name="email"
-                           placeholder="Email"
-                           value={this.state.email}
-                           onChange={this.handleUserInput}  />
-                </div>
-                <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" name="password"
-                           placeholder="Password"
-                           value={this.state.password}
-                           onChange={this.handleUserInput}  />
-                </div>
-                <button type="submit" className="btn btn-primary" onClick={()=>{localStorage.setItem("token","тест");}}>login</button>
-            </form>
+            <div className={classes.main}>
+                {/* <div className={classes.content}> */}
+                    <div className={classes.restangle_2_1}></div>
+                    <div className={classes.restangle_2_2}></div>
+                    <div className={classes.restangle_2_3}>
+                        <form action="">
+                            <input className={classes.mail} type="email" required name="email"
+                                       placeholder="Логин"
+                                       value={this.state.email}
+                                       onChange={this.handleUserInput} />
+                            <input className={classes.pass} type="password" name="password"
+                                       placeholder="Пароль"
+                                       value={this.state.password}
+                                       onChange={this.handleUserInput}  />
+                            <button className={classes.log_in} onClick={(e)=>{this.clickLogin(e);}}>Войти</button>
+                            <div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>
+                        </form>
+                        <div className={classes.registration}>Нет аккаунта?
+                            <Link to='/register'> Регистрация</Link>
+                        </div>
+                    </div>
+                    <div className={classes.ellipse_big}></div>
+                    <div className={classes.pocket_messenger}>Pocket Messenger</div>
+                    <div className={classes.for_geeks_by_geeks}>For geeks by geeks</div>
+                    <div className={classes.ellipse_small}></div>
+                {/* </div> */}
+            </div>
         )
     }
 }
 
-export default Form;
+const mapStateToProps = (store) => {
+    return {
+        token: store.auth.token
+    }
+}
+export default connect(mapStateToProps)(Form);

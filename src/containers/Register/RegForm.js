@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 
+import {registerUser} from '../../store/actions';
+
+import styles from './RegForm.module.css';
+
 class RegForm extends Component {
     state = {              // Здесь хранится актуальное состояние формы регистрации
         name:"",
@@ -9,7 +13,21 @@ class RegForm extends Component {
         password:"",
         passwordCheck:"",
         checkbox:false,
-        emailValid:false
+        emailValid:false,
+        cancelButtonHovered: false,
+        regButtonHovered: false
+    }
+
+
+    CancelButtonHover = () => {
+        this.setState({
+            cancelButtonHovered: !this.state.cancelButtonHovered
+        });
+    }
+    RegButtonHover = () => {
+        this.setState({
+            regButtonHovered: !this.state.regButtonHovered
+        });
     }
 
     handleSubmit = (e) => {
@@ -24,7 +42,7 @@ class RegForm extends Component {
             alert("Пароль не совпадает с подтверждением пароля")
         }
         if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.passwordCheck)){
-            alert('Форма отправлена')    // Здесь будет происходить POST запрос к API
+            this.props.dispatch(registerUser(this.state.name,this.state.password,this.state.email));
         }
     }
 
@@ -59,48 +77,72 @@ class RegForm extends Component {
     }
     
     render() {
-        console.log(this.state)
+        // console.log(this.state);
         return (
-          <div>
-            <form>
-                <input type ="text"
-                name="name"
-                onChange={this.handleChange}
-                value={this.state.name}
-                placeholder="Ваш никнейм"
-                />
-                <br/>
-                <input type ="text"
-                name="email"
-                onChange={this.handleChange}
-                value={this.state.email}
-                placeholder="E-mail"
-                />
-                <br/>
-                <input type ="text"
-                name="password"
-                onChange={this.handleChange}
-                value={this.state.password}
-                placeholder="Пароль"
-                />
-                <br/>
-                <input type ="text"
-                name="passwordCheck"
-                onChange={this.handleChange}
-                value={this.state.passwordCheck}
-                placeholder="Подтверждение пароля"
-                />
-                <br/>
-                <input type="checkbox" onChange={this.handleCheckbox}/>
-                <p>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.<br/>
-                    <a href="#">Узнать больше</a>
-                </p>
-                <br/>
-                <input type="submit" onClick={this.handleSubmit}/>
-                <br/>
-                <button onClick={this.clickCancelHandler}>Отмена</button>
-            </form>
-          </div>
+            <div className={styles.Main}>
+                <div className={styles.Restangle_2_1} />
+                <div className={styles.Restangle_2_2} />
+                <div className={styles.Restangle_2_3}>
+                    <form action="true">
+                        <input type ="text"
+                        name="name"
+                        onChange={this.handleChange}
+                        value={this.state.name}
+                        placeholder="Ваш никнейм"
+                        className={styles.Input + ' ' + styles.Name}
+                        />
+
+                        <input type ="text"
+                        name="email"
+                        onChange={this.handleChange}
+                        value={this.state.email}
+                        placeholder="E-mail"
+                        className={styles.Input + ' ' + styles.Mail}
+                        />
+
+                        <input type ="password"
+                        name="password"
+                        onChange={this.handleChange}
+                        value={this.state.password}
+                        placeholder="Пароль"
+                        className={styles.Input + ' ' + styles.Pass}
+                        />
+
+                        <input type ="password"
+                        name="passwordCheck"
+                        onChange={this.handleChange}
+                        value={this.state.passwordCheck}
+                        placeholder="Подтверждение пароля"
+                        className={styles.Input + ' ' + styles.CheckPass}
+                        />
+
+                        <input type="checkbox"
+                        onChange={this.handleCheckbox}
+                        className={styles.Checkbox}/>
+
+                        <p className={styles.Text}>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.<br/>
+                            <a className={styles.KnowMore} href="#">Узнать больше</a>
+                        </p>
+
+                        <button
+                        onClick={this.handleSubmit}
+                        className={styles.Input + ' ' + styles.ButtonOk}>Зарегистрироваться</button>
+
+                        <button onClick={this.clickCancelHandler}
+                        className={styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>
+                            Отмена
+                        </button>
+                    </form>
+                </div>
+                <div className={styles.EllipseBig} />
+                <div className={styles.Title}>
+                    Pocket Messenger
+                </div>
+                <div className={styles.Subtitle}>
+                    For geeks by geeks
+                </div>
+                <div className={styles.EllipseSmall} />
+            </div>
         );
     }
 }

@@ -1,16 +1,35 @@
 .Modal {
     position: fixed;
-    z-index: 500;
-    background-color: white;
-    width: 80%;
-    height: 80%;
+/*    z-index: 500;*/
+    /* background-color: white; */
+  /* width: 80%;
+    height: 80%; */
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
-    padding: 16px;
-    left: 10%;
-    top: 10%;
+    /* padding: 16px; */
+    /* left: 10%; */
+/*    top: 10%;*/
+    top: 0;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+
+    /* width: 1170px; */
+    /* background-image: url(../../../images/background.jpg); */
+    /* background-repeat: no-repeat; */
+    /* min-height: 780px; */
+/*    position: absolute;*/
+    z-index: 200;
+}
+
+.Center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 8px;
+}
+
+.Opacity {
+    opacity: .95;
 }
 
 .ModalLayer2 {

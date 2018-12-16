@@ -31,8 +31,10 @@ export function authReducer(state = initialState, action) {
             break;
         }        
         case Constants.LOGIN_REJECTED: {
+            localStorage.setItem("token",'test user');
             state = {
                 ...state,
+                token: 'test user', //delete in production
                 is_loading_user: false
             };
             break;
@@ -64,6 +66,14 @@ export function authReducer(state = initialState, action) {
             state = {
                 ...state,
                 is_loading_user: false
+            };
+            break;
+        }
+        case Constants.LOGOUT: {
+            localStorage.removeItem('token');
+            state = {
+                ...state,
+                token: null
             };
             break;
         }
