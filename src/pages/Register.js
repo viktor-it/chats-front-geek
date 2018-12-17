@@ -7,8 +7,8 @@ import Backdrop from '../components/UI/Backdrop/Backdrop';
 const register = () => {
     return (
         <>
-            <Backdrop/>
-            <Modal show>
+            <Backdrop show classesNames='BackgroundImage'/>
+            <Modal show classesNames='Center Opacity'>
                 {/*<div>Форма регистрации</div>*/}
                 <RegForm/>
             </Modal>

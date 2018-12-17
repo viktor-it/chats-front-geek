@@ -78,10 +78,8 @@ class RegForm extends Component {
     
     render() {
         // console.log(this.state);
-        let CancelButtonState = this.state.cancelButtonHovered ? styles.ButtonHovered + ' ' : '';
-        let RegButtonState = this.state.regButtonHovered ? styles.ButtonHovered + ' ' : '';
         return (
-            <>
+            <div className={styles.Main}>
                 <div className={styles.Restangle_2_1} />
                 <div className={styles.Restangle_2_2} />
                 <div className={styles.Restangle_2_3}>
@@ -126,30 +124,25 @@ class RegForm extends Component {
                             <a className={styles.KnowMore} href="#">Узнать больше</a>
                         </p>
 
-                        <input type="submit"
+                        <button
                         onClick={this.handleSubmit}
-                        value="Зарегистрироваться"
-                        onMouseEnter={this.RegButtonHover}
-                        onMouseLeave={this.RegButtonHover}
-                        className={RegButtonState + styles.Input + ' ' + styles.Button} />
+                        className={styles.Input + ' ' + styles.ButtonOk}>Зарегистрироваться</button>
 
                         <button onClick={this.clickCancelHandler}
-                        onMouseEnter={this.CancelButtonHover}
-                        onMouseLeave={this.CancelButtonHover}
-                        className={CancelButtonState + styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>
+                        className={styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>
                             Отмена
                         </button>
                     </form>
                 </div>
                 <div className={styles.EllipseBig} />
                 <div className={styles.Title}>
-                    <h1 className={styles.TitleText}>Pocket Messenger</h1>
+                    Pocket Messenger
                 </div>
                 <div className={styles.Subtitle}>
-                    <h2 className={styles.SubtitleText}>For geeks by geeks</h2>
+                    For geeks by geeks
                 </div>
                 <div className={styles.EllipseSmall} />
-            </>
+            </div>
         );
     }
 }

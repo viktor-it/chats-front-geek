@@ -5,14 +5,9 @@ import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
 
 export default class SendMessage extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      message: '',
-      showEmojis: false
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+  state = {
+    message: '',
+    showEmojis: false
   }
   handleChange = (e) => {  //обновление состояния после ввода сообщения
     this.setState({
@@ -21,10 +16,12 @@ export default class SendMessage extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
-    this.setState({
-      message: ''
-    });
+    if (this.state.message) {
+      this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
+      this.setState({
+        message: ''
+      });
+    }
   }
   showEmojis = (e) => {
     this.setState({
@@ -59,29 +56,31 @@ export default class SendMessage extends React.Component {
 
   render() {
     return (
-      <form
-        onSubmit={this.handleSubmit}
-        className={classes.Form}>
+      <div className={classes.Main}>
         <button type='submit' className={classes.clip}><i className="fa fa-paperclip fa-2x"></i></button>
-        <input
-        className={classes.input}
-          onChange={this.handleChange}  //отслеживание ввода сообщения
-          value={this.state.message}
-          placeholder="Введите сообщение"
-          type="text" />
-        <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
-        <div>
-          <button type='button' className={classes.smile} onClick={this.showEmojis}><i className="far fa-smile fa-2x"></i></button>
-          {
-          this.state.showEmojis ?
-            <span ref={el => (this.emojiPicker = el)}>
-              <Picker onSelect={this.addEmoji} />
-            </span>
-          :
-            <p onClick={this.showEmojis}></p>  
-          }
-        </div>
-      </form>
+        <form
+          onSubmit={this.handleSubmit}
+          className={classes.Form}>
+          <input
+          className={classes.input}
+            onChange={this.handleChange}  //отслеживание ввода сообщения
+            value={this.state.message}
+            placeholder="Введите сообщение"
+            type="text" />
+          <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
+          <div>
+            <button type='button' className={classes.smile} onClick={this.showEmojis}><i className="far fa-smile fa-2x"></i></button>
+            {
+            this.state.showEmojis ?
+              <div className={classes.EmojisForm} ref={el => (this.emojiPicker = el)}>
+                <Picker onSelect={this.addEmoji} />
+              </div>
+            :
+              <p onClick={this.showEmojis}></p>  
+            }
+          </div>
+        </form>
+      </div>
     )
   }
 }

@@ -1,22 +1,29 @@
+.Main {
+    margin: 0 auto;
+    /* width: 1170px; */
+    width: 399px;
+    height: 628px;
+    position: relative;
+}
 .Restangle_2_1{
     width: 395.46px;
     height: 518.7px;
     filter: blur(5px);
     position: absolute;
-    background-image: url(../../images/background.jpg);
+    /* background-image: url(../../images/background.jpg);
     background-repeat: no-repeat;
-    background-position: -387.27px -85.8px;
+    background-position: -387.27px -85.8px; */
     overflow: hidden;
-    top: 85.8px;
-    left: 387.27px;
+    /* top: 85.8px;
+    left: 387.27px; */
 }
 .Restangle_2_2{
 	width: 401.46px;
     height: 630px;
     border: 1px #000000 solid;
     position: absolute;
-    top: 85.8px;
-    left: 387.27px;
+    /* top: 85.8px;
+    left: 387.27px; */
     background-color: #84DBFF;
     opacity: 0.16;
     border-radius: 8px;
@@ -25,8 +32,8 @@
 	width: 393.46px;
     height: 516.7px;
     position: absolute;
-    top: 86.8px;
-    left: 388.27px;
+    /* top: 86.8px;
+    left: 388.27px; */
     border-radius: 8px;
     z-index: 400;
 }
@@ -45,6 +52,11 @@
     padding-left: 10px;
     color: #111111;
     height: 7.5%;
+}
+.Input:focus {
+    background-color: #eee;
+    border: 3px solid #FFE684;
+    outline: none;
 }
 .Name{
 	top: 46.3%;
@@ -90,7 +102,8 @@
 	color: #ffe684;
 }
 
-.Button{
+.Button,
+.ButtonOk{
 	background-color: #b8c5cb;
     color: #004f70;
     font-size: 14px;
@@ -99,22 +112,25 @@
     top: 105%;
     height: 8%;
     padding: 0;
+	cursor: pointer;
+}
+.ButtonOk {
+	background-color: #ffe684;
 }
 .CancelButton{
 	left: 65%;
 	width: 21%;
 }
-.ButtonHovered{
+.Button:hover{
 	background-color: #ffe684;
-	cursor: pointer;
 }
 
 .EllipseBig{
 	width: 398.46px;
     height: 238.928px;
     position: absolute;
-    top: 86.388px;
-    left: 388.27px;
+    /* top: 86.388px;
+    left: 388.27px; */
     background-image: url(../../images/ellipse_big.png);
     background-repeat: no-repeat;
     background-size: 441.34288948px 441.34288948px;
@@ -126,32 +142,27 @@
 .Title{
 	position: absolute;
     width: 100%;
-    top: 110px;
+    /* top: 110px; */
     z-index: 110;
-}
-.TitleText,
-.SubtitleText{
-	color: #004F70;
-    font-family: sans-serif, Roboto;
-}
-
-
-.TitleText{
+    margin: 15px;
     font-size: 32px;
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
 }
+.Title,
+.Subtitle{
+	color: #004F70;
+    font-family: sans-serif, Roboto;
+}
 
 .Subtitle{
 	position: absolute;
     width: 98%;
-    top: 160px;
+    /* top: 160px; */
+    top: 8%;
     z-index: 110;
-}
-
-.SubtitleText{
-    font-size: 18px;
+    font-size: 13px;
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
@@ -163,9 +174,12 @@
     background-color: #E6F8FF;
     border-radius: 68.7628563px;
     position: absolute;
-    top: 86.388px;
-    left: 555.61857185px;
-    top: 195px;
+    /* top: 86.388px;
+    left: 555.61857185px; */
+    /* top: 195px; */
+    left: 50%;
+    top: 16%;
+    transform: translateX(-50%);
     box-shadow: 0px 2px 5px #999;
 }
 

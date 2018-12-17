@@ -18,15 +18,11 @@ class Modal extends Component {
 
         return (
             <>
-                <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
+                {/* <Backdrop show={this.props.show} clicked={this.props.modalClosed} /> */}
                 <div
                     className={assignedClasses.map(el => {
                         return classes[el]
-                    }).join(' ')}
-                    style={{
-                        transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                        opacity: this.props.show ? '1' : '0'
-                    }}>
+                    }).join(' ')}>
                     {this.props.children}
                 </div>
             </>

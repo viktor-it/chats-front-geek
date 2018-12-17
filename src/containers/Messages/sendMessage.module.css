@@ -1,4 +1,4 @@
-.Form {
+.Main {
   position: relative;
   width: 100%;
   max-width: 760px;
@@ -7,14 +7,14 @@ input[type="text"]:focus { outline: none; }
 .input {
   width: 100%;
   border: none;
-  padding: 16px 80px;
-  font-size: 14px;
-  font-style: italic;
+  padding: 14px 80px;
+  font-size: 18px;
+  /* font-style: italic; */
 }
 .clip {
   position: absolute;
   top: 6px;
-  left: 23px;
+  left: 15px;
   cursor: pointer;
   color: #fff;
   padding: 7px;
@@ -37,6 +37,7 @@ input[type="text"]:focus { outline: none; }
   color: #3498DB;
   right: 55px;
   cursor: pointer;
+  outline: none;
 } 
 .smile {
   position: absolute;
@@ -47,4 +48,9 @@ input[type="text"]:focus { outline: none; }
   color: #C4C4C4;
   right: 15px;
   top: 12px;
+}
+.EmojisForm {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
 }
