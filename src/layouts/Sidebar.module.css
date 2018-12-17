@@ -14,19 +14,20 @@
     text-align: center;
     color: #fff;
 }
-.TextHovered{
-    color: #F8D57D;
+
+.Icon{
+    padding: 5px;
+    color: #fff;
 }
 
 .Tabs{
     display: flex;
 }
 
-.Icon{
-	padding: 5px;
-    color: #fff;
-}
-.IconHovered{
+.Tab:hover .Text,
+.Tab:hover .Icon
+{
     color: #F8D57D;
-    padding: 5px;
 }
+
+
