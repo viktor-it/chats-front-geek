@@ -31,8 +31,10 @@ export function authReducer(state = initialState, action) {
             break;
         }        
         case Constants.LOGIN_REJECTED: {
+            localStorage.setItem("token",'test user');
             state = {
                 ...state,
+                token: 'test user', //delete in production
                 is_loading_user: false
             };
             break;

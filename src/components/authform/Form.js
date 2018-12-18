@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {loginUser} from '../../store/actions';
 
 import classes from './Form.module.css';
 
@@ -51,14 +54,16 @@ class Form extends Component {
         return(error.length === 0 ? '' : 'has-error');
     }
 
-    clickLogin() {
-        localStorage.setItem("token","тест");
+    clickLogin(event) {
+        event.preventDefault();
+        // localStorage.setItem("token","тест");
+        this.props.dispatch(loginUser(this.state.email,this.state.password));
     }
 
     render () {
         return (
             <div className={classes.main}>
-                <div className={classes.content}>
+                {/* <div className={classes.content}> */}
                     <div className={classes.restangle_2_1}></div>
                     <div className={classes.restangle_2_2}></div>
                     <div className={classes.restangle_2_3}>
@@ -71,7 +76,7 @@ class Form extends Component {
                                        placeholder="Пароль"
                                        value={this.state.password}
                                        onChange={this.handleUserInput}  />
-                            <input className={classes.log_in} type="submit" value="Войти" onClick={()=>{localStorage.setItem("token","тест");}} />
+                            <button className={classes.log_in} onClick={(e)=>{this.clickLogin(e);}}>Войти</button>
                             <div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>
                         </form>
                         <div className={classes.registration}>Нет аккаунта?
@@ -79,13 +84,18 @@ class Form extends Component {
                         </div>
                     </div>
                     <div className={classes.ellipse_big}></div>
-                    <div className={classes.pocket_messenger}><h1>Pocket Messenger</h1></div>
-                    <div className={classes.for_geeks_by_geeks}><h2>For geeks by geeks</h2></div>
+                    <div className={classes.pocket_messenger}>Pocket Messenger</div>
+                    <div className={classes.for_geeks_by_geeks}>For geeks by geeks</div>
                     <div className={classes.ellipse_small}></div>
-                </div>
+                {/* </div> */}
             </div>
         )
     }
 }
 
-export default Form;
+const mapStateToProps = (store) => {
+    return {
+        token: store.auth.token
+    }
+}
+export default connect(mapStateToProps)(Form);

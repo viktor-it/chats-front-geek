@@ -6,6 +6,8 @@ import MainPage from '../pages/MainPage';
 import AuthForm from '../pages/Auth';
 import RegForm from '../pages/Register';
 
+import AccountPage from '../pages/AccountPage';
+
 class Layout extends Component
 {
     render(){
@@ -25,7 +27,9 @@ class Layout extends Component
                 <Switch>
                     <Route path="/" exact component={MainPage}/>
                     <Route path="/chats" exact component={MainPage}/>
+                    <Route path='/chats/:id' component={MainPage}/>
                     <Route path="/contacts" exact component={MainPage}/>
+                    <Route path="/account" exact component={AccountPage}/>
                     <Route path="*"><Redirect to="/"/></Route>
                 </Switch>
             </>

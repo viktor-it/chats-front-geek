@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 
+import {registerUser} from '../../store/actions';
+
 import styles from './RegForm.module.css';
 
 class RegForm extends Component {
@@ -40,7 +42,7 @@ class RegForm extends Component {
             alert("Пароль не совпадает с подтверждением пароля")
         }
         if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.passwordCheck)){
-            alert('Форма отправлена')    // Здесь будет происходить POST запрос к API
+            this.props.dispatch(registerUser(this.state.name,this.state.password,this.state.email));
         }
     }
 
@@ -75,11 +77,9 @@ class RegForm extends Component {
     }
     
     render() {
-        console.log(this.state);
-        let CancelButtonState = this.state.cancelButtonHovered ? styles.ButtonHovered + ' ' : '';
-        let RegButtonState = this.state.regButtonHovered ? styles.ButtonHovered + ' ' : '';
+        // console.log(this.state);
         return (
-            <>
+            <div className={styles.Main}>
                 <div className={styles.Restangle_2_1} />
                 <div className={styles.Restangle_2_2} />
                 <div className={styles.Restangle_2_3}>
@@ -100,7 +100,7 @@ class RegForm extends Component {
                         className={styles.Input + ' ' + styles.Mail}
                         />
 
-                        <input type ="text"
+                        <input type ="password"
                         name="password"
                         onChange={this.handleChange}
                         value={this.state.password}
@@ -108,7 +108,7 @@ class RegForm extends Component {
                         className={styles.Input + ' ' + styles.Pass}
                         />
 
-                        <input type ="text"
+                        <input type ="password"
                         name="passwordCheck"
                         onChange={this.handleChange}
                         value={this.state.passwordCheck}
@@ -124,30 +124,25 @@ class RegForm extends Component {
                             <a className={styles.KnowMore} href="#">Узнать больше</a>
                         </p>
 
-                        <input type="submit"
+                        <button
                         onClick={this.handleSubmit}
-                        value="Зарегистрироваться"
-                        onMouseEnter={this.RegButtonHover}
-                        onMouseLeave={this.RegButtonHover}
-                        className={RegButtonState + styles.Input + ' ' + styles.Button} />
+                        className={styles.Input + ' ' + styles.ButtonOk}>Зарегистрироваться</button>
 
                         <button onClick={this.clickCancelHandler}
-                        onMouseEnter={this.CancelButtonHover}
-                        onMouseLeave={this.CancelButtonHover}
-                        className={CancelButtonState + styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>
+                        className={styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>
                             Отмена
                         </button>
                     </form>
                 </div>
                 <div className={styles.EllipseBig} />
                 <div className={styles.Title}>
-                    <h1 className={styles.TitleText}>Pocket Messenger</h1>
+                    Pocket Messenger
                 </div>
                 <div className={styles.Subtitle}>
-                    <h2 className={styles.SubtitleText}>For geeks by geeks</h2>
+                    For geeks by geeks
                 </div>
                 <div className={styles.EllipseSmall} />
-            </>
+            </div>
         );
     }
 }

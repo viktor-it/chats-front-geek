@@ -1,38 +1,36 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 .main {
     margin: 0 auto;
-    width: 1170px;
+    /* width: 1170px; */
+    width: 392px;
+    height: 516px;
     position: relative;
 }
 .content {
-    width: 1170px;
+    /* width: 1170px; */
     background-repeat: no-repeat;
-    min-height: 780px;
+    /* min-height: 780px; */
     position: absolute;
     z-index: 200;
 }
 .restangle_2_1 {
     width: 395.46px;
     height: 518.7px;
-    filter: blur(5px);
+    /* filter: blur(5px); */
     position: absolute;
-    background-image: url(../../images/background.jpg);
-    background-repeat: no-repeat;
-    background-position: -387.27px -85.8px;
+    /* background-image: url(../../images/background.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-position: -387.27px -85.8px; */
     overflow: hidden;
-    top: 85.8px;
-    left: 387.27px;
+    /* top: 85.8px; */
+    /* left: 387.27px; */
 }
 .restangle_2_2 {
     width: 393.46px;
     height: 516.7px;
     border: 1px #000000 solid;
     position: absolute;
-    top: 85.8px;
-    left: 387.27px;
+    /* top: 85.8px; */
+    /* left: 387.27px; */
     background-color: #84DBFF;
     opacity: 0.16;
     border-radius: 8px;
@@ -41,20 +39,20 @@
     width: 393.46px;
     height: 516.7px;
     position: absolute;
-    top: 86.8px;
-    left: 388.27px;
+    /* top: 86.8px; */
+    /* left: 388.27px; */
     border-radius: 8px;
     z-index: 400;
 }
 .restangle_2_3:hover {
-    outline: 1px #ffe684 solid;
+    /* outline: 1px #ffe684 solid; */
 }
 .ellipse_big {
     width: 393.46px;
     height: 238.928px;
     position: absolute;
-    top: 86.388px;
-    left: 388.27px;
+    /* top: 86.388px; */
+    /* left: 388.27px; */
     background-image: url(../../images/ellipse_big.png);
     background-repeat: no-repeat;
     background-size: 441.34288948px 441.34288948px;
@@ -69,11 +67,10 @@
 }
 .pocket_messenger {
     position: absolute;
+    margin-top: 15px;
     width: 100%;
-    top: 110.00376081px;
+    /* top: 110.00376081px; */
     z-index: 110;
-}
-.pocket_messenger h1 {
     font-size: 32px;
     font-weight: 100;
     letter-spacing: 1px;
@@ -82,24 +79,27 @@
 .for_geeks_by_geeks {
     position: absolute;
     width: 100%;
-    top: 160px;
+    /* top: 160px; */
+    top: 10%;
     z-index: 110;
-}
-.for_geeks_by_geeks h2 {
-    font-size: 18px;
+    font-size: 13px;
     font-weight: 100;
     letter-spacing: 1px;
     text-align: center;
 }
+
 .ellipse_small {
     width: 68.7628563px;
     height: 68.7628563px;
     background-color: #E6F8FF;
     border-radius: 68.7628563px;
     position: absolute;
-    top: 86.388px;
-    left: 550.61857185px;
-    top: 195px;
+    /* top: 86.388px;
+    left: 550.61857185px; */
+    /* top: 195px; */
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
     box-shadow: 0px 2px 5px #999;
 }
 .restangle_2_3 input {
@@ -118,6 +118,8 @@
 }
 .restangle_2_3 input:focus {
     background-color: #eee;
+    border: 3px solid #FFE684;
+    outline: none;
 }
 .forgot_pass {
     position: absolute;
@@ -134,12 +136,20 @@
     text-decoration: underline;
 }
 .log_in {
-    background-color: #ffe684;
+    display: block;
+    position: absolute;
+    left: 18%;
+    border: 1px #ffe684 solid;
+    border-radius: 8px;
+    z-index: 200;
+    font-size: 14px;
+    font-style: italic;
+    background-color: #FFE684;
     color: #004f70;
     font-size: 16px;
     letter-spacing: 1px;
     font-style: normal;
-    width: 65%;
+    width: 62%;
     top: 71%;
     height: 8%;
 }
@@ -152,7 +162,7 @@
 }
 .mail {
     top: 46.3%;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
 }
 .pass {
     top: 57.8%;

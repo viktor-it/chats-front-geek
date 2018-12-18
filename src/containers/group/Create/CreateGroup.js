@@ -43,10 +43,10 @@ class CreateGroup extends Component {
                 <div className={classes.Buttons}>
                     {/* <button className={classes.Button} onCLick={() => {props.createGroup({...this.state})}}> */}
                     <button className={classes.Button} onClick={this.onCLickConfirmHandler}>
-                        V
+                        <i class="fas fa-check"></i>
                     </button>
                     <button className={classes.Button} onClick={this.props.closeForm}>
-                        Х
+                        <i class="fas fa-times"></i>
                     </button>
                 </div>
             </div>
