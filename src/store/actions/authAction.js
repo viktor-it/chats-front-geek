@@ -4,14 +4,14 @@ import instance from '../axios-docs';
 export function loginUser(account_name,password) {
     return {
         type: LOGIN,
-        payload: instance.put("/v1/auth/",{account_name,password})
+        payload: instance.post("/v1/auth/login/",{account_name,password})
     };
 }
 
 export function registerUser(account_name,password,email) {
     return {
         type: REGISTER,
-        payload: instance.post("/v1/users/",{account_name,email,password})
+        payload: instance.post("/v1/auth/register/",{account_name,email,password})
     };
 }
 
