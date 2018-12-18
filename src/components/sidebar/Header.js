@@ -8,7 +8,7 @@ const Header = (props) => {
         <NavLink to={props.href} className={styles.Tab} activeClassName={styles.ActiveTab}>
 			{props.children}
         </NavLink>	        
-)
+	)
 }
 
 
