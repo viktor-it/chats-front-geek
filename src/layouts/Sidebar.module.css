@@ -14,10 +14,20 @@
     text-align: center;
     color: #fff;
 }
+.TextActive{
+    font-weight: 500;
+    text-align: center;
+    color: #F8D57D;
+}
 
 .Icon{
     padding: 5px;
     color: #fff;
+}
+
+.IconActive{
+    padding: 5px;
+    color: #F8D57D;
 }
 
 .Tabs{
@@ -29,5 +39,4 @@
 {
     color: #F8D57D;
 }
-
 

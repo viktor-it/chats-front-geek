@@ -9,33 +9,48 @@ import Main from '../components/sidebar/Main';
 import styles from  './Sidebar.module.css';
 
 
-const Sidebar = () => {
-    return(
-        <section className={styles.Sidebar}>
-            {/* бургер */}
-            <Menu />
+class Sidebar extends React.Component {
+    state = {
+        active: 1
+    };
 
-            {/* чаты vs контакты */}
-            <div className={styles.Tabs}>
-                <div className={styles.Tab}>
-                    <Header href="/chats">
-                        <i className={styles.Icon + ' fas fa-envelope'} />
-                        <span className={styles.Text}>Чаты</span>
-                    </Header>
+    render(){
+
+        return(
+            <section className={styles.Sidebar}>
+                {/* бургер */}
+                <Menu />
+
+                {/* чаты vs контакты */}
+                <div className={styles.Tabs}>
+                    <div className={styles.Tab}
+                    onClick={() => {this.state.active = 1}}>
+                        <Header href="/chats">
+                            <i className={(this.state.active == 1) ? 
+                            styles.IconActive + ' fas fa-envelope' : 
+                            styles.Icon + ' fas fa-envelope'}/>
+                            <span className={(this.state.active == 1) ? 
+                            styles.TextActive : styles.Text}>Чаты</span>
+                        </Header>
+                    </div>
+                    <div className={styles.Tab}
+                    onClick={() => {this.state.active = 2}}>
+                        <Header href="/contacts">
+                            <i className={(this.state.active == 2) ? 
+                            styles.IconActive + ' fas fa-user-friends' : 
+                            styles.Icon + ' fas fa-user-friends'}/>
+                            <span className={(this.state.active == 2) ? 
+                            styles.TextActive : styles.Text}>Контакты</span>
+                        </Header>
+                    </div>                
                 </div>
-                <div className={styles.Tab}>
-                    <Header href="/contacts">
-                        <i className={styles.Icon + ' fas fa-user-friends'} />
-                        <span className={styles.Text}>Контакты</span>
-                    </Header>
-                </div>                
-            </div>
 
-            {/*списки, профили*/}
-            <Main />
+                {/*списки, профили*/}
+                <Main />
 
-        </section>
-    )
+            </section>
+        )
+    }
 }
 
 
