@@ -10,7 +10,14 @@ export default class MessageListToday extends React.Component
       return (
           <div className="list">
               <div className={classes.date}><span>{outputDate}</span></div>
-              <SingleMessage messages={this.props.messages} />
+              {this.props.messages.map(message => {
+                let outputTime = new Date(message.date);
+                return (
+                  <li className={classes.item} key={message.id}>
+                    <SingleMessage message={message} outputTime={outputTime}/>
+                  </li>
+                )
+             })}
           </div>
       );
   }
