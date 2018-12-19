@@ -9,7 +9,6 @@
     justify-content: space-around;
     margin: 0;
 }
-
 .Header{
 	background-image: url(../../../images/user_profile/ellipse.svg);
     background-repeat: no-repeat;
@@ -17,6 +16,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
+    height: 250px;
 }
 
 .ChatProfile_HeaderAvatar__3NTqC{
@@ -31,7 +31,7 @@
 .HeaderText{
 	font-family: Roboto,sans-serif;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
     font-size: 16px;
     color: #34495E;
@@ -61,13 +61,17 @@
 .Edit{
     border: none;
     background-color: #F9F9F9;
+    border-radius: 50%;
+    /*background-image: url(../../../images/personal_profile/pencil.svg);*/
     margin: 5px 15px;
     cursor: pointer;
     outline: 0 none;
 }
 
 .EditIcon{
-
+    background-image: url(../../../images/personal_profile/pencil.svg);
+    height: 30px;
+    width: 30px;
 }
 
 .Status{
@@ -131,9 +135,48 @@
 .GroupMenuItems{
     margin: 0;
 }
-
+.GroupMenuItemsNotification {
+    display: flex;
+}
 .GroupMenuIcon{
 	margin: 0 20px;
+}
+
+.GroupMenuIconExit{
+    /*background-image: url(../../../images/Group_profile/Vector.svg);*/
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 17px;
+}
+.GroupMenuIconMembers{
+    background-image: url(../../../images/Group_profile/member.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 15px;
+}
+.GroupMenuIconBell{
+    background-image: url(../../../images/personal_profile/bell.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 25px;
+}
+.GroupMenuIconClear{
+    /*background-image: url(../../../images/Group_profile/delete.svg);*/
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 17px;
+}
+.GroupMenuIconAdd {
+    background-image: url(../../../images/Group_profile/invite.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 17px;
+}
+.GroupMenuIconRed {
+    background-image: url(../../../images/Group_profile/del_icon.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 17px;
 }
 
 .ItemBtn{
@@ -164,6 +207,9 @@
 .ItemBtnRed:hover{
 	color: #bd3434;
     font-weight: bold;
+}
+.CloseBtnIcon {
+
 }
 
 .ToggleSwitch{

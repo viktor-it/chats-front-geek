@@ -30,8 +30,7 @@ const GroupProfile = (props) => {
 	            	</h2>
 
 	            	<button className={styles.Edit}>
-                		<img src="../../../images/personal_profile/pencil.svg"
-                		alt="#" className={styles.EditIcon}/>
+						<div className={styles.EditIcon}></div>
             		</button>
             	</div>
             </div>
@@ -45,9 +44,8 @@ const GroupProfile = (props) => {
 		            <label for="about" className={styles.StatusAboutAdd}>Описание: </label>
 		            <input type="text" className={styles.StatusAboutText} id="about"/>
 		            <button className={styles.Edit}>
-		                <img src="../../../images/personal_profile/pencil.svg"
-		                alt="#" className={styles.EditIcon}/>
-		            </button>
+                        <div className={styles.EditIcon}></div>
+					</button>
 		        </div>
 
 		        <p className={styles.StatusText}>
@@ -59,28 +57,25 @@ const GroupProfile = (props) => {
 		        <li className={styles.GroupMenuItems}>
 			        <Link to="/">
 			            <button className={styles.ItemBtn}>
-			                <img src="../../../images/Group_profile/member.svg"
-			                alt="#" className={styles.GroupMenuIcon}/>
+                            <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconMembers}> </div>
 			                Участники
 			            </button>
 			        </Link>
 		        </li>
-		        <li className={styles.GroupMenuItems}>
+		        <li className={styles.GroupMenuItems+' '+styles.GroupMenuItemsNotification}>
 		            <button className={styles.ItemBtn}>
-		                <img src="../../../images/personal_profile/bell.svg"
-		                alt="#" className={styles.GroupMenuIcon}/>
+                        <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconBell}> </div>
 		                Оповещения
 		            </button>
 		             <div className={styles.ToggleSwitch}>
 		                <input type="checkbox" className={styles.Switch} id="switch"/>
-		                <label for="switch" className={styles.SwitchLine}></label>
+		                <label for="switch" className={styles.SwitchLine}> </label>
 		            </div>
 		        </li>
 		        <li className={styles.GroupMenuItems}>
 			        <Link to="/">
 			            <button className={styles.ItemBtn}>
-			                <img src="../../../images/personal_profile/clear.svg"
-			                alt="#" className={styles.GroupMenuIcon}/>
+                            <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconClear}> </div>
 			                Очистить переписку
 			            </button>
 			        </Link>
@@ -88,17 +83,23 @@ const GroupProfile = (props) => {
 		        <li className={styles.GroupMenuItems}>
 			        <Link to="/">
 			            <button className={styles.ItemBtn}>
-			                <img src="../../../images/Group_profile/invite.svg"
-			                alt="#" className={styles.GroupMenuIcon}/>
+                            <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconAdd}> </div>
 			                Добавить пользователя
 			            </button>
 			        </Link>
 		        </li>
+                <li className={styles.GroupMenuItems}>
+                    <Link to="/">
+                        <button className={styles.ItemBtn}>
+                            <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconExit}> </div>
+                            Выйти из группы
+                        </button>
+                    </Link>
+                </li>
 		        <li className={styles.GroupMenuItems}>
 			        <Link to="/">
-			            <button className={styles.ItemBtn + styles.ItemBtnRed}>
-			                <img src="../../../images/Group_profile/del_icon.svg"
-			                alt="#" className={styles.GroupMenuIcon + styles.GroupMenuIconRed}/>
+			            <button className={styles.ItemBtn+" "+styles.ItemBtnRed}>
+                            <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconRed}> </div>
 			                Удалить пользователя
 			            </button>
 			        </Link>
@@ -108,7 +109,8 @@ const GroupProfile = (props) => {
 		    <div className={styles.CloseProfile}>
 			    <Link to="/chats">
 			        <button className={styles.CloseBtn}>
-			            <img src="img/personal_profile/cancel.svg"
+
+			            <img src="../../../images/personal_profile/cancel.svg"
 			            alt="#" className={styles.CloseBtnIcon}/>
 			        </button>
 			    </Link>
