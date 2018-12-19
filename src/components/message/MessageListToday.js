@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Message.module.css';
+import SingleMessage from './SingleMessage';
 
 export default class MessageListToday extends React.Component
 {
@@ -12,27 +13,11 @@ export default class MessageListToday extends React.Component
               {this.props.messages.map(message => {
                 let outputTime = new Date(message.date);
                 return (
-                <li className={classes.item} key={message.id}>
-                  <div className={classes.superBlock}>
-                    <img className={classes.miniFoto} src="./img/woman-4.png" />
-                    <div className={classes.block}>
-                      <div className={classes.blockSms}>
-                        <div className={classes.name}>
-                          {message.senderId}
-                        </div>
-                        <div>
-                          {message.text}
-                        </div>
-                      </div>
-                      <div className={classes.time}>
-                        {outputTime.toLocaleTimeString()}
-                      </div>
-                    </div>
-                  </div>
-                   
-                </li>
+                  <li className={classes.item} key={message.id}>
+                    <SingleMessage message={message} outputTime={outputTime}/>
+                  </li>
                 )
-              })}
+             })}
           </div>
       );
   }

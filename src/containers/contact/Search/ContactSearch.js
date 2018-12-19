@@ -16,7 +16,7 @@ class SearchGroup extends Component {
     }
 
     onClickSearchHandler = () => {
-        this.setState({groups:[
+        this.setState({contacts:[
             {id:1,name:'Первый 1'},
             {id:5,name:'Земля'},
             {id:4,name:'Орел'},
