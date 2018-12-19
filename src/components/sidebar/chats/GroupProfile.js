@@ -30,7 +30,7 @@ const GroupProfile = (props) => {
 	            	</h2>
 
 	            	<button className={styles.Edit}>
-						<div className={styles.EditIcon}></div>
+						<div className={styles.EditIcon}> </div>
             		</button>
             	</div>
             </div>
@@ -44,7 +44,7 @@ const GroupProfile = (props) => {
 		            <label for="about" className={styles.StatusAboutAdd}>Описание: </label>
 		            <input type="text" className={styles.StatusAboutText} id="about"/>
 		            <button className={styles.Edit}>
-                        <div className={styles.EditIcon}></div>
+                        <div className={styles.EditIcon}> </div>
 					</button>
 		        </div>
 
@@ -109,9 +109,8 @@ const GroupProfile = (props) => {
 		    <div className={styles.CloseProfile}>
 			    <Link to="/chats">
 			        <button className={styles.CloseBtn}>
-
-			            <img src="../../../images/personal_profile/cancel.svg"
-			            alt="#" className={styles.CloseBtnIcon}/>
+                        <div className={styles.CloseBtnIcon}> </div>
+						Закрыть
 			        </button>
 			    </Link>
 		    </div>

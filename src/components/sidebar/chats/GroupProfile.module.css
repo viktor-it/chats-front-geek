@@ -62,7 +62,6 @@
     border: none;
     background-color: #F9F9F9;
     border-radius: 50%;
-    /*background-image: url(../../../images/personal_profile/pencil.svg);*/
     margin: 5px 15px;
     cursor: pointer;
     outline: 0 none;
@@ -129,7 +128,6 @@
     flex-wrap: wrap;
     padding: 20px 0;
     margin: 0;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .GroupMenuItems{
@@ -140,13 +138,6 @@
 }
 .GroupMenuIcon{
 	margin: 0 20px;
-}
-
-.GroupMenuIconExit{
-    /*background-image: url(../../../images/Group_profile/Vector.svg);*/
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 17px;
 }
 .GroupMenuIconMembers{
     background-image: url(../../../images/Group_profile/member.svg);
@@ -161,7 +152,7 @@
     height: 25px;
 }
 .GroupMenuIconClear{
-    /*background-image: url(../../../images/Group_profile/delete.svg);*/
+    background-image: url(../../../images/Group_profile/delete.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 17px;
@@ -171,6 +162,12 @@
     background-repeat: no-repeat;
     width: 20px;
     height: 17px;
+}
+.GroupMenuIconExit{
+     background-image: url(../../../images/Group_profile/Vector.svg);
+     background-repeat: no-repeat;
+     width: 20px;
+     height: 17px;
 }
 .GroupMenuIconRed {
     background-image: url(../../../images/Group_profile/del_icon.svg);
@@ -263,22 +260,35 @@
 
 
 .CloseProfile{
-    background-color: #fff;
+    background-color: #F9F9F9;
     margin-top: 2px;
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 .CloseBtn{
-	background-color: #fff;
+	background-color: #3498DB;
     border: none;
     outline: none;
     cursor: pointer;
     margin: 0 auto;
+    width: 100px;
+    height: 40px;
+    font-family: Roboto,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 14px;
+    align-items: center;
+    display: flex;
+    color: #FFFFFF;
+    border-radius: 30px
 }
 
 .CloseBtnIcon{
 	margin: 10px;
+    background-image: url(../../../images/Group_profile/close.svg);
 }
 
 
