@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Chats from '../../containers/sidebar/Chats'
 
-import ChatsSwitch from './chats/ChatsSwitch' 
+import GroupSwitch from './chats/GroupSwitch'
 
 import Contacts from '../../containers/sidebar/Contacts'
 
@@ -22,7 +22,7 @@ const Main = () => (
 
 			
 			<Route path='/' exact component={Chats}/>
-			<Route path='/chats' component={ChatsSwitch}/>
+			<Route path='/chats' component={GroupSwitch}/>
 
 			<Route path='/contacts' component={Contacts}/>
 
