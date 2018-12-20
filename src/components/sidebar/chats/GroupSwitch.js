@@ -2,15 +2,15 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import Chats from '../../../containers/sidebar/Chats'
-import ChatProfile from './ChatProfile'
+import GroupProfile from './GroupProfile'
 
 
-const ChatsSwitch = () => (
+const GroupSwitch = () => (
 	<Switch>
 		<Route exact path='/chats' component={Chats}/>
-		<Route path='/chats/:id' component={ChatProfile}/>
+		<Route path='/chats/:id' component={GroupProfile}/>
 	</Switch>
 )
 
 
-export default ChatsSwitch
+export default GroupSwitch
