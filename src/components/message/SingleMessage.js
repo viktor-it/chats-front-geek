@@ -11,10 +11,10 @@ export default class SingleMessage extends React.Component {
                 <div className={classes.block}>
                   <div className={classes.blockSms}>
                     <div className={classes.name}>
-                      {this.props.message.senderId}
+                      {this.props.message.sender_name}
                     </div>
                     <div>
-                      {this.props.message.text}
+                      {this.props.message.message}
                     </div>
                   </div>
                   <div className={classes.time}>
