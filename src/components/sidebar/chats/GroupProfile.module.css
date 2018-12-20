@@ -82,7 +82,7 @@
 
 .StatusInfo{
     display: block;
-    margin: 20px 0;
+    margin: 25px 0;
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -196,7 +196,6 @@
 	font-family: Roboto,sans-serif;
     font-style: normal;
     font-weight: bold;
-    line-height: 19px;
     font-size: 14px;
     color: #3498DB;
 }
