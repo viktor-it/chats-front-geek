@@ -1,24 +1,21 @@
 import React from 'react';
-import classes from './Message.module.css';
 import SingleMessage from './SingleMessage';
 
-export default class MessageListToday extends React.Component
+import classes from './MessageListToday.module.css';
+
+ const messageListToday = (props) =>
 {
-  render()
-  {
-    const outputDate = '15 сентября';
-      return (
-          <div className="list">
-              <div className={classes.date}><span>{outputDate}</span></div>
-              {this.props.messages.map(message => {
-                let outputTime = new Date(message.date);
-                return (
-                  <li className={classes.item} key={message.id}>
-                    <SingleMessage message={message} outputTime={outputTime}/>
-                  </li>
-                )
-             })}
-          </div>
-      );
-  }
+    return (
+        <div className={classes.list}>
+            <div className={classes.date}><span>{props.day}</span></div>
+            {props.messages.map(message => {
+              let outputTime = new Date(message.timestamp);
+              return (
+                <SingleMessage className={classes.item} key={message.timestamp} message={message} outputTime={outputTime}/>
+              )
+            })}
+        </div>
+    );
 }
+
+export default messageListToday;

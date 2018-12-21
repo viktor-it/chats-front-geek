@@ -1,25 +1,48 @@
 import * as Constants from '../constants';
 
 const initialState = {
-    messages: [],
+    messages: {},
     is_loading_messages: false
 }
 
 export function messagesReducer(state = initialState, action) {
     switch (action.type) {
         case Constants.ADD_MESSAGE: {
-            const mess = [...state.messages];
-            mess.push(action.payload);
+            const messages = {...state.messages};
+            let currDate = new Date(action.payload.timestamp).toLocaleDateString();
+            if (!messages[currDate]) {
+                messages[currDate] = [];
+            }
+            messages[currDate].push(action.payload);
+        //mess.push(action.payload);
             state = {
                 ...state,
-                messages: mess
+                messages
             };
             break;
         }        
         case Constants.GET_MESSAGES: {
+            const sortMessages = (messArray) => {   
+                messArray.sort(function(a,b){
+                  var dateA = new Date(a.date);
+                  var dateB = new Date(b.date);
+                  return dateA > dateB ? 1 : -1;
+                });
+                return messArray;
+            }
+            let messagesArray = sortMessages(action.payload);
+            const messages = {};
+            for (let i=0;i<messagesArray.length;i++) {
+                let currDate = new Date(messagesArray[i].timestamp).toLocaleDateString();
+                if (!messages[currDate]) {
+                    messages[currDate] = [];
+                }
+                messages[currDate].push(messagesArray[i]);
+            }
+
             state = {
                 ...state,
-                messages: action.payload
+                messages 
             };
             break;
         }        

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {addMessage, getMessages} from '../../store/actions';
-import MessageList from '../../components/message/Message';
+import MessageListToday from '../../components/message/MessageListToday';
 import SendMessageForm from './sendMessageForm';
 
 import classes from './messageForm.module.css';
@@ -11,6 +11,11 @@ class MessageForm extends Component {
 
   componentDidMount() {
     this.props.dispatch(getMessages());
+  }
+
+  componentDidUpdate() {
+    let messageList = document.getElementById("messageList");
+    messageList.scrollTop = messageList.scrollHeight;
   }
 
   sendMessage = (text) => {
@@ -26,22 +31,22 @@ class MessageForm extends Component {
     }));
   }
 
-  sortMessages = (messArray) => {   
-    messArray.sort(function(a,b){
-      var dateA = new Date(a.date);
-      var dateB = new Date(b.date);
-      return dateA > dateB ? 1 : -1;
-    });
-    return messArray;
-  }
-
   render() {
-    
+    let daysWithMessages = [];
+    for (const key in this.props.messages) {
+      daysWithMessages.push(<MessageListToday key={key} day={key} messages={this.props.messages[key]}/>);
+    }
+    let chatName = 'Имя чата';
+    if (this.props.chatName) {
+      chatName = this.props.chatName;
+    }
 
     return (
       <div className={classes.messageForm}>
-        <h2 className={classes.chatTitle}>Имя чата</h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
-        <MessageList messages={this.sortMessages(this.props.messages)}/>
+        <h2 className={classes.chatTitle}>{chatName}</h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
+        <div className={classes.messageList} id='messageList'>
+          {daysWithMessages}
+        </div>
         <SendMessageForm sendMessage={this.sendMessage}/>
      </div>
     )

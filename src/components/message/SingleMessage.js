@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Message.module.css';
+import classes from './MessageListToday.module.css';
 import pic from './img/woman-4.png';
 
 export default class SingleMessage extends React.Component {
