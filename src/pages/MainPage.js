@@ -15,7 +15,7 @@ const mainPage = () => {
              <div className={classes.chatWindow}>
              	<MessageForm/>
              </div>
-            {/* <ChatWindow/> */}       	
+            {/* <ChatWindow/> */}
         </div>
     );
 }

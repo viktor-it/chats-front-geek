@@ -7,4 +7,9 @@
 .chatTitle {
     margin: 0;
     text-align: center;
+    background: #3498DB;
+}
+
+.messageList {
+    overflow: scroll;
 }
