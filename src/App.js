@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-
 //Связка redux - react
 import {Provider} from 'react-redux';
 

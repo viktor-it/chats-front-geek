@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-* {
-    margin: 0;
-    max-width: 410px;
-    padding: 0;
-}
 .profile  {
     width: 410px;
     background-color: #F9F9F9;

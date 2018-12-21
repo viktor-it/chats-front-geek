@@ -7,7 +7,6 @@ import Sidebar from '../layouts/Sidebar';
 import MessageForm from '../containers/Messages/messageForm';
 
 import classes from './MainPage.module.css';
-import styles from "../components/profiles/profile/Profile.module.css";
 
 const mainPage = () => {
     return (
