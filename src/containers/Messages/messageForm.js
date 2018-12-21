@@ -27,7 +27,6 @@ class MessageForm extends Component {
         senderid:'%id_sender%',
         sender_name: 'Вы',
         timestamp: timestamp.getTime(),
-        date: timestamp
     }));
   }
 

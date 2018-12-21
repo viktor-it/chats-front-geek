@@ -11,7 +11,6 @@ export function getMessages() {
                 senderid:'Дизайнер 1',
                 sender_name: 'Дизайнер 1',
                 timestamp: 1543990506864,
-                date: 1543990506864
             },   
             {
                 receiver:'%id_client%',
@@ -19,7 +18,6 @@ export function getMessages() {
                 senderid:'Мария',
                 sender_name: 'Мария',
                 timestamp: 1543990756864,
-                date: 1543990756864
             },      
             {
                 receiver:'%id_client%',
@@ -27,7 +25,13 @@ export function getMessages() {
                 senderid:'Мария',
                 sender_name: 'Мария',
                 timestamp: 1543990196864,
-                date: 1543990196864
+            },
+            {
+                receiver:'%id_client%',
+                message: "Дорогие дизайнеры! Есть ли что-нибудь по десктопу клиенту? Хотелось бы взглянуть!",
+                senderid:'Мария',
+                sender_name: 'Мария',
+                timestamp: 1545408934088,
             }
           ]
     };

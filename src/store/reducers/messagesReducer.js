@@ -24,9 +24,7 @@ export function messagesReducer(state = initialState, action) {
         case Constants.GET_MESSAGES: {
             const sortMessages = (messArray) => {   
                 messArray.sort(function(a,b){
-                  var dateA = new Date(a.date);
-                  var dateB = new Date(b.date);
-                  return dateA > dateB ? 1 : -1;
+                  return a.timestamp > b.timestamp ? 1 : -1;
                 });
                 return messArray;
             }
