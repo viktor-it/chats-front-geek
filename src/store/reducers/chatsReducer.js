@@ -4,7 +4,13 @@ import ChatsAPI from './chatsStub'
 
 let chats = ChatsAPI.all();
 
-export function chatsReducer(state = {chats: [], is_loading: false}, action) {
+const initialState = {
+    chats: [], 
+    activeChat: null,
+    is_loading: false
+}
+
+export function chatsReducer(state = initialState, action) {
     switch (action.type) {
         case ConstantChats.GET_CHATS_PENDING: {
             state = {...state, 

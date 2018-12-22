@@ -1,7 +1,8 @@
 import * as Constants from '../constants';
 
 const initialState = {
-    // token: localStorage.getItem("token"),
+    contacts: [],
+    activeContact: null,
     is_loading_contacts: false
 }
 
