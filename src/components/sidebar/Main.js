@@ -26,8 +26,8 @@ const Main = () => (
 
 			<Route path='/contacts' component={Contacts}/>
 
-			<Route path='/profile' component={Profile}/> {/*временный компонент, заменить на ProfileUser*/}
-
+			<Route path='/account' component={Profile}/>
+			<Route path='/profile' component={Profile}/> 
 		</Switch>
 	</main>
 )
