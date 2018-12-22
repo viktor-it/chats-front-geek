@@ -12,11 +12,11 @@
 .Header{
 	background-image: url(../../../images/user_profile/ellipse.svg);
     background-repeat: no-repeat;
-    background-position-y: -100px;
+    background-position-y: -60px;
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 300px;
 }
 
 .ChatProfile_HeaderAvatar__3NTqC{
@@ -31,7 +31,7 @@
 .HeaderText{
 	font-family: Roboto,sans-serif;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     font-size: 16px;
     color: #34495E;
@@ -43,6 +43,8 @@
     margin: 0;
     display: flex;
     justify-content: space-around;
+    margin-top: 45px;
+    align-items: center;
 }
 
 .GroupName{
@@ -80,12 +82,12 @@
 
 .StatusInfo{
     display: block;
-    margin: 20px 0;
+    margin: 25px 0;
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-    font-size: 10px;
+    font-size: 11px;
     text-align: center;
     color: #34495E;
 }
@@ -94,8 +96,6 @@
     margin: 0;
     display: flex;
     justify-content: space-around;
-    background-color: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .StatusAboutAdd{
@@ -103,12 +103,14 @@
     align-self: center;
     text-align: left;
     padding-left: 25px;
+    background: #F9F9F9;
 }
 
 .StatusAboutText{
     outline: none;
     border: none;
     flex-grow: 1;
+    background-color: #F9F9F9;
 }
 
 .StatusText{
@@ -152,7 +154,7 @@
     height: 25px;
 }
 .GroupMenuIconClear{
-    background-image: url(../../../images/Group_profile/delete.svg);
+    background-image: url(../../../images/personal_profile/vector.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 17px;
@@ -180,7 +182,7 @@
     background-color: #F9F9F9;
     margin: 0;
     width: 100%;
-    padding: 10px 20px;
+    padding: 15px 20px;
     display: flex;
     outline: none;
     border: none;
@@ -194,7 +196,6 @@
 	font-family: Roboto,sans-serif;
     font-style: normal;
     font-weight: bold;
-    line-height: 19px;
     font-size: 14px;
     color: #3498DB;
 }
@@ -273,7 +274,7 @@
     outline: none;
     cursor: pointer;
     margin: 0 auto;
-    width: 100px;
+    padding: 0 25px;
     height: 40px;
     font-family: Roboto,sans-serif;
     font-style: normal;
@@ -289,6 +290,9 @@
 .CloseBtnIcon{
 	margin: 10px;
     background-image: url(../../../images/Group_profile/close.svg);
+    width: 15px;
+    height: 15px;
+
 }
 
 

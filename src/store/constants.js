@@ -37,3 +37,11 @@ export const GET_CHATS = 'GET_CHATS';
 export const GET_CHATS_PENDING = 'GET_CHATS_PENDING';
 export const GET_CHATS_FULFILLED = 'GET_CHATS_FULFILLED';
 export const GET_CHATS_REJECTED = 'GET_CHATS_REJECTED';
+
+//Получение списка сообщений---------------------------------------------------------------
+export const GET_MESSAGES = 'GET_MESSAGES';
+export const GET_MESSAGES_PENDING = 'GET_MESSAGES_PENDING';
+export const GET_MESSAGES_FULFILLED = 'GET_MESSAGES_FULFILLED';
+export const GET_MESSAGES_REJECTED = 'GET_MESSAGES_REJECTED';
+
+export const ADD_MESSAGE = 'ADD_MESSAGE';

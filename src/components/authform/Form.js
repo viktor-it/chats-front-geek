@@ -50,10 +50,6 @@ class Form extends Component {
         this.setState({formValid: this.state.emailValid && this.state.passwordValid});
     }
 
-    errorClass(error) {
-        return(error.length === 0 ? '' : 'has-error');
-    }
-
     clickLogin(event) {
         event.preventDefault();
         // localStorage.setItem("token","тест");

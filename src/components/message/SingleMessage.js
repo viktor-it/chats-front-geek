@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Message.module.css';
+import classes from './MessageListToday.module.css';
 import pic from './img/woman-4.png';
 
 export default class SingleMessage extends React.Component {
@@ -11,10 +11,10 @@ export default class SingleMessage extends React.Component {
                 <div className={classes.block}>
                   <div className={classes.blockSms}>
                     <div className={classes.name}>
-                      {this.props.message.senderId}
+                      {this.props.message.sender_name}
                     </div>
                     <div>
-                      {this.props.message.text}
+                      {this.props.message.message}
                     </div>
                   </div>
                   <div className={classes.time}>

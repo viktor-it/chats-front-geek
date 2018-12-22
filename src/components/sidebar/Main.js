@@ -9,7 +9,7 @@ import Contacts from '../../containers/sidebar/Contacts'
 
 
 
-import Profile from './Profile'
+import Profile from '.././profiles/profile/Profile'
 
 import styles from  './Main.module.css';
 
@@ -26,7 +26,7 @@ const Main = () => (
 
 			<Route path='/contacts' component={Contacts}/>
 
-			<Route path='/account' component={Profile}/> {/*временный компонент, заменить на ProfileUser*/}
+			<Route path='/profile' component={Profile}/> {/*временный компонент, заменить на ProfileUser*/}
 
 		</Switch>
 	</main>

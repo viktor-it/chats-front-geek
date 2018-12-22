@@ -16,7 +16,7 @@ const GroupProfile = (props) => {
 
 			<div className={styles.Header}>
 				<div>
-					<img src="../../../images/Group_profile/team.svg"
+                    <img src={require('../../../images/Group_profile/team.svg')}
 					alt="photo" className={styles.HeaderAvatar} />
 				</div>
 
@@ -75,7 +75,7 @@ const GroupProfile = (props) => {
 		        <li className={styles.GroupMenuItems}>
 			        <Link to="/">
 			            <button className={styles.ItemBtn}>
-                            <div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconClear}> </div>
+							<div className={styles.GroupMenuIcon + " " + styles.GroupMenuIconClear}> </div>
 			                Очистить переписку
 			            </button>
 			        </Link>
@@ -109,7 +109,7 @@ const GroupProfile = (props) => {
 		    <div className={styles.CloseProfile}>
 			    <Link to="/chats">
 			        <button className={styles.CloseBtn}>
-                        <div className={styles.CloseBtnIcon}> </div>
+                        {/*<div className={styles.CloseBtnIcon}> </div>*/}
 						Закрыть
 			        </button>
 			    </Link>
