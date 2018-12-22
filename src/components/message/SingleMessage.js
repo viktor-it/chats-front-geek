@@ -7,14 +7,17 @@ export default class SingleMessage extends React.Component {
     let StyleBlock;
     let StyleBlockSms;
     let StyleSuperBlock;
+    let StyleTime;
     if (this.props.message.receiver === 55) {
       StyleBlock = classes.blockMy
       StyleBlockSms = classes.blockSmsMy
       StyleSuperBlock = classes.superBlockMy
+      StyleTime = classes.timeMy
     } else {
       StyleBlock = classes.block
       StyleBlockSms = classes.blockSms
       StyleSuperBlock = classes.superBlock
+      StyleTime = classes.time
     }
 		return(
 		    <div className={StyleSuperBlock}>
@@ -31,7 +34,7 @@ export default class SingleMessage extends React.Component {
                       {this.props.message.message}
                     </div>
                   </div>
-                  <div className={classes.time}>
+                  <div className={StyleTime}>
                    {this.props.outputTime.toLocaleTimeString()} 
                   </div>
                 </div>

@@ -65,6 +65,10 @@ margin: 0;
 .time {
   padding-left: 11px;
 }
+.timeMy {
+  padding-left: 11px;
+  color: #4285F4;
+}
 .blockMy {
   margin: 0;
   display: -webkit-box;
