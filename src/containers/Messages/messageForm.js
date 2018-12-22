@@ -22,7 +22,7 @@ class MessageForm extends Component {
     // console.log(text);
     let timestamp = new Date();
     this.props.dispatch(addMessage({
-        receiver:'%id_client%',
+        receiver: 55,
         message: text,
         senderid:'%id_sender%',
         sender_name: 'Вы',

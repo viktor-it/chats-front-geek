@@ -1,6 +1,6 @@
-.test {
+/* .test { */
   /* background: url('./img/Fon.png'); */
-}
+/* } */
 .date {
   text-align: center;
   padding: 20px 0 10px;
@@ -25,6 +25,17 @@
   grid-gap: 5px;
   grid-template-columns: 40px 1fr;
   padding-right: 10px;
+}
+.superBlockMy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 10px;
+  margin: 20px 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 .miniFoto {
   /* width: 10%; */
@@ -53,4 +64,26 @@ margin: 0;
 }
 .time {
   padding-left: 11px;
+}
+.blockMy {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  /* justify-content: flex-end; */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.blockSmsMy {
+  margin: 0 15px;
+  padding: 10px 16px;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  background-color: #C6FCFF;
 }
