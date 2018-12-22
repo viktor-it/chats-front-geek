@@ -1,19 +1,26 @@
-import * as ConstantContacts from '../constants';
+import * as Constants from '../constants';
 
+const initialState = {
+    // token: localStorage.getItem("token"),
+    is_loading_contacts: false
+}
 
-export function contactsReducer(state = {contacts: [], is_loading: false}, action) {
+export function contactsReducer(state = initialState, action) {
     switch (action.type) {
-        case ConstantContacts.GET_CONTACTS_PENDING: {
-            state = {...state, is_loading: true};
+        case Constants.GET_CONTACTS_PENDING: {
+            state = {...state, is_loading_contacts: true};
         break;
         }
 
-        case ConstantContacts.GET_CONTACTS_FULFILLED: {
-            state = {...state, is_loading: false, contacts: action.payload.data};
+        case Constants.GET_CONTACTS_FULFILLED: {
+            state = {
+                ...state,
+                is_loading_contacts: false,
+                contacts: action.payload.data};
         break;
         }
 
-        case ConstantContacts.GET_CONTACTS_REJECTED: {
+        case Constants.GET_CONTACTS_REJECTED: {
             let contacts = [
                 {
                 "id": 1,
@@ -34,7 +41,7 @@ export function contactsReducer(state = {contacts: [], is_loading: false}, actio
                 "mark": "delivered/read"
                 }
             ];
-            state = {contacts, is_loading: false, error_message: action.payload.message};
+            state = {contacts, is_loading_contacts: false, error_message: action.payload.message};
         break;
         }
         
