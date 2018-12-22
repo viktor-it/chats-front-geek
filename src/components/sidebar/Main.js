@@ -28,7 +28,6 @@ const Main = () => (
 
 			<Route path='/account' component={Profile}/>
 			<Route path='/profile' component={Profile}/> 
-
 		</Switch>
 	</main>
 )
