@@ -12,7 +12,7 @@ const ChatsAPI = {
             mark: {
                 delivered: true,
                 read: false
-                }
+            }
         }, 
         {
             id: 2,
@@ -25,7 +25,7 @@ const ChatsAPI = {
             mark: {
                 delivered: false,
                 read: false
-                }
+            }
         }
   ],
   all: function() { return this.chats},
