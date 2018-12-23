@@ -27,12 +27,14 @@ const ChatsAPI = {
                 read: false
             }
         }
-  ],
-  all: function() { return this.chats},
-  get: function(id) {
-    const isChat = p => p.id === id
-    return this.chats.find(isChat)
-  }
+    ],
+    all(){
+        return this.chats
+    },
+    get(id) {
+        const isChat = p => p.id === id
+        return this.chats.find(isChat)
+    }
 }
 
 export default ChatsAPI
