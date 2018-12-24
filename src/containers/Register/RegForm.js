@@ -80,68 +80,71 @@ class RegForm extends Component {
         // console.log(this.state);
         return (
             <div className={styles.Main}>
-                <div className={styles.Restangle_2_1} />
-                <div className={styles.Restangle_2_2} />
-                <div className={styles.Restangle_2_3}>
-                    <form action="true">
+                <div className={styles.EllipseBig}>
+                    <div className={styles.Title}>
+                        Pocket Messenger
+                    </div>
+                    <div className={styles.Subtitle}>
+                        For geeks by geeks
+                    </div>
+                    <div className={styles.EllipseSmall} />
+                </div>
+
+                <form className={styles.inputBox} action="true">
+                    <div className={styles.formItems}>
                         <input type ="text"
-                        name="name"
-                        onChange={this.handleChange}
-                        value={this.state.name}
-                        placeholder="Ваш никнейм"
-                        className={styles.Input + ' ' + styles.Name}
-                        />
-
+                                name="name"
+                                onChange={this.handleChange}
+                                value={this.state.name}
+                                placeholder="Ваш никнейм"
+                                className={styles.Input + ' ' + styles.Name}
+                    /></div>
+                    <div className={styles.formItems}>
                         <input type ="text"
-                        name="email"
-                        onChange={this.handleChange}
-                        value={this.state.email}
-                        placeholder="E-mail"
-                        className={styles.Input + ' ' + styles.Mail}
+                               name="email"
+                               onChange={this.handleChange}
+                               value={this.state.email}
+                               placeholder="E-mail"
+                               className={styles.Input + ' ' + styles.Mail}
                         />
-
+                    </div>
+                    <div className={styles.formItems}>
                         <input type ="password"
-                        name="password"
-                        onChange={this.handleChange}
-                        value={this.state.password}
-                        placeholder="Пароль"
-                        className={styles.Input + ' ' + styles.Pass}
+                               name="password"
+                               onChange={this.handleChange}
+                               value={this.state.password}
+                               placeholder="Пароль"
+                               className={styles.Input + ' ' + styles.Pass}
                         />
-
+                    </div>
+                    <div className={styles.formItems}>
                         <input type ="password"
-                        name="passwordCheck"
-                        onChange={this.handleChange}
-                        value={this.state.passwordCheck}
-                        placeholder="Подтверждение пароля"
-                        className={styles.Input + ' ' + styles.CheckPass}
+                               name="passwordCheck"
+                               onChange={this.handleChange}
+                               value={this.state.passwordCheck}
+                               placeholder="Повторите пароль"
+                               className={styles.Input + ' ' + styles.CheckPass}
                         />
-
+                    </div>
+                    <div className={styles.formItems}>
                         <input type="checkbox"
-                        onChange={this.handleCheckbox}
-                        className={styles.Checkbox}/>
+                               onChange={this.handleCheckbox}
+                               className={styles.Checkbox}/>
+                    </div>
+                    <p className={styles.Text}>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.<br/>
+                        <a className={styles.KnowMore} href="#">Узнать больше</a>
+                    </p>
 
-                        <p className={styles.Text}>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.<br/>
-                            <a className={styles.KnowMore} href="#">Узнать больше</a>
-                        </p>
-
-                        <button
+                    <button
                         onClick={this.handleSubmit}
-                        className={styles.Input + ' ' + styles.ButtonOk}>Зарегистрироваться</button>
+                        className={styles.Input + ' ' + styles.ButtonOk}>Регистрироваться
+                    </button>
 
-                        <button onClick={this.clickCancelHandler}
-                        className={styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>
-                            Отмена
-                        </button>
-                    </form>
-                </div>
-                <div className={styles.EllipseBig} />
-                <div className={styles.Title}>
-                    Pocket Messenger
-                </div>
-                <div className={styles.Subtitle}>
-                    For geeks by geeks
-                </div>
-                <div className={styles.EllipseSmall} />
+                    {/*<button onClick={this.clickCancelHandler}*/}
+                            {/*className={styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>*/}
+                        {/*Отмена*/}
+                    {/*</button>*/}
+                </form>
             </div>
         );
     }
