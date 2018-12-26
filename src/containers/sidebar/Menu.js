@@ -6,11 +6,21 @@ import styles from  './Menu.module.css';
 import {logoutUser} from '../../store/actions';
 
 import Modal from  './Modal';
+import SearchList from  './SearchList';
 
 class Menu extends Component {
 		state = {
 			condition: false,
-			showModal: false
+			showModal: false,
+			initialItems: [
+				"Вася Васильков",
+				"Вася Иванов",
+				"Сима Симаков",
+				"Петя Петров",
+				"Петя Иванов",
+				"Анна Иванова"
+			],
+			items: []
 		}
 
 		handleClick = () => {
@@ -26,12 +36,33 @@ class Menu extends Component {
 			this.setState({showModal: false});
 		}
 
+		searchResult = (event) => {
+			if (event.key === 'Enter') {
+
+		    	let updatedList = this.state.initialItems;
+
+    			updatedList = updatedList.filter(function(item){
+      				return item.search(event.target.value) !== -1;
+    			});
+
+    			this.setState({items: updatedList});
+		    }
+		}
+
+		componentWillMount() {
+    		this.setState({items: this.state.initialItems})
+		}
+
 		render() {
 	
 			// модальное окно для вывода найденных контактов
 			const modal = this.state.showModal ? (
 				<Modal>
 					<div className={styles.ModalField}>
+
+						{/*список найденных контактов*/}
+						<SearchList items={this.state.items}/>
+
 						<button>
 							Пригласить
 						</button>
@@ -51,8 +82,13 @@ class Menu extends Component {
 			    	</div>
 
 			    	{/*поиск контактов*/}
-			    	<input type="text" className={styles.Search}
-			    	onClick={this.searchShow} placeholder="Найти..." />
+			    	<input
+			    		placeholder="Найти..."
+			    		type="text"
+			    		className={styles.Search}
+			    		onClick={this.searchShow}
+			    		onKeyPress={this.searchResult}
+			    	/>
 
 			    	{modal} {/*вставится в блок с id="modal-root" (Main.js) */}
 
