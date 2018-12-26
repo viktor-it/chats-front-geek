@@ -5,29 +5,25 @@ import Chats from '../../containers/sidebar/Chats'
 
 import GroupSwitch from './chats/GroupSwitch'
 
-import Contacts from '../../containers/sidebar/Contacts'
+import ContactsSwitch from './contacts/ContactsSwitch'
 
 
-
-import Profile from './Profile'
+import Profile from '.././profiles/profile/Profile'
 
 import styles from  './Main.module.css';
 
 
 const Main = () => (
 	<main className={styles.Field}>
-		<Switch>
-			{/*<Route path='/' exact component={Chats}/>
-			<Route path='/chats' component={Chats}/>*/}
-
-			
+		<Switch>			
 			<Route path='/' exact component={Chats}/>
+
 			<Route path='/chats' component={GroupSwitch}/>
 
-			<Route path='/contacts' component={Contacts}/>
+			<Route path='/contacts' component={ContactsSwitch}/>
 
-			<Route path='/account' component={Profile}/> {/*временный компонент, заменить на ProfileUser*/}
-
+			<Route path='/account' component={Profile}/>
+			<Route path='/profile' component={Profile}/> 
 		</Switch>
 	</main>
 )

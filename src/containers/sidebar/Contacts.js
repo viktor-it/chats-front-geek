@@ -13,13 +13,14 @@ class Contacts extends React.Component {
     {
         //action
         this.props.dispatch(getContacts());
+        // this.props.dispatch(getContacts(localStorage.getItem('token')));
 	}
     state = {
         active: 1
     };
 
 	render() {
-		if(this.props.is_loading){
+		if(this.props.is_loading_contacts){
             return <Spinner />
         }
         
@@ -44,7 +45,7 @@ class Contacts extends React.Component {
 function mapStateToProps(store) {
     return {
         contacts: store.contacts.contacts,
-		is_loading: store.contacts.is_loading,
+		is_loading_contacts: store.contacts.is_loading,
     }
 }
 
