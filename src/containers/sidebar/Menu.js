@@ -8,13 +8,16 @@ import {logoutUser} from '../../store/actions';
 import Modal from  './Modal';
 import SearchList from  './SearchList';
 
+
+import ContactsAPI from '../../store/reducers/contactsStub'
+
+
 class Menu extends Component {
 		state = {
 			condition: false,
 			showModal: false,
 			initialItems: [
 				"Вася Васильков",
-				"Вася Иванов",
 				"Сима Симаков",
 				"Петя Петров",
 				"Петя Иванов",
@@ -49,19 +52,26 @@ class Menu extends Component {
 		    }
 		}
 
+		//добавление контакта в общий список
+		updateData = (value) => {
+			ContactsAPI.addContact(value);
+		}
+
 		componentWillMount() {
     		this.setState({items: this.state.initialItems})
 		}
 
 		render() {
-	
 			// модальное окно для вывода найденных контактов
 			const modal = this.state.showModal ? (
 				<Modal>
 					<div className={styles.ModalField}>
 
 						{/*список найденных контактов*/}
-						<SearchList items={this.state.items}/>
+						<SearchList 
+							items={this.state.items}
+							updateData={this.updateData}
+						/>
 
 						<button>
 							Пригласить
