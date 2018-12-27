@@ -11,6 +11,8 @@ import SearchList from  './SearchList';
 
 import ContactsAPI from '../../store/reducers/contactsStub'
 
+import $ from 'jquery';
+
 
 class Menu extends Component {
 		state = {
@@ -23,7 +25,8 @@ class Menu extends Component {
 				"Петя Иванов",
 				"Анна Иванова"
 			],
-			items: []
+			items: [],
+			addItem: ''
 		}
 
 		handleClick = () => {
@@ -52,9 +55,18 @@ class Menu extends Component {
 		    }
 		}
 
-		//добавление контакта в общий список
+
+		//добавляем имя для последующего добавления в общий список;
+		//выделяем цветом выбранного пользователя
 		updateData = (value) => {
-			ContactsAPI.addContact(value);
+			this.setState({ addItem: value });
+			$('.ListItem').css('background-color', 'white');
+			$("[data-category='" + value + "']").css('background-color', 'grey');
+		}
+
+		//добавление контакта в общий список
+		addContact = () => {
+		    ContactsAPI.addContact(this.state.addItem);
 		}
 
 		componentWillMount() {
@@ -73,7 +85,7 @@ class Menu extends Component {
 							updateData={this.updateData}
 						/>
 
-						<button>
+						<button onClick={this.addContact}>
 							Пригласить
 						</button>
 						<button onClick={this.searchHide}>
