@@ -91,59 +91,55 @@ class RegForm extends Component {
                 </div>
 
                 <form className={styles.inputBox} action="true">
-                    <div className={styles.formItems}>
+                    <div className={styles.formItems+ ' ' + styles.Name}>
                         <input type ="text"
                                 name="name"
                                 onChange={this.handleChange}
                                 value={this.state.name}
                                 placeholder="Ваш никнейм"
-                                className={styles.Input + ' ' + styles.Name}
+                                className={styles.Input }
                     /></div>
-                    <div className={styles.formItems}>
+                    <div className={styles.formItems + ' ' + styles.Mail}>
                         <input type ="text"
                                name="email"
                                onChange={this.handleChange}
                                value={this.state.email}
                                placeholder="E-mail"
-                               className={styles.Input + ' ' + styles.Mail}
+                               className={styles.Input}
                         />
                     </div>
-                    <div className={styles.formItems}>
+                    <div className={styles.formItems + ' ' + styles.Pass}>
                         <input type ="password"
                                name="password"
                                onChange={this.handleChange}
                                value={this.state.password}
                                placeholder="Пароль"
-                               className={styles.Input + ' ' + styles.Pass}
+                               className={styles.Input }
                         />
                     </div>
-                    <div className={styles.formItems}>
+                    <div className={styles.formItems+ ' ' + styles.passRepeat}>
                         <input type ="password"
                                name="passwordCheck"
                                onChange={this.handleChange}
                                value={this.state.passwordCheck}
                                placeholder="Повторите пароль"
-                               className={styles.Input + ' ' + styles.CheckPass}
+                               className={styles.Input}
                         />
                     </div>
-                    <div className={styles.formItems}>
-                        <input type="checkbox"
-                               onChange={this.handleCheckbox}
-                               className={styles.Checkbox}/>
+                    <div className={styles.formItemsCheck}>
+                        {/*<div className={styles.Checkbox}>*/}
+                            <input type="checkbox"
+                                    onChange={this.handleCheckbox}
+                                    className={styles.Checkbox}/>
+                        {/*</div>*/}
+                        <p className={styles.Text}>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.
+                            <a className={styles.KnowMore} href="#">Узнать больше</a>
+                        </p>
                     </div>
-                    <p className={styles.Text}>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.<br/>
-                        <a className={styles.KnowMore} href="#">Узнать больше</a>
-                    </p>
-
                     <button
                         onClick={this.handleSubmit}
-                        className={styles.Input + ' ' + styles.ButtonOk}>Регистрироваться
+                        className={styles.ButtonOk}>РЕГИСТРАЦИЯ
                     </button>
-
-                    {/*<button onClick={this.clickCancelHandler}*/}
-                            {/*className={styles.Input + ' ' + styles.Button + ' ' + styles.CancelButton}>*/}
-                        {/*Отмена*/}
-                    {/*</button>*/}
                 </form>
             </div>
         );
