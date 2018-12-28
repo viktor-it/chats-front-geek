@@ -47,14 +47,17 @@
     /* outline: 1px #ffe684 solid; */
 }
 .ellipse_big {
+    background-image: url(../../images/ellipse.png);
+    background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
-    width: 574px;
+    width: 573px;
     height: 574px;
-    left: -49px;
-    top: -115px;
-    background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 287px;
+    left: -46px;
+    top: 17px;
+    /*background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);*/
+    /*box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);*/
+    /*border-radius: 287px;*/
 }
 
 .ellipse_bigtop {
