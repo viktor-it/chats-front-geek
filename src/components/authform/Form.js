@@ -62,7 +62,7 @@ class Form extends Component {
                 {/* <div className={classes.content}> */}
                     <div className={classes.restangle_2_1}></div>
                     <div className={classes.restangle_2_2}></div>
-                    <div className={classes.restangle_2_3}>
+                    <div>
                         <form action="">
                             <input className={classes.mail} type="email" required name="email"
                                        placeholder="Логин"
@@ -73,14 +73,17 @@ class Form extends Component {
                                        value={this.state.password}
                                        onChange={this.handleUserInput}  />
                             <button className={classes.log_in} onClick={(e)=>{this.clickLogin(e);}}>Войти</button>
-                            <div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>
+                            {/*<div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>*/}
                         </form>
                         <div className={classes.registration}>Нет аккаунта?
-                            <Link to='/register'> Регистрация</Link>
+                            <Link to='/register'> Зарегистрироваться</Link>
                         </div>
                     </div>
-                    <div className={classes.ellipse_big}></div>
-                    <div className={classes.pocket_messenger}>Pocket Messenger</div>
+
+                {/*<div className={classes.maskgroup}></div>*/}
+                <div className={classes.ellipse_big}></div>
+                {/*<div className={classes.ellipse_bigtop}></div>*/}
+                <div className={classes.pocket_messenger}>Pocket Messenger</div>
                     <div className={classes.for_geeks_by_geeks}>For geeks by geeks</div>
                     <div className={classes.ellipse_small}></div>
                 {/* </div> */}
