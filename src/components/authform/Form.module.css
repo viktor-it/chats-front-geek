@@ -1,8 +1,9 @@
 .main {
     width: 482px;
     height: 640px;
-    left: 344px;
-    /*top: 139px;*/
+    /* left: 344px; */
+    /* top: 139px; */
+
 
 }
 .content {
@@ -11,28 +12,35 @@
     z-index: 200;
 }
 .restangle_2_1 {
-    position: absolute;
+    /*width: 395.46px;*/
+    /*height: 518.7px;*/
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+    /* position: absolute; */
     width: 481px;
     height: 640px;
-    /*top: 139px;*/
+    /*left: 344px;*/
+    /* top: 139px; */
     background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);
     border-radius: 25px;
-
 }
 .restangle_2_2 {
     position: absolute;
     width: 414px;
     height: 548px;
     left: 35px;
-    top: 60px;
+    /* top: 198px; */
+    top: 49px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
 }
 .restangle_2_3 {
-    width: 393.46px;
-    height: 516.7px;
+    width: 100%;
+    height: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
     border-radius: 8px;
     z-index: 400;
 }
@@ -42,12 +50,12 @@
 .ellipse_big {
     background-image: url(../../images/ellipse.png);
     background-repeat: no-repeat;
-    background-position-x: center;
+    /* background-position: center; */
     position: absolute;
     width: 573px;
     height: 574px;
-    left: -46px;
-    /*top: 17px;*/
+    /* left: -46px; */
+    /* top: 17px; */
     /*background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);*/
     /*box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);*/
     /*border-radius: 287px;*/
@@ -81,7 +89,7 @@
     /*width: 390px;*/
     height: 57px;
     left: 45px;
-    top: 70px;
+    top: 37px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
@@ -95,7 +103,7 @@
     width: 171px;
     height: 24px;
     left: 140px;
-    top: 140px;
+    top: 102px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -186,7 +194,6 @@
     height: 40px;
     left: calc(50% - 332px/2);
     top: 360px;
-
     background: #FFFFFF;
     border: 1px solid #3498DB;
     box-sizing: border-box;
@@ -200,7 +207,6 @@
     height: 40px;
     left: calc(50% - 332px/2);
     top: 430px;
-
     background: #FFFFFF;
     /* Bottom activ */
     border: 1px solid #3498DB;
@@ -214,6 +220,7 @@
     height: 17px;
     left: 130px;
     top: 570px;
+
 
     font-family: Roboto;
     font-style: italic;

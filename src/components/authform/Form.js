@@ -62,9 +62,15 @@ class Form extends Component {
                 {/* <div className={classes.content}> */}
                     <div className={classes.restangle_2_1}></div>
                     <div className={classes.restangle_2_2}></div>
-                    <div>
+                    <div className={classes.restangle_2_3}>
+                    {/*<div className={classes.maskgroup}></div>*/}
+                    <div className={classes.ellipse_big}></div>
+                    {/*<div className={classes.ellipse_bigtop}></div>*/}
+                    <div className={classes.pocket_messenger}>Pocket Messenger</div>
+                        <div className={classes.for_geeks_by_geeks}>For geeks by geeks</div>
+                        <div className={classes.ellipse_small}></div>
                         <form action="">
-                            <input className={classes.mail} type="email" required name="email"
+                                <input className={classes.mail} type="email" required name="email"
                                        placeholder="Логин"
                                        value={this.state.email}
                                        onChange={this.handleUserInput} />
@@ -79,13 +85,6 @@ class Form extends Component {
                             <Link to='/register'> Зарегистрироваться</Link>
                         </div>
                     </div>
-
-                {/*<div className={classes.maskgroup}></div>*/}
-                <div className={classes.ellipse_big}></div>
-                {/*<div className={classes.ellipse_bigtop}></div>*/}
-                <div className={classes.pocket_messenger}>Pocket Messenger</div>
-                    <div className={classes.for_geeks_by_geeks}>For geeks by geeks</div>
-                    <div className={classes.ellipse_small}></div>
                 {/* </div> */}
             </div>
         )

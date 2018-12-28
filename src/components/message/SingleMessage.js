@@ -30,7 +30,7 @@ export default class SingleMessage extends React.Component {
                     <div className={classes.name}>
                       {this.props.message.sender_name}
                     </div>
-                    <div>
+                    <div className={classes.text}>
                       {this.props.message.message}
                     </div>
                   </div>
