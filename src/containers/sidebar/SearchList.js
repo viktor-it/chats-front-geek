@@ -4,24 +4,15 @@ import styles from  './SearchList.module.css';
 
 
 class SearchList extends Component {
-
 	render(){
 	    return (
-	        <ul className="list-group">
-				{
-					this.props.items.map(el => {
-						return(
-							<li className = "ListItem"
-								data-category = {el}
-								key = {el}
-								onClick = {() => {this.props.updateData(el)}}
-							>
-									{el}
-							</li>
-						)
-					})
-				}
-	    	</ul>
+			<div 
+				className = {(this.props.active == this.props.id) ? 
+                styles.ListItemActive : styles.ListItem}
+				onClick = {() => {this.props.updateData(this.props.name)}}
+			>
+					{this.props.name}
+			</div>
 	    );
 	}
 }

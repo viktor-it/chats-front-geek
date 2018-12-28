@@ -26,6 +26,12 @@ export const GET_USER_PENDING = 'GET_USER_PENDING';
 export const GET_USER_FULFILLED = 'GET_USER_FULFILLED';
 export const GET_USER_REJECTED = 'GET_USER_REJECTED';
 
+//Получение пользователей---------------------------------------------------------------------
+export const GET_USERS = 'GET_USERS';
+export const GET_USERS_PENDING = 'GET_USERS_PENDING';
+export const GET_USERS_FULFILLED = 'GET_USERS_FULFILLED';
+export const GET_USERS_REJECTED = 'GET_USERS_REJECTED';
+
 //Получение контактов---------------------------------------------------------------------
 export const GET_CONTACTS = 'GET_CONTACTS';
 export const GET_CONTACTS_PENDING = 'GET_CONTACTS_PENDING';

@@ -8,10 +8,6 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 2,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         }, 
         {
             id: 2,
@@ -20,13 +16,9 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         }
     ],
-    allContacts: [
+    users: [
         {
             id: 1,
             img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
@@ -34,10 +26,6 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 2,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         }, 
         {
             id: 2,
@@ -46,10 +34,6 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         },
         {
             id: 3,
@@ -58,10 +42,6 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         }, 
         {
             id: 4,
@@ -70,10 +50,6 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         },
         {
             id: 5,
@@ -82,22 +58,20 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
-            mark: {
-                delivered: true,
-                read: false
-            }
         }
     ],
-
     all(){
         return this.contacts
+    },
+    allUsers(){
+        return this.users
     },
     get(id){
         const isContact = p => p.id === id
         return this.contacts.find(isContact)
     },
     addContact(name){
-        let user = this.allContacts.find(x => x.name === name);
+        let user = this.users.find(x => x.name === name);
         this.contacts.push(user);
     }
 }

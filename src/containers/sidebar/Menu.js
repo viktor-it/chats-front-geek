@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
 import {logoutUser} from '../../store/actions';
+import {getUsers} from '../../store/actions';
+
 
 import Modal from  './Modal';
 import SearchList from  './SearchList';
@@ -11,22 +13,16 @@ import SearchList from  './SearchList';
 
 import ContactsAPI from '../../store/reducers/contactsStub'
 
-import $ from 'jquery';
-
-
 class Menu extends Component {
+
 		state = {
 			condition: false,
 			showModal: false,
-			initialItems: [
-				"Вася Васильков",
-				"Сима Симаков",
-				"Петя Петров",
-				"Петя Иванов",
-				"Анна Иванова"
-			],
+
+			initialItems: [],
 			items: [],
-			addItem: ''
+			addItem: '',
+			active: 0
 		}
 
 		handleClick = () => {
@@ -35,7 +31,11 @@ class Menu extends Component {
     		});
     	}
     	searchShow = () => {
-		    this.setState({showModal: true});
+		    this.setState({
+		    	showModal: true,
+		    	initialItems: this.props.users,
+		    	items: this.props.users
+    		});		    
 		}
   
 		searchHide = () => {
@@ -45,45 +45,56 @@ class Menu extends Component {
 		searchResult = (event) => {
 			if (event.key === 'Enter') {
 
-		    	let updatedList = this.state.initialItems;
+				let allUsers = this.state.initialItems;
 
-    			updatedList = updatedList.filter(function(item){
-      				return item.search(event.target.value) !== -1;
+				// фильтр-поиск
+    			let updatedList = allUsers.filter(function(item){
+      				return item.name == event.target.value;
     			});
 
     			this.setState({items: updatedList});
 		    }
-		}
-
-
-		//добавляем имя для последующего добавления в общий список;
-		//выделяем цветом выбранного пользователя
+		}		
+		
 		updateData = (value) => {
+			//добавляем имя для последующего добавления в общий список;
 			this.setState({ addItem: value });
-			$('.ListItem').css('background-color', 'white');
-			$("[data-category='" + value + "']").css('background-color', 'grey');
+
+			//выделяем цветом выбранного пользователя
+			let user = this.state.initialItems.find(x => x.name === value);
+
+			let userId = user.id;
+
+			this.setState({active: userId});
 		}
 
 		//добавление контакта в общий список
 		addContact = () => {
-		    ContactsAPI.addContact(this.state.addItem);
+			//this.props.dispatch(addContact(this.state.addItem));
 		}
 
 		componentWillMount() {
-    		this.setState({items: this.state.initialItems})
+    		this.setState({items: this.state.initialItems});
+
+			//загрузить всех пользователей
+    		this.props.dispatch(getUsers());
 		}
 
 		render() {
+
+	        let users = this.state.items.map((user, index) => {
+	            return <SearchList 
+	            		updateData={this.updateData}
+	            		key={index} {...user}
+	            		active={this.state.active}/>
+	        });
+
 			// модальное окно для вывода найденных контактов
 			const modal = this.state.showModal ? (
 				<Modal>
 					<div className={styles.ModalField}>
 
-						{/*список найденных контактов*/}
-						<SearchList 
-							items={this.state.items}
-							updateData={this.updateData}
-						/>
+						{users}
 
 						<button onClick={this.addContact}>
 							Пригласить
@@ -94,6 +105,7 @@ class Menu extends Component {
 					</div>
 				</Modal>
 			) : null;
+
 
 
 	        return (
@@ -136,4 +148,11 @@ class Menu extends Component {
 	    }
 }
 
-export default connect()(Menu);
+function mapStateToProps(store) {
+    return {
+        users: store.users.users,
+		is_loading_users: store.users.is_loading,
+    }
+}
+
+export default connect(mapStateToProps)(Menu);
