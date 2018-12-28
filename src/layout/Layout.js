@@ -7,7 +7,6 @@ import AuthForm from '../pages/Auth';
 import RegForm from '../pages/Register';
 
 import AccountPage from '../pages/AccountPage';
-import Profile from "../components/profiles/profile/Profile";
 
 class Layout extends Component
 {
