@@ -14,9 +14,7 @@ import styles from  './Main.module.css';
 
 
 const Main = () => (
-	<main className={styles.Field}
-	id="modal-root" > {/*для вставки модального окна поиска*/}
-
+	<main className={styles.Field}>
 		<Switch>			
 			<Route path='/' exact component={Chats}/>
 

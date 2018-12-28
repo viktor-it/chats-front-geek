@@ -115,11 +115,3 @@
 .BurgerSearch {
     margin: 0 auto;
 }
-
-.ModalField{
-    background-color: #f9f9f9;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 410px;
-}

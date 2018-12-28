@@ -9,7 +9,7 @@ class SearchList extends Component {
 			<div 
 				className = {(this.props.active == this.props.id) ? 
                 styles.ListItemActive : styles.ListItem}
-				onClick = {() => {this.props.updateData(this.props.name)}}
+				onClick = {() => {this.props.updateData(this.props.id, this.props.name)}}
 			>
 					{this.props.name}
 			</div>

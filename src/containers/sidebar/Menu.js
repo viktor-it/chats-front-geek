@@ -3,15 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {logoutUser} from '../../store/actions';
-import {getUsers} from '../../store/actions';
+import {logoutUser, getUsers} from '../../store/actions';
 
+import Modal from  '../../components/UI/Modal/Modal';
 
-import Modal from  './Modal';
 import SearchList from  './SearchList';
 
-
-import ContactsAPI from '../../store/reducers/contactsStub'
 
 class Menu extends Component {
 
@@ -19,7 +16,6 @@ class Menu extends Component {
 			condition: false,
 			showModal: false,
 
-			initialItems: [],
 			items: [],
 			addItem: '',
 			active: 0
@@ -33,7 +29,6 @@ class Menu extends Component {
     	searchShow = () => {
 		    this.setState({
 		    	showModal: true,
-		    	initialItems: this.props.users,
 		    	items: this.props.users
     		});		    
 		}
@@ -45,10 +40,8 @@ class Menu extends Component {
 		searchResult = (event) => {
 			if (event.key === 'Enter') {
 
-				let allUsers = this.state.initialItems;
-
 				// фильтр-поиск
-    			let updatedList = allUsers.filter(function(item){
+    			let updatedList = this.state.items.filter(function(item){
       				return item.name == event.target.value;
     			});
 
@@ -56,16 +49,12 @@ class Menu extends Component {
 		    }
 		}		
 		
-		updateData = (value) => {
+		updateData = (id, name) => {
 			//добавляем имя для последующего добавления в общий список;
-			this.setState({ addItem: value });
+			this.setState({ addItem: name });
 
-			//выделяем цветом выбранного пользователя
-			let user = this.state.initialItems.find(x => x.name === value);
-
-			let userId = user.id;
-
-			this.setState({active: userId});
+			//id для выделения цветом при клике
+			this.setState({active: id});
 		}
 
 		//добавление контакта в общий список
@@ -74,8 +63,6 @@ class Menu extends Component {
 		}
 
 		componentWillMount() {
-    		this.setState({items: this.state.initialItems});
-
 			//загрузить всех пользователей
     		this.props.dispatch(getUsers());
 		}
@@ -91,8 +78,7 @@ class Menu extends Component {
 
 			// модальное окно для вывода найденных контактов
 			const modal = this.state.showModal ? (
-				<Modal>
-					<div className={styles.ModalField}>
+				<Modal classesNames='SearchContacts'>
 
 						{users}
 
@@ -102,7 +88,6 @@ class Menu extends Component {
 						<button onClick={this.searchHide}>
 							Отменить
 						</button>
-					</div>
 				</Modal>
 			) : null;
 
