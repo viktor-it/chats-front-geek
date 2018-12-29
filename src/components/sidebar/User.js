@@ -1,19 +1,19 @@
 import React from 'react';
 
-import styles from './Contact.module.css';
+import styles from './User.module.css';
 
 const Contact = (props) => {
     return (
         <div className={styles.Contact}>
-        	<div>{props.img}</div>
+        	<div>{props.user.img}</div>
         	<div>{props.onlineMark}</div>
         	<div>Профиль</div>
-        	<div>{props.email}</div>
-        	<div>{props.name}</div>
+        	<div>{props.user.email}</div>
+        	<div>{props.user.name}</div>
 
     		{/*по клику добавить контакт в список и закрыть форму*/}
-            <button className={styles.Button} onClick={ () => {props.addContact}; {props.closeContact} }>
-                Добавить
+            <button className={styles.Button}>
+                Пригласить
             </button>
         </div>
     );

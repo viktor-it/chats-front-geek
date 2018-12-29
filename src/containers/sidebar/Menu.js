@@ -3,22 +3,25 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {logoutUser, getUsers} from '../../store/actions';
+import {logoutUser, getUsers, addContact} from '../../store/actions';
 
 import Modal from  '../../components/UI/Modal/Modal';
 
 import SearchList from  './SearchList';
+import User from  '../../components/sidebar/User';
 
 
 class Menu extends Component {
 
 		state = {
 			condition: false,
-			showModal: false,
+			modal: null,
 
 			items: [],
 			addItem: '',
-			active: 0
+			active: 0,
+			
+			user: {}
 		}
 
 		handleClick = () => {
@@ -28,13 +31,13 @@ class Menu extends Component {
     	}
     	searchShow = () => {
 		    this.setState({
-		    	showModal: true,
+		    	modal: 1,
 		    	items: this.props.users
     		});		    
 		}
   
 		searchHide = () => {
-			this.setState({showModal: false});
+			this.setState({modal: 0});
 		}
 
 		searchResult = (event) => {
@@ -47,7 +50,15 @@ class Menu extends Component {
 
     			this.setState({items: updatedList});
 		    }
-		}		
+		}
+
+		openProfile = (data) => {
+			this.setState({
+		    	modal: 2,
+		    	user: data
+    		});	
+    		
+		}	
 		
 		updateData = (id, name) => {
 			//добавляем имя для последующего добавления в общий список;
@@ -59,40 +70,64 @@ class Menu extends Component {
 
 		//добавление контакта в общий список
 		addContact = () => {
-			//this.props.dispatch(addContact(this.state.addItem));
+			this.props.dispatch(addContact(this.state.addItem));
 		}
 
 		componentWillMount() {
 			//загрузить всех пользователей
     		this.props.dispatch(getUsers());
 		}
+		switchComponent() { 
+			switch(this.state.modal) {
+				//выход
+            	case 0:
+                	return null;
+                break;
+                //окно поиска контакта
+            	case 1:
+            		let users = this.state.items.map((user, index) => {
+	            		return <SearchList 
+			            		updateData={this.updateData}
+			            		openProfile={this.openProfile}
+			            		key={index} {...user}
+			            		active={this.state.active}/>
+	        		})
+	                return (
+	                	<Modal classesNames='SearchContacts'>			                    
+							{users}
+
+							<button onClick={this.addContact}>
+								Пригласить
+							</button>
+							<button onClick={this.searchHide}>
+								Отменить
+							</button>
+						</Modal>
+
+	                ); 
+	            break;
+	            //окно профиля
+	            case 2:
+	            	let contact = this.state.items.map((user, index) => {
+	            		return <SearchList 
+			            		updateData={this.updateData}
+			            		openProfile={this.openProfile}
+			            		key={index} {...user}
+			            		active={this.state.active}/>
+	        		})
+	                return (
+	                	<Modal classesNames='SearchContacts'>	
+	                		<User user={this.state.user}/>
+						</Modal>
+	                ); 
+	            break;
+	            default:
+	                console.log(this.state.active);
+	            break;
+        	}
+    	}
 
 		render() {
-
-	        let users = this.state.items.map((user, index) => {
-	            return <SearchList 
-	            		updateData={this.updateData}
-	            		key={index} {...user}
-	            		active={this.state.active}/>
-	        });
-
-			// модальное окно для вывода найденных контактов
-			const modal = this.state.showModal ? (
-				<Modal classesNames='SearchContacts'>
-
-						{users}
-
-						<button onClick={this.addContact}>
-							Пригласить
-						</button>
-						<button onClick={this.searchHide}>
-							Отменить
-						</button>
-				</Modal>
-			) : null;
-
-
-
 	        return (
 				<div className={styles.Menu + ' ' + styles.SidebarItem}>
 					{/*иконка меню - гамбургер*/}
@@ -109,7 +144,9 @@ class Menu extends Component {
 			    		onKeyPress={this.searchResult}
 			    	/>
 
-			    	{modal} {/*вставится в блок с id="modal-root" (Main.js) */}
+					<>
+		                { this.switchComponent() }
+		            </>
 
 			    	{/*список компонентов меню*/}
 			    	<nav className={this.state.condition ? styles.MainMenuOpened : styles.MainMenuClosed} >
