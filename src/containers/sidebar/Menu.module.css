@@ -25,6 +25,7 @@
     font-style: italic;
     font-weight: 300;
     line-height: normal;
+    outline: none;
     font-size: 14px;
 }
 
@@ -80,6 +81,7 @@
     max-height: 500px;
     overflow: hidden;
     transition: 0.5s all;
+    z-index: 2; /*чтобы не пряталось за модальным окном поиска контактов*/
 }
 
 .MainMenuClosed{

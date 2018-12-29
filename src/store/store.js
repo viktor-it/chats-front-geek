@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 
 import {chatsReducer} from './reducers/chatsReducer';
 import {contactsReducer} from './reducers/contactsReducer';
+import {usersReducer} from './reducers/usersReducer';
 import {authReducer} from './reducers/authReducer';
 import {messagesReducer} from './reducers/messagesReducer';
 
@@ -15,6 +16,7 @@ import {messagesReducer} from './reducers/messagesReducer';
 const reducers = combineReducers({
     chats: chatsReducer,
     contacts: contactsReducer,
+    users: usersReducer,
     messages: messagesReducer,
     auth: authReducer
 });

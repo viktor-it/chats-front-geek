@@ -16,7 +16,6 @@ export function contactsReducer(state = initialState, action) {
             state = {...state, is_loading_contacts: true};
         break;
         }
-
         case Constants.GET_CONTACTS_FULFILLED: {
             state = {
                 //...state, 
@@ -26,13 +25,36 @@ export function contactsReducer(state = initialState, action) {
             };
         break;
         }
-
         case Constants.GET_CONTACTS_REJECTED: {
             state = {
-                contacts,
+                ...state,
                 is_loading_contacts: false,
                 error_message: action.payload.message};
         break;
+        }
+
+
+        case Constants.ADD_CONTACT_PENDING: {
+            state = {
+                ...state,
+                is_loading_contact: true
+            };
+            break;
+        }        
+        case Constants.ADD_CONTACT_FULFILLED: {
+            state = {
+                ...state,
+                is_loading: false
+            };
+            break;
+        }        
+        case Constants.ADD_CONTACT_REJECTED: {
+            state = {
+                ...state,
+                is_loading_contacts: false,
+                error_message: action.payload.message
+            };
+            break;
         }
         
         default: {state = {...state}}
