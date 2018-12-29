@@ -1,185 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .Main {
     margin: 0 auto;
-    /* width: 1170px; */
-    width: 399px;
-    height: 628px;
-    position: relative;
-}
-.Restangle_2_1{
-    width: 395.46px;
-    height: 518.7px;
-    filter: blur(5px);
-    position: absolute;
-    /* background-image: url(../../images/background.jpg);
-    background-repeat: no-repeat;
-    background-position: -387.27px -85.8px; */
-    overflow: hidden;
-    /* top: 85.8px;
-    left: 387.27px; */
-}
-.Restangle_2_2{
-	width: 401.46px;
-    height: 630px;
-    border: 1px #000000 solid;
-    position: absolute;
-    /* top: 85.8px;
-    left: 387.27px; */
-    background-color: #84DBFF;
-    opacity: 0.16;
-    border-radius: 8px;
-}
-.Restangle_2_3{
-	width: 393.46px;
-    height: 516.7px;
-    position: absolute;
-    /* top: 86.8px;
-    left: 388.27px; */
-    border-radius: 8px;
-    z-index: 400;
+    width: 480px;
+    height: 749px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2980B9;
+    border-radius: 30px;
 }
 
 .Input{
-	display: block;
-    position: absolute;
-    left: 18%;
-    border: 1px #ffe684 solid;
-    border-radius: 8px;
-    background-color: #b8c5cb;
-    width: 70%;
-    z-index: 200;
-    font-size: 14px;
+    background-color: #FFFFFF;
+    font-family: Roboto,sans-serif;
     font-style: italic;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 14px;
+    text-align: left;
+    height: 30px;
+    width: 280px;
+    color: #34495E;
+    border: none;
+    margin-left: 40px;
     padding-left: 10px;
-    color: #111111;
-    height: 7.5%;
+    border-left: 1px solid #BABABA;
 }
 .Input:focus {
-    background-color: #eee;
-    border: 3px solid #FFE684;
+    background-color: #FFFFFF;
     outline: none;
 }
+.inputBox{
+    width: 414px;
+    height: 515px;
+    margin-top: 42%;
+    padding-bottom: 40px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.formItems{
+     width: 335px;
+     height: 40px;
+     margin-bottom: 20px;
+     border: 1px solid #BABABA;
+     border-radius: 30px;
+     display: flex;
+    align-items: center;
+ }
+.formItems:hover{
+    border: 1px solid #2980B9;
+}
 .Name{
-	top: 46.3%;
+    background-image: url(../../images/Name.svg);
+    background-repeat: no-repeat;
+    background-position-x: 13px;
+    background-position-y: 10px;
+}
+.Name:hover{
+    background-image: url(../../images/Name2.svg);
 }
 .Mail{
-	top: 57.8%;
+    background-image: url(../../images/Mail.svg);
+    background-repeat: no-repeat;
+    background-position-x: 13px;
+    background-position-y: 10px;
+}
+.Mail:hover{
+    background-image: url(../../images/Mail2.svg);
 }
 .Pass{
-	top: 69.3%;
+    background-image: url(../../images/Pass.svg);
+    background-repeat: no-repeat;
+    background-position-x: 13px;
+    background-position-y: 10px;
 }
-.CheckPass{
-	top: 80.8%;
+.Pass:hover{
+    background-image: url(../../images/Pass2.svg);
 }
-
+.passRepeat{
+    background-image: url(../../images/Pass.svg);
+    background-repeat: no-repeat;
+    background-position-x: 13px;
+    background-position-y: 10px;
+}
+.passRepeat:hover{
+    background-image: url(../../images/Pass2.svg);
+}
 .Checkbox{
-	display: block;
-    position: absolute;
-    left: 18%;
-    border: 1px #ffe684 solid;
-    border-radius: 8px;
-    background-color: #b8c5cb;
-    width: 7%;
-    z-index: 200;
-    font-size: 14px;
-    font-style: italic;
-    padding-left: 10px;
-    color: #111111;
-    height: 7%;
-    top: 90%;
+    cursor: pointer;
+    margin-right: 5px;
+    width: 45px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #3498DB;
 }
-
+.formItemsCheck {
+    display: flex;
+    width: 335px;
+    height: 45px;
+}
 .Text{
-	position: absolute;
-    left: 29%;
-    top: 90%;
-    z-index: 300;
-    font-size: 12px;
-    color: #e2e2e2;
-    width: 60%;
+    font-family: Roboto,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 10px;
+    color: #000000;
 }
 .KnowMore{
 	text-decoration: none;
-	color: #ffe684;
+	color: #3498DB;
 }
-
-.Button,
 .ButtonOk{
-	background-color: #b8c5cb;
-    color: #004f70;
-    font-size: 14px;
+	background-color: #BABABA;
+    color: #FFFFFF;
+    font-family: Roboto,sans-serif;
     font-style: normal;
-    width: 44%;
-    top: 105%;
-    height: 8%;
-    padding: 0;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
 	cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    width: 270px;
+    height: 40px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
-.ButtonOk {
-	background-color: #ffe684;
+.ButtonOk:hover{
+    background-color: #3498DB;
 }
-.CancelButton{
-	left: 65%;
-	width: 21%;
-}
-.Button:hover{
-	background-color: #ffe684;
-}
-
 .EllipseBig{
-	width: 398.46px;
-    height: 238.928px;
+	width: 480px;
+    height: 330.928px;
     position: absolute;
-    /* top: 86.388px;
-    left: 388.27px; */
-    background-image: url(../../images/ellipse_big.png);
+    background-image: url(../../images/ellipse_big.svg);
     background-repeat: no-repeat;
-    background-size: 441.34288948px 441.34288948px;
+    background-size: 570.34288948px 757.34288948px;
     background-position: center -246.31578947px;
-    border-radius: 8px;
+    border-radius: 30px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
-
 .Title{
-	position: absolute;
-    width: 100%;
-    /* top: 110px; */
-    z-index: 110;
-    margin: 15px;
-    font-size: 32px;
-    font-weight: 100;
+    width: 440px;
+    margin: 50px 20px 10px 20px;
     letter-spacing: 1px;
     text-align: center;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 48px;
 }
 .Title,
 .Subtitle{
-	color: #004F70;
+    color: #FFFFFF;
     font-family: sans-serif, Roboto;
 }
-
 .Subtitle{
-	position: absolute;
     width: 98%;
-    /* top: 160px; */
-    top: 8%;
-    z-index: 110;
-    font-size: 13px;
-    font-weight: 100;
-    letter-spacing: 1px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 20px;
     text-align: center;
+    color: #FFFFFF;
+    justify-content: center;
 }
-
 .EllipseSmall{
-    width: 68.7628563px;
-    height: 68.7628563px;
-    background-color: #E6F8FF;
-    border-radius: 68.7628563px;
-    position: absolute;
-    /* top: 86.388px;
-    left: 555.61857185px; */
-    /* top: 195px; */
-    left: 50%;
-    top: 16%;
-    transform: translateX(-50%);
-    box-shadow: 0px 2px 5px #999;
+    width: 104px;
+    height: 104px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    padding: 50px;
+    margin: 35px auto;
 }
 
