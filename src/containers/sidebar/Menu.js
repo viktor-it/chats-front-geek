@@ -56,11 +56,11 @@ class Menu extends Component {
 			this.setState({
 		    	modal: 2,
 		    	user: data
-    		});	
-    		
-		}	
+    		});	   		
+		}		
 		
 		updateData = (id, name) => {
+
 			//добавляем имя для последующего добавления в общий список;
 			this.setState({ addItem: name });
 
@@ -77,6 +77,7 @@ class Menu extends Component {
 			//загрузить всех пользователей
     		this.props.dispatch(getUsers());
 		}
+
 		switchComponent() { 
 			switch(this.state.modal) {
 				//выход
@@ -108,16 +109,12 @@ class Menu extends Component {
 	            break;
 	            //окно профиля
 	            case 2:
-	            	let contact = this.state.items.map((user, index) => {
-	            		return <SearchList 
-			            		updateData={this.updateData}
-			            		openProfile={this.openProfile}
-			            		key={index} {...user}
-			            		active={this.state.active}/>
-	        		})
 	                return (
 	                	<Modal classesNames='SearchContacts'>	
-	                		<User user={this.state.user}/>
+	                		<User user={this.state.user}
+	                			addContact={this.addContact}
+	                			searchShow={this.searchShow}
+	                		/>
 						</Modal>
 	                ); 
 	            break;
@@ -144,6 +141,7 @@ class Menu extends Component {
 			    		onKeyPress={this.searchResult}
 			    	/>
 
+			   		{/*окно найденных контактов, профиль пользователя*/}
 					<>
 		                { this.switchComponent() }
 		            </>
