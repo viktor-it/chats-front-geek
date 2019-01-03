@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {logoutUser, getUsers, addContact} from '../../store/actions';
+import {getUsers, addContact} from '../../store/actions';
 
 import Modal from  '../../components/UI/Modal/Modal';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 
 import SearchList from  './SearchList';
+import MenuList from  './MenuList';
 import User from  '../../components/sidebar/User';
 
 
 class Menu extends Component {
 
 		state = {
-			condition: false,
+			menu: false,
 			modal: null,
 
 			items: [],
@@ -24,9 +26,9 @@ class Menu extends Component {
 			user: {}
 		}
 
-		handleClick = () => {
+		menuShow = () => {
 			this.setState({
-      			condition: !this.state.condition
+      			menu: !this.state.menu
     		});
     	}
     	searchShow = () => {
@@ -127,7 +129,6 @@ class Menu extends Component {
 							</div>
 
 						</Modal>
-
 	                ); 
 	            break;
 	            //окно профиля
@@ -148,10 +149,20 @@ class Menu extends Component {
     	}
 
 		render() {
+			// главное меню
+			const menu = this.state.menu ? (
+				<>
+					<Backdrop show classesNames='MainMenu'/>
+			    	<Modal classesNames = 'MainMenu'>	
+		            	<MenuList menuShow = {this.menuShow}/>
+					</Modal>
+				</>
+			) : null;
+
 	        return (
 				<div className = {styles.Menu}>
 					{/*иконка меню - гамбургер*/}
-			    	<div onClick = { this.handleClick } className = {styles.Burger}>
+			    	<div onClick = {this.menuShow} className = {styles.Burger}>
 		    			<span className = {styles.BurgerLine}/>		    		
 			    	</div>
 
@@ -174,24 +185,10 @@ class Menu extends Component {
 		            </>
 
 			    	{/*список компонентов меню*/}
-			    	<nav className = {this.state.condition ? 
-			    					styles.MainMenu : 
-			    					styles.MainMenu + ' ' + styles.MainMenuClosed} >
-						<NavLink
-							className = {styles.BurgerItem}
-							to = '/account'>
-							Личный кабинет
-						</NavLink>
-						<NavLink
-							className={styles.BurgerItem}
-							to = '/profile'>
-							Профиль
-						</NavLink>
-						<div className = {styles.BurgerItem}
-							onClick = {() => {this.props.dispatch(logoutUser())}}>
-							Выйти
-						</div>
-					</nav>
+			    	<>
+				    	{menu}
+					</>
+
 			    </div>
 	        );
 	    }

@@ -52,6 +52,12 @@
     width: 410px;
 }
 
+.MainMenu{
+    background-color: #fff;
+    height: 223px;
+    margin-left: -5px;
+    width: 410px;
+}
 
 /* @media (max-width: 600px) {
     .Modal {
