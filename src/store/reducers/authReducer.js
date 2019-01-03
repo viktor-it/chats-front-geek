@@ -15,11 +15,11 @@ export function authReducer(state = initialState, action) {
             break;
         }        
         case Constants.LOGIN_FULFILLED: {
-            if (action.payload.data.UID) {
+            if (action.payload.data.token) {
                 localStorage.setItem("token",action.payload.data.token);
                 state = {
                     ...state,
-                    token: action.payload.data.UID,
+                    token: action.payload.data.token,
                     is_loading_user: false
                 };
             } else {
@@ -47,11 +47,11 @@ export function authReducer(state = initialState, action) {
             break;
         }        
         case Constants.REGISTER_USER_FULFILLED: {
-            if (action.payload.data.UID) {
+            if (action.payload.data.token) {
                 localStorage.setItem("token",action.payload.data.token);
                 state = {
                     ...state,
-                    token: action.payload.data.UID,
+                    token: action.payload.data.token,
                     is_loading_user: false
                 };
             } else {

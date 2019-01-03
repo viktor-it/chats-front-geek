@@ -1,40 +1,77 @@
 import React, { Component } from "react";
 import ProfileUserTop from "./ProfileUserTop";
-import {Link} from "react-router-dom";
 import ProfileClose from "./ProfileClose";
-import Sidebar from "../../../layouts/Sidebar";
+import styles from "./ProfileUser.module.css";
+
+//for testing
+import ContactsAPI from '../../../store/reducers/contactsStub'
 
 class ProfileUser extends Component {
     render() {
-        let about = 'информация о себе';
-        if (props.about) {
-            about = props.about;
-        }
+        //for testing-----
+        const contact = ContactsAPI.get(
+            parseInt(this.props.match.params.id, 10)
+        )
+        //-----------------
+
         return(
-            <div>
-                <Sidebar/>
+            <section className={styles.profile}>
+            <div className={styles.header}>
+                <div className={styles.header__pic}>
                 <ProfileUserTop/>
-                <p>{props.about.mail}</p>
-                <h4>{props.about.name}</h4>
-                <div className="profile__about">
-                    <h5>О себе:</h5>
-                    <div className="profile__about_info">
-                        <p>{props.about}</p>
-                        <ul>
-                            <li><a href="#">Написать сообщение</a></li>
-                        </ul>
-                        <p>Оповещения <input type="checkbox"/></p>
-                        <ul>
-                            <li><Link to="/">Выйти из профиля</Link></li>
-                            <li><Link to="/">Очистить переписку</Link></li>
-                            <li><Link to="/">Удалить пользователя</Link></li>
-                        </ul>
+                    <div className={styles["status-color"]}>
+
                     </div>
                 </div>
-                <div className="profile__btn-close">
-                   <ProfileClose/>
-                </div>
+                <p className={styles.header__text}>Профиль</p>
+                <p className={styles.header__mail}>simsim28@gmail.com</p>
             </div>
+                <h1 className={styles.name}>{contact.name}</h1>
+                <div className={styles.status}>
+                    <div className={styles.status__about}>
+                        О себе:
+                    </div>
+                    <p className={styles.status__text}>Web-дизайнер, разработчик мобильных приложений, студент GB.</p>
+                </div>
+                <ul className={styles["profile-menu"]}>
+                    <li className={styles["profile-menu__items"]}>
+                        <button className={styles["item-btn"]}>
+                            <img src={require("../../../images/personal_profile/vector.svg")} alt="#" className={styles["profile-menu__icon"]}/>
+                                Написать сообщение
+                        </button>
+                    </li>
+                        <li className={styles["profile-menu__items profile-menu__items_toggle"]}>
+                            <button className={styles["item-btn"]}>
+                                <img src={require("../../../images/personal_profile/bell.svg")} alt="#" className={styles["profile-menu__icon"]}/>
+                                    Оповещения
+                            </button>
+                            <div className={styles["toggle-switch"]}>
+                                {/*<input type="checkbox" className={styles.switch} id="switch">
+                                    <label for="switch" className={styles.switch__line}>
+
+                                    </label>
+                                </input>
+                                
+                                commented for testing
+
+                                */}
+                            </div>
+                        </li>
+                        <li className={styles["profile-menu__items"]}>
+                            <button className={styles["item-btn"]}>
+                                <img src={require("../../../images/personal_profile/clear.svg")} alt="#" className={styles["profile-menu__icon"]}/>
+                                    Очистить переписку
+                            </button>
+                        </li>
+                        <li className={styles["profile-menu__items"]}>
+                            <button className={styles["item-btn"]}>
+                                <img src={require("../../../images/personal_profile/delete.svg")} alt="#" className={styles["profile-menu__icon"]}/>
+                                    Удалить пользователя
+                            </button>
+                        </li>
+                </ul>
+                   <ProfileClose/>
+            </section>
         )
     }
 }

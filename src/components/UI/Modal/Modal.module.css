@@ -4,8 +4,8 @@
     /* background-color: white; */
   /* width: 80%;
     height: 80%; */
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px black;
+    /*border: 1px solid #ccc;*/
+    /*box-shadow: 1px 1px 1px black;*/
     /* padding: 16px; */
     /* left: 10%; */
 /*    top: 10%;*/
@@ -39,6 +39,17 @@
 .ModalLayer3 {
     z-index: 1500;
 }
+
+.SearchContacts{
+    background-color: #f9f9f9;
+    width: 410px;
+    border: none;
+    height: 79%;
+    box-shadow: none;
+    top: 21%;
+    margin-left: -5px;
+}
+
 
 /* @media (max-width: 600px) {
     .Modal {

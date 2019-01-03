@@ -16,7 +16,7 @@ class SearchGroup extends Component {
     }
 
     onClickSearchHandler = () => {
-        this.setState({groups:[
+        this.setState({contacts:[
             {id:1,name:'Первый 1'},
             {id:5,name:'Земля'},
             {id:4,name:'Орел'},
@@ -47,12 +47,19 @@ class SearchGroup extends Component {
                         changed={this.onChangeSearchHandler}/>
                     {/* <button className={classes.Search} onClick={() => {this.props.searchGroup(this.state.searchString)}}>Найти</button> */}
                 </div>
+
+                {/*for testing*/}
+                <ul className={classes.ContactsList}>
+                    {contactsFound}
+                </ul>
+
+
                 <div className={classes.Buttons}>
                     <button className={classes.Search} onClick={this.onClickSearchHandler}>
                         Найти
                     </button>
                     <button className={classes.Button} onClick={this.props.closeForm}>
-                        <i class="fas fa-times"></i>
+                        <i className="fas fa-times"></i>
                     </button>
                 </div>
             </>

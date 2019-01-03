@@ -1,46 +1,46 @@
 .main {
-    margin: 0 auto;
-    /* width: 1170px; */
-    width: 392px;
-    height: 516px;
-    position: relative;
+    width: 482px;
+    height: 640px;
+    /* left: 344px; */
+    /* top: 139px; */
+
+
 }
 .content {
-    /* width: 1170px; */
     background-repeat: no-repeat;
-    /* min-height: 780px; */
     position: absolute;
     z-index: 200;
 }
 .restangle_2_1 {
-    width: 395.46px;
-    height: 518.7px;
-    /* filter: blur(5px); */
-    position: absolute;
-    /* background-image: url(../../images/background.jpg); */
-    /* background-repeat: no-repeat; */
-    /* background-position: -387.27px -85.8px; */
-    overflow: hidden;
-    /* top: 85.8px; */
-    /* left: 387.27px; */
+    /*width: 395.46px;*/
+    /*height: 518.7px;*/
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+    /* position: absolute; */
+    width: 481px;
+    height: 640px;
+    /*left: 344px;*/
+    /* top: 139px; */
+    background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);
+    border-radius: 25px;
 }
 .restangle_2_2 {
-    width: 393.46px;
-    height: 516.7px;
-    border: 1px #000000 solid;
     position: absolute;
-    /* top: 85.8px; */
-    /* left: 387.27px; */
-    background-color: #84DBFF;
-    opacity: 0.16;
-    border-radius: 8px;
+    width: 414px;
+    height: 548px;
+    left: 35px;
+    /* top: 198px; */
+    top: 49px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
 }
 .restangle_2_3 {
-    width: 393.46px;
-    height: 516.7px;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    /* top: 86.8px; */
-    /* left: 388.27px; */
+    top: 0;
+    left: 0;
     border-radius: 8px;
     z-index: 400;
 }
@@ -48,59 +48,81 @@
     /* outline: 1px #ffe684 solid; */
 }
 .ellipse_big {
-    width: 393.46px;
-    height: 238.928px;
-    position: absolute;
-    /* top: 86.388px; */
-    /* left: 388.27px; */
-    background-image: url(../../images/ellipse_big.png);
+    background-image: url(../../images/ellipse.png);
     background-repeat: no-repeat;
-    background-size: 441.34288948px 441.34288948px;
-    background-position: center -246.31578947px;
-    border-radius: 8px;
-    overflow: hidden;
+    /* background-position: center; */
+    position: absolute;
+    width: 573px;
+    height: 574px;
+    /* left: -46px; */
+    /* top: 17px; */
+    /*background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);*/
+    /*box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);*/
+    /*border-radius: 287px;*/
 }
+
+.ellipse_bigtop {
+    position: absolute;
+    width: 481px;
+    height: 640px;
+    left: 345px;
+    top: 139px;
+    background: linear-gradient(180deg, #3498DB 0%, #2980B9 100%);
+    border-radius: 25px;
+}
+
+.maskgroup {
+    position: absolute;
+    width: 481px;
+    height: 640px;
+    left: 345px;
+    top: 139px;
+
+}
+
 .pocket_messenger,
 .for_geeks_by_geeks {
-    color: #004F70;
-    font-family: sans-serif, Roboto;
+    font-family: Roboto;
 }
 .pocket_messenger {
     position: absolute;
-    margin-top: 15px;
-    width: 100%;
-    /* top: 110.00376081px; */
-    z-index: 110;
-    font-size: 32px;
-    font-weight: 100;
-    letter-spacing: 1px;
-    text-align: center;
+    /*width: 390px;*/
+    height: 57px;
+    left: 45px;
+    top: 37px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 48px;
+    color: #FFFFFF;
+    border-radius: 25px;
 }
 .for_geeks_by_geeks {
     position: absolute;
-    width: 100%;
-    /* top: 160px; */
-    top: 10%;
-    z-index: 110;
-    font-size: 13px;
-    font-weight: 100;
-    letter-spacing: 1px;
+    width: 171px;
+    height: 24px;
+    left: 140px;
+    top: 102px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 20px;
     text-align: center;
+    color: #FFFFFF;
+    border-radius: 25px;
 }
 
 .ellipse_small {
-    width: 68.7628563px;
-    height: 68.7628563px;
-    background-color: #E6F8FF;
-    border-radius: 68.7628563px;
+
     position: absolute;
-    /* top: 86.388px;
-    left: 550.61857185px; */
-    /* top: 195px; */
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
-    box-shadow: 0px 2px 5px #999;
+    width: 104px;
+    height: 104px;
+    left: 180px;
+    top: 190px;
+    background: #FFFFFF;
+    border-radius: 52px;
 }
 .restangle_2_3 input {
     display: block;
@@ -136,22 +158,27 @@
     text-decoration: underline;
 }
 .log_in {
-    display: block;
+
     position: absolute;
-    left: 18%;
-    border: 1px #ffe684 solid;
-    border-radius: 8px;
-    z-index: 200;
-    font-size: 14px;
-    font-style: italic;
-    background-color: #FFE684;
-    color: #004f70;
-    font-size: 16px;
-    letter-spacing: 1px;
+    width: 270px;
+    height: 40px;
+    left: calc(50% - 260px/2);
+    top: 510px;
+
+    /* Bottom activ */
+    background: #3498DB;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+
+    /* Текст на кнопке */
+    text-transform: uppercase;
     font-style: normal;
-    width: 62%;
-    top: 71%;
-    height: 8%;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+
+    color: #FFFFFF;
 }
 .log_in:hover {
     cursor: pointer;
@@ -161,24 +188,153 @@
     height: 7.5%;
 }
 .mail {
-    top: 46.3%;
-    /* text-transform: lowercase; */
+    /*top: 46.3%;*/
+    position: absolute;
+    width: 332px;
+    height: 40px;
+    left: calc(50% - 332px/2);
+    top: 360px;
+    background: #FFFFFF;
+    border: 1px solid #3498DB;
+    box-sizing: border-box;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
 }
 .pass {
-    top: 57.8%;
+    /*top: 57.8%;*/
+    position: absolute;
+    width: 332px;
+    height: 40px;
+    left: calc(50% - 332px/2);
+    top: 430px;
+    background: #FFFFFF;
+    /* Bottom activ */
+    border: 1px solid #3498DB;
+    box-sizing: border-box;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
 }
 .registration {
     position: absolute;
-    left: 18%;
-    top: 79.5%;
-    z-index: 300;
-    font-size: 12px;
-    color: #e2e2e2;
+    /*width: 230px;*/
+    height: 17px;
+    left: 130px;
+    top: 570px;
+
+
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 14px;
+    text-align: center;
+
+    color: #324A5E;
+
+    border-radius: 25px;
 }
 .registration a {
-    color: #ffe684;
+    color: #324A5E;;
     text-decoration: none;
 }
 .registration a:hover {
     text-decoration: underline;
+}
+
+/* new styles */
+
+/* Rectangle 2 */
+
+.rectangle_2 {
+    position: absolute;
+    width: 1170px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+}
+
+/* LOGEEN */
+
+.logeen {
+    position: absolute;
+    width: 482px;
+    height: 640px;
+    left: 344px;
+    top: 139px;
+}
+
+/* вход кнопка */
+
+.logeen_button {
+    position: absolute;
+    width: 270px;
+    height: 40px;
+    left: 451px;
+    top: 642px;
+}
+
+/* ВОЙТИ */
+
+.logeen_button_text {
+    position: absolute;
+    width: 54px;
+    height: 19px;
+    left: calc(50% - 54px/2 - 1px);
+    top: calc(50% - 19px/2 - 0.5px);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 16px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    border-radius: 25px;
+}
+
+/* Rectangle 3.3 */
+.logeen_button_rectangle_3_3 {
+    position: absolute;
+    width: 270px;
+    height: 40px;
+    left: calc(50% - 270px/2);
+    top: calc(50% - 40px/2);
+}
+
+/* Bottom activ */
+
+.logeen_button_active {
+    background: #3498DB;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+
+}
+
+
+
+
+/* Line 2.1 */
+.logeen_line_2_1 {
+    position: absolute;
+    width: 29px;
+    height: 0px;
+    left: 454px;
+    top: 570px;
+    border: 1px solid rgba(117, 117, 117, 0.5);
+    border-radius: 25px;
+    transform: rotate(90deg);
+}
+
+/* Line 2 */
+.logeen_line_2 {
+    position: absolute;
+    width: 29px;
+    height: 0px;
+    left: 454px;
+    top: 505px;
+    border: 1px solid rgba(117, 117, 117, 0.5);
+    border-radius: 25px;
+    transform: rotate(90deg);
 }

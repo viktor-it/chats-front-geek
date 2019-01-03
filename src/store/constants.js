@@ -26,14 +26,34 @@ export const GET_USER_PENDING = 'GET_USER_PENDING';
 export const GET_USER_FULFILLED = 'GET_USER_FULFILLED';
 export const GET_USER_REJECTED = 'GET_USER_REJECTED';
 
+//Получение пользователей---------------------------------------------------------------------
+export const GET_USERS = 'GET_USERS';
+export const GET_USERS_PENDING = 'GET_USERS_PENDING';
+export const GET_USERS_FULFILLED = 'GET_USERS_FULFILLED';
+export const GET_USERS_REJECTED = 'GET_USERS_REJECTED';
+
 //Получение контактов---------------------------------------------------------------------
 export const GET_CONTACTS = 'GET_CONTACTS';
 export const GET_CONTACTS_PENDING = 'GET_CONTACTS_PENDING';
 export const GET_CONTACTS_FULFILLED = 'GET_CONTACTS_FULFILLED';
 export const GET_CONTACTS_REJECTED = 'GET_CONTACTS_REJECTED';
 
+//Добавление контакта---------------------------------------------------------------------
+export const ADD_CONTACT = 'ADD_CONTACT';
+export const ADD_CONTACT_PENDING = 'ADD_CONTACT_PENDING';
+export const ADD_CONTACT_FULFILLED = 'ADD_CONTACT_FULFILLED';
+export const ADD_CONTACT_REJECTED = 'ADD_CONTACT_REJECTED';
+
 //Получение чатов---------------------------------------------------------------------
 export const GET_CHATS = 'GET_CHATS';
 export const GET_CHATS_PENDING = 'GET_CHATS_PENDING';
 export const GET_CHATS_FULFILLED = 'GET_CHATS_FULFILLED';
 export const GET_CHATS_REJECTED = 'GET_CHATS_REJECTED';
+
+//Получение списка сообщений---------------------------------------------------------------
+export const GET_MESSAGES = 'GET_MESSAGES';
+export const GET_MESSAGES_PENDING = 'GET_MESSAGES_PENDING';
+export const GET_MESSAGES_FULFILLED = 'GET_MESSAGES_FULFILLED';
+export const GET_MESSAGES_REJECTED = 'GET_MESSAGES_REJECTED';
+
+export const ADD_MESSAGE = 'ADD_MESSAGE';

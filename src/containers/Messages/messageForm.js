@@ -1,53 +1,62 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-// import MessageList from './messageList';
-import MessageList from '../../components/message/Message';
+import {addMessage, getMessages} from '../../store/actions';
+import MessageListToday from '../../components/message/MessageListToday';
 import SendMessageForm from './sendMessageForm';
 
 import classes from './messageForm.module.css';
 
-const messages = [          //заменятся на полученное с сервера
-  {
-    date: 1543990196864,
-    senderId: "Мария",
-    text: "Дорогие дизайнеры! Есть ли что-нибудь по десктопу клиенту? Хотелось бы взлянуть?"
-  },
-  {
-    date: 1543990496864,
-    senderId: "Дизайнер 1",
-    text: "Мы в процессе его разработки"
-  }
-];
+class MessageForm extends Component {
 
-export default class MessageForm extends React.Component {
-  state = {
-       messages: messages
+  componentDidMount() {
+    this.props.dispatch(getMessages());
+  }
+
+  componentDidUpdate() {
+    let messageList = document.getElementById("messageList");
+    messageList.scrollTop = messageList.scrollHeight;
   }
 
   sendMessage = (text) => {
     // console.log(text);
     let timestamp = new Date();
-
-    this.setState({
-      messages:[
-          ...this.state.messages,{
-          date: timestamp.getTime(),
-          senderId: 'Вы',
-          text
-      }]
-    });
-
+    this.props.dispatch(addMessage({
+        receiver: 55,
+        message: text,
+        senderid:'%id_sender%',
+        sender_name: 'Вы',
+        timestamp: timestamp.getTime(),
+    }));
   }
 
   render() {
-  	// console.log(this.state.messages);
-    // console.log(this.sendMessage);
+    let daysWithMessages = [];
+    for (const key in this.props.messages) {
+      daysWithMessages.push(<MessageListToday key={key} day={key} messages={this.props.messages[key]}/>);
+    }
+    let chatName = 'Имя чата';
+    if (this.props.chatName) {
+      chatName = this.props.chatName;
+    }
+
     return (
       <div className={classes.messageForm}>
-        <h2 className={classes.chatTitle}>Имя чата</h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
-        <MessageList messages={this.state.messages}/>
+        <h2 className={classes.chatTitle}>{chatName}</h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
+        <div className={classes.messageList} id='messageList'>
+          {daysWithMessages}
+        </div>
         <SendMessageForm sendMessage={this.sendMessage}/>
      </div>
     )
   }
 }
+
+const mapStateToProps = (store) => {
+  return {
+      token: store.auth.token,
+      messages: store.messages.messages
+  }
+}
+
+export default connect(mapStateToProps)(MessageForm);
