@@ -88,21 +88,40 @@ class Menu extends Component {
             	case 1:
             		let users = this.state.items.map((user, index) => {
 	            		return <SearchList 
-			            		updateData={this.updateData}
-			            		openProfile={this.openProfile}
-			            		key={index} {...user}
-			            		active={this.state.active}/>
+			            		updateData = {this.updateData}
+			            		openProfile = {this.openProfile}
+			            		key = {index} {...user}
+			            		active = {this.state.active}/>
 	        		})
 	                return (
-	                	<Modal classesNames='SearchContacts'>			                    
-							{users}
+	                	<Modal classesNames = 'SearchContacts'>
+	                		<div className = {styles.List}>	
 
-							<button onClick={this.addContact}>
-								Пригласить
-							</button>
-							<button onClick={this.searchHide}>
-								Отменить
-							</button>
+								{users}
+
+							</div>
+
+							<div className = {styles.ButtonsBlock}>
+								<button onClick = {this.addContact}
+										className = {styles.Button}>
+									<div>
+				                        <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+				                    </div>
+				                    <div className = {styles.ButtonText}>
+				                        Пригласить
+				                    </div>
+								</button>
+								<button onClick = {this.searchHide}
+										className = {styles.Button}>
+									<div>
+				                        <i className = {styles.ButtonIcon + ' fas fa-times'}></i>
+				                    </div>
+				                    <div className = {styles.ButtonText}>
+				                        Отменить
+				                    </div>
+								</button>
+							</div>
+
 						</Modal>
 
 	                ); 
@@ -110,10 +129,10 @@ class Menu extends Component {
 	            //окно профиля
 	            case 2:
 	                return (
-	                	<Modal classesNames='SearchContacts'>	
-	                		<User user={this.state.user}
-	                			addContact={this.addContact}
-	                			searchShow={this.searchShow}
+	                	<Modal classesNames = 'SearchContacts'>	
+	                		<User user = {this.state.user}
+	                			addContact = {this.addContact}
+	                			searchShow = {this.searchShow}
 	                		/>
 						</Modal>
 	                ); 
@@ -126,19 +145,19 @@ class Menu extends Component {
 
 		render() {
 	        return (
-				<div className={styles.Menu + ' ' + styles.SidebarItem}>
+				<div className = {styles.Menu + ' ' + styles.SidebarItem}>
 					{/*иконка меню - гамбургер*/}
-			    	<div onClick={ this.handleClick } className={styles.Burger}>
-		    			<span className={styles.BurgerLine}/>		    		
+			    	<div onClick = { this.handleClick } className = {styles.Burger}>
+		    			<span className = {styles.BurgerLine}/>		    		
 			    	</div>
 
 			    	{/*поиск контактов*/}
 			    	<input
-			    		placeholder="Найти..."
-			    		type="text"
-			    		className={styles.Search}
-			    		onClick={this.searchShow}
-			    		onKeyPress={this.searchResult}
+			    		placeholder = 'Найти...'
+			    		type = 'text'
+			    		className = {styles.Search}
+			    		onClick = {this.searchShow}
+			    		onKeyPress = {this.searchResult}
 			    	/>
 
 			   		{/*окно найденных контактов, профиль пользователя*/}
@@ -147,19 +166,21 @@ class Menu extends Component {
 		            </>
 
 			    	{/*список компонентов меню*/}
-			    	<nav className={this.state.condition ? styles.MainMenuOpened : styles.MainMenuClosed} >
+			    	<nav className = {this.state.condition ? 
+			    					styles.MainMenuOpened : 
+			    					styles.MainMenuClosed} >
 						<NavLink
-						className={styles.BurgerItem}
-						to='/account'>
+							className = {styles.BurgerItem}
+							to = '/account'>
 							Личный кабинет
 						</NavLink>
 						<NavLink
-						className={styles.BurgerItem}
-						to='/profile'>
+							className={styles.BurgerItem}
+							to = '/profile'>
 							Профиль
 						</NavLink>
-						<div className={styles.BurgerItem}
-						onClick={() => {this.props.dispatch(logoutUser())}}>
+						<div className = {styles.BurgerItem}
+							onClick = {() => {this.props.dispatch(logoutUser())}}>
 							Выйти
 						</div>
 					</nav>

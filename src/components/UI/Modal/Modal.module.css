@@ -42,12 +42,14 @@
 
 .SearchContacts{
     background-color: #f9f9f9;
-    width: 410px;
     border: none;
-    height: 79%;
     box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    height: 79%;
     margin-top: 107px;
     margin-left: -5px;
+    width: 410px;
 }
 
 

@@ -69,6 +69,7 @@
 .MessageText{
 	font: normal bold 16px/19px Roboto;
 }
+
 .ButtonsBlock{
 	display: flex;
 	flex-direction: row;
