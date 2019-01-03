@@ -38,14 +38,18 @@ class Menu extends Component {
   
 		searchHide = () => {
 			this.setState({modal: 0});
+
+			//обнуление input при выходе из окна поиска
+			document.getElementById('Search').value = '';
 		}
 
 		searchResult = (event) => {
-			if (event.key === 'Enter') {
+			let value = document.getElementById('Search').value;
 
+			if (event.key === 'Enter' || value !== '') {
 				// фильтр-поиск
     			let updatedList = this.state.items.filter(function(item){
-      				return item.name == event.target.value;
+      				return item.name == value
     			});
 
     			this.setState({items: updatedList});
@@ -145,21 +149,25 @@ class Menu extends Component {
 
 		render() {
 	        return (
-				<div className = {styles.Menu + ' ' + styles.SidebarItem}>
+				<div className = {styles.Menu}>
 					{/*иконка меню - гамбургер*/}
 			    	<div onClick = { this.handleClick } className = {styles.Burger}>
 		    			<span className = {styles.BurgerLine}/>		    		
 			    	</div>
 
 			    	{/*поиск контактов*/}
-			    	<input
-			    		placeholder = 'Найти...'
-			    		type = 'text'
-			    		className = {styles.Search}
-			    		onClick = {this.searchShow}
-			    		onKeyPress = {this.searchResult}
-			    	/>
-
+			    	<div className = {styles.Search}>
+				    	<input
+				    		placeholder = 'Найти...'
+				    		type = 'text'
+				    		className = {styles.SearchInput}
+				    		id = 'Search'
+				    		onClick = {this.searchShow}
+				    		onKeyPress = {this.searchResult}
+				    	/>
+				    	<i className = {styles.SearchIcon + ' fas fa-search'}
+				    		onClick = {this.searchResult}/>
+			    	</div>
 			   		{/*окно найденных контактов, профиль пользователя*/}
 					<>
 		                { this.switchComponent() }
@@ -167,8 +175,8 @@ class Menu extends Component {
 
 			    	{/*список компонентов меню*/}
 			    	<nav className = {this.state.condition ? 
-			    					styles.MainMenuOpened : 
-			    					styles.MainMenuClosed} >
+			    					styles.MainMenu : 
+			    					styles.MainMenu + ' ' + styles.MainMenuClosed} >
 						<NavLink
 							className = {styles.BurgerItem}
 							to = '/account'>
