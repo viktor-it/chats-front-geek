@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {logoutUser, getUsers, addContact} from '../../store/actions';
+import {getUsers, addContact} from '../../store/actions';
 
 import Modal from  '../../components/UI/Modal/Modal';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 
 import SearchList from  './SearchList';
+import MenuList from  './MenuList';
 import User from  '../../components/sidebar/User';
 
 
 class Menu extends Component {
 
 		state = {
-			condition: false,
+			menu: false,
 			modal: null,
 
 			items: [],
@@ -24,9 +26,9 @@ class Menu extends Component {
 			user: {}
 		}
 
-		handleClick = () => {
+		menuShow = () => {
 			this.setState({
-      			condition: !this.state.condition
+      			menu: !this.state.menu
     		});
     	}
     	searchShow = () => {
@@ -38,14 +40,18 @@ class Menu extends Component {
   
 		searchHide = () => {
 			this.setState({modal: 0});
+
+			//обнуление input при выходе из окна поиска
+			document.getElementById('Search').value = '';
 		}
 
 		searchResult = (event) => {
-			if (event.key === 'Enter') {
+			let value = document.getElementById('Search').value;
 
+			if (event.key === 'Enter' || value !== '') {
 				// фильтр-поиск
     			let updatedList = this.state.items.filter(function(item){
-      				return item.name == event.target.value;
+      				return item.name == value
     			});
 
     			this.setState({items: updatedList});
@@ -56,11 +62,11 @@ class Menu extends Component {
 			this.setState({
 		    	modal: 2,
 		    	user: data
-    		});	
-    		
-		}	
+    		});	   		
+		}		
 		
 		updateData = (id, name) => {
+
 			//добавляем имя для последующего добавления в общий список;
 			this.setState({ addItem: name });
 
@@ -77,6 +83,7 @@ class Menu extends Component {
 			//загрузить всех пользователей
     		this.props.dispatch(getUsers());
 		}
+
 		switchComponent() { 
 			switch(this.state.modal) {
 				//выход
@@ -87,37 +94,51 @@ class Menu extends Component {
             	case 1:
             		let users = this.state.items.map((user, index) => {
 	            		return <SearchList 
-			            		updateData={this.updateData}
-			            		openProfile={this.openProfile}
-			            		key={index} {...user}
-			            		active={this.state.active}/>
+			            		updateData = {this.updateData}
+			            		openProfile = {this.openProfile}
+			            		key = {index} {...user}
+			            		active = {this.state.active}/>
 	        		})
 	                return (
-	                	<Modal classesNames='SearchContacts'>			                    
-							{users}
+	                	<Modal classesNames = 'SearchContacts'>
+	                		<div className = {styles.List}>	
 
-							<button onClick={this.addContact}>
-								Пригласить
-							</button>
-							<button onClick={this.searchHide}>
-								Отменить
-							</button>
+								{users}
+
+							</div>
+
+							<div className = {styles.ButtonsBlock}>
+								<button onClick = {this.addContact}
+										className = {styles.Button}>
+									<div>
+				                        <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+				                    </div>
+				                    <div className = {styles.ButtonText}>
+				                        Пригласить
+				                    </div>
+								</button>
+								<button onClick = {this.searchHide}
+										className = {styles.Button}>
+									<div>
+				                        <i className = {styles.ButtonIcon + ' fas fa-times'}></i>
+				                    </div>
+				                    <div className = {styles.ButtonText}>
+				                        Отменить
+				                    </div>
+								</button>
+							</div>
+
 						</Modal>
-
 	                ); 
 	            break;
 	            //окно профиля
 	            case 2:
-	            	let contact = this.state.items.map((user, index) => {
-	            		return <SearchList 
-			            		updateData={this.updateData}
-			            		openProfile={this.openProfile}
-			            		key={index} {...user}
-			            		active={this.state.active}/>
-	        		})
 	                return (
-	                	<Modal classesNames='SearchContacts'>	
-	                		<User user={this.state.user}/>
+	                	<Modal classesNames = 'SearchContacts'>	
+	                		<User user = {this.state.user}
+	                			addContact = {this.addContact}
+	                			searchShow = {this.searchShow}
+	                		/>
 						</Modal>
 	                ); 
 	            break;
@@ -128,43 +149,46 @@ class Menu extends Component {
     	}
 
 		render() {
+			// главное меню
+			const menu = this.state.menu ? (
+				<>
+					<Backdrop show classesNames='MainMenu'/>
+			    	<Modal classesNames = 'MainMenu'>	
+		            	<MenuList menuShow = {this.menuShow}/>
+					</Modal>
+				</>
+			) : null;
+
 	        return (
-				<div className={styles.Menu + ' ' + styles.SidebarItem}>
+				<div className = {styles.Menu}>
 					{/*иконка меню - гамбургер*/}
-			    	<div onClick={ this.handleClick } className={styles.Burger}>
-		    			<span className={styles.BurgerLine}/>		    		
+			    	<div onClick = {this.menuShow} className = {styles.Burger}>
+		    			<span className = {styles.BurgerLine}/>		    		
 			    	</div>
 
 			    	{/*поиск контактов*/}
-			    	<input
-			    		placeholder="Найти..."
-			    		type="text"
-			    		className={styles.Search}
-			    		onClick={this.searchShow}
-			    		onKeyPress={this.searchResult}
-			    	/>
-
+			    	<div className = {styles.Search}>
+				    	<input
+				    		placeholder = 'Найти...'
+				    		type = 'text'
+				    		className = {styles.SearchInput}
+				    		id = 'Search'
+				    		onClick = {this.searchShow}
+				    		onKeyPress = {this.searchResult}
+				    	/>
+				    	<i className = {styles.SearchIcon + ' fas fa-search'}
+				    		onClick = {this.searchResult}/>
+			    	</div>
+			   		{/*окно найденных контактов, профиль пользователя*/}
 					<>
 		                { this.switchComponent() }
 		            </>
 
 			    	{/*список компонентов меню*/}
-			    	<nav className={this.state.condition ? styles.MainMenuOpened : styles.MainMenuClosed} >
-						<NavLink
-						className={styles.BurgerItem}
-						to='/account'>
-							Личный кабинет
-						</NavLink>
-						<NavLink
-						className={styles.BurgerItem}
-						to='/profile'>
-							Профиль
-						</NavLink>
-						<div className={styles.BurgerItem}
-						onClick={() => {this.props.dispatch(logoutUser())}}>
-							Выйти
-						</div>
-					</nav>
+			    	<>
+				    	{menu}
+					</>
+
 			    </div>
 	        );
 	    }

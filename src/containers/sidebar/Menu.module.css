@@ -1,97 +1,62 @@
 
 .Menu{
 	background-color: #3498DB;
-    margin: 0;
-    justify-content: space-between;
-    align-items: center;
-    flex-basis: 49px;
+    display: flex;   
     padding: 5px;
-}
-
-.SidebarItem{
-	display: flex;
     width: 410px;
-    flex-wrap: wrap;
 }
-
 .Search{
     position: relative;
-    border-radius: 5px;
+}
+.SearchInput{   
+    border-radius: 35px;
     border: none;
-    padding: 5px;
-    width: 80%;
-    top: 7px;
-    font-family: Roboto,sans-serif;
-    font-style: italic;
-    font-weight: 300;
-    line-height: normal;
+    font: italic 300 14px/normal Roboto, sans-serif;
+    height: 35px;
     outline: none;
-    font-size: 14px;
+    margin: 13px;
+    padding: 17px;
+    width: 326px;
+}
+.SearchIcon{
+    color: #bababa;
+    cursor: pointer;
+    position: absolute;
+    right: 32px;
+    top: 22px;
 }
 
 .Burger {
     height: 18px;
-    width: 25px;
-    position: relative;
-    margin: 15px 4px 0 22px;
+    margin: 24px 4px 0 22px;
+    width: 20px;
 }
-
 /*линии*/
 .BurgerLine,
 .Burger:before,
 .Burger:after{
+    background-color: #fff;
     content: "";
-    position: absolute;
-    left: 0;
+    display: block;
     height: 2px;
-    width: 100%;
-    background: #fff;
-}
-.Burger:before {
-    top: 0;
-}
-.Burger:after {
-    bottom: 0;
+    width: 18px;
+   
 }
 .BurgerLine{
-    top: 8px;
+    margin: 4px 0 3px 0;
 }
-
 .Burger:hover{
     cursor: pointer;
 }
 
-.BurgerLabel{
-	display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.MainMenuOpened{
-	position: absolute;
-    display: block;
+.MainMenu{
     width: 410px;
-    top: -70px;
     transform: translateY(100%);
-    max-height: 500px;
-    overflow: hidden;
     transition: 0.5s all;
     z-index: 2; /*чтобы не пряталось за модальным окном поиска контактов*/
 }
-
 .MainMenuClosed{
-	position: absolute;
-    display: block;
-    top: -70px;
-    transform: translateY(100%);
-    overflow: hidden;
-	max-height: 0px;
-    width: 410px;
+	display: none;
 }
 
 .BurgerItem{
@@ -100,18 +65,43 @@
     padding: 10px;
     color: white;
     text-decoration: none;
-    background-color: #3498DB;
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    background-color: #3498db;
+    font: normal 500 14px/normal Roboto, sans-serif;
     text-align: center;
     cursor: pointer;
 }
 .BurgerItem:hover {
-    color: #F8D57D;
+    color: #f8d57d;
 }
 
-.BurgerSearch {
-    margin: 0 auto;
+.List{
+    height: 834px;
+}
+.ButtonsBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: auto;
+    padding: 20px;
+    width: 100%;
+}
+.Button{
+    align-items: center;
+    background: #bababa;
+    border-radius: 25px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    font: normal normal 16px/0 Roboto;
+    justify-content: center;
+    height: 40px;
+    width: 180px;
+}
+.Button:hover{
+    background: #3498DB;
+    cursor: pointer;
+}
+.ButtonIcon{
+    font-size: 15px;
+    margin-right: 15px;
 }

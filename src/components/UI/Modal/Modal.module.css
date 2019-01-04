@@ -42,14 +42,22 @@
 
 .SearchContacts{
     background-color: #f9f9f9;
-    width: 410px;
     border: none;
-    height: 79%;
     box-shadow: none;
-    top: 21%;
+    display: flex;
+    flex-direction: column;
+    height: 79%;
+    margin-top: 129px;
     margin-left: -5px;
+    width: 410px;
 }
 
+.MainMenu{
+    background-color: #fff;
+    height: 223px;
+    margin-left: -5px;
+    width: 410px;
+}
 
 /* @media (max-width: 600px) {
     .Modal {

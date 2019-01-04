@@ -8,6 +8,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 2,
             time: '10.10.2018',
+            status: true
         }, 
         {
             id: 2,
@@ -16,6 +17,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
+            status: false
         }
     ],
     users: [
@@ -28,6 +30,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 2,
             time: '10.10.2018',
+            status: true
 
         }, 
         {
@@ -39,6 +42,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
+            status: false
         },
         {
             id: 3,
@@ -49,6 +53,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
+            status: false
         }, 
         {
             id: 4,
@@ -59,6 +64,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
+            status: false
         },
         {
             id: 5,
@@ -69,6 +75,7 @@ const ContactsAPI = {
             text: 'Текст последнего сообщения',
             unread: 5,
             time: '10.10.2018',
+            status: false
         }
     ],
     all(){

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import openSocket from 'socket.io-client';
+//import openSocket from 'socket.io-client';
 
 import Sidebar from '../layouts/Sidebar';
 // import SidePanel from '../containers/SidePanel/SidePanel';

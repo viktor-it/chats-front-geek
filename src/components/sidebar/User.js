@@ -1,22 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import styles from './User.module.css';
 
-const Contact = (props) => {
+const User = (props) => {
     return (
-        <div className={styles.Contact}>
-        	<div>{props.user.img}</div>
-        	<div>{props.onlineMark}</div>
-        	<div>Профиль</div>
-        	<div>{props.user.email}</div>
-        	<div>{props.user.name}</div>
+        <div className = {styles.Profile}>
+            <div className = {styles.Header}>
+                <div className = {styles.User}>
+                    <img src = {props.user.img} 
+                        alt = 'photo'
+                        className = {styles.Avatar}
+                    />
+                    <div className = {styles.Title}>Профиль</div>
+                </div>          	
+            </div>
+        	<div className = {styles.Email}>{props.user.email}</div>
+        	<div className = {styles.Name}>{props.user.name}</div>
+            <div className  =  {props.user.status ?
+                styles.OnLine : 
+                styles.OffLine}>
+                online
+            </div>
+            <div className = {styles.Info}>
+                <div className = {styles.InfoTitle}>О себе:</div>
+                <div className = {styles.InfoText}>{props.user.info}</div>
+            </div>
+            <div className = {styles.Message}>
+                <div>
+                    <i className = {styles.MessageIcon + ' fas fa-comment-alt'}></i>
+                </div>
+                <div className = {styles.MessageText}>Написать сообщение</div>
+            </div>
 
-    		{/*по клику добавить контакт в список и закрыть форму*/}
-            <button className={styles.Button}>
-                Пригласить
-            </button>
+            <div className = {styles.ButtonsBlock}>
+                <button className = {styles.Button}
+                        onClick = {() => {props.addContact()}}
+                >
+                    <div>
+                        <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+                    </div>
+                    <div className = {styles.ButtonText}>
+                        Пригласить
+                    </div>
+                </button>
+
+                <button className = {styles.Button}
+                        onClick = {() => {props.searchShow()}}
+                >
+                    <div>
+                        <i className = {styles.ButtonIcon + ' fas fa-times'}></i>
+                    </div>
+                    <div className = {styles.ButtonText}>
+                        Закрыть
+                    </div>
+                </button>
+            </div>
         </div>
     );
 }
 
-export default Contact;
+export default User;
