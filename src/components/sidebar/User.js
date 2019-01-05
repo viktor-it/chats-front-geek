@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import styles from './User.module.css';
 
@@ -8,7 +8,7 @@ const User = (props) => {
             <div className = {styles.Header}>
                 <div className = {styles.User}>
                     <img src = {props.user.img} 
-                        alt = 'photo'
+                        alt = 'user'
                         className = {styles.Avatar}
                     />
                     <div className = {styles.Title}>Профиль</div>

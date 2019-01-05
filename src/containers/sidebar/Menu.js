@@ -51,7 +51,7 @@ class Menu extends Component {
 			if (event.key === 'Enter' || value !== '') {
 				// фильтр-поиск
     			let updatedList = this.state.items.filter(function(item){
-      				return item.name == value
+      				return item.name === value
     			});
 
     			this.setState({items: updatedList});

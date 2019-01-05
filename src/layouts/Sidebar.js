@@ -10,6 +10,7 @@ import styles from  './Sidebar.module.css';
 
 
 class Sidebar extends React.Component {
+    //state - для переключения списка чатов/контактов
     state = {
         active: 1
     };
@@ -24,22 +25,25 @@ class Sidebar extends React.Component {
                 {/* чаты vs контакты */}
                 <div className={styles.Tabs}>
                     <div className={styles.Tab}
-                    onClick={() => {this.state.active = 1}}>
+                    onClick={
+                        () => this.setState({ active: 1 })
+                    }
+                    >
                         <Header href="/chats">
-                            <i className={(this.state.active == 1) ? 
+                            <i className={(this.state.active === 1) ? 
                             styles.IconActive + ' fas fa-envelope' : 
                             styles.Icon + ' fas fa-envelope'}/>
-                            <span className={(this.state.active == 1) ? 
+                            <span className={(this.state.active === 1) ? 
                             styles.TextActive : styles.Text}>Чаты</span>
                         </Header>
                     </div>
                     <div className={styles.Tab}
-                    onClick={() => {this.state.active = 2}}>
+                    onClick={() => this.setState({ active: 2 })}>
                         <Header href="/contacts">
-                            <i className={(this.state.active == 2) ? 
+                            <i className={(this.state.active === 2) ? 
                             styles.IconActive + ' fas fa-user-friends' : 
                             styles.Icon + ' fas fa-user-friends'}/>
-                            <span className={(this.state.active == 2) ? 
+                            <span className={(this.state.active === 2) ? 
                             styles.TextActive : styles.Text}>Контакты</span>
                         </Header>
                     </div>                

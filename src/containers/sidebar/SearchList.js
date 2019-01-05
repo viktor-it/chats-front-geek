@@ -29,13 +29,13 @@ class SearchList extends Component {
 	render(){
 	    return (
 			<div 
-				className = {(this.props.active == this.props.id) ? 
+				className = {(this.props.active === this.props.id) ? 
                 			styles.Item + ' ' + styles.ActiveItem : 
                 			styles.Item}
                 onClick = {this.handleClicks}
 			>
 				<img src = {this.props.img} 
-	                        alt = 'photo'
+	                        alt = 'user'
 	                        className = {styles.Avatar}
 	            />
 	            <div className = {styles.Name}>
