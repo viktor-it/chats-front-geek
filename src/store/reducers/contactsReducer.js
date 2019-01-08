@@ -27,8 +27,7 @@ export function contactsReducer(state = initialState, action) {
         }
         case Constants.GET_CONTACTS_REJECTED: {
             state = {
-                //...state, 
-                contacts, //for testing
+                ...state, 
                 is_loading_contacts: false,
                 error_message: action.payload.message};
         break;

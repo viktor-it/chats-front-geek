@@ -25,10 +25,7 @@ class Sidebar extends React.Component {
                 {/* чаты vs контакты */}
                 <div className={styles.Tabs}>
                     <div className={styles.Tab}
-                    onClick={
-                        () => this.setState({ active: 1 })
-                    }
-                    >
+                    onClick={() => this.setState({ active: 1 })}>
                         <Header href="/chats">
                             <i className={(this.state.active === 1) ? 
                             styles.IconActive + ' fas fa-envelope' : 

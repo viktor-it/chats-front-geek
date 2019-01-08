@@ -78,19 +78,25 @@ const ContactsAPI = {
             status: false
         }
     ],
+    foundUsers: [],
     all(){
-        return this.contacts
-    },
-    allUsers(){
-        return this.users
+        return this.contacts;
     },
     get(id){
-        const isContact = p => p.id === id
+        const isContact = p => p.id === id;
         return this.contacts.find(isContact)
     },
     addContact(name){
         let user = this.users.find(x => x.name === name);
         this.contacts.push(user);
+    },
+    findUsers(name){
+        this.foundUsers.length = 0;
+        let user = this.users.find(x => x.name === name);
+        this.foundUsers.push(user);    
+    },
+    getUsers(){
+        return this.foundUsers;
     }
 }
 
