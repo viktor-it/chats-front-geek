@@ -14,16 +14,16 @@ import styles from  './Main.module.css';
 
 
 const Main = () => (
-	<main className={styles.Field}>
+	<main className = {styles.Field}>
 		<Switch>			
-			<Route path='/' exact component={Chats}/>
+			<Route path='/' exact component = {Chats}/>
 
-			<Route path='/chats' component={GroupSwitch}/>
+			<Route path='/chats' component = {GroupSwitch}/>
 
-			<Route path='/contacts' component={ContactsSwitch}/>
+			<Route path='/contacts' component = {ContactsSwitch}/>
 
-			<Route path='/account' component={Profile}/>
-			<Route path='/profile' component={Profile}/> 
+			<Route path='/account' component = {Profile}/>
+			<Route path='/profile' component = {Profile}/> 
 		</Switch>
 	</main>
 )

@@ -136,6 +136,7 @@
     font-size: 14px;
     color: #3498DB;
 }
+
 .profile-menu__icon{
     margin: 0 20px;
 }
@@ -186,7 +187,8 @@
     right: 20px;
 }
 /*---button---*/
-.close-profile{
+
+/*.close-profile{
     background-color: #fff;
     margin-top: 2px;
     width: 100%;
@@ -201,4 +203,23 @@
 }
 .close-btn__icon {
     margin: 10px;
+}*/
+
+.Button{
+    align-items: center;
+    background: #3498DB;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 161px;
+}
+.ButtonIcon{
+    font-size: 24px;
+    margin-right: 10px;
+}
+.ButtonText{
+    font: normal normal 14px/normal Roboto;
 }

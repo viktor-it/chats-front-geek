@@ -1,13 +1,19 @@
 import React, { Component } from "react";
+import {NavLink} from 'react-router-dom';
+
 import styles from "./ProfileUser.module.css";
 
-export default class ProfileClose extends Component {
-    render() {
-        return (
-            <div className={styles["close-profile"]}>
-        <button className={styles["close-btn"]}>
-            <img src={require("../../../images/personal_profile/cancel.svg")} alt="#" className={styles["close-btn__icon"]}/>
-        </button>
-            </div>)
-    }
+const ProfileClose = () => {
+    return (
+        <div className = {styles["close-profile"]}>
+        	<NavLink to = {'/chats'}>
+    			<button className = {styles.Button}>        			
+    				<i className = {styles.ButtonIcon + ' fas fa-times'}/>
+    				<p className = {styles.ButtonText}>Закрыть</p>
+    			</button>
+    		</NavLink>
+        </div>
+    )
 }
+
+export default ProfileClose

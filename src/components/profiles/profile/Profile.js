@@ -12,8 +12,7 @@ class Profile extends Component {
                     <div className={styles['header__pic']}>
                     <ProfileUserTop/>
                     <button className={styles['change-btn']}>
-                        <img src={require('../../../images/personal_profile/photo-camera.svg')} alt="#"
-                             className={styles['change-btn__icon']}/>
+                        <i className={styles.IconCamera + ' fas  fa-camera'}/>
                     </button>
                     </div>
                     <span className={styles['header__text']}>Мой Профиль</span>
@@ -23,7 +22,7 @@ class Profile extends Component {
                         <div className={styles['profile-info__name']}>
                             <h1 className={styles["profile-name"]}>Вася Васильков</h1>
                             <button className={styles.edit}>
-                                <img src={require("../../../images/personal_profile/pencil.svg")} alt="#" className={styles['edit__icon']}/>
+                                <i className={styles.Icon + ' fas  fa-pencil-alt'}/>
                             </button>
                         </div>
                     </div>
@@ -34,7 +33,7 @@ class Profile extends Component {
                             <label htmlFor="about" className={styles["status__about-add"]}>О себе: </label>
                             <input type="text" className={styles["status__about-text"]} id="about"/>
                             <button className={styles.edit}>
-                                <img src={require("../../../images/personal_profile/pencil.svg")} alt="#" className={styles["edit__icon"]}/>
+                                <i className={styles.Icon + ' fas  fa-pencil-alt'}/>
                             </button>
                         </div>
                         <p className={styles["status__text"]}>Web-дизайнер, разработчик мобильных приложений, студент
@@ -44,23 +43,20 @@ class Profile extends Component {
                         <ul className={styles["profile-menu"]}>
                             <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
-                                    <img src={require("../../../images/personal_profile/vector.svg")} alt="#"
-                                         className={styles["profile-menu__icon"]}/>
+                                    <i className={styles.Icon + ' fas  fa-comment-alt'}/>
                                     Написать сообщение
                                 </button>
 
                             </li>
                             <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
-                                    <img src={require("../../../images/personal_profile/enter.svg")} alt="#"
-                                         className={styles["profile-menu__icon"]}/>
+                                    <i className={styles.Icon + ' fas  fa-key'}/>
                                     Личный кабинет
                                 </button>
                             </li>
                             <li className={styles["profile-menu__items profile-menu__items_toggle"]}>
                                 <button className={styles["item-btn"]}>
-                                    <img src={require("../../../images/personal_profile/bell.svg")} alt="#"
-                                         className={styles["profile-menu__icon"]}/>
+                                    <i className={styles.Icon + ' fas  fa-bell'}/>
                                     Оповещения
                                 </button>
 
@@ -71,22 +67,20 @@ class Profile extends Component {
                             </li>
                             <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
-                                    <img src={require("../../../images/personal_profile/exit.svg")} alt="#"
-                                         className={styles["profile-menu__icon"]}/>
+                                    <i className={styles.Icon + ' fas  fa-user-times'}/>
                                     Выйти из профиля
                                 </button>
                             </li>
-                            <li className={styles["profile-menu__items"]}>
+                            {/*<li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
                                     <img src={require("../../../images/personal_profile/clear.svg")} alt="#"
                                          className={styles["profile-menu__icon"]}/>
                                     Очистить переписку
                                 </button>
-                            </li>
+                            </li>*/}
                             <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
-                                    <img src={require("../../../images/personal_profile/delete.svg")} alt="#"
-                                         className={styles["profile-menu__icon"]}/>
+                                    <i className={styles.Icon + ' fas  fa-user-alt-slash'}/>
                                     Удалить профиль
                                 </button>
                             </li>
