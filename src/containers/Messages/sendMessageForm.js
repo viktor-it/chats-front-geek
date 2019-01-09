@@ -61,12 +61,18 @@ export default class SendMessage extends React.Component {
         <form
           onSubmit={this.handleSubmit}
           className={classes.Form}>
-          <input
+{/*          <input
           className={classes.input}
-            onChange={this.handleChange}  //отслеживание ввода сообщения
+            onChange={this.handleChange}  
             value={this.state.message}
             placeholder="Введите сообщение"
-            type="text" />
+            type="text" />*/}
+          <textarea 
+            className={classes.input}
+            onChange={this.handleChange}  //отслеживание ввода сообщения
+            placeholder="Введите сообщение"
+            value={this.state.message}>
+          </textarea>
           <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
           <div>
             <button type='button' className={classes.smile} onClick={this.showEmojis}><i className="far fa-smile fa-2x"></i></button>
