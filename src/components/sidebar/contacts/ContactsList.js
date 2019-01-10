@@ -13,16 +13,13 @@ const ContactsList = (props) => {
         return <ContactsItem key={index} {...user} />
     });
 
+    console.log(props.contacts);
+
     return (
         <div>
             <div className={styles.List}>        
                 {contacts}
             </div>
-
-            {/*<button className={styles.Button} onClick={props.addContact} >
-                <div className={styles.Icon}>+</div>
-                <span className={styles.Text}> Добавить контакт</span>                      
-            </button>*/}
         </div>
     );
 }

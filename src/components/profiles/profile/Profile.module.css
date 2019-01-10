@@ -163,6 +163,15 @@
     font-weight: normal;
     font-size: 14px;
 }
+
+.Icon{
+   color: #3498db;
+   margin-right: 20px;
+}
+.IconCamera{
+    color: #fff;
+    font-size: 24px;
+}
 .item-btn:hover {
     font-family: Roboto,sans-serif;
     font-style: normal;

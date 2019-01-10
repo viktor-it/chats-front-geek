@@ -19,7 +19,6 @@ class Menu extends Component {
 			menu: false,
 			modal: null,
 
-			items: [],
 			addItem: '',
 			active: 0,
 			
@@ -34,7 +33,6 @@ class Menu extends Component {
     	searchShow = () => {
 		    this.setState({
 		    	modal: 1,
-		    	items: this.props.users
     		});		    
 		}
   
@@ -45,17 +43,16 @@ class Menu extends Component {
 			document.getElementById('Search').value = '';
 		}
 
-		searchResult = (event) => {
-			let value = document.getElementById('Search').value;
-
-			if (event.key === 'Enter' || value !== '') {
-				// фильтр-поиск
-    			let updatedList = this.state.items.filter(function(item){
-      				return item.name == value
-    			});
-
-    			this.setState({items: updatedList});
+		//поиск при нажатии 'Enter'
+		enterSearch = (event) => {
+			if (event.key === 'Enter') {
+				this.props.dispatch(getUsers(event.target.value));
 		    }
+		}
+		//поиск при клике по лупе
+		clickSearch = () => {
+			let value = document.getElementById('Search').value;
+			this.props.dispatch(getUsers(value));
 		}
 
 		openProfile = (data) => {
@@ -79,26 +76,34 @@ class Menu extends Component {
 			this.props.dispatch(addContact(this.state.addItem));
 		}
 
-		componentWillMount() {
-			//загрузить всех пользователей
-    		this.props.dispatch(getUsers());
-		}
-
 		switchComponent() { 
 			switch(this.state.modal) {
 				//выход
             	case 0:
                 	return null;
                 break;
+
                 //окно поиска контакта
             	case 1:
-            		let users = this.state.items.map((user, index) => {
+            		//проверка на наличие пользователя в списке контактов
+            		//нет - добавляем в список
+            		let foundUsers = [];
+            		for (let i = 0, max = this.props.users.length; i < max; i++) {
+            			let usersId = this.props.users[i].id;
+            			let foundId = this.props.contacts.find(el => {return el.id === usersId});
+						if (typeof foundId == 'undefined'){
+							foundUsers.push(this.props.users[i]);
+						}						
+					}
+
+            		let users = foundUsers.map((user, index) => {
 	            		return <SearchList 
 			            		updateData = {this.updateData}
 			            		openProfile = {this.openProfile}
 			            		key = {index} {...user}
 			            		active = {this.state.active}/>
-	        		})
+	        		});
+
 	                return (
 	                	<Modal classesNames = 'SearchContacts'>
 	                		<div className = {styles.List}>	
@@ -131,6 +136,7 @@ class Menu extends Component {
 						</Modal>
 	                ); 
 	            break;
+
 	            //окно профиля
 	            case 2:
 	                return (
@@ -142,6 +148,7 @@ class Menu extends Component {
 						</Modal>
 	                ); 
 	            break;
+
 	            default:
 	                console.log(this.state.active);
 	            break;
@@ -161,6 +168,7 @@ class Menu extends Component {
 
 	        return (
 				<div className = {styles.Menu}>
+
 					{/*иконка меню - гамбургер*/}
 			    	<div onClick = {this.menuShow} className = {styles.Burger}>
 		    			<span className = {styles.BurgerLine}/>		    		
@@ -174,11 +182,12 @@ class Menu extends Component {
 				    		className = {styles.SearchInput}
 				    		id = 'Search'
 				    		onClick = {this.searchShow}
-				    		onKeyPress = {this.searchResult}
+				    		onKeyPress = {this.enterSearch}
 				    	/>
 				    	<i className = {styles.SearchIcon + ' fas fa-search'}
-				    		onClick = {this.searchResult}/>
+				    		onClick = {this.clickSearch}/>
 			    	</div>
+
 			   		{/*окно найденных контактов, профиль пользователя*/}
 					<>
 		                { this.switchComponent() }
@@ -197,6 +206,7 @@ class Menu extends Component {
 function mapStateToProps(store) {
     return {
         users: store.users.users,
+        contacts: store.contacts.contacts,
 		is_loading_users: store.users.is_loading,
     }
 }
