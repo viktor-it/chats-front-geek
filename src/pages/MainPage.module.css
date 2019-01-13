@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 760px;
     height: 100vh;
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background: url('../images/Fon.png');

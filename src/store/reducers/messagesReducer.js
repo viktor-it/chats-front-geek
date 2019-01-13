@@ -7,6 +7,14 @@ const initialState = {
 
 export function messagesReducer(state = initialState, action) {
     switch (action.type) {
+        case Constants.SET_ACTIVE_CHAT: {
+            let id = action.payload;        
+            state = {
+                ...state,
+                id
+            };
+            break;
+        }
         case Constants.ADD_MESSAGE: {
             const messages = {...state.messages};
             let currDate = new Date(action.payload.timestamp).toLocaleDateString();
@@ -22,22 +30,29 @@ export function messagesReducer(state = initialState, action) {
             break;
         }        
         case Constants.GET_MESSAGES: {
-            const sortMessages = (messArray) => {   
-                messArray.sort(function(a,b){
-                  return a.timestamp > b.timestamp ? 1 : -1;
-                });
-                return messArray;
-            }
-            let messagesArray = sortMessages(action.payload);
-            const messages = {};
-            for (let i=0;i<messagesArray.length;i++) {
-                let currDate = new Date(messagesArray[i].timestamp).toLocaleDateString();
-                if (!messages[currDate]) {
-                    messages[currDate] = [];
-                }
-                messages[currDate].push(messagesArray[i]);
-            }
 
+            const messages = {};
+
+            //undefined - чат не выбран (при запуске приложения)
+            if(action.payload !== undefined){
+                const sortMessages = (messArray) => {   
+                    messArray.sort(function(a, b){
+                      return a.timestamp > b.timestamp ? 1 : -1;
+                    });
+                    return messArray;
+                }
+
+                let messagesArray = sortMessages(action.payload);
+
+                for (let i = 0; i < messagesArray.length; i++) {
+                    let currDate = new Date(messagesArray[i].timestamp).toLocaleDateString();
+                    if (!messages[currDate]) {
+                        messages[currDate] = [];
+                    }
+                    messages[currDate].push(messagesArray[i]);
+                }  
+            }
+          
             state = {
                 ...state,
                 messages 

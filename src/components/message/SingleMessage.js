@@ -28,7 +28,7 @@ export default class SingleMessage extends React.Component {
                 <div className={StyleBlock}>
                   <div className={StyleBlockSms}>
                     <div className={classes.name}>
-                      {this.props.message.sender_name}
+                      {this.props.message.author}
                     </div>
                     <div className={classes.text}>
                       {this.props.message.message}

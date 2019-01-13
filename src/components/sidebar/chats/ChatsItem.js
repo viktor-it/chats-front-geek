@@ -3,37 +3,46 @@ import {NavLink} from 'react-router-dom';
 
 import styles from './ChatsItem.module.css';
 
-const ChatsItem = (props) => {
-    return(
-    <div className={styles.Block}>
-        <NavLink to={`/chats/${props.id}`}>
-            <div className={styles.Item}>
-            
-                <div className={styles.Img}>
-                    <div style={{backgroundImage: `url(${props.img})`, height:'60px', width:'60px'}} />
-                </div>
-                
-                <div className={styles.Chat}>
-                    <div className={styles.Title}>
-                        {props.title}
+import {setActiveChat} from '../../../store/actions/index';
+
+import {connect} from 'react-redux';
+
+class ChatsItem extends React.Component {
+    render(){
+        return(
+            <div className = {styles.Block}
+                //передаем активный чат по клику
+                onClick = {() => {this.props.dispatch(setActiveChat(this.props.id))}}>
+                <NavLink to = {`/chats/${this.props.id}`}>
+                    <div className = {styles.Item}>               
+                        <div className = {styles.Img}>
+                            <img src = {this.props.img} className = {styles.Icon} alt = "group_icon"/>
+                        </div>
+                        
+                        <div className = {styles.Chat}>
+                            <div className = {styles.Title}>
+                                {this.props.title}
+                            </div>
+                            <div className = {styles.Text}>
+                                {this.props.text}
+                            </div>
+                        </div>
+                        <div className = {styles.Unread}>
+                            {this.props.unread}
+                        </div>
+                        <div className = {styles.Time}>
+                            {this.props.time}
+                        </div>
+                        <div className = {styles.Mark}>
+                            {/*this.props.mark*/}
+                        </div>
                     </div>
-                    <div className={styles.Text}>
-                        {props.text}
-                    </div>
-                </div>
-                <div className={styles.Unread}>
-                    {props.unread}
-                </div>
-                <div className={styles.Time}>
-                    {props.time}
-                </div>
-                <div className={styles.Mark}>
-                    {/*props.mark*/}
-                </div>
+                </NavLink>
             </div>
-        </NavLink>
-    </div>
-)
+        )
+    }
 };
 
-export default ChatsItem
+function mapStateToProps(store){};
+
+export default connect(mapStateToProps)(ChatsItem);

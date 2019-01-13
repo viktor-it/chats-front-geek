@@ -50,6 +50,9 @@ export const GET_CHATS_PENDING = 'GET_CHATS_PENDING';
 export const GET_CHATS_FULFILLED = 'GET_CHATS_FULFILLED';
 export const GET_CHATS_REJECTED = 'GET_CHATS_REJECTED';
 
+//Установка активного чата---------------------------------------------------------------
+export const SET_ACTIVE_CHAT = 'SET_ACTIVE_CHAT';
+
 //Получение списка сообщений---------------------------------------------------------------
 export const GET_MESSAGES = 'GET_MESSAGES';
 export const GET_MESSAGES_PENDING = 'GET_MESSAGES_PENDING';
