@@ -2,9 +2,9 @@
 const ChatsAPI = {
   chats: [
             {
-            id: 1,
-            img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
-            title: 'Группа стажировки GB 1',
+            id: 6,
+            img: 'http://simsontraining.com/wp-content/uploads/2015/03/testimonial_icon-60x60.png',
+            title: 'Группа стажировки',
             info: 'Команда разработчиков десктоп - версии мессенджера “Pocket Messenger”',
             text: 'Текст крайнего сообщения',
             unread: 2,
@@ -15,9 +15,9 @@ const ChatsAPI = {
             }
         }, 
         {
-            id: 2,
-            img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
-            title: "Группа стажировки GB 2",
+            id: 7,
+            img: 'http://iconnectites.com/images/website-development.png',
+            title: "Design department",
             info: 'Команда дизайнеров мессенджера “Pocket Messenger”',
             text: "Текст крайнего сообщения",
             unread: 5,

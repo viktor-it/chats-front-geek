@@ -2,7 +2,7 @@ import React from 'react';
 
 import ChatsList from '../../components/sidebar/chats/ChatsList';
 import CreateGroup from '../group/Create/CreateGroup';
-import SearchGroup from '../group/Search/SearchGroup';
+//import SearchGroup from '../group/Search/SearchGroup';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
 
@@ -27,7 +27,8 @@ class Chats extends React.Component {
         switch(this.state.active) {
             case 1:
                 return (
-                    <ChatsList chats={this.props.chats} 
+                    <ChatsList chats={this.props.chats}
+
                     createGroup={() => {this.setState({active: 2})}}
                     searchGroup={() => {this.setState({active: 3})}}/>
                 );
@@ -38,12 +39,12 @@ class Chats extends React.Component {
                     closeForm={() => {this.setState({active: 1})}}/>
                 );
             break;
-            case 3:
-                return (
-                    <SearchGroup
-                    closeForm={() => {this.setState({active: 1})}}/>
-                );
-            break;
+            // case 3:
+            //     return (
+            //         <SearchGroup
+            //         closeForm={() => {this.setState({active: 1})}}/>
+            //     );
+            // break;
             default:
                 console.log(this.state.active);
             break;
@@ -56,9 +57,9 @@ class Chats extends React.Component {
             return <Spinner />
         }
         return (
-            <div>
+            <>
                 { this.switchComponent() }
-            </div>
+            </>
 
         );
     }

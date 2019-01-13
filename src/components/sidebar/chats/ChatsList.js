@@ -13,7 +13,7 @@ const ChatsList = (props) => {
         return <ChatsItem key={index} {...chat} />
     });
     return (
-        <div>
+        <>
             <div className={styles.List}>
                 {chats}
             </div>
@@ -21,16 +21,18 @@ const ChatsList = (props) => {
             {/*кнопки*/}
             <div className={styles.ButtonsBlock}>
                 <button className={styles.Button} onClick={props.createGroup} >
-                    <div className={styles.Icon}>+</div>
-                    <span className={styles.Text}>Создать свою группу</span>
+                    <div>
+                        <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+                    </div>
+                    <span className={styles.ButtonText}>Создать группу</span>
                 </button>
                 {/* <button onClick={() => {this.state.active = 3;this.switchComponent(this.state.active)}} > */}
-                <button className={styles.Button} onClick={props.searchGroup} >
+                {/*<button className={styles.Button} onClick={props.searchGroup} >
                     <div className={styles.Icon}>+</div>
                     <span className={styles.Text}> Добавить группу</span>                      
-                </button>
+                </button>*/}
             </div>
-        </div>
+        </>
     );
 }
 

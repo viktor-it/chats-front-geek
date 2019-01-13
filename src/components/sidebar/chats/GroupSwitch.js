@@ -8,7 +8,7 @@ import GroupProfile from './GroupProfile'
 const GroupSwitch = () => (
 	<Switch>
 		<Route exact path='/chats' component={Chats}/>
-		<Route path='/chats/:id' component={GroupProfile}/>
+		<Route path='/chats/:id' component={Chats}/>
 	</Switch>
 )
 

@@ -11,6 +11,7 @@ const GroupProfile = (props)  => {
 	const chat = ChatsAPI.get(
 		parseInt(props.match.params.id, 10)
 	)
+
 	return (
 		<div className = {styles.Profile}>
 
@@ -98,7 +99,7 @@ const GroupProfile = (props)  => {
                 </li>
 		        <li className = {styles.GroupMenuItems}>
 			        <Link to = '/'>
-			            <button className = {styles.ItemBtn+' '+styles.ItemBtnRed}>
+			            <button className = {styles.ItemBtn + ' ' + styles.ItemBtnRed}>
                             <div className = {styles.GroupMenuIcon + ' ' + styles.GroupMenuIconRed}> </div>
 			                Удалить пользователя
 			            </button>

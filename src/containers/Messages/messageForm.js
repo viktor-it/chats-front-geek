@@ -8,12 +8,26 @@ import SendMessageForm from './sendMessageForm';
 import classes from './messageForm.module.css';
 
 class MessageForm extends Component {
+  state = {
+      id: null
+    }
 
-  componentDidMount() {
-    this.props.dispatch(getMessages());
-  }
+static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.id !== prevState.id) {
+      return {
+        id: nextProps.id,
+      }
+    }
+    //если состояние не изменилось
+    return null;
+}
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    
+    if (prevProps.id !== this.props.id) {
+      this.props.dispatch(getMessages(this.state.id));
+    }
+
     let messageList = document.getElementById("messageList");
     messageList.scrollTop = messageList.scrollHeight;
   }
@@ -25,37 +39,63 @@ class MessageForm extends Component {
         receiver: 55,
         message: text,
         senderid:'%id_sender%',
-        sender_name: 'Вы',
+        author: 'Вы',
         timestamp: timestamp.getTime(),
     }));
   }
 
   render() {
-    let daysWithMessages = [];
-    for (const key in this.props.messages) {
-      daysWithMessages.push(<MessageListToday key={key} day={key} messages={this.props.messages[key]}/>);
-    }
-    let chatName = 'Имя чата';
-    if (this.props.chatName) {
-      chatName = this.props.chatName;
-    }
+      //информация о чате в шапке поля сообщений
+      let chatTitle;
+      let chatImg;
+      let chatId = this.state.id;
+          //при открытии приложения
+          if(chatId === undefined){
+              chatTitle = null;
+              chatImg = null;
+          //ищем по id в списке чатов в сторе
+          }else{
+              let activeChat = this.props.contacts.find(x => x.id === chatId);
+              
+              if (activeChat === undefined){
+                  activeChat = this.props.chats.find(x => x.id === chatId);
+                  chatTitle = activeChat.title;
+                  chatImg = activeChat.img;
+              }          
+          }
 
-    return (
-      <div className={classes.messageForm}>
-        <h2 className={classes.chatTitle}>{chatName}</h2> {/* Добавить отдельный компонент для отрисовки заголовка чата с именем контакта*/}
-        <div className={classes.messageList} id='messageList'>
-          {daysWithMessages}
-        </div>
-        <SendMessageForm sendMessage={this.sendMessage}/>
-     </div>
-    )
+      
+      let daysWithMessages = [];
+      for (const key in this.props.messages) {
+        daysWithMessages.push(<MessageListToday key = {key} day = {key} messages = {this.props.messages[key]}/>);
+      }
+
+      return (
+          <div className = {classes.messageForm}>
+              <div className = {classes.Header}>
+                <div className = {classes.ChatInfo}>
+                    <div className = {classes.ChatIcon}>
+                        <img src = {chatImg} className = {classes.ChatImg} alt = "group_icon"/>
+                    </div>
+                    <h2 className = {classes.ChatTitle}>{chatTitle}</h2>
+                </div>
+              </div>
+              <div className = {classes.messageList} id = 'messageList'>
+                  {daysWithMessages}
+              </div>
+              <SendMessageForm sendMessage = {this.sendMessage}/>
+          </div>
+      )
   }
 }
 
 const mapStateToProps = (store) => {
   return {
       token: store.auth.token,
-      messages: store.messages.messages
+      messages: store.messages.messages,
+      id: store.messages.id,
+      chats: store.chats.chats,
+      contacts: store.contacts.contacts
   }
 }
 

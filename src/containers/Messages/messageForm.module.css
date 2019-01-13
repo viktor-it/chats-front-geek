@@ -1,15 +1,31 @@
-.messageForm {
-    height: 100%;
-    display: grid;
-    grid-template-rows: 50px 1fr 50px;
-}
 
-.chatTitle {
-    margin: 0;
-    text-align: center;
-    background: #3498DB;
+
+.Header {
+    background: #3498db;
+}
+.ChatInfo{
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+.ChatIcon{
+	margin: 5px 16px;
+}
+.ChatImg{
+	height: 33px;
+	width: 33px;
+}
+.ChatTitle{
+	color: #fff;
+	font: normal bold 16px/normal Roboto;
 }
 
 .messageList {
     overflow: scroll;
+}
+
+.messageForm {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
 }

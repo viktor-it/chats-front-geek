@@ -3,7 +3,7 @@ const ContactsAPI = {
     contacts: [
         {
             id: 1,
-            img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
+            img: 'https://d1hzl1rkxaqvcd.cloudfront.net/avatars/89306/_60px/images.png',
             name: 'Петя Петров',
             text: 'Текст последнего сообщения',
             unread: 2,
@@ -12,7 +12,7 @@ const ContactsAPI = {
         }, 
         {
             id: 2,
-            img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
+            img: 'https://mielgroup.org/wp-content/uploads/user-60x60.png',
             name: 'Сима Симаков',
             text: 'Текст последнего сообщения',
             unread: 5,
