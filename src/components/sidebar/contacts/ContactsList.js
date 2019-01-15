@@ -1,25 +1,60 @@
 import React from 'react';
+
 import ContactsItem from './ContactsItem';
+import ProfileUser from '../../profiles/profileUser/ProfileUser';
+import Modal from  '../../UI/Modal/Modal';
 
 import styles from './ContactsList.module.css';
 
 
-const ContactsList = (props) => {
-    if(!props.contacts.length){
-        return null; //Если данные еще загружаются
+class ContactsList extends React.Component {
+    state = {
+        modal: false,
+        profile: {}
     }
 
-    let contacts = props.contacts.map((user, index) => {
-        return <ContactsItem key={index} {...user} />
-    });
+    openProfile = (data) => {
+        this.setState({
+            modal: true,
+            profile: data
+        });         
+    }
 
-    return (
-        <div>
-            <div className={styles.List}>        
-                {contacts}
+    closeProfile = () => {
+        this.setState({
+            modal: false
+        });         
+    }
+
+    render(){
+        if(!this.props.contacts.length){
+            return null; //Если данные еще загружаются
+        }
+
+        let profile = this.state.modal ? (
+            <>
+                <Modal classesNames = 'SearchContacts'>   
+                    <ProfileUser profile = {this.state.profile} closeProfile = {this.closeProfile}/>
+                </Modal>
+            </>
+        ) : null;
+
+        let contacts = this.props.contacts.map((user, index) => {
+            return <ContactsItem key={index} openProfile = {this.openProfile} {...user} />
+        });
+
+        return (
+            <div>
+                <div className={styles.List}>        
+                    {contacts}
+                </div>
+
+                <div>
+                    {profile}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default ContactsList

@@ -8,12 +8,6 @@ import ContactsAPI from '../../../store/reducers/contactsStub'
 
 class ProfileUser extends Component {
     render() {
-        //for testing-----
-        const contact = ContactsAPI.get(
-            parseInt(this.props.match.params.id, 10)
-        )
-        //-----------------
-
         return(
             <section className={styles.profile}>
             <div className={styles.header}>
@@ -24,9 +18,9 @@ class ProfileUser extends Component {
                     </div>
                 </div>
                 <p className={styles.header__text}>Профиль</p>
-                <p className={styles.header__mail}>simsim28@gmail.com</p>
+                <p className={styles.header__mail}>{this.props.profile.email}</p>
             </div>
-                <h1 className={styles.name}>{contact.name}</h1>
+                <h1 className={styles.name}>{this.props.profile.name}</h1>
                 <div className={styles.status}>
                     <div className={styles.status__about}>
                         О себе:
