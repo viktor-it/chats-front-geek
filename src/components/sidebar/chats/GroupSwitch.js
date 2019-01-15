@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import Chats from '../../../containers/sidebar/Chats'
-import GroupProfile from './GroupProfile'
+//import GroupProfile from './GroupProfile'
 
 
 const GroupSwitch = () => (

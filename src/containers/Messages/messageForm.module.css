@@ -15,6 +15,9 @@
 	height: 33px;
 	width: 33px;
 }
+.ChatImgNone{
+	display: none;
+}
 .ChatTitle{
 	color: #fff;
 	font: normal bold 16px/normal Roboto;

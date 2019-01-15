@@ -8,7 +8,7 @@ export default class SingleMessage extends React.Component {
     let StyleBlockSms;
     let StyleSuperBlock;
     let StyleTime;
-    if (this.props.message.receiver === 55) {
+    if (this.props.message.receiver === 55 || this.props.message.author === 'Вы') {
       StyleBlock = classes.blockMy
       StyleBlockSms = classes.blockSmsMy
       StyleSuperBlock = classes.superBlockMy
@@ -23,7 +23,7 @@ export default class SingleMessage extends React.Component {
 		    <div className={StyleSuperBlock}>
                 {/*<img className={classes.miniFoto} src="./img/woman-4.png" />*/}
                 <div>
-                  <img className={classes.miniFoto} src={pic} />
+                  <img className={classes.miniFoto} src={pic} alt="avatar"/>
                 </div>
                 <div className={StyleBlock}>
                   <div className={StyleBlockSms}>

@@ -1,10 +1,11 @@
+
 import React from 'react';
 
 import ContactsList from '../../components/sidebar/contacts/ContactsList';
 import Spinner from '../../components/UI/Spinner/Spinner';
 // import ContactSearch from '../contact/Search/ContactSearch';
 
-import {getContacts, setActiveChat} from '../../store/actions';
+import {getContacts} from '../../store/actions';
 
 import {connect} from 'react-redux';
 
