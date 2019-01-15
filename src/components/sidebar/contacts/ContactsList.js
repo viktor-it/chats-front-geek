@@ -13,8 +13,6 @@ const ContactsList = (props) => {
         return <ContactsItem key={index} {...user} />
     });
 
-    console.log(props.contacts);
-
     return (
         <div>
             <div className={styles.List}>        

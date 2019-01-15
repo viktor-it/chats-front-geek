@@ -3,7 +3,7 @@ import SingleMessage from './SingleMessage';
 
 import classes from './MessageListToday.module.css';
 
- const messageListToday = (props) =>
+const messageListToday = (props) =>
 {
     return (
         <div className={classes.list}>

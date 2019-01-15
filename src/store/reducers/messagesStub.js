@@ -136,6 +136,7 @@ const ChatMessagesAPI = {
         ]
     },
     getMessages(id){
+        console.log('api - getMessages');
         return this.messages[id]
     }
 }
