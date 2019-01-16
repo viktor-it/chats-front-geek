@@ -1,8 +1,8 @@
 import React from 'react';
 
 import ContactsItem from './ContactsItem';
-import ProfileUser from '../../profiles/profileUser/ProfileUser';
-import Modal from  '../../UI/Modal/Modal';
+import ProfileUser from '../../../components/profiles/profileUser/ProfileUser';
+import Modal from  '../../../components/UI/Modal/Modal';
 
 import styles from './ContactsList.module.css';
 

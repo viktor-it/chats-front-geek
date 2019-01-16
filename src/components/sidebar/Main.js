@@ -1,14 +1,14 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import Chats from '../../containers/sidebar/Chats'
+import Chats from '../../containers/sidebar/chats/Chats'
 
-import GroupSwitch from './chats/GroupSwitch'
+import GroupSwitch from './GroupSwitch'
 
-import ContactsSwitch from './contacts/ContactsSwitch'
+import ContactsSwitch from './ContactsSwitch'
 
 
-import Profile from '.././profiles/profile/Profile'
+import Profile from '../profiles/profile/Profile'
 
 import styles from  './Main.module.css';
 

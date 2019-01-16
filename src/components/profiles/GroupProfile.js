@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import ChatsAPI from '../../../store/reducers/chatsStub'
+import ChatsAPI from '../../store/reducers/chatsStub'
 
 import styles from './GroupProfile.module.css';
 

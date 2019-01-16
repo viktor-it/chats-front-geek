@@ -10,7 +10,7 @@ import Backdrop from '../../components/UI/Backdrop/Backdrop';
 
 import SearchList from  './SearchList';
 import MenuList from  './MenuList';
-import User from  '../../components/sidebar/User';
+import User from  '../../components/profiles/User';
 
 
 class Menu extends Component {

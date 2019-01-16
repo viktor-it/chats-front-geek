@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ChatsList from '../../components/sidebar/chats/ChatsList';
-import CreateGroup from '../group/Create/CreateGroup';
+import ChatsList from './ChatsList';
+import CreateGroup from '../../group/Create/CreateGroup';
 //import SearchGroup from '../group/Search/SearchGroup';
 
-import Spinner from '../../components/UI/Spinner/Spinner';
+import Spinner from '../../../components/UI/Spinner/Spinner';
 
-import {getChats} from '../../store/actions/index';
+import {getChats} from '../../../store/actions/index';
 
 import {connect} from 'react-redux';
 

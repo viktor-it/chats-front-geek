@@ -10,7 +10,7 @@
     margin: 0;
 }
 .Header{
-	background-image: url(../../../images/user_profile/ellipse.svg);
+	background-image: url(../../images/user_profile/ellipse.svg);
     background-repeat: no-repeat;
     background-position-y: -60px;
     margin: 0;
@@ -70,7 +70,7 @@
 }
 
 .EditIcon{
-    background-image: url(../../../images/personal_profile/pencil.svg);
+    background-image: url(../../images/personal_profile/pencil.svg);
     height: 30px;
     width: 30px;
 }
@@ -142,37 +142,37 @@
 	margin: 0 20px;
 }
 .GroupMenuIconMembers{
-    background-image: url(../../../images/Group_profile/member.svg);
+    background-image: url(../../images/Group_profile/member.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 15px;
 }
 .GroupMenuIconBell{
-    background-image: url(../../../images/personal_profile/bell.svg);
+    background-image: url(../../images/personal_profile/bell.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 25px;
 }
 .GroupMenuIconClear{
-    background-image: url(../../../images/personal_profile/vector.svg);
+    background-image: url(../../images/personal_profile/vector.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 17px;
 }
 .GroupMenuIconAdd {
-    background-image: url(../../../images/Group_profile/invite.svg);
+    background-image: url(../../images/Group_profile/invite.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 17px;
 }
 .GroupMenuIconExit{
-     background-image: url(../../../images/Group_profile/Vector.svg);
+     background-image: url(../../images/Group_profile/Vector.svg);
      background-repeat: no-repeat;
      width: 20px;
      height: 17px;
 }
 .GroupMenuIconRed {
-    background-image: url(../../../images/Group_profile/del_icon.svg);
+    background-image: url(../../images/Group_profile/del_icon.svg);
     background-repeat: no-repeat;
     width: 20px;
     height: 17px;
@@ -289,7 +289,7 @@
 
 .CloseBtnIcon{
 	margin: 10px;
-    background-image: url(../../../images/Group_profile/close.svg);
+    background-image: url(../../images/Group_profile/close.svg);
     width: 15px;
     height: 15px;
 

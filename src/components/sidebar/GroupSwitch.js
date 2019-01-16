@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import Chats from '../../../containers/sidebar/Chats'
+import Chats from '../../containers/sidebar/chats/Chats'
 //import GroupProfile from './GroupProfile'
 
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import ChatsItem from './ChatsItem';
-import GroupProfile from './GroupProfile';
-import Modal from  '../../UI/Modal/Modal';
+import GroupProfile from '../../../components/profiles/GroupProfile';
+import Modal from  '../../../components/UI/Modal/Modal';
 
 
 import styles from './ChatsList.module.css';
