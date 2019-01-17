@@ -27,7 +27,7 @@ const User = (props) => {
             </div>
             <div className = {styles.Message}>
                 <div>
-                    <i className = {styles.MessageIcon + ' fas fa-comment-alt'}></i>
+                    <i className = {styles.MessageIcon + ' fas fa-comment-alt'}/>
                 </div>
                 <div className = {styles.MessageText}>Написать сообщение</div>
             </div>
@@ -37,7 +37,7 @@ const User = (props) => {
                         onClick = {() => {props.addContact()}}
                 >
                     <div>
-                        <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+                        <i className = {styles.ButtonIcon + ' fas fa-check'}/>
                     </div>
                     <div className = {styles.ButtonText}>
                         Пригласить
@@ -48,7 +48,7 @@ const User = (props) => {
                         onClick = {() => {props.searchShow()}}
                 >
                     <div>
-                        <i className = {styles.ButtonIcon + ' fas fa-times'}></i>
+                        <i className = {styles.ButtonIcon + ' fas fa-times'}/>
                     </div>
                     <div className = {styles.ButtonText}>
                         Закрыть

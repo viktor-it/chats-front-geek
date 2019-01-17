@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import styles from  './Menu.module.css';
 import {getUsers, addContact} from '../../store/actions';
 
-import Modal from  '../../components/UI/Modal/Modal';
-import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import Modal from  '../UI/Modal/Modal';
+import Backdrop from '../UI/Backdrop/Backdrop';
 
-import SearchList from  './SearchList';
+import SearchList from  '../../containers/sidebar/SearchList';
 import MenuList from  './MenuList';
-import User from  '../../components/profiles/User';
+import User from  '../profiles/User';
 
 
 class Menu extends Component {
@@ -63,10 +63,8 @@ class Menu extends Component {
 		}		
 		
 		updateData = (id, name) => {
-
 			//добавляем имя для последующего добавления в общий список;
 			this.setState({ addItem: name });
-
 			//id для выделения цветом при клике
 			this.setState({active: id});
 		}
@@ -75,6 +73,8 @@ class Menu extends Component {
 		addContact = () => {
 			this.props.dispatch(addContact(this.state.addItem));
 		}
+
+
 
 		switchComponent() { 
 			switch(this.state.modal) {
@@ -107,25 +107,21 @@ class Menu extends Component {
 	                return (
 	                	<Modal classesNames = 'SearchContacts'>
 	                		<div className = {styles.List}>	
-
 								{users}
-
 							</div>
 
 							<div className = {styles.ButtonsBlock}>
-								<button onClick = {this.addContact}
-										className = {styles.Button}>
+								<button onClick = {this.addContact} className = {styles.Button}>
 									<div>
-				                        <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+				                        <i className = {styles.ButtonIcon + ' fas fa-check'}/>
 				                    </div>
 				                    <div className = {styles.ButtonText}>
 				                        Пригласить
 				                    </div>
 								</button>
-								<button onClick = {this.searchHide}
-										className = {styles.Button}>
+								<button onClick = {this.searchHide} className = {styles.Button}>
 									<div>
-				                        <i className = {styles.ButtonIcon + ' fas fa-times'}></i>
+				                        <i className = {styles.ButtonIcon + ' fas fa-times'}/>
 				                    </div>
 				                    <div className = {styles.ButtonText}>
 				                        Отменить
@@ -156,12 +152,34 @@ class Menu extends Component {
     	}
 
 		render() {
+			// компоненты главного меню
+			let menuitems = [
+				{
+					href: '/account',
+					icon: ' fas fa-user',
+					text: 'Личный кабинет',
+					action: ''
+				},
+				{
+					href: '/profile',
+					icon: ' fas fa-user',
+					text: 'Профиль',
+					action: ''
+				},
+				{
+					href: '/auth',
+					icon: ' fas fa-user-times',
+					text: 'Выйти',
+					action: 'logout'
+				}
+			];
+
 			// главное меню
 			const menu = this.state.menu ? (
 				<>
 					<Backdrop show classesNames='MainMenu'/>
 			    	<Modal classesNames = 'MainMenu'>	
-		            	<MenuList menuShow = {this.menuShow}/>
+		            	<MenuList menuShow = {this.menuShow} items = {menuitems} logout = {this.logout}/>		            		
 					</Modal>
 				</>
 			) : null;
@@ -171,7 +189,8 @@ class Menu extends Component {
 
 					{/*иконка меню - гамбургер*/}
 			    	<div onClick = {this.menuShow} className = {styles.Burger}>
-		    			<span className = {styles.BurgerLine}/>		    		
+		    			{/*<span className = {styles.BurgerLine}/>*/}
+		    			<i className = {styles.BurgerIcon + ' fas fa-bars'}/>		    		
 			    	</div>
 
 			    	{/*поиск контактов*/}
@@ -193,7 +212,7 @@ class Menu extends Component {
 		                { this.switchComponent() }
 		            </>
 
-			    	{/*список компонентов меню*/}
+			    	{/*главное меню*/}
 			    	<>
 				    	{menu}
 					</>

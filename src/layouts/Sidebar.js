@@ -1,6 +1,6 @@
 import React from 'react';
     
-import Menu from '../containers/sidebar/Menu';
+import Menu from '../components/menu/Menu';
 
 import Header from '../components/sidebar/Header';
 import Main from '../components/sidebar/Main';

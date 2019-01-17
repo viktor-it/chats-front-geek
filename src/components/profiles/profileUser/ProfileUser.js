@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+
 import ProfileUserTop from "./ProfileUserTop";
 import ProfileClose from "./ProfileClose";
+
 import styles from "./ProfileUser.module.css";
 
-//for testing
-import ContactsAPI from '../../../store/reducers/contactsStub'
 
 class ProfileUser extends Component {
     render() {

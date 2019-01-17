@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 
+import {connect} from 'react-redux';
 import {addMessage, getMessages} from '../../store/actions';
+
 import MessageListToday from '../../components/message/MessageListToday';
 import SendMessageForm from './sendMessageForm';
+import Modal from  '../../components/UI/Modal/Modal';
+
+import MenuList from  '../../components/menu/MenuList';
 
 import classes from './messageForm.module.css';
 
@@ -44,6 +48,16 @@ class MessageForm extends Component {
     }
 
     render() {
+        //меню в шапке
+        const menu = this.state.menu ? (
+            <>
+              <Modal classesNames = 'MainMenu ProfileMenu'> 
+                  <MenuList menuShow = {this.menuShow}>
+                  </MenuList>
+              </Modal>
+            </>
+        ) : null;
+
         //информация о чате в шапке поля сообщений
         let chatTitle = null;
         let chatImg = null;
@@ -76,6 +90,11 @@ class MessageForm extends Component {
                       </div>
                       <h2 className = {classes.ChatTitle}>{chatTitle}</h2>
                   </div>
+                  <div className = {classes.Users}/>
+                  <div className = {classes.Menu}>
+                      <i className = {classes.MenuIcon + ' fas fa-ellipsis-v'}/>
+                  </div>
+                  {menu}
                 </div>
                 <div className = {classes.messageList} id = 'messageList'>
                     {daysWithMessages}
