@@ -21,7 +21,7 @@ class ContactsItem extends React.Component {
             this.clickTimeout = null;
         } else {
         //одиночный клик - передает активный чат
-            this.props.dispatch(setActiveChat(this.props.id));  
+            this.props.dispatch(setActiveChat(this.props.id, 2));  
             this.clickTimeout = setTimeout(() => {
                 clearTimeout(this.clickTimeout)
                 this.clickTimeout = null

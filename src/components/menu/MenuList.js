@@ -5,10 +5,14 @@ import MenuItem from  './MenuItem';
 import styles from './MenuList.module.css';
 
 const MenuList = (props) => {
+	let data = props.data;
 
 	let items = props.items.map((item, index) => {
-        return <MenuItem key={index} {...item} />
+        return <MenuItem data = {data} key={index} {...item} />
     });
+
+
+
 
     return (
     	<>

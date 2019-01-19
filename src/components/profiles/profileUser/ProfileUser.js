@@ -12,7 +12,7 @@ class ProfileUser extends Component {
             <section className={styles.profile}>
             <div className={styles.header}>
                 <div className={styles.header__pic}>
-                <ProfileUserTop/>
+                    <ProfileUserTop/>
                     <div className={styles["status-color"]}>
 
                     </div>

@@ -8,10 +8,12 @@ const initialState = {
 export function messagesReducer(state = initialState, action) {
     switch (action.type) {
         case Constants.SET_ACTIVE_CHAT: {
-            let id = action.payload;        
+            let id = action.payload.id;
+            let active = action.payload.active;
             state = {
                 ...state,
-                id
+                id,
+                active
             };
             break;
         }

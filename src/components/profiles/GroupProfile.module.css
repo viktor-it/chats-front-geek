@@ -22,10 +22,11 @@
 .ChatProfile_HeaderAvatar__3NTqC{
     background: #6866e6;
 }
-.HeaderAvatar{
-	margin: 45px 130px 0;
+.HeaderAvatar{	
     border: 4px solid white;
     border-radius: 50%;
+    display: block;
+    margin: 30px auto;
 }
 
 .HeaderText{
@@ -261,7 +262,7 @@
 
 
 .CloseProfile{
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
     margin-top: 2px;
     width: 100%;
     display: flex;
@@ -269,7 +270,7 @@
 }
 
 .CloseBtn{
-	background-color: #3498DB;
+	background-color: #bababa;
     border: none;
     outline: none;
     cursor: pointer;
@@ -286,7 +287,9 @@
     color: #FFFFFF;
     border-radius: 30px
 }
-
+.CloseBtn:hover{
+    background-color: #3498db;
+}
 .CloseBtnIcon{
 	margin: 10px;
     background-image: url(../../images/Group_profile/close.svg);

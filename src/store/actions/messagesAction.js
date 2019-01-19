@@ -4,10 +4,13 @@ import {SET_ACTIVE_CHAT, GET_MESSAGES, ADD_MESSAGE} from "../constants";
 import MessagesAPI from '../reducers/messagesStub';
 import MessagesCache from '../reducers/messagesCache'; //кэш для сообщений
 
-export function setActiveChat(id) {
+export function setActiveChat(id, number) {
     return {
         type: SET_ACTIVE_CHAT,
-        payload: id
+        payload: {
+            id: id,
+            active: number
+        }
     }
 }
 

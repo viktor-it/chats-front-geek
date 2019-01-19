@@ -30,6 +30,12 @@
 }
 
 /*меню*/
+.MenuNone{
+	display: none;
+}
+.Menu{
+	display: block;
+}
 .MenuIcon{
 	color: #fff;
 	cursor: pointer;

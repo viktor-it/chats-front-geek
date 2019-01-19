@@ -153,7 +153,7 @@ class Menu extends Component {
 
 		render() {
 			// компоненты главного меню
-			let menuitems = [
+			let menuItems = [
 				{
 					href: '/account',
 					icon: ' fas fa-user',
@@ -179,7 +179,7 @@ class Menu extends Component {
 				<>
 					<Backdrop show classesNames='MainMenu'/>
 			    	<Modal classesNames = 'MainMenu'>	
-		            	<MenuList menuShow = {this.menuShow} items = {menuitems} logout = {this.logout}/>		            		
+		            	<MenuList menuShow = {this.menuShow} items = {menuItems}/>		            		
 					</Modal>
 				</>
 			) : null;

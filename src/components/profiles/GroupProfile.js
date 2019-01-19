@@ -17,14 +17,14 @@ const GroupProfile = (props)  => {
 					Групповой профиль
 				</p>
 
-				<div className = {styles.GroupInfoNa}>
+				<div className = {styles.GroupInfo}>
 	            	<h2 className = {styles.GroupName}>
 	            		{props.profile.title}
 	            	</h2>
 
-	            	<button className = {styles.Edit}>
+	            	{/*<button className = {styles.Edit}>
 						<div className = {styles.EditIcon}> </div>
-            		</button>
+            		</button>*/}
             	</div>
             </div>
 
