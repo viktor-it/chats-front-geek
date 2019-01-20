@@ -8,11 +8,29 @@ import {setActiveChat} from '../../../store/actions/index';
 import {connect} from 'react-redux';
 
 class ContactsItem extends React.Component {
+    componentWillMount(){
+        this.clickTimeout = null
+    }
+
+    handleClicks = () => {
+        //двойной клик - открывает профиль
+        if (this.clickTimeout !== null) { 
+            this.props.openProfile(this.props); 
+
+            clearTimeout(this.clickTimeout);
+            this.clickTimeout = null;
+        } else {
+        //одиночный клик - передает активный чат
+            this.props.dispatch(setActiveChat(this.props.id, 2));  
+            this.clickTimeout = setTimeout(() => {
+                clearTimeout(this.clickTimeout)
+                this.clickTimeout = null
+                }, 2000)
+        }
+    }
     render(){
         return (
-            <div className={styles.Block}
-                //передаем активный чат по клику
-                onClick = {() => {this.props.dispatch(setActiveChat(this.props.id))}}>
+            <div className={styles.Block} onClick = {this.handleClicks}>
                 <NavLink className={styles.Item} to={`/contacts/${this.props.id}`}>
                     <div className={styles.Img}>
                         <img src = {this.props.img} className = {styles.Icon} alt = "contact_icon"/>
@@ -37,6 +55,6 @@ class ContactsItem extends React.Component {
     }
 }
 
-function mapStateToProps(store){};
+//function mapStateToProps(store){};
 
-export default connect(mapStateToProps)(ContactsItem);
+export default connect(null)(ContactsItem);

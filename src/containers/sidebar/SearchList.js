@@ -5,7 +5,7 @@ import styles from  './SearchList.module.css';
 
 class SearchList extends Component {
 
-	componentWillMount(props){
+	componentWillMount(){
 		this.clickTimeout = null
 	}
 

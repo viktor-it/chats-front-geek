@@ -1,32 +1,26 @@
 import React, { Component } from "react";
+
 import ProfileUserTop from "./ProfileUserTop";
 import ProfileClose from "./ProfileClose";
+
 import styles from "./ProfileUser.module.css";
 
-//for testing
-import ContactsAPI from '../../../store/reducers/contactsStub'
 
 class ProfileUser extends Component {
     render() {
-        //for testing-----
-        const contact = ContactsAPI.get(
-            parseInt(this.props.match.params.id, 10)
-        )
-        //-----------------
-
         return(
             <section className={styles.profile}>
             <div className={styles.header}>
                 <div className={styles.header__pic}>
-                <ProfileUserTop/>
+                    <ProfileUserTop/>
                     <div className={styles["status-color"]}>
 
                     </div>
                 </div>
                 <p className={styles.header__text}>Профиль</p>
-                <p className={styles.header__mail}>simsim28@gmail.com</p>
+                <p className={styles.header__mail}>{this.props.profile.email}</p>
             </div>
-                <h1 className={styles.name}>{contact.name}</h1>
+                <h1 className={styles.name}>{this.props.profile.name}</h1>
                 <div className={styles.status}>
                     <div className={styles.status__about}>
                         О себе:

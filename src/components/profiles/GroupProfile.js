@@ -1,38 +1,30 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
-
-import ChatsAPI from '../../../store/reducers/chatsStub'
 
 import styles from './GroupProfile.module.css';
 
 
 const GroupProfile = (props)  => {
-	const chat = ChatsAPI.get(
-		parseInt(props.match.params.id, 10)
-	)
-
 	return (
 		<div className = {styles.Profile}>
 
 			<div className = {styles.Header}>
 				<div>
-                    <img src = {require('../../../images/Group_profile/team.svg')}
-					alt = 'user' className = {styles.HeaderAvatar} />
+					<img src = {props.profile.img} className = {styles.HeaderAvatar} alt = "group_icon"/>
 				</div>
 
 				<p className = {styles.HeaderText}>
 					Групповой профиль
 				</p>
 
-				<div className = {styles.GroupInfoName}>
+				<div className = {styles.GroupInfo}>
 	            	<h2 className = {styles.GroupName}>
-	            		{chat.title}
+	            		{props.profile.title}
 	            	</h2>
 
-	            	<button className = {styles.Edit}>
+	            	{/*<button className = {styles.Edit}>
 						<div className = {styles.EditIcon}> </div>
-            		</button>
+            		</button>*/}
             	</div>
             </div>
 
@@ -108,12 +100,10 @@ const GroupProfile = (props)  => {
 		    </ul>
 
 		    <div className = {styles.CloseProfile}>
-			    <Link to = '/chats'>
-			        <button className = {styles.CloseBtn}>
-                        {/*<div className = {styles.CloseBtnIcon}> </div>*/}
+			        <button className = {styles.CloseBtn}
+			        		onClick = {() => {props.closeProfile()}}>
 						Закрыть
 			        </button>
-			    </Link>
 		    </div>
 
         </div>
