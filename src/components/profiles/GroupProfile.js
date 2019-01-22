@@ -6,7 +6,7 @@ import styles from './GroupProfile.module.css';
 
 const GroupProfile = (props)  => {
 	return (
-		<div className = {styles.Profile}>
+		<div className = {styles.Profile} id={props.id}>
 
 			<div className = {styles.Header}>
 				<div>
@@ -101,7 +101,7 @@ const GroupProfile = (props)  => {
 
 		    <div className = {styles.CloseProfile}>
 			        <button className = {styles.CloseBtn}
-			        		onClick = {() => {props.closeProfile()}}>
+			        		onClick = {() => {props.profileToggle()}}>
 						Закрыть
 			        </button>
 		    </div>

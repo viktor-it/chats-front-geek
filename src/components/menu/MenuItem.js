@@ -4,22 +4,13 @@ import { Link } from 'react-router-dom';
 import {logoutUser} from '../../store/actions';
 import { connect } from 'react-redux';
 
-import GroupProfile from '../profiles/GroupProfile';
-import ProfileUser from '../profiles/profileUser/ProfileUser';
+// import GroupProfile from '../profiles/GroupProfile';
+// import ProfileUser from '../profiles/profileUser/ProfileUser';
 import Modal from  '../UI/Modal/Modal';
 
 import styles from './MenuItem.module.css';
 
 class MenuItem extends Component {
-	state = {
-        modal: false
-    }
-
-    closeProfile = () => {
-        this.setState({
-            modal: false
-        });         
-    }
 	
 	switchAction = (action) => {
 		switch(action) {
@@ -29,9 +20,7 @@ class MenuItem extends Component {
             break;
             //открыть профиль контакта/группы
             case 'openProfile':
-            	this.setState({
-            		modal: !this.state.modal
-        		});
+            	this.props.profileToggle();
             break;
             default:
 	            console.log(this.props);
@@ -40,19 +29,6 @@ class MenuItem extends Component {
 	}
 
 	render(){
-		let profile = (this.props.active === 1) ? 
-			<GroupProfile profile = {this.props.data} closeProfile = {this.closeProfile}/>
-			: 
-			<ProfileUser profile = {this.props.data} closeProfile = {this.closeProfile}/>
-
-
-		let modal = this.state.modal ? (
-            <>
-                <Modal classesNames = 'SearchContacts GroupProfile'>   
-                    {profile}
-                </Modal>
-            </>
-        ) : null;
 
 		return(
 			<>
@@ -60,7 +36,7 @@ class MenuItem extends Component {
 					<i className = {styles.Icon + this.props.icon}/>
 					<p className = {styles.Text}>{this.props.text}</p>
 		        </Link>
-		        {modal}	
+		        
 	        </>        
 		)
 	}

@@ -13,16 +13,10 @@ class ChatsList extends React.Component {
         profile: {}
     }
 
-    openProfile = (data) => {
+    profileToggle = (data) => {
         this.setState({
-            modal: true,
+            modal: !this.state.modal,
             profile: data
-        });         
-    }
-
-    closeProfile = () => {
-        this.setState({
-            modal: false
         });         
     }
 
@@ -33,14 +27,14 @@ class ChatsList extends React.Component {
 
         let profile = this.state.modal ? (
             <>
-                <Modal classesNames = 'SearchContacts'>   
-                    <GroupProfile profile = {this.state.profile} closeProfile = {this.closeProfile}/>
+                <Modal classesNames = 'Profile'>   
+                    <GroupProfile id='Profile' profile = {this.state.profile} profileToggle = {this.profileToggle}/>
                 </Modal>
             </>
         ) : null;
 
         let chats = this.props.chats.map((chat, index) => {
-            return <ChatsItem key = {index} openProfile = {this.openProfile} {...chat}/>
+            return <ChatsItem key = {index} profileToggle = {this.profileToggle} {...chat}/>
         });
 
         return (
@@ -49,9 +43,9 @@ class ChatsList extends React.Component {
                     { chats }
                 </div>
 
-                <div>
+                <>
                     {profile}
-                </div>
+                </>
 
                 <div className = {styles.ButtonsBlock}>
                     <button className = {styles.Button} onClick = {this.props.createGroup} >

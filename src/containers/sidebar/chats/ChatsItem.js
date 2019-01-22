@@ -15,7 +15,7 @@ class ChatsItem extends React.Component {
     handleClicks = () => {
         //двойной клик - открывает профиль
         if (this.clickTimeout !== null) { 
-            this.props.openProfile(this.props); 
+            this.props.profileToggle(this.props); 
 
             clearTimeout(this.clickTimeout);
             this.clickTimeout = null;
