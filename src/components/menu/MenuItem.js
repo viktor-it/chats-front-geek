@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import {logoutUser} from '../../store/actions';
 import { connect } from 'react-redux';
 
-// import GroupProfile from '../profiles/GroupProfile';
-// import ProfileUser from '../profiles/profileUser/ProfileUser';
-import Modal from  '../UI/Modal/Modal';
-
 import styles from './MenuItem.module.css';
 
 class MenuItem extends Component {

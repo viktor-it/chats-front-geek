@@ -15,27 +15,19 @@ export function authReducer(state = initialState, action) {
             break;
         }        
         case Constants.LOGIN_FULFILLED: {
-            if (action.payload.data.token) {
-                localStorage.setItem("token",action.payload.data.token);
-                state = {
-                    ...state,
-                    token: action.payload.data.token,
-                    is_loading_user: false
-                };
-            } else {
-                    state = {
-                        ...state,
-                        is_loading_user: false
-                    };
-                }
+            localStorage.setItem("token", action.payload.data.token);
+            state = {
+                ...state,
+                token: action.payload.data.token,
+                is_loading_user: false
+            };
             break;
         }        
         case Constants.LOGIN_REJECTED: {
-            localStorage.setItem("token",'test user');
             state = {
-                ...state,
-                token: 'test user', //delete in production
-                is_loading_user: false
+                ...state,                
+                is_loading_user: false,
+                error_message: action.payload.message
             };
             break;
         }
@@ -47,25 +39,20 @@ export function authReducer(state = initialState, action) {
             break;
         }        
         case Constants.REGISTER_USER_FULFILLED: {
-            if (action.payload.data.token) {
-                localStorage.setItem("token",action.payload.data.token);
-                state = {
-                    ...state,
-                    token: action.payload.data.token,
-                    is_loading_user: false
-                };
-            } else {
-                    state = {
-                        ...state,
-                        is_loading_user: false
-                    };
-                }
+            localStorage.setItem("token", action.payload.data.token);
+            state = {
+                ...state,
+                token: action.payload.data.token,
+                user: action.payload.data.user,
+                is_loading_user: false
+            };
             break;
         }        
         case Constants.REGISTER_USER_REJECTED: {
             state = {
-                ...state,
-                is_loading_user: false
+                ...state,                
+                is_loading_user: false,
+                error_message: action.payload.message
             };
             break;
         }

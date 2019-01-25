@@ -1,17 +1,17 @@
 import {LOGIN, REGISTER, LOGOUT} from "../constants";
 import instance from '../axios-docs';
 
-export function loginUser(account_name,password) {
+export function loginUser(email,password) {
     return {
         type: LOGIN,
-        payload: instance.post("/v1/auth/login/",{account_name,password})
+        payload: instance.post("/auth/login/",{email,password})
     };
 }
 
-export function registerUser(account_name,password,email) {
+export function registerUser(email,password,name) {
     return {
         type: REGISTER,
-        payload: instance.post("/v1/auth/register/",{account_name,email,password})
+        payload: instance.post("/auth/registration/",{email,password,name})
     };
 }
 
