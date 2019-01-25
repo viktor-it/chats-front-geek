@@ -46,16 +46,27 @@
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    margin-top: 129px;
-    width: 410px;
+    height: 80%;
+    margin-left: -5px;
+    margin-top: 124px;
+    width: 406px;
 }
 
-.GroupProfile{
+.Profile{
+    background-color: #f9f9f9;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin-left: -5px;
     margin-top: 124px;
-    margin-left: -778px;
+    width: 406px;
     height: 100%;
 }
+
+    /*margin-left: -778px;*/
+    
 .MainMenu{
     background-color: #fff;
     height: 223px;

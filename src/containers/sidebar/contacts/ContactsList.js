@@ -13,16 +13,10 @@ class ContactsList extends React.Component {
         profile: {}
     }
 
-    openProfile = (data) => {
+    profileToggle = (data) => {
         this.setState({
-            modal: true,
+            modal: !this.state.modal,
             profile: data
-        });         
-    }
-
-    closeProfile = () => {
-        this.setState({
-            modal: false
         });         
     }
 
@@ -33,14 +27,14 @@ class ContactsList extends React.Component {
 
         let profile = this.state.modal ? (
             <>
-                <Modal classesNames = 'SearchContacts'>   
-                    <ProfileUser profile = {this.state.profile} closeProfile = {this.closeProfile}/>
+                <Modal classesNames = 'Profile'>   
+                    <ProfileUser profile = {this.state.profile} profileToggle = {this.profileToggle} id = 'Profile'/>
                 </Modal>
             </>
         ) : null;
 
         let contacts = this.props.contacts.map((user, index) => {
-            return <ContactsItem key={index} openProfile = {this.openProfile} {...user} />
+            return <ContactsItem key={index} profileToggle = {this.profileToggle} {...user} />
         });
 
         return (
