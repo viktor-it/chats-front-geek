@@ -42,7 +42,7 @@ class RegForm extends Component {
             alert("Пароль не совпадает с подтверждением пароля")
         }
         if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.passwordCheck)){
-            this.props.dispatch(registerUser(this.state.name,this.state.password,this.state.email));
+            this.props.dispatch(registerUser(this.state.email,this.state.password,this.state.name));
         }
     }
 
