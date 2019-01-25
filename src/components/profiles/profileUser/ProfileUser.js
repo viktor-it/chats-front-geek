@@ -9,7 +9,7 @@ import styles from "./ProfileUser.module.css";
 class ProfileUser extends Component {
     render() {
         return(
-            <section className={styles.profile}>
+            <section className={styles.profile} id={this.props.id}>
             <div className={styles.header}>
                 <div className={styles.header__pic}>
                     <ProfileUserTop/>
@@ -64,7 +64,7 @@ class ProfileUser extends Component {
                             </button>
                         </li>
                 </ul>
-                   <ProfileClose/>
+                   <ProfileClose profileToggle = {this.props.profileToggle}/>
             </section>
         )
     }

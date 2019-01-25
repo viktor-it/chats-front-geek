@@ -1,17 +1,16 @@
 import React from "react";
-import {NavLink} from 'react-router-dom';
+//import {NavLink} from 'react-router-dom';
 
 import styles from "./ProfileUser.module.css";
 
-const ProfileClose = () => {
+const ProfileClose = (props) => {
     return (
-        <div className = {styles["close-profile"]}>
-        	<NavLink to = {'/chats'}>
-    			<button className = {styles.Button}>        			
-    				<i className = {styles.ButtonIcon + ' fas fa-times'}/>
-    				<p className = {styles.ButtonText}>Закрыть</p>
-    			</button>
-    		</NavLink>
+        <div className = {styles["close-profile"]}>        	
+			<button className = {styles.Button}
+                    onClick = {() => {props.profileToggle()}}>        			
+				<i className = {styles.ButtonIcon + ' fas fa-times'}/>
+				<p className = {styles.ButtonText}>Закрыть</p>
+			</button>
         </div>
     )
 }
