@@ -4,8 +4,8 @@ const ChatsAPI = {
             {
             id: 6,
             img: 'http://simsontraining.com/wp-content/uploads/2015/03/testimonial_icon-60x60.png',
-            title: 'Группа стажировки',
-            info: 'Команда разработчиков десктоп - версии мессенджера “Pocket Messenger”',
+            name: 'Группа стажировки',
+            description: 'Команда разработчиков десктоп - версии мессенджера “Pocket Messenger”',
             text: 'Текст крайнего сообщения',
             unread: 2,
             time: '10.10.2018',
@@ -15,10 +15,10 @@ const ChatsAPI = {
             }
         }, 
         {
-            id: 7,
+            id: '5c4f02ad3b8ede82e341ce22',
             img: 'http://iconnectites.com/images/website-development.png',
-            title: "Design department",
-            info: 'Команда дизайнеров мессенджера “Pocket Messenger”',
+            name: "Design department",
+            description: 'Команда дизайнеров мессенджера “Pocket Messenger”',
             text: "Текст крайнего сообщения",
             unread: 5,
             time: "10.10.2018",

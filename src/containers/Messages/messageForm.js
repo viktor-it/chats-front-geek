@@ -160,7 +160,7 @@ class MessageForm extends Component {
             if (activeChat === undefined){
                 activeChat = this.props.chats.find(x => x.id === this.state.id);
                 chatImg = activeChat.img;
-                chatTitle = activeChat.title;
+                chatTitle = activeChat.name;
                 chatInfo = activeChat.info;
                 chatData = {
                     img: chatImg,
@@ -192,7 +192,7 @@ class MessageForm extends Component {
 
             let profile = this.state.profile ? (
                     <>
-                        <Modal classesNames = 'Profile'>   
+                        <Modal classesNames = 'Profile ProfileFromMenu'>   
                             {profileType}
                         </Modal>
                     </>

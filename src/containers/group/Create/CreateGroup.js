@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import {createGroup} from '../../../store/actions/index';
+import {connect} from 'react-redux';
+
 import Input from '../../../components/UI/Input/Input';
 
 import classes from './CreateGroup.module.css';
@@ -20,7 +23,7 @@ class CreateGroup extends Component {
     }
 
     onCLickConfirmHandler = () => {
-        console.log(this.state);
+        this.props.dispatch(createGroup(this.state.name, this.state.description));
     }
 
     render() {
@@ -54,4 +57,4 @@ class CreateGroup extends Component {
     }
 }
 
-export default CreateGroup;
+export default connect(null)(CreateGroup);

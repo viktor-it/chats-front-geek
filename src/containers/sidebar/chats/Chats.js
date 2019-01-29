@@ -30,7 +30,8 @@ class Chats extends React.Component {
                     <ChatsList chats={this.props.chats}
 
                     createGroup={() => {this.setState({active: 2})}}
-                    searchGroup={() => {this.setState({active: 3})}}/>
+                    //searchGroup={() => {this.setState({active: 3})}}
+                    />
                 );
             break;
             case 2:
