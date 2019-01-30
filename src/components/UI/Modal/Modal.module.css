@@ -64,8 +64,11 @@
     width: 406px;
     height: 100%;
 }
+.ProfileFromMenu{
+    margin-left: -419px;
+}
 
-    /*margin-left: -778px;*/
+   
     
 .MainMenu{
     background-color: #fff;

@@ -32,7 +32,7 @@ const ChatMessagesAPI = {
                 timestamp: 1545408934089
             }        
         ],
-        7: [
+        '5c4f02ad3b8ede82e341ce22': [
             {           
                 avatar: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
                 author: 'Сима Симаков',

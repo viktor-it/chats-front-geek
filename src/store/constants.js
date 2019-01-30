@@ -50,6 +50,18 @@ export const GET_CHATS_PENDING = 'GET_CHATS_PENDING';
 export const GET_CHATS_FULFILLED = 'GET_CHATS_FULFILLED';
 export const GET_CHATS_REJECTED = 'GET_CHATS_REJECTED';
 
+//Создание группы---------------------------------------------------------------
+export const CREATE_GROUP = 'CREATE_GROUP';
+export const CREATE_GROUP_PENDING = 'CREATE_GROUP_PENDING';
+export const CREATE_GROUP_FULFILLED = 'CREATE_GROUP_FULFILLED';
+export const CREATE_GROUP_REJECTED = 'CREATE_GROUP_REJECTED';
+
+//Профиль группы---------------------------------------------------------------
+export const GET_GROUP_PROFILE = 'GET_GROUP_PROFILE';
+export const GET_GROUP_PROFILE_PENDING = 'GET_GROUP_PROFILE_PENDING';
+export const GET_GROUP_PROFILE_FULFILLED = 'GET_GROUP_PROFILE_FULFILLED';
+export const GET_GROUP_PROFILE_REJECTED = 'GET_GROUP_PROFILE_REJECTED';
+
 //Установка активного чата---------------------------------------------------------------
 export const SET_ACTIVE_CHAT = 'SET_ACTIVE_CHAT';
 

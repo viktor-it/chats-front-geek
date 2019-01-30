@@ -71,7 +71,7 @@ class Form extends Component {
                         <div className={classes.ellipse_small}></div>
                         <form action="">
                                 <input className={classes.mail} type="email" required name="email"
-                                       placeholder="Логин"
+                                       placeholder="E-mail"
                                        value={this.state.email}
                                        onChange={this.handleUserInput} />
                             <input className={classes.pass} type="password" name="password"

@@ -6,11 +6,11 @@ import styles from './GroupProfile.module.css';
 
 const GroupProfile = (props)  => {
 	return (
-		<div className = {styles.Profile} id={props.id}>
+		<div className = {styles.Profile} id = {props.id}>
 
 			<div className = {styles.Header}>
 				<div>
-					<img src = {props.profile.img} className = {styles.HeaderAvatar} alt = "group_icon"/>
+					<img src = 'http://iconnectites.com/images/website-development.png' className = {styles.HeaderAvatar} alt = "group_icon"/>
 				</div>
 
 				<p className = {styles.HeaderText}>
@@ -19,7 +19,7 @@ const GroupProfile = (props)  => {
 
 				<div className = {styles.GroupInfo}>
 	            	<h2 className = {styles.GroupName}>
-	            		{props.profile.title}
+	            		{props.profile.name}
 	            	</h2>
 
 	            	{/*<button className = {styles.Edit}>
@@ -42,7 +42,7 @@ const GroupProfile = (props)  => {
 		        </div>
 
 		        <p className = {styles.StatusText}>
-		        	Команда разработчиков десктоп - версии мессенджера 'Pocket Messenger'
+		        	{props.profile.description}
 		        </p>
 		    </div>
 
