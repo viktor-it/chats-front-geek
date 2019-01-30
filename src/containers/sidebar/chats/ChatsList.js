@@ -12,21 +12,33 @@ import styles from './ChatsList.module.css';
 
 class ChatsList extends React.Component {
     state = {
-        modal: false
+        modal: false,
+        id: null
     }
 
-    profileToggle = (id) => {
-        this.props.dispatch(getGroupProfile(id));
+    setProfile = (id) => {
+        this.setState({
+            id: id
+        });
+    }
+
+    profileToggle = () => {
         this.setState({
             modal: !this.state.modal
-        });      
+        });
+    }
+
+    componentDidUpdate(prevProps) {      
+        if (prevProps.id !== this.props.id) {
+            this.props.dispatch(getGroupProfile(this.state.id));
+        }
     }
 
     render(){
         if(!this.props.chats.length){
             return null; //Если данные еще загружаются
         }
-        console.log(this.props.group);
+
         let profile = this.state.modal ? (
             <>
                 <Modal classesNames = 'Profile'>   
@@ -37,7 +49,7 @@ class ChatsList extends React.Component {
         ) : null;
 
         let chats = this.props.chats.map((chat, index) => {
-            return <ChatsItem key = {index} profileToggle = {this.profileToggle} {...chat}/>
+            return <ChatsItem key = {index} profileToggle = {this.profileToggle} setProfile = {this.setProfile} {...chat}/>
         });
 
         return (
@@ -71,6 +83,7 @@ function mapStateToProps(store) {
     return {
         chats: store.chats.chats,
         group: store.chats.group,
+        id: store.messages.id,
         is_loading: store.chats.is_loading
     }
 }

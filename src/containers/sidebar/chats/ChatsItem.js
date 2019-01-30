@@ -13,19 +13,23 @@ class ChatsItem extends React.Component {
     }
 
     handleClicks = () => {
+
         //двойной клик - открывает профиль
         if (this.clickTimeout !== null) { 
             clearTimeout(this.clickTimeout);
             this.clickTimeout = null;
 
-            this.props.profileToggle(this.props.id); 
+            this.props.profileToggle(); 
         } else {
         //одиночный клик - передает активный чат            
             this.props.dispatch(setActiveChat(this.props.id, 1));
+            this.props.setProfile(this.props.id); 
+            
             this.clickTimeout = setTimeout(() => {
                 clearTimeout(this.clickTimeout)
                 this.clickTimeout = null
                 }, 2000)
+
         }
     }
 
