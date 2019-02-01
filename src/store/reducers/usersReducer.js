@@ -1,8 +1,8 @@
 import * as Constants from '../constants';
 
-import ContactsAPI from './contactsStub'
+// import ContactsAPI from './contactsStub'
 
-let users = ContactsAPI.getUsers();
+// let users = ContactsAPI.getUsers();
 
 const initialState = {
     users: [],
@@ -27,8 +27,8 @@ export function usersReducer(state = initialState, action) {
 
         case Constants.GET_USERS_REJECTED: {
             state = {
-                //...state,
-                users, //for testing
+                ...state,
+                //users, //for testing
                 is_loading_users: false,
                 error_message: action.payload.message};
         break;
