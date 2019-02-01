@@ -1,6 +1,6 @@
 const ChatMessagesAPI = {
     messages:{
-        6: [
+        '5c53f036ed60efcc2bff5854': [
             {           
                 avatar: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
                 author: 'Петя Петров',

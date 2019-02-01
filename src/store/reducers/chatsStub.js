@@ -2,7 +2,7 @@
 const ChatsAPI = {
   chats: [
             {
-            id: 6,
+            id: '5c53f036ed60efcc2bff5854',
             img: 'http://simsontraining.com/wp-content/uploads/2015/03/testimonial_icon-60x60.png',
             name: 'Группа стажировки',
             description: 'Команда разработчиков десктоп - версии мессенджера “Pocket Messenger”',
