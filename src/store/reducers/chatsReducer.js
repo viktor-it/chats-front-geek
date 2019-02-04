@@ -87,6 +87,31 @@ export function chatsReducer(state = initialState, action) {
         break;
         }
 
+        //поиск группы------------------------------
+        case ConstantChats.SEARCH_GROUP_PENDING: {
+            state = {
+                ...state, 
+                is_loading: true
+            };
+        break;
+        }
+        case ConstantChats.SEARCH_GROUP_FULFILLED: {
+            state = {
+                ...state, 
+                is_loading: false, 
+                groups: action.payload.data
+            };
+        break;
+        }
+        case ConstantChats.SEARCH_GROUP_REJECTED: {
+            state = {
+                ...state,
+                is_loading: false, 
+                error_message: action.payload.message
+            };
+        break;
+        }
+
         default: {state = {...state}}
     }
 

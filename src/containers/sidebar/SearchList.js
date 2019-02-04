@@ -18,7 +18,8 @@ class SearchList extends Component {
 			this.clickTimeout = null;
 		} else {
 		//одиночный клик
-			this.props.updateData(this.props.user.id, this.props.user.name);  
+		console.log(this.props.user);
+			this.props.updateData(this.props.user.id);  
 			this.clickTimeout = setTimeout(() => {
 				clearTimeout(this.clickTimeout)
 				this.clickTimeout = null

@@ -1,5 +1,5 @@
 
-import {GET_CHATS, CREATE_GROUP, GET_GROUP_PROFILE} from "../constants";
+import {GET_CHATS, CREATE_GROUP, GET_GROUP_PROFILE, SEARCH_GROUP} from "../constants";
 
 import instance from '../axios-docs';
 
@@ -22,5 +22,12 @@ export function getGroupProfile(id) {
     return {
         type: GET_GROUP_PROFILE,
         payload: instance.get(`/groups/${id}`)
+    };
+}
+
+export function searchGroup(name) {
+    return {
+        type: SEARCH_GROUP,
+        payload: instance.get(`/groups/${name}`)
     };
 }

@@ -44,7 +44,7 @@ class ChatsList extends React.Component {
         } else {
             this.clickTimeout = setTimeout(() => {
                 //один клик
-                if(this.click_count == 1){
+                if(this.click_count === 1){
                     this.props.dispatch(setActiveChat(id, 1));  
                 //два клика                
                 } else if (id === this.state.id){
@@ -103,16 +103,17 @@ class ChatsList extends React.Component {
                         </div>
                         <span className = {styles.ButtonText}>Создать группу</span>
                     </button>
-                    {/* <button onClick = {() => {this.state.active = 3; this.switchComponent(this.state.active)}} > */}
-                    {/*<button className = {styles.Button} onClick = {this.props.searchGroup} >
-                        <div className = {styles.Icon}>+</div>
-                        <span className = {styles.Text}> Добавить группу</span>                      
-                    </button>*/}
+
+                    <button className = {styles.Button} onClick = {this.props.searchGroup} >
+                        <div className = {styles.ButtonIcon}>+</div>
+                        <span className = {styles.Text}> Добавить группу</span>                   
+                    </button>
                 </div>
             </>
         );
     }
 }
+
 function mapStateToProps(store) {
     return {
         chats: store.chats.chats,
@@ -122,6 +123,5 @@ function mapStateToProps(store) {
         is_loading: store.chats.is_loading
     }
 }
-
 
 export default connect(mapStateToProps)(ChatsList);
