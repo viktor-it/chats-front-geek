@@ -63,6 +63,11 @@ export const SEARCH_GROUP_PENDING = 'SEARCH_GROUP_PENDING';
 export const SEARCH_GROUP_FULFILLED = 'SEARCH_GROUP_FULFILLED';
 export const SEARCH_GROUP_REJECTED = 'SEARCH_GROUP_REJECTED';
 
+export const GET_INVITE_CODE = 'GET_INVITE_CODE';
+export const GET_INVITE_CODE_PENDING = 'GET_INVITE_CODE_PENDING';
+export const GET_INVITE_CODE_FULFILLED = 'GET_INVITE_CODE_FULFILLED';
+export const GET_INVITE_CODE_REJECTED = 'GET_INVITE_CODE_REJECTED';
+
 //---------------------------------------------------------------------------------
 export const SET_ACTIVE_CHAT = 'SET_ACTIVE_CHAT';
 
