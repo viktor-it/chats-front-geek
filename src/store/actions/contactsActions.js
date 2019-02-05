@@ -1,7 +1,7 @@
 import {GET_CONTACTS, ADD_CONTACT} from "../constants";
 import instance from '../axios-docs';
 
-import ContactsAPI from '../reducers/contactsStub' 
+//import ContactsAPI from '../reducers/contactsStub' 
 
 export function getContacts() {
     return {
@@ -10,10 +10,12 @@ export function getContacts() {
     };
 }
 
-export function addContact(name) {
-    return{
+export function addContact(id) {
+        console.log(id); 
+    return {
+
         type: ADD_CONTACT,
-        //payload: instance.post('/v1/account/contacts/',{name})
-        payload: ContactsAPI.addContact(name) //for testing
+        // payload: ContactsAPI.addContact(name) //for testing
+        payload: instance.post('/account/contacts/',{id})
     };
 }

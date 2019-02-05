@@ -19,7 +19,7 @@ class Menu extends Component {
 			menu: false,
 			modal: null,
 
-			addItem: '',
+			//addItem: '',
 			active: 0,
 			
 			user: null
@@ -71,19 +71,18 @@ class Menu extends Component {
     		});	   		
 		}		
 		
-		updateData = (id, name) => {
-			//добавляем имя для последующего добавления в общий список;
-			this.setState({ addItem: name });
-			//id для выделения цветом при клике
+		updateData = (id) => {
+			// //добавляем имя для последующего добавления в общий список;
+			// this.setState({ addItem: name });//для заглушки
+
+			//id для последующего добавления
 			this.setState({active: id});
 		}
 
 		//добавление контакта в общий список
 		addContact = () => {
-			this.props.dispatch(addContact(this.state.addItem));
+			this.props.dispatch(addContact(this.state.active));
 		}
-
-
 
 		switchComponent() { 
 			switch(this.state.modal) {

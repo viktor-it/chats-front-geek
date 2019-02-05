@@ -28,12 +28,12 @@ class SearchList extends Component {
 	}
 
 	render(){
+		console.log(this.props.user.active, this.props.user.id);
 	    return (
 			<div 
-				// className = {(this.props.user.active === this.props.user.id) ? 
-    //             			styles.Item + ' ' + styles.ActiveItem : 
-    //             			styles.Item}
-                classNme = {styles.Item}
+				className = {(this.props.active === this.props.user.id) ? 
+                			styles.Item + ' ' + styles.ActiveItem : 
+                			styles.Item}
                 onClick = {this.handleClicks}
 			>
 				{/*<img src = {this.props.user.img} 
@@ -41,7 +41,8 @@ class SearchList extends Component {
 	                        className = {styles.Avatar}
 	            />*/}
 	            <div className = {styles.Name}>
-					{this.props.user.name}
+					{this.props.user.username}
+					{this.props.user.id}
 				</div>
 				<div className = {styles.Email}>
 					{/*{this.props.user.email}*/}
