@@ -1,6 +1,6 @@
 const ChatMessagesAPI = {
     messages:{
-        6: [
+        '5c5884cc8c7a91e5b8eb8cc6': [
             {           
                 avatar: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
                 author: 'Петя Петров',
@@ -32,7 +32,7 @@ const ChatMessagesAPI = {
                 timestamp: 1545408934089
             }        
         ],
-        '5c4f02ad3b8ede82e341ce22': [
+        '5c5885108c7a91e5b8eb8cc7': [
             {           
                 avatar: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
                 author: 'Сима Симаков',

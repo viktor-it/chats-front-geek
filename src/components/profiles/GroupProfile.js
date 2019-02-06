@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './GroupProfile.module.css';
 
@@ -65,7 +65,7 @@ const GroupProfile = (props)  => {
 		                <label for = 'switch' className = {styles.SwitchLine}> </label>
 		            </div>
 		        </li>
-		        <li className = {styles.GroupMenuItems}>
+		        {/*<li className = {styles.GroupMenuItems}>
 			        <Link to = '/'>
 			            <button className = {styles.ItemBtn}>
 							<div className = {styles.GroupMenuIcon + ' ' + styles.GroupMenuIconClear}> </div>
@@ -88,7 +88,17 @@ const GroupProfile = (props)  => {
                             Выйти из группы
                         </button>
                     </Link>
-                </li>
+                </li>*/}
+                <li className = {styles.GroupMenuItems}>
+		            <button className = {styles.ItemBtn}
+		            		onClick = {() => {props.getInviteCode()}}>
+		                Получить инвайт
+		            </button>
+		            <div className= {styles.Invite}>
+		            	{ props.invitation_link }
+		            </div>
+		        </li>
+
 		        <li className = {styles.GroupMenuItems}>
 			        <Link to = '/'>
 			            <button className = {styles.ItemBtn + ' ' + styles.ItemBtnRed}>
@@ -110,6 +120,7 @@ const GroupProfile = (props)  => {
 	)
 }
 
-export default GroupProfile
+
+export default GroupProfile;
 
 

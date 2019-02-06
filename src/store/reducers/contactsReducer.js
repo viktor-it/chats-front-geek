@@ -45,6 +45,7 @@ export function contactsReducer(state = initialState, action) {
         case Constants.ADD_CONTACT_FULFILLED: {
             state = {
                 ...state,
+                user: action.payload.data,
                 is_loading: false
             };
             break;

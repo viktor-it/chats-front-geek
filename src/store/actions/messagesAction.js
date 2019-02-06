@@ -26,8 +26,6 @@ export function getMessages(id) {
         MessagesCache.addChatMessages(id, messages);
     }
 
-
-
     return {
         type: GET_MESSAGES,
         payload: messages

@@ -12,13 +12,14 @@ class SearchList extends Component {
 	handleClicks = () => {
 		//двойной клик
 		if (this.clickTimeout !== null) { 
-			this.props.openProfile(this.props); 
+			this.props.openProfile(this.props.user); 
 
 			clearTimeout(this.clickTimeout);
 			this.clickTimeout = null;
 		} else {
 		//одиночный клик
-			this.props.updateData(this.props.id, this.props.name);  
+		console.log(this.props.user);
+			this.props.updateData(this.props.user.id);  
 			this.clickTimeout = setTimeout(() => {
 				clearTimeout(this.clickTimeout)
 				this.clickTimeout = null
@@ -27,22 +28,24 @@ class SearchList extends Component {
 	}
 
 	render(){
+		console.log(this.props.user.active, this.props.user.id);
 	    return (
 			<div 
-				className = {(this.props.active === this.props.id) ? 
+				className = {(this.props.active === this.props.user.id) ? 
                 			styles.Item + ' ' + styles.ActiveItem : 
                 			styles.Item}
                 onClick = {this.handleClicks}
 			>
-				<img src = {this.props.img} 
+				{/*<img src = {this.props.user.img} 
 	                        alt = 'user'
 	                        className = {styles.Avatar}
-	            />
+	            />*/}
 	            <div className = {styles.Name}>
-					{this.props.name}
+					{this.props.user.username}
+					{this.props.user.id}
 				</div>
 				<div className = {styles.Email}>
-					{this.props.email}
+					{/*{this.props.user.email}*/}
 				</div>
 			</div>
 	    );
