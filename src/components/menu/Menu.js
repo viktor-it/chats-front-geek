@@ -27,7 +27,7 @@ class Menu extends Component {
 	    static getDerivedStateFromProps(nextProps, prevState) {
 	        if (nextProps.user !== prevState.user) {
 	            return {
-	                user: nextProps.user,
+	                user: nextProps.user
 	            }
 	        }
 	        //если состояние не изменилось
@@ -54,14 +54,15 @@ class Menu extends Component {
 
 		//поиск при нажатии 'Enter'
 		enterSearch = (event) => {
-			if (event.key === 'Enter') {
+			if (event.key === 'Enter') { 
 				this.props.dispatch(getUsers(event.target.value));
+
 		    }
 		}
 		//поиск при клике по лупе
 		clickSearch = () => {
 			let value = document.getElementById('Search').value;
-			this.props.dispatch(getUsers(value));
+			this.props.dispatch(getUsers(value));	
 		}
 
 		openProfile = (data) => {
@@ -113,17 +114,20 @@ class Menu extends Component {
 								  //  key = {index} {...user}
 								  //  active = {this.state.active}/>
 						    //});
-
-	                return (
-	                	<Modal classesNames = 'SearchContacts'>
-	                		<div className = {styles.List}>	
-								{/*{users}*/}
-								<SearchList 
+						let user = (this.state.user.id !== undefined) ? (
+							<SearchList 
 			            		updateData = {this.updateData}
 			            		openProfile = {this.openProfile}
 			            		 
 			            		user = {this.state.user}
+			            		userEmail = {this.props.userEmail}
 			            		active = {this.state.active}/>
+						) : null;
+
+	                return (
+	                	<Modal classesNames = 'SearchContacts'>
+	                		<div className = {styles.List}>	
+								{user}
 							</div>
 
 							<div className = {styles.ButtonsBlock}>
@@ -241,6 +245,7 @@ class Menu extends Component {
 function mapStateToProps(store) {
     return {
         user: store.users.users,
+        userEmail: store.users.userEmail,
         contacts: store.contacts.contacts,
 		is_loading_users: store.users.is_loading,
     }

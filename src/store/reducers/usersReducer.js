@@ -17,10 +17,13 @@ export function usersReducer(state = initialState, action) {
         }
 
         case Constants.GET_USERS_FULFILLED: {
+            let request = action.payload.request.responseURL;
+            let email = request.match( /(?<=email=)(.*)/g );
             state = {
                 ...state,
                 is_loading_users: false,
-                users: action.payload.data
+                users: action.payload.data,
+                userEmail: email
             };
         break;
         }
