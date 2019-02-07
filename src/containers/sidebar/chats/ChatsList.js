@@ -111,7 +111,7 @@ class ChatsList extends React.Component {
                 <div className = {styles.ButtonsBlock}>
                     <button className = {styles.Button} onClick = {this.props.createGroup} >
                         <div>
-                            <i className = {styles.ButtonIcon + ' fas fa-check'}></i>
+                            <i className = {styles.ButtonIcon + ' fas fa-check'}/>
                         </div>
                         <span className = {styles.ButtonText}>Создать группу</span>
                     </button>

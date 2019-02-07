@@ -11,6 +11,7 @@ import Backdrop from '../UI/Backdrop/Backdrop';
 import MenuList from  './MenuList';
 import SearchList from  '../../containers/sidebar/SearchList';
 import User from  '../profiles/User';
+import UsersList from  '../usersList/UsersList';
 
 
 class Menu extends Component {
@@ -18,6 +19,7 @@ class Menu extends Component {
 		state = {
 			menu: false,
 			modal: null,
+			blackList: false,
 
 			//addItem: '',
 			active: 0,
@@ -34,7 +36,7 @@ class Menu extends Component {
 	        return null;
 	    }
 
-		menuShow = () => {
+		menuToggle = () => {
 			this.setState({
       			menu: !this.state.menu
     		});
@@ -84,6 +86,16 @@ class Menu extends Component {
 		addContact = () => {
 			this.props.dispatch(addContact(this.state.active));
 		}
+
+		//черный список 
+		usersListToggle = () => {
+			this.setState({
+      			blackList: !this.state.blackList
+    		});
+		}
+		// delFromBlackList = (id) => {
+		// 	this.props.dispatch(addToBlackList(id));
+		// }
 
 		switchComponent() { 
 			switch(this.state.modal) {
@@ -191,6 +203,12 @@ class Menu extends Component {
 					icon: ' fas fa-user-times',
 					text: 'Выйти',
 					action: 'logout'
+				},
+				{
+					href: null,
+					icon: ' fas fa-user-slash',
+					text: 'Черный список',
+					action: 'usersListToggle'
 				}
 			];
 
@@ -199,7 +217,30 @@ class Menu extends Component {
 				<>
 					<Backdrop show classesNames='MainMenu'/>
 			    	<Modal classesNames = 'MainMenu'>	
-		            	<MenuList menuShow = {this.menuShow} items = {menuItems}/>		            		
+		            	<MenuList menuToggle = {this.menuToggle} items = {menuItems}
+		            		usersListToggle = {this.usersListToggle}/>		            		
+					</Modal>
+				</>
+			) : null;
+
+			// черный список
+        	let listItems = [
+				{	id: 1,
+					name: 'Петя Петров'
+				},
+				{	id: 2,
+					name: 'Сима Симаков'
+				},
+				{	id: 3,
+					name: 'Анна Иванова'
+				}
+        	];
+
+			const blacklist = this.state.blackList ? (
+				<>
+			    	<Modal classesNames = 'UsersList'>	
+		            	<UsersList usersListToggle = {this.usersListToggle}
+		            				items = {listItems}/>	            		
 					</Modal>
 				</>
 			) : null;
@@ -208,7 +249,7 @@ class Menu extends Component {
 				<div className = {styles.Menu}>
 
 					{/*иконка меню - гамбургер*/}
-			    	<div onClick = {this.menuShow} className = {styles.Burger}>
+			    	<div onClick = {this.menuToggle} className = {styles.Burger}>
 		    			{/*<span className = {styles.BurgerLine}/>*/}
 		    			<i className = {styles.BurgerIcon + ' fas fa-bars'}/>		    		
 			    	</div>
@@ -235,6 +276,11 @@ class Menu extends Component {
 			    	{/*главное меню*/}
 			    	<>
 				    	{menu}
+					</>
+
+					{/*черный список*/}
+			    	<>
+				    	{blacklist}
 					</>
 
 			    </div>

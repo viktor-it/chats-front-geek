@@ -18,6 +18,10 @@ class MenuItem extends Component {
             case 'openProfile':
             	this.props.profileToggle();
             break;
+            //открыть черный список
+            case 'usersListToggle':
+            	this.props.usersListToggle();
+            break;
             default:
 	            console.log(this.props);
 	        break;		
@@ -25,14 +29,19 @@ class MenuItem extends Component {
 	}
 
 	render(){
-
+		let item = (this.props.href === null) ? (	
+			<div className = {styles.Item} onClick = {() => {this.switchAction(this.props.action)}}>
+				<i className = {styles.Icon + this.props.icon}/>
+				<p className = {styles.Text}>{this.props.text}</p>
+        	</div>
+		) : 
+			<Link to = {this.props.href} className = {styles.Item} onClick = {() => {this.switchAction(this.props.action)}}>
+				<i className = {styles.Icon + this.props.icon}/>
+				<p className = {styles.Text}>{this.props.text}</p>
+		    </Link>	
 		return(
 			<>
-		        <Link to = {this.props.href} className = {styles.Item} onClick = {() => {this.switchAction(this.props.action)}}>
-					<i className = {styles.Icon + this.props.icon}/>
-					<p className = {styles.Text}>{this.props.text}</p>
-		        </Link>
-		        
+		        { item }	        
 	        </>        
 		)
 	}
