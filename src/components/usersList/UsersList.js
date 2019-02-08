@@ -5,10 +5,15 @@ import UsersItem from  './UsersItem';
 import styles from './UsersList.module.css';
 
 const UsersList = (props)  => { 
-    let users = props.items.map((user, index) => {
-        return <UsersItem 
+    let users;
+    if (props.items === undefined){
+        users = null;
+    } else {
+        users = props.items.map((user, index) => {
+        return <UsersItem delFromBlackList = {props.delFromBlackList}
                          key = {index} {...user} />
-    });
+        });
+    }
 
     return (
         <div className = {styles.Container}>

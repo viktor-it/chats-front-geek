@@ -103,6 +103,26 @@ export function contactsReducer(state = initialState, action) {
             };
             break;
         }
+
+        case Constants.DEL_FROM_BLACKLIST_PENDING: {
+            state = {
+                ...state
+            };
+            break;
+        }        
+        case Constants.DEL_FROM_BLACKLIST_FULFILLED: {
+            state = {
+                ...state
+            };
+            break;
+        }        
+        case Constants.DEL_FROM_BLACKLIST_REJECTED: {
+            state = {
+                ...state,
+                error_message: action.payload.message
+            };
+            break;
+        }
         default: {state = {...state}}
     }
     return state;

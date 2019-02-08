@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {getUsers, addContact, getBlackList} from '../../store/actions';
+import {getUsers, addContact, getBlackList, delFromBlackList} from '../../store/actions';
 
 import Modal from  '../UI/Modal/Modal';
 import Backdrop from '../UI/Backdrop/Backdrop';
@@ -20,6 +20,7 @@ class Menu extends Component {
 			menu: false,
 			modal: null,
 			blackList: false,
+			blacklistItems: [],
 
 			//addItem: '',
 			active: 0,
@@ -27,18 +28,15 @@ class Menu extends Component {
 			user: null
 		}
 	    static getDerivedStateFromProps(nextProps, prevState) {
-	        if (nextProps.user !== prevState.user) {
+	        if (nextProps.user !== prevState.user || nextProps.blacklist !== prevState.blacklistItems) {
 	            return {
-	                user: nextProps.user
+	                user: nextProps.user,
+	                blacklistItems: nextProps.blacklist
 	            }
 	        }
 	        //если состояние не изменилось
 	        return null;
 	    }
-	    componentDidMount()
-	    {
-	        this.props.dispatch(getBlackList());
-		}
 
 		menuToggle = () => {
 			this.setState({
@@ -93,13 +91,16 @@ class Menu extends Component {
 
 		//черный список 
 		usersListToggle = () => {
+			if (this.state.blackList === false){
+				this.props.dispatch(getBlackList());
+			}
 			this.setState({
       			blackList: !this.state.blackList
     		});
 		}
-		// delFromBlackList = (id) => {
-		// 	this.props.dispatch(addToBlackList(id));
-		// }
+		delFromBlackList = (id) => {
+			this.props.dispatch(delFromBlackList(id));
+		}
 
 		switchComponent() { 
 			switch(this.state.modal) {
@@ -110,35 +111,15 @@ class Menu extends Component {
 
                 //окно поиска контакта
             	case 1:
-            		//для заглушки =>
-	            		//проверка на наличие пользователя в списке контактов
-	            		//нет - добавляем в список
-	            		// let foundUsers = [];
-					     //for (let i = 0, max = this.props.users.length; i < max; i++) {
-					     // let usersId = this.props.users[i].id;
-					     // let foundId = this.props.contacts.find(el => {return el.id === usersId});
-						// 	if (typeof foundId == 'undefined'){
-						// 		foundUsers.push(this.props.users[i]);
-						// 	}						
-						// }
-						// let foundUsers = this.props.users;
-
-					     //let users = foundUsers.map((user, index) => {
-						    // return <SearchList 
-								  //  updateData = {this.updateData}
-								  //  openProfile = {this.openProfile}
-								  //  key = {index} {...user}
-								  //  active = {this.state.active}/>
-						    //});
-						let user = (this.state.user.id !== undefined) ? (
-							<SearchList 
-			            		updateData = {this.updateData}
-			            		openProfile = {this.openProfile}
-			            		 
-			            		user = {this.state.user}
-			            		userEmail = {this.props.userEmail}
-			            		active = {this.state.active}/>
-						) : null;
+					let user = (this.state.user.id !== undefined) ? (
+						<SearchList 
+		            		updateData = {this.updateData}
+		            		openProfile = {this.openProfile}
+		            		 
+		            		user = {this.state.user}
+		            		userEmail = {this.props.userEmail}
+		            		active = {this.state.active}/>
+					) : null;
 
 	                return (
 	                	<Modal classesNames = 'SearchContacts'>
@@ -164,7 +145,6 @@ class Menu extends Component {
 				                    </div>
 								</button>
 							</div>
-
 						</Modal>
 	                ); 
 	            break;
@@ -232,8 +212,9 @@ class Menu extends Component {
 				<>
 			    	<Modal classesNames = 'UsersList'>	
 		            	<UsersList usersListToggle = {this.usersListToggle}
+		            				delFromBlackList = {this.delFromBlackList}
 		            				title = 'Чёрный список'
-		            				items = {this.props.blacklist}/>	            		
+		            				items = {this.state.blacklistItems}/>	            		
 					</Modal>
 				</>
 			) : null;

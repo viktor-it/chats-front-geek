@@ -14,7 +14,8 @@ const UsersItem = (props)  => {
             <div className = {styles.Name}>
                 {props.name}
             </div>
-            <button className = {styles.Button}>
+            <button className = {styles.Button}
+                    onClick = {() => {props.delFromBlackList(props.id)}}>
                 <i className = {styles.ButtonIcon + ' fas fa-times'}/>
             </button>
         </li>
