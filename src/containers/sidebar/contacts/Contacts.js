@@ -3,19 +3,22 @@ import React from 'react';
 
 import ContactsList from './ContactsList';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-// import ContactSearch from '../contact/Search/ContactSearch';
 
-import {getContacts} from '../../../store/actions';
+import {getContacts, addToBlackList} from '../../../store/actions';
 
 import {connect} from 'react-redux';
 
 class Contacts extends React.Component {
 	componentDidMount()
     {
-        //action
         this.props.dispatch(getContacts());
         // this.props.dispatch(getContacts(localStorage.getItem('token')));
 	}
+
+    addToBlackList = (id) => {
+        // console.log(id);
+        this.props.dispatch(addToBlackList(id));
+    }
 
 	render() {
 		if(this.props.is_loading_contacts){
@@ -23,7 +26,8 @@ class Contacts extends React.Component {
         }
         
         return (
-            <ContactsList contacts={this.props.contacts}/>
+            <ContactsList contacts = {this.props.contacts}
+                        addToBlackList = {this.addToBlackList}/>
         );
 
     }

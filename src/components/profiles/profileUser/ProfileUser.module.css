@@ -223,3 +223,7 @@
 .ButtonText{
     font: normal normal 14px/normal Roboto;
 }
+.Icon{
+   color: #3498db;
+   margin-right: 20px;
+}

@@ -75,6 +75,7 @@
     height: 269px;
     margin-left: -5px;
     width: 410px;
+    z-index: 500;
 }
 
 .ChatMenu{

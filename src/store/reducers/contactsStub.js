@@ -2,7 +2,7 @@
 const ContactsAPI = {
     contacts: [
         {
-            id: 1,
+            id: '5c3f0c0d0549b33378426b57',
             img: 'https://d1hzl1rkxaqvcd.cloudfront.net/avatars/89306/_60px/images.png',
             name: 'Петя Петров',
             text: 'Текст последнего сообщения',
@@ -22,7 +22,7 @@ const ContactsAPI = {
     ],
     users: [
         {
-            id: 1,
+            id: '5c3f0c0d0549b33378426b57',
             img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
             name: 'Петя Петров',
             email: 'petrov@gmail.com',

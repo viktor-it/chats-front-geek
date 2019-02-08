@@ -42,6 +42,10 @@ export const ADD_CONTACT_PENDING = 'ADD_CONTACT_PENDING';
 export const ADD_CONTACT_FULFILLED = 'ADD_CONTACT_FULFILLED';
 export const ADD_CONTACT_REJECTED = 'ADD_CONTACT_REJECTED';
 
+export const ADD_TO_BLACKLIST = 'ADD_TO_BLACKLIST';
+export const ADD_TO_BLACKLIST_PENDING = 'ADD_TO_BLACKLIST_PENDING';
+export const ADD_TO_BLACKLIST_FULFILLED = 'ADD_TO_BLACKLIST_FULFILLED';
+export const ADD_TO_BLACKLIST_REJECTED = 'ADD_TO_BLACKLIST_REJECTED';
 //---------------------------------------------------------------------------------
 export const GET_CHATS = 'GET_CHATS';
 export const GET_CHATS_PENDING = 'GET_CHATS_PENDING';

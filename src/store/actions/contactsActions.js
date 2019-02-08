@@ -1,4 +1,4 @@
-import {GET_CONTACTS, ADD_CONTACT} from "../constants";
+import {GET_CONTACTS, ADD_CONTACT, ADD_TO_BLACKLIST} from "../constants";
 import instance from '../axios-docs';
 
 //import ContactsAPI from '../reducers/contactsStub' 
@@ -11,11 +11,16 @@ export function getContacts() {
 }
 
 export function addContact(id) {
-        console.log(id); 
     return {
-
         type: ADD_CONTACT,
         // payload: ContactsAPI.addContact(name) //for testing
         payload: instance.post('/account/contacts/',{id})
+    };
+}
+
+export function addToBlackList(id) {
+    return {
+        type: ADD_TO_BLACKLIST,
+        payload: instance.post('/account/blacklist/',{id})
     };
 }

@@ -8,6 +8,7 @@ import styles from "./ProfileUser.module.css";
 
 class ProfileUser extends Component {
     render() {
+        console.log(this.props);
         return(
             <section className={styles.profile} id={this.props.id}>
             <div className={styles.header}>
@@ -30,39 +31,45 @@ class ProfileUser extends Component {
                 <ul className={styles["profile-menu"]}>
                     <li className={styles["profile-menu__items"]}>
                         <button className={styles["item-btn"]}>
-                            <img src={require("../../../images/personal_profile/vector.svg")} alt="#" className={styles["profile-menu__icon"]}/>
+                            <i className={styles.Icon + ' fas  fa-comment-alt'}/>
                                 Написать сообщение
                         </button>
                     </li>
-                        <li className={styles["profile-menu__items profile-menu__items_toggle"]}>
-                            <button className={styles["item-btn"]}>
-                                <img src={require("../../../images/personal_profile/bell.svg")} alt="#" className={styles["profile-menu__icon"]}/>
-                                    Оповещения
-                            </button>
-                            <div className={styles["toggle-switch"]}>
-                                {/*<input type="checkbox" className={styles.switch} id="switch">
-                                    <label for="switch" className={styles.switch__line}>
+                    {/* 
+                    <li className={styles["profile-menu__items profile-menu__items_toggle"]}>
+                        <button className={styles["item-btn"]}>
+                            <img src={require("../../../images/personal_profile/bell.svg")} alt="#" className={styles["profile-menu__icon"]}/>
+                                Оповещения
+                        </button>
+                        <div className={styles["toggle-switch"]}>
+                            <input type="checkbox" className={styles.switch} id="switch">
+                                <label for="switch" className={styles.switch__line}>
 
-                                    </label>
-                                </input>
-                                
-                                commented for testing
-
-                                */}
-                            </div>
-                        </li>
-                        <li className={styles["profile-menu__items"]}>
-                            <button className={styles["item-btn"]}>
-                                <img src={require("../../../images/personal_profile/clear.svg")} alt="#" className={styles["profile-menu__icon"]}/>
-                                    Очистить переписку
-                            </button>
-                        </li>
-                        <li className={styles["profile-menu__items"]}>
-                            <button className={styles["item-btn"]}>
-                                <img src={require("../../../images/personal_profile/delete.svg")} alt="#" className={styles["profile-menu__icon"]}/>
-                                    Удалить пользователя
-                            </button>
-                        </li>
+                                </label>
+                            </input>                      
+                        </div>
+                    </li>
+                    */}
+                    <li className={styles["profile-menu__items"]}>
+                        <button className={styles["item-btn"]}
+                                onClick = {() => {this.props.addToBlackList(this.props.profile.id)}}
+                                >
+                            <i className={styles.Icon + ' fas  fa-user-slash'}/>
+                                Добавить в черный список
+                        </button>
+                    </li>
+                    <li className={styles["profile-menu__items"]}>
+                        <button className={styles["item-btn"]}>
+                            <i className={styles.Icon + ' fas  fa-trash'}/>
+                                Очистить переписку
+                        </button>
+                    </li>
+                    <li className={styles["profile-menu__items"]}>
+                        <button className={styles["item-btn"]}>
+                            <i className={styles.Icon + ' fas  fa-user-alt-slash'}/>
+                                Удалить пользователя
+                        </button>
+                    </li>
                 </ul>
                    <ProfileClose profileToggle = {this.props.profileToggle}/>
             </section>

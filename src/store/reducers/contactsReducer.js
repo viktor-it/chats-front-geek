@@ -46,14 +46,38 @@ export function contactsReducer(state = initialState, action) {
             state = {
                 ...state,
                 user: action.payload.data,
-                is_loading: false
+                is_loading_contact: false
             };
             break;
         }        
         case Constants.ADD_CONTACT_REJECTED: {
             state = {
                 ...state,
-                is_loading_contacts: false,
+                is_loading_contact: false,
+                error_message: action.payload.message
+            };
+            break;
+        }
+
+        case Constants.ADD_TO_BLACKLIST_PENDING: {
+            state = {
+                ...state,
+                is_loading_list: true
+            };
+            break;
+        }        
+        case Constants.ADD_TO_BLACKLIST_FULFILLED: {
+            state = {
+                ...state,
+                blacklist: action.payload.data,
+                is_loading_list: false
+            };
+            break;
+        }        
+        case Constants.ADD_TO_BLACKLIST_REJECTED: {
+            state = {
+                ...state,
+                is_loading_list: false,
                 error_message: action.payload.message
             };
             break;

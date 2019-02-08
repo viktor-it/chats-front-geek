@@ -47,11 +47,6 @@ class MenuItem extends Component {
 	}
 }
 
-const mapStateToProps = (store) => {
-  return {
-      active: store.messages.active
-  }
-}
 
-export default connect(mapStateToProps)(MenuItem);
+export default connect()(MenuItem);
 
