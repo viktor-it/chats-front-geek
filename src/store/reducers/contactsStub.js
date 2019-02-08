@@ -11,7 +11,7 @@ const ContactsAPI = {
             status: true
         }, 
         {
-            id: 2,
+            id: '5c5b1fc7eee22122c4ec78e2',
             img: 'https://mielgroup.org/wp-content/uploads/user-60x60.png',
             name: 'Сима Симаков',
             text: 'Текст последнего сообщения',
@@ -34,7 +34,7 @@ const ContactsAPI = {
 
         }, 
         {
-            id: 2,
+            id: '5c5b1fc7eee22122c4ec78e2',
             img: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
             name: 'Сима Симаков',
             email: 'sima@gmail.com',

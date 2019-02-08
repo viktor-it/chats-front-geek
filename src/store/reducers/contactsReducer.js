@@ -61,20 +61,41 @@ export function contactsReducer(state = initialState, action) {
 
         case Constants.ADD_TO_BLACKLIST_PENDING: {
             state = {
-                ...state,
-                is_loading_list: true
+                ...state
             };
             break;
         }        
         case Constants.ADD_TO_BLACKLIST_FULFILLED: {
             state = {
                 ...state,
-                blacklist: action.payload.data,
-                is_loading_list: false
+                blacklist_item: action.payload.data
             };
             break;
         }        
         case Constants.ADD_TO_BLACKLIST_REJECTED: {
+            state = {
+                ...state,
+                error_message: action.payload.message
+            };
+            break;
+        }
+        
+        case Constants.GET_BLACKLIST_PENDING: {
+            state = {
+                ...state,
+                is_loading_list: true
+            };
+            break;
+        }        
+        case Constants.GET_BLACKLIST_FULFILLED: {
+            state = {
+                ...state,
+                blacklist: action.payload.data.data,
+                is_loading_list: false
+            };
+            break;
+        }        
+        case Constants.GET_BLACKLIST_REJECTED: {
             state = {
                 ...state,
                 is_loading_list: false,
@@ -82,7 +103,6 @@ export function contactsReducer(state = initialState, action) {
             };
             break;
         }
-        
         default: {state = {...state}}
     }
     return state;

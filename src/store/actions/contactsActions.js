@@ -1,4 +1,4 @@
-import {GET_CONTACTS, ADD_CONTACT, ADD_TO_BLACKLIST} from "../constants";
+import {GET_CONTACTS, ADD_CONTACT, ADD_TO_BLACKLIST, GET_BLACKLIST} from "../constants";
 import instance from '../axios-docs';
 
 //import ContactsAPI from '../reducers/contactsStub' 
@@ -22,5 +22,12 @@ export function addToBlackList(id) {
     return {
         type: ADD_TO_BLACKLIST,
         payload: instance.post('/account/blacklist/',{id})
+    };
+}
+
+export function getBlackList() {
+    return {
+        type: GET_BLACKLIST,
+        payload: instance.get('/account/blacklist/')
     };
 }

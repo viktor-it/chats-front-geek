@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {getUsers, addContact} from '../../store/actions';
+import {getUsers, addContact, getBlackList} from '../../store/actions';
 
 import Modal from  '../UI/Modal/Modal';
 import Backdrop from '../UI/Backdrop/Backdrop';
@@ -35,6 +35,10 @@ class Menu extends Component {
 	        //если состояние не изменилось
 	        return null;
 	    }
+	    componentDidMount()
+	    {
+	        this.props.dispatch(getBlackList());
+		}
 
 		menuToggle = () => {
 			this.setState({
@@ -224,23 +228,12 @@ class Menu extends Component {
 			) : null;
 
 			// черный список
-        	let listItems = [
-				{	id: 1,
-					name: 'Петя Петров'
-				},
-				{	id: 2,
-					name: 'Сима Симаков'
-				},
-				{	id: 3,
-					name: 'Анна Иванова'
-				}
-        	];
-
 			const blacklist = this.state.blackList ? (
 				<>
 			    	<Modal classesNames = 'UsersList'>	
 		            	<UsersList usersListToggle = {this.usersListToggle}
-		            				items = {listItems}/>	            		
+		            				title = 'Чёрный список'
+		            				items = {this.props.blacklist}/>	            		
 					</Modal>
 				</>
 			) : null;
@@ -293,6 +286,7 @@ function mapStateToProps(store) {
         user: store.users.users,
         userEmail: store.users.userEmail,
         contacts: store.contacts.contacts,
+        blacklist: store.contacts.blacklist,
 		is_loading_users: store.users.is_loading,
     }
 }

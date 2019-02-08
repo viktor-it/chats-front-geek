@@ -64,7 +64,7 @@ const ChatMessagesAPI = {
                 timestamp: 1545408934089
             }        
         ],
-        2: [
+        '5c5b1fc7eee22122c4ec78e2': [
             {           
                 avatar: 'https://kwork.ru/files/avatar/medium/11/602845-1.jpg',
                 author: 'Вы',
