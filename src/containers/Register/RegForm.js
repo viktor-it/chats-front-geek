@@ -11,9 +11,11 @@ class RegForm extends Component {
         name:"",
         email:"",
         password:"",
-        passwordCheck:"",
+        confirmPassword:"",
         checkbox:false,
         emailValid:false,
+        nameValid:false,
+        passwordValid:false,
         cancelButtonHovered: false,
         regButtonHovered: false
     }
@@ -33,16 +35,19 @@ class RegForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         if(this.state.emailValid === false){
-            alert("Указан неверный email")
+            document.getElementById("errorEmail").innerHTML = "Указан неверный email";
         }
-        if(this.state.checkbox === false){
-            alert("Для регистрации необходимо дать согласие на обработку персональных данных")
+        if(this.state.passwordValid === false){
+            document.getElementById("errorPassword").innerHTML = "Пароль должен содержать от 8 до 32 символов";
         }
-        if(this.state.password !== this.state.passwordCheck){
-            alert("Пароль не совпадает с подтверждением пароля")
+        if(this.state.password !== this.state.confirmPassword){
+            document.getElementById("errorConfirmPassword").innerHTML = "Пароль не совпадает с подтверждением пароля";         
         }
-        if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.passwordCheck)){
+        if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.confirmPassword)){
             this.props.dispatch(registerUser(this.state.email,this.state.password,this.state.name));
+        }
+        if(this.state.nameValid === false){
+            document.getElementById("errorName").innerHTML = "Введите никнейм";
         }
     }
 
@@ -51,10 +56,24 @@ class RegForm extends Component {
             [e.target.name]:e.target.value
         })
         if(e.target.name === "email"){
-            if(e.target.value.match(/[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)){
+            if(e.target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
                 this.emailCheck(true)
             }else{
                 this.emailCheck(false)
+            }
+        }
+        if(e.target.name === "name"){
+            if(e.target.value.match(/^.{2,32}$/u )) {
+                this.nameCheck(true)
+            }else{
+                this.nameCheck(false)
+            }
+        }
+        if(e.target.name === "password"){
+            if(e.target.value.match(/^.{8,32}$/u )) {
+                this.passwordCheck(true)
+            }else{
+                this.passwordCheck(false)
             }
         }
     }
@@ -62,6 +81,16 @@ class RegForm extends Component {
     emailCheck = (bool) => {
         this.setState({
             emailValid:bool
+        })
+    }
+    nameCheck = (bool) => {
+        this.setState({
+            nameValid:bool
+        })
+    }
+    passwordCheck = (bool) => {
+        this.setState({
+            passwordValid:bool
         })
     }
 
@@ -98,7 +127,10 @@ class RegForm extends Component {
                                 value={this.state.name}
                                 placeholder="Ваш никнейм"
                                 className={styles.Input }
-                    /></div>
+                                title="Имя должно содержать от 2 до 32 символов"
+                        />
+                    </div>
+                    <div className={styles.errorForm} id="errorName"></div>
                     <div className={styles.formItems + ' ' + styles.Mail}>
                         <input type ="text"
                                name="email"
@@ -106,8 +138,10 @@ class RegForm extends Component {
                                value={this.state.email}
                                placeholder="E-mail"
                                className={styles.Input}
+                               required
                         />
                     </div>
+                    <div className={styles.errorForm} id="errorEmail"></div>
                     <div className={styles.formItems + ' ' + styles.Pass}>
                         <input type ="password"
                                name="password"
@@ -115,25 +149,31 @@ class RegForm extends Component {
                                value={this.state.password}
                                placeholder="Пароль"
                                className={styles.Input }
+                               title="Пароль должен содержать от 8 до 32 символов"
                         />
-                    </div>
+                    </div> 
+                    <div className={styles.errorForm} id="errorPassword"></div>                  
                     <div className={styles.formItems+ ' ' + styles.passRepeat}>
                         <input type ="password"
-                               name="passwordCheck"
+                               name="confirmPassword"
                                onChange={this.handleChange}
-                               value={this.state.passwordCheck}
+                               value={this.state.confirmPassword}
                                placeholder="Повторите пароль"
                                className={styles.Input}
+                               required
                         />
                     </div>
+                    <div className={styles.errorForm} id="errorConfirmPassword"></div>
                     <div className={styles.formItemsCheck}>
                         {/*<div className={styles.Checkbox}>*/}
                             <input type="checkbox"
-                                    onChange={this.handleCheckbox}
-                                    className={styles.Checkbox}/>
+                                   onChange={this.handleCheckbox}
+                                   className={styles.Checkbox}
+                                   checked
+                            />
                         {/*</div>*/}
                         <p className={styles.Text}>Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.
-                            <a className={styles.KnowMore} href="#">Узнать больше</a>
+                            <a className={styles.KnowMore} href="/1">Узнать больше</a>
                         </p>
                     </div>
                     <button
