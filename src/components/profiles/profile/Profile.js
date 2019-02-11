@@ -1,6 +1,8 @@
 import React, {Component} from "react";
+
 import ProfileUserTop from "../profileUser/ProfileUserTop";
 import ProfileClose from "../profileUser/ProfileClose";
+
 import styles from "./Profile.module.css";
 
 
@@ -20,7 +22,7 @@ class Profile extends Component {
                     <div className={styles['profile-info']}>
                         <span className={styles['profile-info__mail']}>simsim28@gmail.com</span>
                         <div className={styles['profile-info__name']}>
-                            <h1 className={styles["profile-name"]}>Вася Васильков</h1>
+                            <h2 className={styles["profile-name"]}>Вася Васильков</h2>
                             <button className={styles.edit}>
                                 <i className={styles.Icon + ' fas  fa-pencil-alt'}/>
                             </button>
@@ -41,20 +43,19 @@ class Profile extends Component {
                     </div>
                     <div className={styles["profile__about"]}>
                         <ul className={styles["profile-menu"]}>
-                            <li className={styles["profile-menu__items"]}>
+                            {/*<li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
                                     <i className={styles.Icon + ' fas  fa-comment-alt'}/>
                                     Написать сообщение
                                 </button>
-
-                            </li>
+                            </li>*/}
                             <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
                                     <i className={styles.Icon + ' fas  fa-key'}/>
                                     Личный кабинет
                                 </button>
                             </li>
-                            <li className={styles["profile-menu__items profile-menu__items_toggle"]}>
+                            {/*<li className={styles["profile-menu__items profile-menu__items_toggle"]}>
                                 <button className={styles["item-btn"]}>
                                     <i className={styles.Icon + ' fas  fa-bell'}/>
                                     Оповещения
@@ -71,13 +72,23 @@ class Profile extends Component {
                                     Выйти из профиля
                                 </button>
                             </li>
-                            {/*<li className={styles["profile-menu__items"]}>
+                            <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
                                     <img src={require("../../../images/personal_profile/clear.svg")} alt="#"
                                          className={styles["profile-menu__icon"]}/>
                                     Очистить переписку
                                 </button>
                             </li>*/}
+                            <li className={styles["profile-menu__items"]}>
+                                <div className = {styles.PasswordBlock}>
+                                    <h4 className = {styles.PasswordBlockTitle}>Изменение пароля</h4>
+                                    <input type = "text" className = {styles.PasswordBlockInput} placeholder = "Старый пароль"/>
+                                    <input type = "text" className = {styles.PasswordBlockInput} placeholder = "Новый пароль"/>
+                                    <button className = {styles.PasswordBlockBtn}>
+                                        Изменить пароль
+                                    </button>
+                                </div>        
+                            </li>
                             <li className={styles["profile-menu__items"]}>
                                 <button className={styles["item-btn"]}>
                                     <i className={styles.Icon + ' fas  fa-user-alt-slash'}/>
