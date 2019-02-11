@@ -28,9 +28,7 @@ class SearchList extends Component {
 	}
 
 	render(){
-		console.log(this.props.user.id);
 	    return (
-
 			<div 
 				className = {(this.props.active === this.props.user.id) ? 
                 			styles.Item + ' ' + styles.ActiveItem : 

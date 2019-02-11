@@ -25,6 +25,7 @@ class Menu extends Component {
 			//addItem: '',
 			active: 0,
 			
+			userslist: false, //для обнуления списка при закрытии окна поиска
 			user: null
 		}
 	    static getDerivedStateFromProps(nextProps, prevState) {
@@ -45,26 +46,29 @@ class Menu extends Component {
     	}
     	searchShow = () => {
 		    this.setState({
-		    	modal: 1,
+		    	modal: 1
     		});		    
 		}
   
 		searchHide = () => {
-			this.setState({modal: 0});
-
+			this.setState({
+				userslist: false, //для обнуления списка
+				modal: 0
+			});
 			//обнуление input при выходе из окна поиска
 			document.getElementById('Search').value = '';
 		}
 
 		//поиск при нажатии 'Enter'
 		enterSearch = (event) => {
+			this.setState({userslist: true});
 			if (event.key === 'Enter') { 
 				this.props.dispatch(getUsers(event.target.value));
-
 		    }
 		}
 		//поиск при клике по лупе
 		clickSearch = () => {
+			this.setState({userslist: true});
 			let value = document.getElementById('Search').value;
 			this.props.dispatch(getUsers(value));	
 		}
@@ -111,7 +115,7 @@ class Menu extends Component {
 
                 //окно поиска контакта
             	case 1:
-					let user = (this.state.user.id !== undefined) ? (
+					let user = (this.state.user.id !== undefined && this.state.userslist) ? (
 						<SearchList 
 		            		updateData = {this.updateData}
 		            		openProfile = {this.openProfile}
@@ -266,7 +270,6 @@ function mapStateToProps(store) {
     return {
         user: store.users.users,
         userEmail: store.users.userEmail,
-        contacts: store.contacts.contacts,
         blacklist: store.contacts.blacklist,
 		is_loading_users: store.users.is_loading,
     }
