@@ -16,6 +16,12 @@ export const LOGOUT_FULFILLED = 'LOGOUT_FULFILLED';
 export const LOGOUT_REJECTED = 'LOGOUT_REJECTED';
 
 //---------------------------------------------------------------------------------
+export const GET_ACCOUNT = 'GET_ACCOUNT';
+export const GET_ACCOUNT_PENDING = 'GET_ACCOUNT_PENDING';
+export const GET_ACCOUNT_FULFILLED = 'GET_ACCOUNT_FULFILLED';
+export const GET_ACCOUNT_REJECTED = 'GET_ACCOUNT_REJECTED';
+
+//---------------------------------------------------------------------------------
 export const GET_USER_SELF = 'GET_USER_SELF';
 export const GET_USER_SELF_PENDING = 'GET_USER_SELF_PENDING';
 export const GET_USER_SELF_FULFILLED = 'GET_USER_SELF_FULFILLED';

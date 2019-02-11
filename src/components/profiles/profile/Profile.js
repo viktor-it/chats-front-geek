@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 
+import {getAccount} from '../../../store/actions/index';
+import {connect} from 'react-redux';
+
 import ProfileUserTop from "../profileUser/ProfileUserTop";
 import ProfileClose from "../profileUser/ProfileClose";
 
@@ -7,6 +10,10 @@ import styles from "./Profile.module.css";
 
 
 class Profile extends Component {
+    componentDidMount(){
+        this.props.dispatch(getAccount());
+    }
+
     render() {
         return (
             <section className={styles.profile}>
@@ -20,9 +27,13 @@ class Profile extends Component {
                     <span className={styles['header__text']}>Мой Профиль</span>
                 </div>
                     <div className={styles['profile-info']}>
-                        <span className={styles['profile-info__mail']}>simsim28@gmail.com</span>
+                        <span className={styles['profile-info__mail']}>
+                            {this.props.account.email}
+                        </span>
                         <div className={styles['profile-info__name']}>
-                            <h2 className={styles["profile-name"]}>Вася Васильков</h2>
+                            <h2 className={styles["profile-name"]}>
+                                {this.props.account.name}
+                            </h2>
                             <button className={styles.edit}>
                                 <i className={styles.Icon + ' fas  fa-pencil-alt'}/>
                             </button>
@@ -102,5 +113,10 @@ class Profile extends Component {
         )
     }
 }
+function mapStateToProps(store) {
+    return {
+        account: store.account.account
+    }
+}
 
-export default Profile;
+export default connect(mapStateToProps)(Profile);
