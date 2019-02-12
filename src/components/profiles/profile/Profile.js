@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {getAccount} from '../../../store/actions/index';
+import {getAccount, editAccount} from '../../../store/actions/index';
 import {connect} from 'react-redux';
 
 import ProfileUserTop from "../profileUser/ProfileUserTop";
@@ -10,11 +10,30 @@ import styles from "./Profile.module.css";
 
 
 class Profile extends Component {
+    state = {
+        oldPassword: '',
+        newPassword: ''
+    }
+
     componentDidMount(){
         this.props.dispatch(getAccount());
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.dispatch(editAccount(this.state.oldPassword, this.state.newPassword));
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
     render() {
+        if (this.props.edit_fulfilled) {
+            alert ('Пароль изменен');
+        }
         return (
             <section className={styles.profile}>
                 <div className={styles.header}>
@@ -93,9 +112,20 @@ class Profile extends Component {
                             <li className={styles["profile-menu__items"]}>
                                 <div className = {styles.PasswordBlock}>
                                     <h4 className = {styles.PasswordBlockTitle}>Изменение пароля</h4>
-                                    <input type = "text" className = {styles.PasswordBlockInput} placeholder = "Старый пароль"/>
-                                    <input type = "text" className = {styles.PasswordBlockInput} placeholder = "Новый пароль"/>
-                                    <button className = {styles.PasswordBlockBtn}>
+                                    <input type = "text" 
+                                            className = {styles.PasswordBlockInput} 
+                                            placeholder = "Старый пароль"
+                                            name = "oldPassword"
+                                            onChange = {this.handleChange}
+                                            value = {this.state.oldPassword}/>
+                                    <input type = "text" 
+                                            className = {styles.PasswordBlockInput} 
+                                            placeholder = "Новый пароль"
+                                            name = "newPassword"
+                                            onChange = {this.handleChange}
+                                            value = {this.state.newPassword}/>
+                                    <button className = {styles.PasswordBlockBtn}
+                                            onClick = {this.handleSubmit}>
                                         Изменить пароль
                                     </button>
                                 </div>        
@@ -115,7 +145,8 @@ class Profile extends Component {
 }
 function mapStateToProps(store) {
     return {
-        account: store.account.account
+        account: store.account.account,
+        edit_fulfilled: store.account.edit_fulfilled
     }
 }
 
