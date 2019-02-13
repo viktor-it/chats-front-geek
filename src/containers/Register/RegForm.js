@@ -34,21 +34,23 @@ class RegForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        if(this.state.nameValid === false){
+            this.setState({ errorName: 'Введите никнейм' }) 
+        }
         if(this.state.emailValid === false){
-            document.getElementById("errorEmail").innerHTML = "Указан неверный email";
+            this.setState({ errorEmail: 'Указан неверный email' }) 
         }
         if(this.state.passwordValid === false){
-            document.getElementById("errorPassword").innerHTML = "Пароль должен содержать от 8 до 32 символов";
+            this.setState({ errorPassword: 'Пароль должен содержать от 8 до 32 символов' })
         }
         if(this.state.password !== this.state.confirmPassword){
-            document.getElementById("errorConfirmPassword").innerHTML = "Пароль не совпадает с подтверждением пароля";         
+            this.setState({ errorConfirmPassword: 'Пароль не совпадает' }) 
         }
+        console.log(this.state);
+    
         if(this.state.checkbox && this.state.emailValid && (this.state.password === this.state.confirmPassword)){
             this.props.dispatch(registerUser(this.state.email,this.state.password,this.state.name));
-        }
-        if(this.state.nameValid === false){
-            document.getElementById("errorName").innerHTML = "Введите никнейм";
-        }
+       }
     }
 
     handleChange = (e) => {
@@ -130,7 +132,7 @@ class RegForm extends Component {
                                 title="Имя должно содержать от 2 до 32 символов"
                         />
                     </div>
-                    <div className={styles.errorForm} id="errorName"></div>
+                    <div className={styles.errorForm} >{this.state.errorName ? this.state.errorName : ''}</div>
                     <div className={styles.formItems + ' ' + styles.Mail}>
                         <input type ="text"
                                name="email"
@@ -141,7 +143,7 @@ class RegForm extends Component {
                                required
                         />
                     </div>
-                    <div className={styles.errorForm} id="errorEmail"></div>
+                    <div className={styles.errorForm} >{this.state.errorEmail ? this.state.errorEmail : ''}</div>
                     <div className={styles.formItems + ' ' + styles.Pass}>
                         <input type ="password"
                                name="password"
@@ -152,7 +154,7 @@ class RegForm extends Component {
                                title="Пароль должен содержать от 8 до 32 символов"
                         />
                     </div> 
-                    <div className={styles.errorForm} id="errorPassword"></div>                  
+                    <div className={styles.errorForm} >{this.state.errorPassword ? this.state.errorPassword : ''}</div>             
                     <div className={styles.formItems+ ' ' + styles.passRepeat}>
                         <input type ="password"
                                name="confirmPassword"
@@ -163,7 +165,7 @@ class RegForm extends Component {
                                required
                         />
                     </div>
-                    <div className={styles.errorForm} id="errorConfirmPassword"></div>
+                    <div className={styles.errorForm} >{this.state.errorConfirmPassword ? this.state.errorConfirmPassword : ''}</div> 
                     <div className={styles.formItemsCheck}>
                         {/*<div className={styles.Checkbox}>*/}
                             <input type="checkbox"
