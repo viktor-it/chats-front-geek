@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import styles from  './Menu.module.css';
-import {getUsers, addContact} from '../../store/actions';
+import {getUsers, addContact, getBlackList, delFromBlackList} from '../../store/actions';
 
 import Modal from  '../UI/Modal/Modal';
 import Backdrop from '../UI/Backdrop/Backdrop';
@@ -11,6 +11,7 @@ import Backdrop from '../UI/Backdrop/Backdrop';
 import MenuList from  './MenuList';
 import SearchList from  '../../containers/sidebar/SearchList';
 import User from  '../profiles/User';
+import UsersList from  '../usersList/UsersList';
 
 
 class Menu extends Component {
@@ -18,50 +19,58 @@ class Menu extends Component {
 		state = {
 			menu: false,
 			modal: null,
+			blackList: false,
+			blacklistItems: [],
 
 			//addItem: '',
 			active: 0,
 			
+			userslist: false, //для обнуления списка при закрытии окна поиска
 			user: null
 		}
 	    static getDerivedStateFromProps(nextProps, prevState) {
-	        if (nextProps.user !== prevState.user) {
+	        if (nextProps.user !== prevState.user || nextProps.blacklist !== prevState.blacklistItems) {
 	            return {
 	                user: nextProps.user,
+	                blacklistItems: nextProps.blacklist
 	            }
 	        }
 	        //если состояние не изменилось
 	        return null;
 	    }
 
-		menuShow = () => {
+		menuToggle = () => {
 			this.setState({
       			menu: !this.state.menu
     		});
     	}
     	searchShow = () => {
 		    this.setState({
-		    	modal: 1,
+		    	modal: 1
     		});		    
 		}
   
 		searchHide = () => {
-			this.setState({modal: 0});
-
+			this.setState({
+				userslist: false, //для обнуления списка
+				modal: 0
+			});
 			//обнуление input при выходе из окна поиска
 			document.getElementById('Search').value = '';
 		}
 
 		//поиск при нажатии 'Enter'
 		enterSearch = (event) => {
-			if (event.key === 'Enter') {
+			this.setState({userslist: true});
+			if (event.key === 'Enter') { 
 				this.props.dispatch(getUsers(event.target.value));
 		    }
 		}
 		//поиск при клике по лупе
 		clickSearch = () => {
+			this.setState({userslist: true});
 			let value = document.getElementById('Search').value;
-			this.props.dispatch(getUsers(value));
+			this.props.dispatch(getUsers(value));	
 		}
 
 		openProfile = (data) => {
@@ -84,6 +93,19 @@ class Menu extends Component {
 			this.props.dispatch(addContact(this.state.active));
 		}
 
+		//черный список 
+		usersListToggle = () => {
+			if (this.state.blackList === false){
+				this.props.dispatch(getBlackList());
+			}
+			this.setState({
+      			blackList: !this.state.blackList
+    		});
+		}
+		delFromBlackList = (id) => {
+			this.props.dispatch(delFromBlackList(id));
+		}
+
 		switchComponent() { 
 			switch(this.state.modal) {
 				//выход
@@ -93,37 +115,20 @@ class Menu extends Component {
 
                 //окно поиска контакта
             	case 1:
-            		//для заглушки =>
-	            		//проверка на наличие пользователя в списке контактов
-	            		//нет - добавляем в список
-	            		// let foundUsers = [];
-					     //for (let i = 0, max = this.props.users.length; i < max; i++) {
-					     // let usersId = this.props.users[i].id;
-					     // let foundId = this.props.contacts.find(el => {return el.id === usersId});
-						// 	if (typeof foundId == 'undefined'){
-						// 		foundUsers.push(this.props.users[i]);
-						// 	}						
-						// }
-						// let foundUsers = this.props.users;
-
-					     //let users = foundUsers.map((user, index) => {
-						    // return <SearchList 
-								  //  updateData = {this.updateData}
-								  //  openProfile = {this.openProfile}
-								  //  key = {index} {...user}
-								  //  active = {this.state.active}/>
-						    //});
+					let user = (this.state.user.id !== undefined && this.state.userslist) ? (
+						<SearchList 
+		            		updateData = {this.updateData}
+		            		openProfile = {this.openProfile}
+		            		 
+		            		user = {this.state.user}
+		            		userEmail = {this.props.userEmail}
+		            		active = {this.state.active}/>
+					) : null;
 
 	                return (
 	                	<Modal classesNames = 'SearchContacts'>
 	                		<div className = {styles.List}>	
-								{/*{users}*/}
-								<SearchList 
-			            		updateData = {this.updateData}
-			            		openProfile = {this.openProfile}
-			            		 
-			            		user = {this.state.user}
-			            		active = {this.state.active}/>
+								{user}
 							</div>
 
 							<div className = {styles.ButtonsBlock}>
@@ -144,7 +149,6 @@ class Menu extends Component {
 				                    </div>
 								</button>
 							</div>
-
 						</Modal>
 	                ); 
 	            break;
@@ -187,6 +191,12 @@ class Menu extends Component {
 					icon: ' fas fa-user-times',
 					text: 'Выйти',
 					action: 'logout'
+				},
+				{
+					href: null,
+					icon: ' fas fa-user-slash',
+					text: 'Черный список',
+					action: 'usersListToggle'
 				}
 			];
 
@@ -195,7 +205,20 @@ class Menu extends Component {
 				<>
 					<Backdrop show classesNames='MainMenu'/>
 			    	<Modal classesNames = 'MainMenu'>	
-		            	<MenuList menuShow = {this.menuShow} items = {menuItems}/>		            		
+		            	<MenuList menuToggle = {this.menuToggle} items = {menuItems}
+		            		usersListToggle = {this.usersListToggle}/>		            		
+					</Modal>
+				</>
+			) : null;
+
+			// черный список
+			const blacklist = this.state.blackList ? (
+				<>
+			    	<Modal classesNames = 'UsersList'>	
+		            	<UsersList usersListToggle = {this.usersListToggle}
+		            				delFromBlackList = {this.delFromBlackList}
+		            				title = 'Чёрный список'
+		            				items = {this.state.blacklistItems}/>	            		
 					</Modal>
 				</>
 			) : null;
@@ -204,7 +227,7 @@ class Menu extends Component {
 				<div className = {styles.Menu}>
 
 					{/*иконка меню - гамбургер*/}
-			    	<div onClick = {this.menuShow} className = {styles.Burger}>
+			    	<div onClick = {this.menuToggle} className = {styles.Burger}>
 		    			{/*<span className = {styles.BurgerLine}/>*/}
 		    			<i className = {styles.BurgerIcon + ' fas fa-bars'}/>		    		
 			    	</div>
@@ -233,6 +256,11 @@ class Menu extends Component {
 				    	{menu}
 					</>
 
+					{/*черный список*/}
+			    	<>
+				    	{blacklist}
+					</>
+
 			    </div>
 	        );
 	    }
@@ -241,7 +269,8 @@ class Menu extends Component {
 function mapStateToProps(store) {
     return {
         user: store.users.users,
-        contacts: store.contacts.contacts,
+        userEmail: store.users.userEmail,
+        blacklist: store.contacts.blacklist,
 		is_loading_users: store.users.is_loading,
     }
 }

@@ -28,7 +28,6 @@ class SearchList extends Component {
 	}
 
 	render(){
-		console.log(this.props.user.active, this.props.user.id);
 	    return (
 			<div 
 				className = {(this.props.active === this.props.user.id) ? 
@@ -36,16 +35,15 @@ class SearchList extends Component {
                 			styles.Item}
                 onClick = {this.handleClicks}
 			>
-				{/*<img src = {this.props.user.img} 
-	                        alt = 'user'
-	                        className = {styles.Avatar}
-	            />*/}
+				<img src = 'https://partner.internet-akademia.ru/upload/site/user.png'			 
+                    alt = 'user'
+                    className = {styles.Avatar}
+	            />
 	            <div className = {styles.Name}>
 					{this.props.user.username}
-					{this.props.user.id}
 				</div>
 				<div className = {styles.Email}>
-					{/*{this.props.user.email}*/}
+					{this.props.userEmail}
 				</div>
 			</div>
 	    );

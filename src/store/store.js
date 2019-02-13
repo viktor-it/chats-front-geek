@@ -9,6 +9,7 @@ import {chatsReducer} from './reducers/chatsReducer';
 import {contactsReducer} from './reducers/contactsReducer';
 import {usersReducer} from './reducers/usersReducer';
 import {authReducer} from './reducers/authReducer';
+import {accountReducer} from './reducers/accountReducer';
 import {messagesReducer} from './reducers/messagesReducer';
 
 
@@ -18,7 +19,8 @@ const reducers = combineReducers({
     contacts: contactsReducer,
     users: usersReducer,
     messages: messagesReducer,
-    auth: authReducer
+    auth: authReducer,
+    account: accountReducer
 });
 
 const middleware = applyMiddleware(promise(), logger, thunk);

@@ -46,19 +46,83 @@ export function contactsReducer(state = initialState, action) {
             state = {
                 ...state,
                 user: action.payload.data,
-                is_loading: false
+                is_loading_contact: false
             };
             break;
         }        
         case Constants.ADD_CONTACT_REJECTED: {
             state = {
                 ...state,
-                is_loading_contacts: false,
+                is_loading_contact: false,
+                error_message: action.payload.message
+            };
+            break;
+        }
+
+        case Constants.ADD_TO_BLACKLIST_PENDING: {
+            state = {
+                ...state
+            };
+            break;
+        }        
+        case Constants.ADD_TO_BLACKLIST_FULFILLED: {
+            state = {
+                ...state,
+                blacklist_item: action.payload.data
+            };
+            break;
+        }        
+        case Constants.ADD_TO_BLACKLIST_REJECTED: {
+            state = {
+                ...state,
                 error_message: action.payload.message
             };
             break;
         }
         
+        case Constants.GET_BLACKLIST_PENDING: {
+            state = {
+                ...state,
+                is_loading_list: true
+            };
+            break;
+        }        
+        case Constants.GET_BLACKLIST_FULFILLED: {
+            state = {
+                ...state,
+                blacklist: action.payload.data.data,
+                is_loading_list: false
+            };
+            break;
+        }        
+        case Constants.GET_BLACKLIST_REJECTED: {
+            state = {
+                ...state,
+                is_loading_list: false,
+                error_message: action.payload.message
+            };
+            break;
+        }
+
+        case Constants.DEL_FROM_BLACKLIST_PENDING: {
+            state = {
+                ...state
+            };
+            break;
+        }        
+        case Constants.DEL_FROM_BLACKLIST_FULFILLED: {
+            state = {
+                ...state
+            };
+            break;
+        }        
+        case Constants.DEL_FROM_BLACKLIST_REJECTED: {
+            state = {
+                ...state,
+                error_message: action.payload.message
+            };
+            break;
+        }
         default: {state = {...state}}
     }
     return state;
