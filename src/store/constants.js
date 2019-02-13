@@ -38,11 +38,29 @@ export const GET_CONTACTS_PENDING = 'GET_CONTACTS_PENDING';
 export const GET_CONTACTS_FULFILLED = 'GET_CONTACTS_FULFILLED';
 export const GET_CONTACTS_REJECTED = 'GET_CONTACTS_REJECTED';
 
+//Получение контактов по ID---------------------------------------------------------------------
+export const GET_ID_CONTACTS = 'GET_ID_CONTACTS';
+export const GET_ID_CONTACTS_PENDING = 'GET_ID_CONTACTS_PENDING';
+export const GET_ID_CONTACTS_FULFILLED = 'GET_ID_CONTACTS_FULFILLED';
+export const GET_ID_CONTACTS_REJECTED = 'GET_ID_CONTACTS_REJECTED';
+
 //Добавление контакта---------------------------------------------------------------------
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const ADD_CONTACT_PENDING = 'ADD_CONTACT_PENDING';
 export const ADD_CONTACT_FULFILLED = 'ADD_CONTACT_FULFILLED';
 export const ADD_CONTACT_REJECTED = 'ADD_CONTACT_REJECTED';
+
+//Редактирование контакта---------------------------------------------------------------------
+export const EDIT_CONTACT = 'EDIT_CONTACT';
+export const EDIT_CONTACT_PENDING = 'EDIT_CONTACT_PENDING';
+export const EDIT_CONTACT_FULFILLED = 'EDIT_CONTACT_FULFILLED';
+export const EDIT_CONTACT_REJECTED = 'EDIT_CONTACT_REJECTED';
+
+//Удаление контакта---------------------------------------------------------------------
+export const DELETE_CONTACT = 'DELETE_CONTACT';
+export const DELETE_CONTACT_PENDING = 'DELETE_CONTACT_PENDING';
+export const DELETE_CONTACT_FULFILLED = 'DELETE_CONTACT_FULFILLED';
+export const DELETE_CONTACT_REJECTED = 'DELETE_CONTACT_REJECTED';
 
 //Получение чатов---------------------------------------------------------------------
 export const GET_CHATS = 'GET_CHATS';

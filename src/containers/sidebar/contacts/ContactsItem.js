@@ -5,7 +5,8 @@ import styles from './ContactsItem.module.css';
 
 import {setActiveChat} from '../../../store/actions/index';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { editContacts, deleteContacts } from '../../../store/actions/contactsActions';
 
 class ContactsItem extends React.Component {
     componentWillMount(){
@@ -28,6 +29,26 @@ class ContactsItem extends React.Component {
                 }, 2000)
         }
     }
+
+    state = {
+        id:'',
+        name: '',
+        text: ''
+    }
+
+    handleEditClick = () => {
+        this.props.dispatch(editContacts(this.state.id, this.state.name, this.state.text));
+    }
+
+    handleDeleteClick(id) {
+        return (e) => this.props.dispatch(deleteContacts.delete(id));
+    }
+
+    // handleDeleteClick = () => {
+    //     this.props.dispatch(deleteContacts(this.state.id));
+    // }
+
+
     render(){
         return (
             <div className={styles.Block} onClick = {this.handleClicks}>
@@ -48,6 +69,10 @@ class ContactsItem extends React.Component {
                     </div>
                     <div className={styles.Mark}>
                         {/*this.props.mark*/}
+                    <button onClick={deleteContacts}></button>
+                    <button onClick={editContacts}>
+                                    {/* <i class="far fa-edit"></i>                                   */}
+                            </button>
                     </div>                
                 </NavLink>
             </div>
