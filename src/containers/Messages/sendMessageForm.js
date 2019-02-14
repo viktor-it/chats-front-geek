@@ -58,9 +58,11 @@ export default class SendMessage extends React.Component {
     return (
       <div className={classes.Main}>
         <button type='submit' className={classes.clip}><i className="fa fa-paperclip fa-2x"></i></button>
+        
         <form
           onSubmit={this.handleSubmit}
           className={classes.Form}>
+          {/* <input type='file' className={classes.clip}></input> */}
 {/*          <input
           className={classes.input}
             onChange={this.handleChange}  
