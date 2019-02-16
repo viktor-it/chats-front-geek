@@ -9,7 +9,6 @@ const register = () => {
         <>
             <Backdrop show classesNames='BackgroundImage'/>
             <Modal show classesNames='Center Opacity'>
-                {/*<div>Форма регистрации</div>*/}
                 <RegForm/>
             </Modal>
         </>

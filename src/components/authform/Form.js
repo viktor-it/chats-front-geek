@@ -82,7 +82,7 @@ class Form extends Component {
                             {/*<div className={classes.forgot_pass}><a href="#">Забыли пароль?</a></div>*/}
                         </form>
                         <div className={classes.registration}>Нет аккаунта?
-                            <Link to='/register'> Зарегистрироваться</Link>
+                            <Link to='/registration'> Зарегистрироваться</Link>
                         </div>
                     </div>
                 {/* </div> */}
