@@ -1,45 +1,31 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-//import openSocket from 'socket.io-client';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 
-import Sidebar from '../layouts/Sidebar';
-// import SidePanel from '../containers/SidePanel/SidePanel';
-// import ChatWindow from '../containers/ChatWindow/ChatWindow';
-
+import Sidebar from '../containers/sidebar/Sidebar';
 import MessageForm from '../containers/Messages/messageForm';
+import Account from '../components/account/Account';
+import { connectWS } from '../store/actions';
 
 import classes from './MainPage.module.css';
 
-class MainPage extends Component
-{
+class MainPage extends Component {
     componentDidMount() {
-        // const socket = openSocket('wss://pocketmsg.ru:8888',{ 
-        //     path: '/v1/ws/',
-        //     transportOptions: {
-        //         polling: {
-        //             extraHeaders: {
-        //                 'token': localStorage.getItem('token')
-        //             }
-        //         }
-        //     }
-        // });
-        // console.log(socket.id);
-        // socket.on('connect', () => {
-        //     console.log(socket.id); // 'G5p5...'
-        //   });
-        // socket.on('messages:new', data => {
-        //     console.log(data);
-        // });
+        if (!this.props.connected) {
+            this.props.dispatch(connectWS());
+        }
     }
 
     render() {
         return (
             <div className={classes.mainPage}>
-                <Sidebar/>
+                <Sidebar />
                 <div className={classes.chatWindow}>
-                    <MessageForm/>
+                    <Switch>
+                        <Route path="/account" component={Account} />
+                        <Route path="/" component={MessageForm} />
+                    </Switch>
                 </div>
-                {/* <ChatWindow/> */}
             </div>
         );
     }
@@ -47,7 +33,8 @@ class MainPage extends Component
 
 const mapStateToProps = (store) => {
     return {
-        activeContact: store.contacts.activeContact
+        activeContact: store.contacts.activeContact,
+        connected: store.ws.connected,
     }
 }
 

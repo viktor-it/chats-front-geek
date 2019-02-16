@@ -1,4 +1,12 @@
 //---------------------------------------------------------------------------------
+export const WEBSOCKET_CONNECT = 'WEBSOCKET:CONNECT';
+export const WEBSOCKET_MESSAGE = 'WEBSOCKET:MESSAGE';
+export const WEBSOCKET_OPEN = 'WEBSOCKET:OPEN';
+export const WEBSOCKET_CLOSE = 'WEBSOCKET:CLOSE';
+export const WEBSOCKET_DISCONNECT = 'WEBSOCKET:DISCONNECT';
+export const WEBSOCKET_SEND = 'WEBSOCKET:SEND';
+
+//---------------------------------------------------------------------------------
 export const LOGIN = 'LOGIN';
 export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_FULFILLED = 'LOGIN_FULFILLED';
