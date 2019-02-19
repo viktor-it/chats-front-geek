@@ -1,5 +1,4 @@
 import * as Constants from '../constants';
-import merge from 'lodash/merge';
 import ContactsAPI from './contactsStub'
 
 let contacts = ContactsAPI.all();
@@ -59,53 +58,51 @@ export function contactsReducer(state = initialState, action) {
             break;
         }
 
-        //Получение контактов по ID       
-        case Constants.GET_ID_CONTACTS: {
-            let index = null;
-            state.contacts.forEach((value, i) => {
-                if (parseInt(value.id) === parseInt(action.payload)) {
-                    index = i;
-                }
-            });
-            if(index !== null){
-                state = merge({}, state);
-                state.contact = {...state.contacts[index]};
-            }
-            break;
-        }
-
         //Редактирование контакта
         case Constants.EDIT_CONTACT: {
-            let index = null;
-                state.contacts.forEach((value, i) => {
-                    if (parseInt(value.id) === parseInt(action.payload.id)) {
-                        index = i;
-                    }
-                });
-                if(index !== null){
-                    state = merge({}, state);
-                    state.contacts[index] = {
-                        ...state.contacts[index], 
-                        name: action.payload.name, 
-                        text: action.payload.text
-                    }
-                }
-                break;
+            state = {
+                ...state,
+                is_loading_contact: true
+            };
+            break;
+        }
+        case Constants.EDIT_CONTACT_FULFILLED: {
+            state = {
+                ...state,
+                is_loading: false
+            };
+            break;
+        }        
+        case Constants.EDIT_CONTACT_REJECTED: {
+            state = {
+                ...state,
+                is_loading_contacts: false,
+                error_message: action.payload.message
+            };
+            break;
         }
 
         //Удаление контакта
         case Constants.DELETE_CONTACT: {
-            let index = null;
-            state.contacts.forEach((value, i) => {
-               if(parseInt(value.id) === parseInt(action.payload)){
-                   index = i;
-               }
-            });
-
-            if(index !== null){
-                state = merge({}, state);
-                state.contacts.splice(index, 1);
-            }
+            state = {
+                ...state,
+                is_loading_contact: true
+            };
+            break;
+        }
+        case Constants.DELETE_CONTACT_FULFILLED: {
+            state = {
+                ...state,
+                is_loading: false
+            };
+            break;
+        }        
+        case Constants.DELETE_CONTACT_REJECTED: {
+            state = {
+                ...state,
+                is_loading_contacts: false,
+                error_message: action.payload.message
+            };
             break;
         }
         

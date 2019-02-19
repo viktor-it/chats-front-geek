@@ -6,7 +6,7 @@ import styles from './ContactsItem.module.css';
 import {setActiveChat} from '../../../store/actions/index';
 
 import { connect } from 'react-redux';
-import { editContacts, deleteContacts } from '../../../store/actions/contactsActions';
+import { editContacts, deleteContacts } from '../../../store/actions/';
 
 class ContactsItem extends React.Component {
     componentWillMount(){
@@ -31,23 +31,16 @@ class ContactsItem extends React.Component {
     }
 
     state = {
-        id:'',
-        name: '',
-        text: ''
+        name: ''
     }
 
-    handleEditClick = () => {
-        this.props.dispatch(editContacts(this.state.id, this.state.name, this.state.text));
+    handleEditClick(name) {
+        return (e) => this.props.dispatch(editContacts(name));
     }
 
     handleDeleteClick(id) {
-        return (e) => this.props.dispatch(deleteContacts.delete(id));
+        return (e) => this.props.dispatch(deleteContacts(id));
     }
-
-    // handleDeleteClick = () => {
-    //     this.props.dispatch(deleteContacts(this.state.id));
-    // }
-
 
     render(){
         return (

@@ -1,36 +1,24 @@
-import {GET_CONTACTS, ADD_CONTACT, GET_ID_CONTACTS, EDIT_CONTACT, DELETE_CONTACT} from "../constants";
+import {GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, DELETE_CONTACT} from "../constants";
 import instance from '../axios-docs';
-
-import ContactsAPI from '../reducers/contactsStub' 
 
 export function getContacts() {
     return {
         type: GET_CONTACTS,
-        //payload: instance.get('/v1/account/contacts/')
-        payload: ContactsAPI.all() 
+        payload: instance.get('/account/contacts/')
     };
 }
 
 export function addContact(name) {
     return{
         type: ADD_CONTACT,
-        //payload: instance.post('/v1/account/contacts/',{name})
-        payload: ContactsAPI.addContact(name) //for testing
+        payload: instance.post('/account/contacts/',{name})
     };
 }
 
-export function getContactsById(id){
-    return {
-        type: GET_ID_CONTACTS,
-        // payload: instance.get(`/account/contacts/${id}`)
-        payload: ContactsAPI.get(id)
-    };
-}
-
-export function editContacts(id, name, text){
+export function editContacts(name){
     return {
         type: EDIT_CONTACT,
-        payload: instance.patch("/account/contacts",{id, name, text}) 
+        payload: instance.put("/account/contacts",{name}) 
     };
 }
 
