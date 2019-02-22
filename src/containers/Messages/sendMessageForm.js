@@ -3,6 +3,7 @@ import classes from './sendMessage.module.css';
 
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
+import autosize from "autosize";
 
 export default class SendMessage extends React.Component {
   state = {
@@ -14,8 +15,17 @@ export default class SendMessage extends React.Component {
       message: e.target.value
     })
   }
-  handleSubmit = (e) => {
+  handleSubmitNew = (e) => {
     e.preventDefault();
+    if (this.state.message) {
+      this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
+      this.setState({
+        message: ''
+      });
+    }
+  }
+  handleSubmit = (e) => {
+    //e.preventDefault();
     if (this.state.message) {
       this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
       this.setState({
@@ -53,6 +63,19 @@ export default class SendMessage extends React.Component {
       });
     }
   }
+  keydown = (event) => {
+    if(event.key === 'Enter' && event.shiftKey){
+      event.stopPropagation();
+      
+    }else if(event.keyCode === 13){
+      this.handleSubmit();
+      event.preventDefault();
+    }
+  }
+  componentDidMount() {
+    this.textarea.focus();
+    autosize(this.textarea);
+  }
 
   render() {
     return (
@@ -60,20 +83,24 @@ export default class SendMessage extends React.Component {
         <button type='submit' className={classes.clip}><i className="fa fa-paperclip fa-2x"></i></button>
         
         <form
-          onSubmit={this.handleSubmit}
+          onSubmit={this.handleSubmitNew}
           className={classes.Form}>
-          {/* <input type='file' className={classes.clip}></input> */}
 {/*          <input
           className={classes.input}
             onChange={this.handleChange}  
             value={this.state.message}
             placeholder="Введите сообщение"
             type="text" />*/}
-          <textarea 
+          <textarea
+            onKeyDown={this.keydown}
+            ref={c => (this.textarea = c)}
+            id = "textarea"  
             className={classes.input}
             onChange={this.handleChange}  //отслеживание ввода сообщения
             placeholder="Введите сообщение"
-            value={this.state.message}>
+            value={this.state.message}
+            rows={1}
+            defaultValue="">
           </textarea>
           <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
           <div>
