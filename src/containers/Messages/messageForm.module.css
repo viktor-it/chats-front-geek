@@ -1,18 +1,31 @@
 
 
 .Header {
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
     background: #3498db;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 0 30px 0 10px;
 }
 
 /*картинка и название группы*/
 .ChatInfo{
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 }
 .ChatIcon{
 	margin: 5px 16px;
@@ -46,9 +59,9 @@
 
 /*сообщения*/
 .messageList {
-    overflow: scroll;
+    overflow-y: scroll;
 }
-
+.messageList::-webkit-scrollbar-button {  background-color: red; }
 .messageForm {
     height: 100%;
     display: grid;

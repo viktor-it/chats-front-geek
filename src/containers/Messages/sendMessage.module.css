@@ -4,14 +4,18 @@
   max-width: 760px;
 }
 input[type="text"]:focus { outline: none; }
+
 .input {
+  resize: none;
   width: 100%;
   border: none;
   padding: 14px 80px;
   font-size: 18px;
   height: 50px;
+  overflow: auto;
   /* font-style: italic; */
 }
+
 .clip {
   position: absolute;
   top: 6px;
