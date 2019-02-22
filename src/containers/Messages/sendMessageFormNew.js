@@ -3,7 +3,8 @@ import classes from './sendMessage.module.css';
 
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
-import autosize from "autosize";
+// import autosize from "autosize";
+import TextareaAutosize from 'react-autosize-textarea';
 
 export default class SendMessage extends React.Component {
   state = {
@@ -27,8 +28,7 @@ export default class SendMessage extends React.Component {
   }
 
   handleSubmit = (e) => {
-    //e.preventDefault();
-    //e.stopPropagation();
+    // e.preventDefault();
     if (this.state.message) {
       this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
       this.setState({
@@ -78,10 +78,10 @@ keydown = (event) => {
   }
 }
 
-componentDidMount() {
-  this.textarea.focus();
-  autosize(this.textarea);
-}
+// componentDidMount() {
+//   this.textarea.focus();
+//   autosize(this.textarea);
+// }
 
   render() {
     return (
@@ -98,9 +98,9 @@ componentDidMount() {
             value={this.state.message}
             placeholder="Введите сообщение"
             type="text" />*/}
-          <textarea
+          <TextareaAutosize
             onKeyDown={this.keydown}
-            ref={c => (this.textarea = c)}
+            // ref={c => (this.textarea = c)}
             // klavaup={this.keyup}
             id = "textarea" 
             className={classes.input}
@@ -108,8 +108,8 @@ componentDidMount() {
             placeholder="Введите сообщение"
             value={this.state.message}
             rows={1}
-            defaultValue="">
-          </textarea>
+            />
+          {/* </textarea> */}
           <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
           <div>
             <button type='button' className={classes.smile} onClick={this.showEmojis}><i className="far fa-smile fa-2x"></i></button>

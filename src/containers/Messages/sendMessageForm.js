@@ -3,7 +3,7 @@ import classes from './sendMessage.module.css';
 
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
-import autosize from "autosize";
+import TextareaAutosize from 'react-autosize-textarea';
 
 export default class SendMessage extends React.Component {
   state = {
@@ -72,10 +72,6 @@ export default class SendMessage extends React.Component {
       event.preventDefault();
     }
   }
-  componentDidMount() {
-    this.textarea.focus();
-    autosize(this.textarea);
-  }
 
   render() {
     return (
@@ -91,17 +87,15 @@ export default class SendMessage extends React.Component {
             value={this.state.message}
             placeholder="Введите сообщение"
             type="text" />*/}
-          <textarea
+          <TextareaAutosize
             onKeyDown={this.keydown}
-            ref={c => (this.textarea = c)}
             id = "textarea"  
             className={classes.input}
             onChange={this.handleChange}  //отслеживание ввода сообщения
             placeholder="Введите сообщение"
             value={this.state.message}
-            rows={1}
-            defaultValue="">
-          </textarea>
+            rows={1} />
+          
           <button type='submit' className={classes.btn}><i className="fas fa-paper-plane"></i></button>
           <div>
             <button type='button' className={classes.smile} onClick={this.showEmojis}><i className="far fa-smile fa-2x"></i></button>

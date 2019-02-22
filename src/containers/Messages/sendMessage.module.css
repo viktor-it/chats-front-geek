@@ -10,8 +10,6 @@ input[type="text"]:focus { outline: none; }
 
 .input {
   resize: none;
-  /* position: absolute;
-  bottom: 5px; */
   width: 83%;
   left: 65px;
   border: none;
@@ -22,11 +20,18 @@ input[type="text"]:focus { outline: none; }
   min-height: 38px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  /* height: 80%; */
-  /* overflow: auto; */
-
 }
-
+.input::-webkit-scrollbar {
+  width: 7px;
+}
+.input::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
 .clip {
   position: absolute;
   bottom: 3px;
