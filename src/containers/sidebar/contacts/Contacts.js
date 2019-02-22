@@ -12,6 +12,7 @@ class Contacts extends React.Component {
 	componentDidMount()
     {
         this.props.dispatch(getContacts());
+
         // this.props.dispatch(getContacts(localStorage.getItem('token')));
 	}
 
@@ -36,6 +37,7 @@ class Contacts extends React.Component {
 function mapStateToProps(store) {
     return {
         contacts: store.contacts.contacts,
+        id: store.contacts.id,
 		is_loading_contacts: store.contacts.is_loading,
     }
 }

@@ -1,5 +1,4 @@
 import * as Constants from '../constants';
-
 import ContactsAPI from './contactsStub'
 
 let contacts = ContactsAPI.all();
@@ -12,6 +11,7 @@ const initialState = {
 
 export function contactsReducer(state = initialState, action) {
     switch (action.type) {
+        //Получение списка контактов
         case Constants.GET_CONTACTS_PENDING: {
             state = {...state, is_loading_contacts: true};
         break;
@@ -34,7 +34,7 @@ export function contactsReducer(state = initialState, action) {
         break;
         }
 
-
+        //Добавление контакта
         case Constants.ADD_CONTACT_PENDING: {
             state = {
                 ...state,
@@ -75,6 +75,54 @@ export function contactsReducer(state = initialState, action) {
         case Constants.ADD_TO_BLACKLIST_REJECTED: {
             state = {
                 ...state,
+                error_message: action.payload.message
+            };
+            break;
+        }
+
+        //Редактирование контакта
+        case Constants.EDIT_CONTACT: {
+            state = {
+                ...state,
+                is_loading_contact: true
+            };
+            break;
+        }
+        case Constants.EDIT_CONTACT_FULFILLED: {
+            state = {
+                ...state,
+                is_loading: false
+            };
+            break;
+        }        
+        case Constants.EDIT_CONTACT_REJECTED: {
+            state = {
+                ...state,
+                is_loading_contacts: false,
+                error_message: action.payload.message
+            };
+            break;
+        }
+
+        //Удаление контакта
+        case Constants.DELETE_CONTACT: {
+            state = {
+                ...state,
+                is_loading_contact: true
+            };
+            break;
+        }
+        case Constants.DELETE_CONTACT_FULFILLED: {
+            state = {
+                ...state,
+                is_loading: false
+            };
+            break;
+        }        
+        case Constants.DELETE_CONTACT_REJECTED: {
+            state = {
+                ...state,
+                is_loading_contacts: false,
                 error_message: action.payload.message
             };
             break;

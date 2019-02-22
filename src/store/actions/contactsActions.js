@@ -1,12 +1,10 @@
-import { GET_CONTACTS, ADD_CONTACT, ADD_TO_BLACKLIST, GET_BLACKLIST, DEL_FROM_BLACKLIST } from "../constants";
+import {GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, DELETE_CONTACT, ADD_TO_BLACKLIST, GET_BLACKLIST, DEL_FROM_BLACKLIST } from "../constants";
 import instance from '../axios-docs';
-
-//import ContactsAPI from '../reducers/contactsStub' 
 
 export function getContacts() {
     return {
         type: GET_CONTACTS,
-        payload: instance.get('/account/contacts')
+        payload: instance.get('/account/contacts/')
     };
 }
 
@@ -14,7 +12,21 @@ export function addContact(id) {
     console.log('adding contact: ' + id);
     return {
         type: ADD_CONTACT,
-        payload: instance.post('/account/contacts', { user: id })
+        payload: instance.post('/account/contacts/',{name})
+    };
+}
+
+export function editContacts(name){
+    return {
+        type: EDIT_CONTACT,
+        payload: instance.put("/account/contacts",{name}) 
+    };
+}
+
+export function deleteContacts(id){
+    return {
+        type: DELETE_CONTACT,
+        payload: instance.delete(`/account/contacts/${id}`)
     };
 }
 
