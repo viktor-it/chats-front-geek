@@ -2,26 +2,29 @@ import React from 'react';
 
 import ChatsList from './ChatsList';
 import CreateGroup from '../../group/Create/CreateGroup';
-//import SearchGroup from '../group/Search/SearchGroup';
+import SearchGroup from '../../group/Search/SearchGroup';
 
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
-import {getChats} from '../../../store/actions/index';
+import {getChats, searchGroup} from '../../../store/actions/index';
 
 import {connect} from 'react-redux';
 
 
 
 class Chats extends React.Component {
-	componentDidMount()
-    {
-        //action
-        this.props.dispatch(getChats());
-	}
 
     state = {
         active: 1
     };
+
+	componentDidMount(){
+        this.props.dispatch(getChats());
+	}
+
+    searchGroup = (name) => {
+        this.props.dispatch(searchGroup(name));
+    }
 
     switchComponent() {
         switch(this.state.active) {
@@ -29,23 +32,24 @@ class Chats extends React.Component {
                 return (
                     <ChatsList chats={this.props.chats}
 
-                    createGroup={() => {this.setState({active: 2})}}
-                    //searchGroup={() => {this.setState({active: 3})}}
+                    createGroup = {() => {this.setState({active: 2})}}
+                    searchGroup = {() => {this.setState({active: 3})}}
                     />
                 );
             break;
             case 2:
                 return (
                     <CreateGroup
-                    closeForm={() => {this.setState({active: 1})}}/>
+                    closeForm = {() => {this.setState({active: 1})}}/>
                 );
             break;
-            // case 3:
-            //     return (
-            //         <SearchGroup
-            //         closeForm={() => {this.setState({active: 1})}}/>
-            //     );
-            // break;
+            case 3:
+                return (
+                    <SearchGroup
+                    closeForm = {() => {this.setState({active: 1})}}
+                    searchGroup = {this.searchGroup}/>
+                );
+            break;
             default:
                 console.log(this.state.active);
             break;

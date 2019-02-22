@@ -72,9 +72,10 @@
     
 .MainMenu{
     background-color: #fff;
-    height: 223px;
+    height: 269px;
     margin-left: -5px;
     width: 410px;
+    z-index: 500;
 }
 
 .ChatMenu{
@@ -82,6 +83,11 @@
     height: 320px;
     width: 410px;
     margin-left: -380px;
+}
+
+.UsersList{
+    left: 45%;
+    top: 10%;
 }
 /* @media (max-width: 600px) {
     .Modal {

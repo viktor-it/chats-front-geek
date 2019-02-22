@@ -1,15 +1,24 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import styles from './Header.module.css';
+import classes from './Header.module.css';
 
 const Header = (props) => {
-	return(
-        <NavLink to = {props.href} className = {styles.Tab} activeClassName = {styles.ActiveTab}>
+	return (
+		<NavLink
+			to={props.href}
+			className={classes.Tab}
+			activeClassName={classes.ActiveTab}
+			isActive={(match, location) => {
+				if (!match && location.pathname !== props.anotherLink) {
+					return false;
+				}
+				return true;
+			}}
+		>
 			{props.children}
-        </NavLink>	        
+		</NavLink>
 	)
 }
-
 
 export default Header

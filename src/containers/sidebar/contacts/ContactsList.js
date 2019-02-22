@@ -28,7 +28,10 @@ class ContactsList extends React.Component {
         let profile = this.state.modal ? (
             <>
                 <Modal classesNames = 'Profile'>   
-                    <ProfileUser profile = {this.state.profile} profileToggle = {this.profileToggle} id = 'Profile'/>
+                    <ProfileUser profile = {this.state.profile} 
+                                profileToggle = {this.profileToggle} 
+                                addToBlackList = {this.props.addToBlackList}
+                                id = 'Profile'/>
                 </Modal>
             </>
         ) : null;

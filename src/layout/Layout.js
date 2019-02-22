@@ -4,9 +4,7 @@ import {connect} from 'react-redux';
 
 import MainPage from '../pages/MainPage';
 import AuthForm from '../pages/Auth';
-import RegForm from '../pages/Register';
-
-import AccountPage from '../pages/AccountPage';
+import RegForm from '../pages/Registration';
 
 class Layout extends Component
 {
@@ -16,7 +14,7 @@ class Layout extends Component
             return (
                 <Switch>
                     <Route path="/auth" component={AuthForm}/>
-                    <Route path="/register" component={RegForm}/>
+                    <Route path="/registration" component={RegForm}/>
                     <Route path="/"><Redirect to="/auth"/></Route>
                 </Switch>
             );
@@ -32,7 +30,7 @@ class Layout extends Component
                     <Route path="/contacts" exact component={MainPage}/>
                     <Route path="/contacts/:id" exact component={MainPage}/>
 
-                    <Route path="/account" exact component={AccountPage}/>
+                    <Route path="/account" exact component={MainPage}/>
                     <Route path="/profile" exact component={MainPage}/>
 
                     <Route path="*"><Redirect to="/"/></Route>

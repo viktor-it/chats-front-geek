@@ -9,8 +9,11 @@ import {chatsReducer} from './reducers/chatsReducer';
 import {contactsReducer} from './reducers/contactsReducer';
 import {usersReducer} from './reducers/usersReducer';
 import {authReducer} from './reducers/authReducer';
+import {accountReducer} from './reducers/accountReducer';
 import {messagesReducer} from './reducers/messagesReducer';
+import {websocketReducer} from './reducers/websocketReducer';
 
+import websocket from '../websocket/Websocket';
 
 //Reducers
 const reducers = combineReducers({
@@ -18,10 +21,12 @@ const reducers = combineReducers({
     contacts: contactsReducer,
     users: usersReducer,
     messages: messagesReducer,
-    auth: authReducer
+    auth: authReducer,
+    account: accountReducer,
+    ws: websocketReducer, 
 });
 
-const middleware = applyMiddleware(promise(), logger, thunk);
+const middleware = applyMiddleware(promise(), logger, thunk, websocket);
 
 const store = createStore(reducers, middleware);
 export default store;

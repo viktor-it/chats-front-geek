@@ -23,7 +23,7 @@
     width: 180px;
 }
 .Button:hover{
-    background: #3498DB;
+    background: #3498db;
     cursor: pointer;
 }
 .ButtonIcon{

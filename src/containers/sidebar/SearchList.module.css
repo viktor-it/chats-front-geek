@@ -19,6 +19,11 @@
 	font: normal bold 14px/normal Roboto;
 	margin-top: 8px;
 }
+.Name:hover{
+	color: #f8d57d;
+	cursor: pointer;
+}
+
 .Email{
 	color: #34495E;
 	font: normal 300 14px/normal Roboto;
