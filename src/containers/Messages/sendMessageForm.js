@@ -15,7 +15,7 @@ export default class SendMessage extends React.Component {
       message: e.target.value
     })
   }
-  handleSubmitNew = (e) => {
+  handleSubmitForm = (e) => {
     e.preventDefault();
     if (this.state.message) {
       this.props.sendMessage(this.state.message);  //метод отправки сообщения (в messageForm)
@@ -79,7 +79,7 @@ export default class SendMessage extends React.Component {
         <button type='submit' className={classes.clip}><i className="fa fa-paperclip fa-2x"></i></button>
         
         <form
-          onSubmit={this.handleSubmitNew}
+          onSubmit={this.handleSubmitForm}
           className={classes.Form}>
 {/*          <input
           className={classes.input}
