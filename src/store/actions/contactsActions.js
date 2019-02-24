@@ -9,10 +9,10 @@ export function getContacts() {
 }
 
 export function addContact(id) {
-    console.log('adding contact: ' + id);
+    // console.log('adding contact: ' + id);
     return {
         type: ADD_CONTACT,
-        payload: instance.post('/account/contacts/',{name})
+        payload: instance.post('/account/contacts/',{id})
     };
 }
 
