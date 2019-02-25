@@ -10,16 +10,17 @@ export function getContacts() {
 
 export function addContact(id) {
     // console.log('adding contact: ' + id);
+    let byname = 'someName';
     return {
         type: ADD_CONTACT,
-        payload: instance.post('/account/contacts/',{id})
+        payload: instance.post('/account/contacts/',{id, byname})
     };
 }
 
 export function editContacts(name){
     return {
         type: EDIT_CONTACT,
-        payload: instance.put("/account/contacts",{name}) 
+        payload: instance.put("/account/contacts",{name})
     };
 }
 
