@@ -19,7 +19,7 @@ export function contactsReducer(state = initialState, action) {
         case Constants.GET_CONTACTS_FULFILLED: {
             state = {
                 ...state,
-                contacts: action.payload.data,
+                contacts: action.payload.data.data,
                 is_loading_contacts: false
             };
         break;

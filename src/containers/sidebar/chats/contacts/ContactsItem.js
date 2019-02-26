@@ -22,7 +22,7 @@ class ContactsItem extends React.Component {
             this.clickTimeout = null;
         } else {
         //одиночный клик - передает активный чат
-            this.props.dispatch(setActiveChat(this.props.id, 2));
+            this.props.dispatch(setActiveChat(this.props.contact, 2));
             this.clickTimeout = setTimeout(() => {
                 clearTimeout(this.clickTimeout)
                 this.clickTimeout = null
@@ -43,7 +43,6 @@ class ContactsItem extends React.Component {
     }
 
     render(){
-      console.log(this.props);
         return (
             <div className={styles.Block} onClick = {this.handleClicks}>
                 <NavLink className={styles.Item}

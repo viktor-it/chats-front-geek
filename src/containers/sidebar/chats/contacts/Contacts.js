@@ -9,6 +9,7 @@ import {getContacts, addToBlackList} from '../../../store/actions';
 import {connect} from 'react-redux';
 
 class Contacts extends React.Component {
+
 	componentDidMount(){
 		this.props.dispatch(getContacts());
 	}

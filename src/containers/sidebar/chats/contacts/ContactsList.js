@@ -39,7 +39,7 @@ class ContactsList extends React.Component {
         let contacts = this.props.contacts.map((contact, index) => {
             return <ContactsItem key={index}
                     profileToggle = {this.profileToggle}
-                    {...contacts} />
+                    {...contact} />
         });
 
         return (
