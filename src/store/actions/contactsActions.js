@@ -1,4 +1,6 @@
-import {GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, DELETE_CONTACT, ADD_TO_BLACKLIST, GET_BLACKLIST, DEL_FROM_BLACKLIST } from "../constants";
+import {GET_CONTACTS, ADD_CONTACT, EDIT_CONTACT, DELETE_CONTACT,
+ADD_TO_BLACKLIST, GET_BLACKLIST, DEL_FROM_BLACKLIST } from "../constants";
+
 import instance from '../axios-docs';
 
 export function getContacts() {
@@ -8,18 +10,17 @@ export function getContacts() {
     };
 }
 
-export function addContact(id) {
-    // console.log('adding contact: ' + id);
+export function addContact(id, byname) {
     return {
         type: ADD_CONTACT,
-        payload: instance.post('/account/contacts/',{id})
+        payload: instance.post('/account/contacts/',{id, byname})
     };
 }
 
 export function editContacts(name){
     return {
         type: EDIT_CONTACT,
-        payload: instance.put("/account/contacts",{name}) 
+        payload: instance.put("/account/contacts",{name})
     };
 }
 
