@@ -5,6 +5,13 @@
     "browser": true,
     "node": true
   },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", 
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
   "plugins": [
     "react" // https://github.com/yannickcr/eslint-plugin-react
   ],
